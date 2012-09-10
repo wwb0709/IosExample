@@ -192,6 +192,7 @@
 		D0637A7915907C8400733F58 /* WBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D0637A4F15907C8100733F58 /* WBRequest.m */; };
 		D0637A7A15907C8400733F58 /* WBSendView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0637A5215907C8100733F58 /* WBSendView.m */; };
 		D0637A7B15907C8400733F58 /* WBUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D0637A5415907C8100733F58 /* WBUtil.m */; };
+		D093638415FDEBB80017D1D2 /* FI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D093638315FDEBB80017D1D2 /* FI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -530,6 +531,7 @@
 		D0637A5415907C8100733F58 /* WBUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBUtil.m; sourceTree = "<group>"; };
 		D0637A5515907C8100733F58 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D0637A5615907C8100733F58 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D093638315FDEBB80017D1D2 /* FI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FI.framework; path = ../../FI.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -537,6 +539,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D093638415FDEBB80017D1D2 /* FI.framework in Frameworks */,
 				D009B7A9159179A9003C110E /* AudioToolbox.framework in Frameworks */,
 				D06379E9159064DE00733F58 /* libxml2.dylib in Frameworks */,
 				D06376F91590214D00733F58 /* libz.1.2.5.dylib in Frameworks */,
@@ -655,6 +658,7 @@
 		D06374641590188F00733F58 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D093638315FDEBB80017D1D2 /* FI.framework */,
 				D06379E8159064DE00733F58 /* libxml2.dylib */,
 				D06376F81590214D00733F58 /* libz.1.2.5.dylib */,
 				D06379901590559000733F58 /* libsqlite3.0.dylib */,
@@ -1601,6 +1605,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/AiHao/ThirdPart/iFly\"",
+					"\"$(SRCROOT)/../..\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example/Example-Prefix.pch";
@@ -1620,6 +1625,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/AiHao/ThirdPart/iFly\"",
+					"\"$(SRCROOT)/../..\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example/Example-Prefix.pch";

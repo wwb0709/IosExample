@@ -8,13 +8,16 @@
 
 #import "AppDelegate.h"
 #import "testviewcontroller.h"
-
+#import <FI/FI.h>
 @implementation AppDelegate
 
 @synthesize window = _window;
 @synthesize tabBarController;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    FIClassA* a = [[FIClassA alloc] init];
+    [a methodA];
+    [a release];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];

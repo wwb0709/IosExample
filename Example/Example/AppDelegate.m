@@ -18,6 +18,8 @@
     FIClassA* a = [[FIClassA alloc] init];
     [a methodA];
     [a release];
+    UIAlertLable* alert = [[UIAlertLable alloc] init];
+    [alert release];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];

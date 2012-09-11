@@ -23,10 +23,7 @@
 /* Begin PBXBuildFile section */
 		60EA0AAC13CB1FD700A0F61F /* FI.h in Headers */ = {isa = PBXBuildFile; fileRef = 60ED42A7136C6A4900F3D3ED /* FI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		60EA0AAD13CB1FDA00A0F61F /* FIClassA.h in Headers */ = {isa = PBXBuildFile; fileRef = 60ED42A8136C6A4900F3D3ED /* FIClassA.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		60EA0AAE13CB1FDC00A0F61F /* FIClassB.h in Headers */ = {isa = PBXBuildFile; fileRef = 60ED42AA136C6A4900F3D3ED /* FIClassB.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		60EA0AB013CB1FE000A0F61F /* FIClassA.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ED42A9136C6A4900F3D3ED /* FIClassA.m */; };
-		60EA0AB113CB1FE200A0F61F /* FIClassB.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ED42AB136C6A4900F3D3ED /* FIClassB.m */; };
-		60EA0AB213CB1FE400A0F61F /* FIClassC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ED42AD136C6A4900F3D3ED /* FIClassC.m */; };
 		60EA0AB813CB206800A0F61F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60EA0AB413CB206800A0F61F /* InfoPlist.strings */; };
 		60EA0ABA13CB206800A0F61F /* FI-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 60EA0AB713CB206800A0F61F /* FI-Prefix.pch */; };
 		60EA0AC313CB22DC00A0F61F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60ED419B136C58B600F3D3ED /* UIKit.framework */; };
@@ -45,7 +42,8 @@
 		60ED4221136C5C2D00F3D3ED /* Framework_iOSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ED4210136C5C2D00F3D3ED /* Framework_iOSAppDelegate.m */; };
 		60ED4222136C5C2D00F3D3ED /* Framework_iOSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ED4212136C5C2D00F3D3ED /* Framework_iOSViewController.m */; };
 		60ED4224136C5C2D00F3D3ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ED4216136C5C2D00F3D3ED /* main.m */; };
-		D093637E15FDEA700017D1D2 /* FI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D093637D15FDEA6F0017D1D2 /* FI.framework */; };
+		D0572FBD15FF0EA00071D767 /* UIAlertLable.h in Headers */ = {isa = PBXBuildFile; fileRef = D0572FBB15FF0EA00071D767 /* UIAlertLable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0572FBE15FF0EA00071D767 /* UIAlertLable.m in Sources */ = {isa = PBXBuildFile; fileRef = D0572FBC15FF0EA00071D767 /* UIAlertLable.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,11 +76,8 @@
 		60ED42A7136C6A4900F3D3ED /* FI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FI.h; sourceTree = "<group>"; };
 		60ED42A8136C6A4900F3D3ED /* FIClassA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIClassA.h; sourceTree = "<group>"; };
 		60ED42A9136C6A4900F3D3ED /* FIClassA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIClassA.m; sourceTree = "<group>"; };
-		60ED42AA136C6A4900F3D3ED /* FIClassB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIClassB.h; sourceTree = "<group>"; };
-		60ED42AB136C6A4900F3D3ED /* FIClassB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIClassB.m; sourceTree = "<group>"; };
-		60ED42AC136C6A4900F3D3ED /* FIClassC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIClassC.h; sourceTree = "<group>"; };
-		60ED42AD136C6A4900F3D3ED /* FIClassC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIClassC.m; sourceTree = "<group>"; };
-		D093637D15FDEA6F0017D1D2 /* FI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FI.framework; path = ../../Desktop/FI.framework; sourceTree = "<group>"; };
+		D0572FBB15FF0EA00071D767 /* UIAlertLable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertLable.h; sourceTree = "<group>"; };
+		D0572FBC15FF0EA00071D767 /* UIAlertLable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAlertLable.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +93,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D093637E15FDEA700017D1D2 /* FI.framework in Frameworks */,
 				60ED419C136C58B600F3D3ED /* UIKit.framework in Frameworks */,
 				60ED419E136C58B600F3D3ED /* Foundation.framework in Frameworks */,
 				60ED41A0136C58B600F3D3ED /* CoreGraphics.framework in Frameworks */,
@@ -121,7 +115,6 @@
 		60ED418C136C58B600F3D3ED = {
 			isa = PBXGroup;
 			children = (
-				D093637D15FDEA6F0017D1D2 /* FI.framework */,
 				60ED42A5136C6A4900F3D3ED /* Framework-iOS */,
 				60ED41FF136C5C2D00F3D3ED /* Framework-iOS APP */,
 				60ED419A136C58B600F3D3ED /* Frameworks */,
@@ -209,15 +202,21 @@
 		60ED42A6136C6A4900F3D3ED /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				D0572FBA15FF0EA00071D767 /* customize */,
 				60ED42A7136C6A4900F3D3ED /* FI.h */,
 				60ED42A8136C6A4900F3D3ED /* FIClassA.h */,
 				60ED42A9136C6A4900F3D3ED /* FIClassA.m */,
-				60ED42AA136C6A4900F3D3ED /* FIClassB.h */,
-				60ED42AB136C6A4900F3D3ED /* FIClassB.m */,
-				60ED42AC136C6A4900F3D3ED /* FIClassC.h */,
-				60ED42AD136C6A4900F3D3ED /* FIClassC.m */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		D0572FBA15FF0EA00071D767 /* customize */ = {
+			isa = PBXGroup;
+			children = (
+				D0572FBB15FF0EA00071D767 /* UIAlertLable.h */,
+				D0572FBC15FF0EA00071D767 /* UIAlertLable.m */,
+			);
+			path = customize;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,8 +227,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				60EA0AAC13CB1FD700A0F61F /* FI.h in Headers */,
+				D0572FBD15FF0EA00071D767 /* UIAlertLable.h in Headers */,
 				60EA0AAD13CB1FDA00A0F61F /* FIClassA.h in Headers */,
-				60EA0AAE13CB1FDC00A0F61F /* FIClassB.h in Headers */,
 				60EA0ABA13CB206800A0F61F /* FI-Prefix.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,8 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				60EA0AB013CB1FE000A0F61F /* FIClassA.m in Sources */,
-				60EA0AB113CB1FE200A0F61F /* FIClassB.m in Sources */,
-				60EA0AB213CB1FE400A0F61F /* FIClassC.m in Sources */,
+				D0572FBE15FF0EA00071D767 /* UIAlertLable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

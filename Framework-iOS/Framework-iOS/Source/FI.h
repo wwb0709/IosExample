@@ -8,3 +8,4 @@
 
 #import <FI/FIClassA.h>
 #import <FI/FIClassB.h>
+#import <FI/UIAlertLable.h>

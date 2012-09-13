@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/softclient/!svn/ver/7910/SDP/MTVClient_HandsetR001C05L1ZT01/code/MtvClient/MtvClient/Utils/common/http
+END
+ASIDataCompressor.h
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/softclient/!svn/ver/7910/SDP/MTVClient_HandsetR001C05L1ZT01/code/MtvClient/MtvClient/Utils/common/http/ASIDataCompressor.h
+END
+ASIDataDecompressor.h
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/softclient/!svn/ver/7910/SDP/MTVClient_HandsetR001C05L1ZT01/code/MtvClient/MtvClient/Utils/common/http/ASIDataDecompressor.h
+END
+ASIDownloadCache.m
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/softclient/!svn/ver/7910/SDP/MTVClient_HandsetR001C05L1ZT01/code/MtvClient/MtvClient/Utils/common/http/ASIDownloadCache.m
+END
+ASIProgressDelegate.h
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/softclient/!svn/ver/7910/SDP/MTVClient_HandsetR001C05L1ZT01/code/MtvClient/MtvClient/Utils/common/http/ASIProgressDelegate.h
+END
+ASIFormDataRequest.h
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/softclient/!svn/ver/7910/SDP/MTVClient_HandsetR001C05L1ZT01/code/MtvClient/MtvClient/Utils/common/http/ASIFormDataRequest.h
+END
+ASIDataCompressor.m
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/softclient/!svn/ver/7910/SDP/MTVClient_HandsetR001C05L1ZT01/code/MtvClient/MtvClient/Utils/common/http/ASIDataCompressor.m
+END
+ASIDataDecompressor.m
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/softclient/!svn/ver/7910/SDP/MTVClient_HandsetR001C05L1ZT01/code/MtvClient/MtvClient/Utils/common/http/ASIDataDecompressor.m
+END
+ASIFormDataRequest.m
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/softclient/!svn/ver/7910/SDP/MTVClient_HandsetR001C05L1ZT01/code/MtvClient/MtvClient/Utils/common/http/ASIFormDataRequest.m
+END
+ASICacheDelegate.h
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/softclient/!svn/ver/7910/SDP/MTVClient_HandsetR001C05L1ZT01/code/MtvClient/MtvClient/Utils/common/http/ASICacheDelegate.h
+END
+ASIHTTPRequest.h
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/softclient/!svn/ver/7910/SDP/MTVClient_HandsetR001C05L1ZT01/code/MtvClient/MtvClient/Utils/common/http/ASIHTTPRequest.h
+END
+ASIHTTPRequestConfig.h
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/softclient/!svn/ver/7910/SDP/MTVClient_HandsetR001C05L1ZT01/code/MtvClient/MtvClient/Utils/common/http/ASIHTTPRequestConfig.h
+END
+ASIInputStream.h
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/softclient/!svn/ver/7910/SDP/MTVClient_HandsetR001C05L1ZT01/code/MtvClient/MtvClient/Utils/common/http/ASIInputStream.h
+END
+ASIHTTPRequest.m
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/softclient/!svn/ver/7910/SDP/MTVClient_HandsetR001C05L1ZT01/code/MtvClient/MtvClient/Utils/common/http/ASIHTTPRequest.m
+END
+ASIHTTPRequestDelegate.h
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/softclient/!svn/ver/7910/SDP/MTVClient_HandsetR001C05L1ZT01/code/MtvClient/MtvClient/Utils/common/http/ASIHTTPRequestDelegate.h
+END
+ASIAuthenticationDialog.h
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/softclient/!svn/ver/7910/SDP/MTVClient_HandsetR001C05L1ZT01/code/MtvClient/MtvClient/Utils/common/http/ASIAuthenticationDialog.h
+END
+ASIInputStream.m
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/softclient/!svn/ver/7910/SDP/MTVClient_HandsetR001C05L1ZT01/code/MtvClient/MtvClient/Utils/common/http/ASIInputStream.m
+END
+ASINetworkQueue.h
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/softclient/!svn/ver/7910/SDP/MTVClient_HandsetR001C05L1ZT01/code/MtvClient/MtvClient/Utils/common/http/ASINetworkQueue.h
+END
+ASIAuthenticationDialog.m
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/softclient/!svn/ver/7910/SDP/MTVClient_HandsetR001C05L1ZT01/code/MtvClient/MtvClient/Utils/common/http/ASIAuthenticationDialog.m
+END
+ASINetworkQueue.m
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/softclient/!svn/ver/7910/SDP/MTVClient_HandsetR001C05L1ZT01/code/MtvClient/MtvClient/Utils/common/http/ASINetworkQueue.m
+END
+ASIDownloadCache.h
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/softclient/!svn/ver/7910/SDP/MTVClient_HandsetR001C05L1ZT01/code/MtvClient/MtvClient/Utils/common/http/ASIDownloadCache.h
+END

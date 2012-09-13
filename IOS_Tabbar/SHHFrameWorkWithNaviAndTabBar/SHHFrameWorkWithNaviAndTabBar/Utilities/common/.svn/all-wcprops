@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/softclient/!svn/ver/7910/SDP/MTVClient_HandsetR001C05L1ZT01/code/MtvClient/MtvClient/Utils/common
+END
+AsyncSocket.h
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/softclient/!svn/ver/7910/SDP/MTVClient_HandsetR001C05L1ZT01/code/MtvClient/MtvClient/Utils/common/AsyncSocket.h
+END
+SynthesizeSingleton.h
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/softclient/!svn/ver/7910/SDP/MTVClient_HandsetR001C05L1ZT01/code/MtvClient/MtvClient/Utils/common/SynthesizeSingleton.h
+END
+AsyncSocket.m
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/softclient/!svn/ver/7910/SDP/MTVClient_HandsetR001C05L1ZT01/code/MtvClient/MtvClient/Utils/common/AsyncSocket.m
+END

@@ -19,6 +19,7 @@
 		D009B7CC15918C36003C110E /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = D009B7C415918C36003C110E /* SBJsonBase.m */; };
 		D009B7CD15918C36003C110E /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D009B7C615918C36003C110E /* SBJsonParser.m */; };
 		D009B7CE15918C36003C110E /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = D009B7C815918C36003C110E /* SBJsonWriter.m */; };
+		D01777BA15FF169600E1441D /* FA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D01777B915FF169600E1441D /* FA.framework */; };
 		D04F535B1592F47C00B45061 /* pop.wav in Resources */ = {isa = PBXBuildFile; fileRef = D04F53581592F47C00B45061 /* pop.wav */; };
 		D04F535C1592F47C00B45061 /* psst_down.wav in Resources */ = {isa = PBXBuildFile; fileRef = D04F53591592F47C00B45061 /* psst_down.wav */; };
 		D04F535D1592F47C00B45061 /* psst.wav in Resources */ = {isa = PBXBuildFile; fileRef = D04F535A1592F47C00B45061 /* psst.wav */; };
@@ -192,7 +193,6 @@
 		D0637A7915907C8400733F58 /* WBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D0637A4F15907C8100733F58 /* WBRequest.m */; };
 		D0637A7A15907C8400733F58 /* WBSendView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0637A5215907C8100733F58 /* WBSendView.m */; };
 		D0637A7B15907C8400733F58 /* WBUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D0637A5415907C8100733F58 /* WBUtil.m */; };
-		D093638415FDEBB80017D1D2 /* FI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D093638315FDEBB80017D1D2 /* FI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -221,6 +221,7 @@
 		D009B7C615918C36003C110E /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		D009B7C715918C36003C110E /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		D009B7C815918C36003C110E /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		D01777B915FF169600E1441D /* FA.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FA.framework; path = "../Framework-iOS 副本/Products/FA.framework"; sourceTree = "<group>"; };
 		D04F53581592F47C00B45061 /* pop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pop.wav; sourceTree = "<group>"; };
 		D04F53591592F47C00B45061 /* psst_down.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = psst_down.wav; sourceTree = "<group>"; };
 		D04F535A1592F47C00B45061 /* psst.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = psst.wav; sourceTree = "<group>"; };
@@ -531,7 +532,6 @@
 		D0637A5415907C8100733F58 /* WBUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBUtil.m; sourceTree = "<group>"; };
 		D0637A5515907C8100733F58 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D0637A5615907C8100733F58 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		D093638315FDEBB80017D1D2 /* FI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FI.framework; path = ../../FI.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -539,7 +539,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D093638415FDEBB80017D1D2 /* FI.framework in Frameworks */,
+				D01777BA15FF169600E1441D /* FA.framework in Frameworks */,
 				D009B7A9159179A9003C110E /* AudioToolbox.framework in Frameworks */,
 				D06379E9159064DE00733F58 /* libxml2.dylib in Frameworks */,
 				D06376F91590214D00733F58 /* libz.1.2.5.dylib in Frameworks */,
@@ -658,7 +658,7 @@
 		D06374641590188F00733F58 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D093638315FDEBB80017D1D2 /* FI.framework */,
+				D01777B915FF169600E1441D /* FA.framework */,
 				D06379E8159064DE00733F58 /* libxml2.dylib */,
 				D06376F81590214D00733F58 /* libz.1.2.5.dylib */,
 				D06379901590559000733F58 /* libsqlite3.0.dylib */,
@@ -1606,6 +1606,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/AiHao/ThirdPart/iFly\"",
 					"\"$(SRCROOT)/../..\"",
+					"\"$(SRCROOT)/../Framework-iOS 副本/Products\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example/Example-Prefix.pch";
@@ -1626,6 +1627,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/AiHao/ThirdPart/iFly\"",
 					"\"$(SRCROOT)/../..\"",
+					"\"$(SRCROOT)/../Framework-iOS 副本/Products\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example/Example-Prefix.pch";

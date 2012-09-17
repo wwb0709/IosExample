@@ -193,6 +193,8 @@
 		D0637A7915907C8400733F58 /* WBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D0637A4F15907C8100733F58 /* WBRequest.m */; };
 		D0637A7A15907C8400733F58 /* WBSendView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0637A5215907C8100733F58 /* WBSendView.m */; };
 		D0637A7B15907C8400733F58 /* WBUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D0637A5415907C8100733F58 /* WBUtil.m */; };
+		D0AB5D91160715FE00224C00 /* ImageSet.m in Sources */ = {isa = PBXBuildFile; fileRef = D0AB5D90160715FE00224C00 /* ImageSet.m */; };
+		D0AB5D941607252100224C00 /* BGView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0AB5D931607252100224C00 /* BGView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -532,6 +534,10 @@
 		D0637A5415907C8100733F58 /* WBUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBUtil.m; sourceTree = "<group>"; };
 		D0637A5515907C8100733F58 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D0637A5615907C8100733F58 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D0AB5D8F160715FE00224C00 /* ImageSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSet.h; sourceTree = "<group>"; };
+		D0AB5D90160715FE00224C00 /* ImageSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSet.m; sourceTree = "<group>"; };
+		D0AB5D921607252100224C00 /* BGView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGView.h; sourceTree = "<group>"; };
+		D0AB5D931607252100224C00 /* BGView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -569,6 +575,8 @@
 		D009B78915917056003C110E /* customize */ = {
 			isa = PBXGroup;
 			children = (
+				D0AB5D8F160715FE00224C00 /* ImageSet.h */,
+				D0AB5D90160715FE00224C00 /* ImageSet.m */,
 				D009B79015917105003C110E /* CustomLog.h */,
 				D009B79115917105003C110E /* CustomLog.m */,
 				D009B78A15917056003C110E /* EGORefreshTableHeaderView.h */,
@@ -746,6 +754,8 @@
 				D04F537E1592FD5C00B45061 /* testviewcontroller.h */,
 				D04F537F1592FD5C00B45061 /* testviewcontroller.m */,
 				D04F53801592FD5C00B45061 /* testviewcontroller.xib */,
+				D0AB5D921607252100224C00 /* BGView.h */,
+				D0AB5D931607252100224C00 /* BGView.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1526,6 +1536,8 @@
 				D05F8E5E15F9C025001527AD /* UserService.m in Sources */,
 				D05F8E6215F9C05B001527AD /* ReturnStatusCode.m in Sources */,
 				D05F8E6515F9C0D8001527AD /* RemindEntity.m in Sources */,
+				D0AB5D91160715FE00224C00 /* ImageSet.m in Sources */,
+				D0AB5D941607252100224C00 /* BGView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

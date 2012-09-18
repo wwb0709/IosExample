@@ -122,3 +122,4 @@ typedef enum
     BusinessErrorCode_LLQ_ServerError25                       = 25,    //文字提示
     BusinessErrorCode_LLQ_ServerError26                       = 26    //文字提示（需要跳转）
 }BusinessErrorCode;
+

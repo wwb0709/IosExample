@@ -13,4 +13,5 @@
     #import <Foundation/Foundation.h>
     #import "CustomLog.h"
     #import "DATypeDefine.h"
+    #import "UINavigationBarImage.h"
 #endif

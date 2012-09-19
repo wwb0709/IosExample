@@ -32,6 +32,65 @@
                   [NSBubbleData dataWithText:@"Ohn I wrote down what I wanted to say on a card.." andDate:[NSDate dateWithTimeIntervalSinceNow:395]  andType:BubbleTypeMine],
                   [NSBubbleData dataWithText:@"The stupid thing must have fallen out of my pocket." andDate:[NSDate dateWithTimeIntervalSinceNow:400]  andType:BubbleTypeMine],
                   nil];
+    
+    //右按钮
+    UIButton *tmpTabBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [tmpTabBtn setFrame:CGRectMake(0, 0, 55, 37)];
+    tmpTabBtn.titleLabel.text= @"push";
+    [tmpTabBtn addTarget:self
+                  action:@selector(push)
+        forControlEvents:UIControlEventTouchUpInside];
+    tmpTabBtn.backgroundColor=[UIColor clearColor];
+    [tmpTabBtn setBackgroundImage:[UIImage imageNamed:@"collect.png"] forState:UIControlStateNormal];
+    [tmpTabBtn setBackgroundImage:[UIImage imageNamed:@"collect_h.png"] forState:UIControlStateHighlighted];
+    UIBarButtonItem * tmpBarBtn = [[UIBarButtonItem alloc] initWithCustomView:tmpTabBtn];
+    
+    self.navigationItem.rightBarButtonItem = tmpBarBtn;
+    [tmpBarBtn release];
+    
+    {
+        //右按钮
+        UIButton *tmpTabBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [tmpTabBtn setFrame:CGRectMake(0, 0, 55, 37)];
+        tmpTabBtn.titleLabel.text= @"pop";
+        [tmpTabBtn addTarget:self
+                      action:@selector(pop)
+            forControlEvents:UIControlEventTouchUpInside];
+        tmpTabBtn.backgroundColor=[UIColor clearColor];
+        [tmpTabBtn setBackgroundImage:[UIImage imageNamed:@"search.png"] forState:UIControlStateNormal];
+        [tmpTabBtn setBackgroundImage:[UIImage imageNamed:@"search.png"] forState:UIControlStateHighlighted];
+        UIBarButtonItem * tmpBarBtn = [[UIBarButtonItem alloc] initWithCustomView:tmpTabBtn];
+        
+        self.navigationItem.leftBarButtonItem = tmpBarBtn;
+        [tmpBarBtn release];
+    }
+    
+    [[AppDelegate sharedApplication] hiddenTabBar:YES];
+
+    
+}
+-(void)push
+{
+    ViewController* homeViewController_ = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
+    [self.navigationController pushViewController:homeViewController_ animated:YES];
+    [homeViewController_ release];
+    
+    [[AppDelegate sharedApplication] hiddenTabBar:YES];
+}
+
+-(void)pop
+{
+    [[AppDelegate sharedApplication] hiddenTabBar:NO];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+   [[AppDelegate sharedApplication] hiddenTabBar:YES];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [[AppDelegate sharedApplication] hiddenTabBar:NO];
 }
 
 - (void)viewDidUnload

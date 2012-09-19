@@ -214,13 +214,14 @@
 // 隐藏Tabbar
 - (void) hiddenTabBar:(BOOL)hiden
 {
-    Ivan_UITabBar *tabBar = [self tabBarController];
-    
+    Ivan_UITabBar  *tabBar = [self tabBarController];
     if (nil != tabBar)
     {
         [tabBar hiddenTabBar:hiden];
     }
+   
 }
+
 
 // 收到登录成功的通知，在发送登录请求的时候，可以在SHHLoginView中添加一个等待视图。
 // 这里只是一个简单的demo，点击登录直接发送登录成功通知。

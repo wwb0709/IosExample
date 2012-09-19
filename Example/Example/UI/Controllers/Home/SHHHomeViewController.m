@@ -8,6 +8,8 @@
 
 #import "SHHHomeViewController.h"
 #import "SHHHomeNavigationController.h"
+#import "ViewController.h"
+#import "SHHSearchViewController.h"
 //#import "ProjectApplication.h"
 
 @implementation SHHHomeViewController
@@ -37,32 +39,18 @@
                   action:@selector(push)
         forControlEvents:UIControlEventTouchUpInside];
     tmpTabBtn.backgroundColor=[UIColor clearColor];
-    [tmpTabBtn setBackgroundImage:[UIImage imageNamed:@"search.png"] forState:UIControlStateNormal];
-    [tmpTabBtn setBackgroundImage:[UIImage imageNamed:@"search.png"] forState:UIControlStateHighlighted];
+    [tmpTabBtn setBackgroundImage:[UIImage imageNamed:@"collect.png"] forState:UIControlStateNormal];
+    [tmpTabBtn setBackgroundImage:[UIImage imageNamed:@"collect_h.png"] forState:UIControlStateHighlighted];
     UIBarButtonItem * tmpBarBtn = [[UIBarButtonItem alloc] initWithCustomView:tmpTabBtn];
     
     self.navigationItem.rightBarButtonItem = tmpBarBtn;
     [tmpBarBtn release];
-    
-    {
-    //右按钮
-    UIButton *tmpTabBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [tmpTabBtn setFrame:CGRectMake(0, 0, 55, 37)];
-    tmpTabBtn.titleLabel.text= @"pop";
-    [tmpTabBtn addTarget:self
-                  action:@selector(pop)
-        forControlEvents:UIControlEventTouchUpInside];
-    tmpTabBtn.backgroundColor=[UIColor clearColor];
-    [tmpTabBtn setBackgroundImage:[UIImage imageNamed:@"search.png"] forState:UIControlStateNormal];
-    [tmpTabBtn setBackgroundImage:[UIImage imageNamed:@"search.png"] forState:UIControlStateHighlighted];
-    UIBarButtonItem * tmpBarBtn = [[UIBarButtonItem alloc] initWithCustomView:tmpTabBtn];
-    
-    self.navigationItem.leftBarButtonItem = tmpBarBtn;
-    [tmpBarBtn release];
-    }
 
-    
 	// Do any additional setup after loading the view.
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+   [[AppDelegate sharedApplication] hiddenTabBar:NO];
 }
 
 - (void)viewDidUnload
@@ -73,15 +61,9 @@
 
 -(void)push
 {
-    SHHHomeViewController* homeViewController_ = [[SHHHomeViewController alloc] init];
-  
+    ViewController* homeViewController_ = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
     [self.navigationController pushViewController:homeViewController_ animated:YES];
     [homeViewController_ release];
-}
--(void)pop
-{
-    [self.navigationController popViewControllerAnimated:YES];
-
 }
 
 @end

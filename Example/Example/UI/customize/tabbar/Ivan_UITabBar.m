@@ -39,6 +39,7 @@ static BOOL FIRSTTIME =YES;
 		[self hideRealTabBar];
 		[self customTabBar];
 		FIRSTTIME = NO;
+        [self hiddenTabBar:NO];
 	}
 }
 
@@ -54,6 +55,59 @@ static BOOL FIRSTTIME =YES;
 - (void)hiddenTabBar:(BOOL)hide
 {
     cusTomTabBarView.hidden = hide;
+    if (!hide) {
+        [self performSelector:@selector(showTabBar:) withObject:self];
+    }
+    else
+    {
+        [self performSelector:@selector(hideTabBar:) withObject:self];
+    
+    }
+    
+   // [self hideRealTabBar:hide];
+}
+
+-(void) hideTabBar:(UITabBarController*) tabbarcontroller {
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.5];
+    for(UIView*view in tabbarcontroller.view.subviews)
+    {
+        if([view isKindOfClass:[UITabBar class]])
+        {
+            [view setFrame:CGRectMake(view.frame.origin.x,480, view.frame.size.width, view.frame.size.height)];
+        }
+        else
+        {
+            [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width,480)];
+        }
+        
+    }
+    
+    [UIView commitAnimations];
+    
+    
+}
+
+-(void) showTabBar:(UITabBarController*) tabbarcontroller {
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.5];
+    for(UIView*view in tabbarcontroller.view.subviews)
+    {
+        NSLog(@"%@", view);
+        
+        if([view isKindOfClass:[UITabBar class]])
+        {
+            [view setFrame:CGRectMake(view.frame.origin.x,480, view.frame.size.width, view.frame.size.height)];
+        }
+        else
+        {
+            [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width,480)];
+        }
+        
+    }
+    
+    [UIView commitAnimations];
 }
 
 //设置badge
@@ -198,6 +252,7 @@ static BOOL FIRSTTIME =YES;
 //将自定义的tabbar显示出来
 - (void)bringCustomTabBarToFront{
     [self performSelector:@selector(hideRealTabBar)];
+    [self performSelector:@selector(showTabBar:) withObject:self];
     [cusTomTabBarView setHidden:NO];
    
     CAKeyframeAnimation * animation; 
@@ -217,7 +272,7 @@ static BOOL FIRSTTIME =YES;
 //隐藏自定义tabbar
 - (void)hideCustomTabBar{
 	[self performSelector:@selector(hideRealTabBar)];
-
+    [self performSelector:@selector(hideTabBar:) withObject:self];
     CAKeyframeAnimation * animation; 
 	animation = [CAKeyframeAnimation animationWithKeyPath:@"transform"]; 
 	animation.duration = 0.1;

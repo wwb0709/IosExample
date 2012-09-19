@@ -21,9 +21,11 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		60EA0AAC13CB1FD700A0F61F /* customize.h in Headers */ = {isa = PBXBuildFile; fileRef = 60ED42A7136C6A4900F3D3ED /* customize.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		60EA0AAC13CB1FD700A0F61F /* FI.h in Headers */ = {isa = PBXBuildFile; fileRef = 60ED42A7136C6A4900F3D3ED /* FI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		60EA0AAD13CB1FDA00A0F61F /* FIClassA.h in Headers */ = {isa = PBXBuildFile; fileRef = 60ED42A8136C6A4900F3D3ED /* FIClassA.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		60EA0AB013CB1FE000A0F61F /* FIClassA.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ED42A9136C6A4900F3D3ED /* FIClassA.m */; };
 		60EA0AB813CB206800A0F61F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60EA0AB413CB206800A0F61F /* InfoPlist.strings */; };
-		60EA0ABA13CB206800A0F61F /* customize-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 60EA0AB713CB206800A0F61F /* customize-Prefix.pch */; };
+		60EA0ABA13CB206800A0F61F /* FI-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 60EA0AB713CB206800A0F61F /* FI-Prefix.pch */; };
 		60EA0AC313CB22DC00A0F61F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60ED419B136C58B600F3D3ED /* UIKit.framework */; };
 		60ED419C136C58B600F3D3ED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60ED419B136C58B600F3D3ED /* UIKit.framework */; };
 		60ED419E136C58B600F3D3ED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60ED419D136C58B600F3D3ED /* Foundation.framework */; };
@@ -40,16 +42,15 @@
 		60ED4221136C5C2D00F3D3ED /* Framework_iOSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ED4210136C5C2D00F3D3ED /* Framework_iOSAppDelegate.m */; };
 		60ED4222136C5C2D00F3D3ED /* Framework_iOSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ED4212136C5C2D00F3D3ED /* Framework_iOSViewController.m */; };
 		60ED4224136C5C2D00F3D3ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ED4216136C5C2D00F3D3ED /* main.m */; };
-		D02162301609BFF60031E8DE /* customize.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D021622F1609BFF60031E8DE /* customize.framework */; };
 		D0572FBD15FF0EA00071D767 /* UIAlertLable.h in Headers */ = {isa = PBXBuildFile; fileRef = D0572FBB15FF0EA00071D767 /* UIAlertLable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D0572FBE15FF0EA00071D767 /* UIAlertLable.m in Sources */ = {isa = PBXBuildFile; fileRef = D0572FBC15FF0EA00071D767 /* UIAlertLable.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		60EA0A9F13CB1FBC00A0F61F /* customize.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = customize.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		60EA0A9F13CB1FBC00A0F61F /* FI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		60EA0AB513CB206800A0F61F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		60EA0AB613CB206800A0F61F /* customize-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "customize-Info.plist"; sourceTree = "<group>"; };
-		60EA0AB713CB206800A0F61F /* customize-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "customize-Prefix.pch"; sourceTree = "<group>"; };
+		60EA0AB613CB206800A0F61F /* FI-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "FI-Info.plist"; sourceTree = "<group>"; };
+		60EA0AB713CB206800A0F61F /* FI-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FI-Prefix.pch"; sourceTree = "<group>"; };
 		60ED4197136C58B600F3D3ED /* Framework-iOS APP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Framework-iOS APP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60ED419B136C58B600F3D3ED /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		60ED419D136C58B600F3D3ED /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -72,8 +73,9 @@
 		60ED4215136C5C2D00F3D3ED /* Framework-iOS-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Framework-iOS-Prefix.pch"; sourceTree = "<group>"; };
 		60ED4216136C5C2D00F3D3ED /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		60ED4233136C5F3000F3D3ED /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		60ED42A7136C6A4900F3D3ED /* customize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customize.h; sourceTree = "<group>"; };
-		D021622F1609BFF60031E8DE /* customize.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = customize.framework; path = Products/customize.framework; sourceTree = "<group>"; };
+		60ED42A7136C6A4900F3D3ED /* FI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FI.h; sourceTree = "<group>"; };
+		60ED42A8136C6A4900F3D3ED /* FIClassA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIClassA.h; sourceTree = "<group>"; };
+		60ED42A9136C6A4900F3D3ED /* FIClassA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIClassA.m; sourceTree = "<group>"; };
 		D0572FBB15FF0EA00071D767 /* UIAlertLable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertLable.h; sourceTree = "<group>"; };
 		D0572FBC15FF0EA00071D767 /* UIAlertLable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAlertLable.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,7 +93,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D02162301609BFF60031E8DE /* customize.framework in Frameworks */,
 				60ED419C136C58B600F3D3ED /* UIKit.framework in Frameworks */,
 				60ED419E136C58B600F3D3ED /* Foundation.framework in Frameworks */,
 				60ED41A0136C58B600F3D3ED /* CoreGraphics.framework in Frameworks */,
@@ -105,8 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				60EA0AB413CB206800A0F61F /* InfoPlist.strings */,
-				60EA0AB613CB206800A0F61F /* customize-Info.plist */,
-				60EA0AB713CB206800A0F61F /* customize-Prefix.pch */,
+				60EA0AB613CB206800A0F61F /* FI-Info.plist */,
+				60EA0AB713CB206800A0F61F /* FI-Prefix.pch */,
 			);
 			path = "Support Files";
 			sourceTree = "<group>";
@@ -114,7 +115,6 @@
 		60ED418C136C58B600F3D3ED = {
 			isa = PBXGroup;
 			children = (
-				D021622F1609BFF60031E8DE /* customize.framework */,
 				60ED42A5136C6A4900F3D3ED /* Framework-iOS */,
 				60ED41FF136C5C2D00F3D3ED /* Framework-iOS APP */,
 				60ED419A136C58B600F3D3ED /* Frameworks */,
@@ -126,7 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				60ED4197136C58B600F3D3ED /* Framework-iOS APP.app */,
-				60EA0A9F13CB1FBC00A0F61F /* customize.framework */,
+				60EA0A9F13CB1FBC00A0F61F /* FI.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,7 +203,9 @@
 			isa = PBXGroup;
 			children = (
 				D0572FBA15FF0EA00071D767 /* customize */,
-				60ED42A7136C6A4900F3D3ED /* customize.h */,
+				60ED42A7136C6A4900F3D3ED /* FI.h */,
+				60ED42A8136C6A4900F3D3ED /* FIClassA.h */,
+				60ED42A9136C6A4900F3D3ED /* FIClassA.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -224,18 +226,19 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60EA0AAC13CB1FD700A0F61F /* customize.h in Headers */,
+				60EA0AAC13CB1FD700A0F61F /* FI.h in Headers */,
 				D0572FBD15FF0EA00071D767 /* UIAlertLable.h in Headers */,
-				60EA0ABA13CB206800A0F61F /* customize-Prefix.pch in Headers */,
+				60EA0AAD13CB1FDA00A0F61F /* FIClassA.h in Headers */,
+				60EA0ABA13CB206800A0F61F /* FI-Prefix.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		60EA0A9E13CB1FBC00A0F61F /* customize */ = {
+		60EA0A9E13CB1FBC00A0F61F /* FI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 60EA0AA813CB1FBC00A0F61F /* Build configuration list for PBXNativeTarget "customize" */;
+			buildConfigurationList = 60EA0AA813CB1FBC00A0F61F /* Build configuration list for PBXNativeTarget "FI" */;
 			buildPhases = (
 				60EA0A9B13CB1FBC00A0F61F /* Sources */,
 				60EA0A9C13CB1FBC00A0F61F /* Frameworks */,
@@ -246,9 +249,9 @@
 			);
 			dependencies = (
 			);
-			name = customize;
+			name = FI;
 			productName = FI;
-			productReference = 60EA0A9F13CB1FBC00A0F61F /* customize.framework */;
+			productReference = 60EA0A9F13CB1FBC00A0F61F /* FI.framework */;
 			productType = "com.apple.product-type.bundle";
 		};
 		60ED4196136C58B600F3D3ED /* Framework-iOS APP */ = {
@@ -289,7 +292,7 @@
 			projectRoot = "";
 			targets = (
 				60ED4196136C58B600F3D3ED /* Framework-iOS APP */,
-				60EA0A9E13CB1FBC00A0F61F /* customize */,
+				60EA0A9E13CB1FBC00A0F61F /* FI */,
 				60ED4255136C60AC00F3D3ED /* Build All */,
 			);
 		};
@@ -334,7 +337,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Sets the target folders and the final framework product.\nFMK_NAME=customize\nFMK_VERSION=A\n\n# Install dir will be the final output to the framework.\n# The following line create it in the root folder of the current project.\nINSTALL_DIR=${SRCROOT}/Products/${FMK_NAME}.framework\n\n# Working dir will be deleted after the framework creation.\nWRK_DIR=build\nDEVICE_DIR=${WRK_DIR}/Release-iphoneos/${FMK_NAME}.framework\nSIMULATOR_DIR=${WRK_DIR}/Release-iphonesimulator/${FMK_NAME}.framework\n\n# Building both architectures.\nxcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphoneos\nxcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphonesimulator\n\n# Cleaning the oldest.\nif [ -d \"${INSTALL_DIR}\" ]\nthen\nrm -rf \"${INSTALL_DIR}\"\nfi\n\n# Creates and renews the final product folder.\nmkdir -p \"${INSTALL_DIR}\"\nmkdir -p \"${INSTALL_DIR}/Versions\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FMK_VERSION}\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Headers\"\n\n# Creates the internal links.\n# It MUST uses relative path, otherwise will not work when the folder is copied/moved.\nln -s \"${FMK_VERSION}\" \"${INSTALL_DIR}/Versions/Current\"\nln -s \"Versions/Current/Headers\" \"${INSTALL_DIR}/Headers\"\nln -s \"Versions/Current/Resources\" \"${INSTALL_DIR}/Resources\"\nln -s \"Versions/Current/${FMK_NAME}\" \"${INSTALL_DIR}/${FMK_NAME}\"\n\n# Copies the headers and resources files to the final product folder.\ncp -R \"${DEVICE_DIR}/Headers/\" \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Headers/\"\ncp -R \"${DEVICE_DIR}/\" \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources/\"\n\n# Removes the binary and header from the resources folder.\nrm -r \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources/Headers\" \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources/${FMK_NAME}\"\n\n# Uses the Lipo Tool to merge both binary files (i386 + armv6/armv7) into one Universal final product.\nlipo -create \"${DEVICE_DIR}/${FMK_NAME}\" \"${SIMULATOR_DIR}/${FMK_NAME}\" -output \"${INSTALL_DIR}/Versions/${FMK_VERSION}/${FMK_NAME}\"\n\nrm -r \"${WRK_DIR}\"";
+			shellScript = "# Sets the target folders and the final framework product.\nFMK_NAME=FI\nFMK_VERSION=A\n\n# Install dir will be the final output to the framework.\n# The following line create it in the root folder of the current project.\nINSTALL_DIR=${SRCROOT}/Products/${FMK_NAME}.framework\n\n# Working dir will be deleted after the framework creation.\nWRK_DIR=build\nDEVICE_DIR=${WRK_DIR}/Release-iphoneos/${FMK_NAME}.framework\nSIMULATOR_DIR=${WRK_DIR}/Release-iphonesimulator/${FMK_NAME}.framework\n\n# Building both architectures.\nxcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphoneos\nxcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphonesimulator\n\n# Cleaning the oldest.\nif [ -d \"${INSTALL_DIR}\" ]\nthen\nrm -rf \"${INSTALL_DIR}\"\nfi\n\n# Creates and renews the final product folder.\nmkdir -p \"${INSTALL_DIR}\"\nmkdir -p \"${INSTALL_DIR}/Versions\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FMK_VERSION}\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Headers\"\n\n# Creates the internal links.\n# It MUST uses relative path, otherwise will not work when the folder is copied/moved.\nln -s \"${FMK_VERSION}\" \"${INSTALL_DIR}/Versions/Current\"\nln -s \"Versions/Current/Headers\" \"${INSTALL_DIR}/Headers\"\nln -s \"Versions/Current/Resources\" \"${INSTALL_DIR}/Resources\"\nln -s \"Versions/Current/${FMK_NAME}\" \"${INSTALL_DIR}/${FMK_NAME}\"\n\n# Copies the headers and resources files to the final product folder.\ncp -R \"${DEVICE_DIR}/Headers/\" \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Headers/\"\ncp -R \"${DEVICE_DIR}/\" \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources/\"\n\n# Removes the binary and header from the resources folder.\nrm -r \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources/Headers\" \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources/${FMK_NAME}\"\n\n# Uses the Lipo Tool to merge both binary files (i386 + armv6/armv7) into one Universal final product.\nlipo -create \"${DEVICE_DIR}/${FMK_NAME}\" \"${SIMULATOR_DIR}/${FMK_NAME}\" -output \"${INSTALL_DIR}/Versions/${FMK_VERSION}/${FMK_NAME}\"\n\nrm -r \"${WRK_DIR}\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -343,6 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60EA0AB013CB1FE000A0F61F /* FIClassA.m in Sources */,
 				D0572FBE15FF0EA00071D767 /* UIAlertLable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,12 +417,12 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Framework-iOS/Support Files/customize-Prefix.pch";
+				GCC_PREFIX_HEADER = "Framework-iOS/Support Files/FI-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GENERATE_PKGINFO_FILE = NO;
 				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "";
-				INFOPLIST_FILE = "Framework-iOS/Support Files/customize-Info.plist";
+				INFOPLIST_FILE = "Framework-iOS/Support Files/FI-Info.plist";
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "";
 				INFOPLIST_OUTPUT_FORMAT = "same-as-input";
 				INFOPLIST_PREFIX_HEADER = "";
@@ -457,12 +461,12 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Framework-iOS/Support Files/customize-Prefix.pch";
+				GCC_PREFIX_HEADER = "Framework-iOS/Support Files/FI-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GENERATE_PKGINFO_FILE = NO;
 				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "";
-				INFOPLIST_FILE = "Framework-iOS/Support Files/customize-Info.plist";
+				INFOPLIST_FILE = "Framework-iOS/Support Files/FI-Info.plist";
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "";
 				INFOPLIST_OUTPUT_FORMAT = "same-as-input";
 				INFOPLIST_PREFIX_HEADER = "";
@@ -575,7 +579,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		60EA0AA813CB1FBC00A0F61F /* Build configuration list for PBXNativeTarget "customize" */ = {
+		60EA0AA813CB1FBC00A0F61F /* Build configuration list for PBXNativeTarget "FI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				60EA0AA913CB1FBC00A0F61F /* Debug */,

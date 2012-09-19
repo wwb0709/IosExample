@@ -6,4 +6,6 @@
  *	Copyright 2011 DB-Interactive. All rights reserved.
  */
 
-#import <customize/UIAlertLable.h>
+#import <FI/FIClassA.h>
+#import <FI/FIClassB.h>
+#import <FI/UIAlertLable.h>

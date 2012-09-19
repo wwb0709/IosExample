@@ -25,15 +25,10 @@
 	self.window.rootViewController = self.viewController;
 	[self.window makeKeyAndVisible];
     
-    UIAlertLable * alertView = [[UIAlertLable alloc]initWithTitle:@"有新版本"
-                                                          message:nil  
-                                                         delegate:self 
-                                                cancelButtonTitle:@"暂不升级"
-                                                otherButtonTitles:@"升级",nil];
-    alertView.content =@"1、第一行\n2、第二行";
-
-    [alertView show];
-    [alertView release];
+    FIClassA * b = [[FIClassA alloc] init];
+    
+    [b methodA];
+    [b release];
     
     return YES;
 }

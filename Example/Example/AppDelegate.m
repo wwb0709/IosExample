@@ -237,8 +237,8 @@
     [UIView setAnimationTransition:transition forView:[[SHHLoginController defaultController].loginViewController view].superview cache:YES];
     
     [[[SHHLoginController defaultController].loginViewController view] removeFromSuperview];
-    // 增加Tabbar,如果不需要登录界面，把下面这条代码放到didFinishLaunchingWithOptions中
-    [mainWindow_ addSubview:mainViewController_.view];
+//    // 增加Tabbar,如果不需要登录界面，把下面这条代码放到didFinishLaunchingWithOptions中
+//    [mainWindow_ addSubview:mainViewController_.view];
     [UIView commitAnimations];
 }
 
@@ -288,7 +288,8 @@
     
     tabBarController.selectedIndex = 0;
     mainViewController_ = tabBarController;
-    
+    //,如果不需要登录界面，把下面这条代码放到didFinishLaunchingWithOptions中
+    [mainWindow_ addSubview:mainViewController_.view];
     [mainWindow_ addSubview:[[SHHLoginController defaultController].loginViewController view]];
     
     [mainWindow_ makeKeyAndVisible];

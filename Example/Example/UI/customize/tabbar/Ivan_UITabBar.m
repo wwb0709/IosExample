@@ -36,8 +36,9 @@ static BOOL FIRSTTIME =YES;
 												   object: nil];
 		
 		slideBg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"slide"]];
-		[self hideRealTabBar];
 		[self customTabBar];
+        [self hideRealTabBar];
+		
 		FIRSTTIME = NO;
         [self hiddenTabBar:NO];
 	}
@@ -252,7 +253,7 @@ static BOOL FIRSTTIME =YES;
 //将自定义的tabbar显示出来
 - (void)bringCustomTabBarToFront{
     [self performSelector:@selector(hideRealTabBar)];
-    [self performSelector:@selector(showTabBar:) withObject:self];
+//    [self performSelector:@selector(showTabBar:) withObject:self];
     [cusTomTabBarView setHidden:NO];
    
     CAKeyframeAnimation * animation; 
@@ -272,7 +273,7 @@ static BOOL FIRSTTIME =YES;
 //隐藏自定义tabbar
 - (void)hideCustomTabBar{
 	[self performSelector:@selector(hideRealTabBar)];
-    [self performSelector:@selector(hideTabBar:) withObject:self];
+//    [self performSelector:@selector(hideTabBar:) withObject:self];
     CAKeyframeAnimation * animation; 
 	animation = [CAKeyframeAnimation animationWithKeyPath:@"transform"]; 
 	animation.duration = 0.1;

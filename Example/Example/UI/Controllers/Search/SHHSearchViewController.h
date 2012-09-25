@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MTAnimatedLabel.h"
 @interface SHHSearchViewController : UIViewController
-
+@property (retain, nonatomic)  MTAnimatedLabel *animatedLabel;
 @end

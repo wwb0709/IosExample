@@ -32,6 +32,14 @@
 {
     [super viewDidLoad];
     
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(closeViewEventHandler:)
+     name:@"closeView"
+     object:nil ];
+    
+    
     //右按钮
     UIButton *tmpTabBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [tmpTabBtn setFrame:CGRectMake(0, 0, 55, 37)];
@@ -124,9 +132,61 @@
 
 -(void)push
 {
-    ViewController* homeViewController_ = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-    [self.navigationController pushViewController:homeViewController_ animated:YES];
-    [homeViewController_ release];
+//    ViewController* homeViewController_ = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
+//    [self.navigationController pushViewController:homeViewController_ animated:YES];
+//    [homeViewController_ release];
+    
+    
+    ViewController* viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
+    nav = [UINavigationController alloc];
+//    ViewController *vc = viewController;
+    
+    // manually trigger the appear method
+    [viewController viewDidAppear:YES];
+    
+//    vc.launcherImage = launcher;
+    [nav initWithRootViewController:viewController];
+    [nav viewDidAppear:YES];
+    
+    nav.view.alpha = 0.f;
+    nav.view.transform = CGAffineTransformMakeScale(.1f, .1f);
+    [self.view addSubview:nav.view];
+    
+    [UIView animateWithDuration:.3f  animations:^{
+        // fade out the buttons
+//        for(SEMenuItem *item in self.items) {
+//            item.transform = [self offscreenQuadrantTransformForView:item];
+//            item.alpha = 0.f;
+//        }
+        
+        // fade in the selected view
+        nav.view.alpha = 1.f;
+        nav.view.transform = CGAffineTransformIdentity;
+        [nav.view setFrame:CGRectMake(0,0, self.view.bounds.size.width, self.view.bounds.size.height)];
+        
+        // fade out the top bar
+//        [navigationBar setFrame:CGRectMake(0, -44, 320, 44)];
+    }];
+    
+    [viewController release];
+}
+
+- (void)closeViewEventHandler: (NSNotification *) notification {
+    UIView *viewToRemove = (UIView *) notification.object;    
+    [UIView animateWithDuration:.3f animations:^{
+        viewToRemove.alpha = 0.f;
+        viewToRemove.transform = CGAffineTransformMakeScale(.1f, .1f);
+//        for(SEMenuItem *item in self.items) {
+//            item.transform = CGAffineTransformIdentity;
+//            item.alpha = 1.f;
+//        }
+//        [navigationBar setFrame:CGRectMake(0, 0, 320, 44)];
+    } completion:^(BOOL finished) {
+        [viewToRemove removeFromSuperview];
+    }];
+    
+    // release the dynamically created navigation bar
+    [nav release];
 }
 
 @end

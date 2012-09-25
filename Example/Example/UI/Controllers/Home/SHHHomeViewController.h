@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 @interface SHHHomeViewController : UIViewController
+{
+UINavigationController *nav;
+}
 - (CAGradientLayer *)shadowAsInverse:(CGRect)rect  ;
 @end

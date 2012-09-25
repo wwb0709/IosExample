@@ -80,8 +80,9 @@
 
 -(void)pop
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"closeView" object:self.navigationController.view];
     [[AppDelegate sharedApplication] hiddenTabBar:NO];
-    [self.navigationController popViewControllerAnimated:YES];
+//    [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)viewWillAppear:(BOOL)animated
 {

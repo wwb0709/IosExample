@@ -46,6 +46,7 @@
     
     self.navigationItem.rightBarButtonItem = tmpBarBtn;
     [tmpBarBtn release];
+    return;
     
 //    MTAnimatedLabel *animatedLabel = [[MTAnimatedLabel alloc] initWithFrame:CGRectMake(50, 50, 320, 100)];
 //    //UILabel *animatedLabel = [[UILabel alloc] init];
@@ -92,11 +93,11 @@
     
     
     
-    [self.view.layer addSublayer:[self shadowAsInverse:self.view.frame]];
+    //[self.view.layer addSublayer:[self shadowAsInverse:self.view.frame]];
     
     UIImageView *textImageView = [[UIImageView alloc] initWithImage:textImage];
     textImageView.frame = viewRect;
-    [self.view addSubview:textImageView];
+    //[self.view addSubview:textImageView];
     [textImageView release];
 
 	// Do any additional setup after loading the view.

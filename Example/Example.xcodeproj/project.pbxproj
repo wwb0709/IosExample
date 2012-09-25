@@ -187,6 +187,8 @@
 		D0637A7915907C8400733F58 /* WBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D0637A4F15907C8100733F58 /* WBRequest.m */; };
 		D0637A7A15907C8400733F58 /* WBSendView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0637A5215907C8100733F58 /* WBSendView.m */; };
 		D0637A7B15907C8400733F58 /* WBUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D0637A5415907C8100733F58 /* WBUtil.m */; };
+		D085E3F21611539300524ECD /* FTWCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D085E3F11611539300524ECD /* FTWCache.m */; };
+		D085E3F6161155EE00524ECD /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = D085E3F5161155EE00524ECD /* NSString+MD5.m */; };
 		D08D9EDE16081AE9008CE380 /* NSBubbleData.m in Sources */ = {isa = PBXBuildFile; fileRef = D08D9ED516081AE9008CE380 /* NSBubbleData.m */; };
 		D08D9EDF16081AE9008CE380 /* NSBubbleDataInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = D08D9ED716081AE9008CE380 /* NSBubbleDataInternal.m */; };
 		D08D9EE016081AE9008CE380 /* UIBubbleTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D08D9ED916081AE9008CE380 /* UIBubbleTableView.m */; };
@@ -582,6 +584,10 @@
 		D0637A5415907C8100733F58 /* WBUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBUtil.m; sourceTree = "<group>"; };
 		D0637A5515907C8100733F58 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D0637A5615907C8100733F58 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D085E3F01611539300524ECD /* FTWCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTWCache.h; sourceTree = "<group>"; };
+		D085E3F11611539300524ECD /* FTWCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTWCache.m; sourceTree = "<group>"; };
+		D085E3F4161155EE00524ECD /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		D085E3F5161155EE00524ECD /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
 		D08D9ED416081AE9008CE380 /* NSBubbleData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSBubbleData.h; sourceTree = "<group>"; };
 		D08D9ED516081AE9008CE380 /* NSBubbleData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSBubbleData.m; sourceTree = "<group>"; };
 		D08D9ED616081AE9008CE380 /* NSBubbleDataInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSBubbleDataInternal.h; sourceTree = "<group>"; };
@@ -917,6 +923,7 @@
 		D063784F15904CA300733F58 /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				D085E3EF1611539300524ECD /* FCache */,
 				D08D9ED316081AE9008CE380 /* bubbletable */,
 				D009B7BB15918C36003C110E /* SBJSON */,
 				D0637A2015907C7100733F58 /* pickerview */,
@@ -1463,6 +1470,17 @@
 			path = SFHFKeychainUtils;
 			sourceTree = "<group>";
 		};
+		D085E3EF1611539300524ECD /* FCache */ = {
+			isa = PBXGroup;
+			children = (
+				D085E3F4161155EE00524ECD /* NSString+MD5.h */,
+				D085E3F5161155EE00524ECD /* NSString+MD5.m */,
+				D085E3F01611539300524ECD /* FTWCache.h */,
+				D085E3F11611539300524ECD /* FTWCache.m */,
+			);
+			path = FCache;
+			sourceTree = "<group>";
+		};
 		D08D9ED316081AE9008CE380 /* bubbletable */ = {
 			isa = PBXGroup;
 			children = (
@@ -1936,6 +1954,8 @@
 				D08D9F94160849C1008CE380 /* UIViewControllerAdditions.m in Sources */,
 				D08D9F9716084F71008CE380 /* UINavigationBarImage.m in Sources */,
 				D01D25FD161029C800D372EC /* MTAnimatedLabel.m in Sources */,
+				D085E3F21611539300524ECD /* FTWCache.m in Sources */,
+				D085E3F6161155EE00524ECD /* NSString+MD5.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -240,6 +240,22 @@
 //    // 增加Tabbar,如果不需要登录界面，把下面这条代码放到didFinishLaunchingWithOptions中
 //    [mainWindow_ addSubview:mainViewController_.view];
     [UIView commitAnimations];
+
+
+    Ivan_UITabBar * tmpViewControllers = (Ivan_UITabBar *)mainViewController_;
+    NSArray *viewControllers =  tmpViewControllers.viewControllers;
+    UINavigationController* homcontroller = [viewControllers objectAtIndex:0];
+    
+    // 设置导航栏背景颜色
+    if ([homcontroller.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)])
+    {
+        [homcontroller.navigationBar setBackgroundImage:[UIImage imageNamed:@"bgCartNavi"] forBarMetrics:UIBarMetricsDefault];
+    }
+    else
+    {
+        [homcontroller.navigationBar setBackgroundImage:[UIImage imageNamed:@"bgCartNavi"]];
+    }
+
 }
 
 #pragma mark - 应用程序委托
@@ -288,6 +304,8 @@
     
     tabBarController.selectedIndex = 0;
     mainViewController_ = tabBarController;
+   
+    
     //,如果不需要登录界面，把下面这条代码放到didFinishLaunchingWithOptions中
     [mainWindow_ addSubview:mainViewController_.view];
     [mainWindow_ addSubview:[[SHHLoginController defaultController].loginViewController view]];

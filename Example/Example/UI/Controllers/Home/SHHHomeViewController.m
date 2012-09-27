@@ -40,12 +40,27 @@
      object:nil ];
     
     
+    isFlip = NO;
+    frontImageView = [[UIImageView alloc] initWithImage:[UIImage
+                                                         imageNamed:@"bubbleMine.png"]];
+    
+    containerView = [[UIView alloc] initWithFrame:frontImageView.bounds];
+    containerView.center = CGPointMake(200,200);
+    [self flipImage:frontImageView Horizontal:NO];
+    [self.view addSubview:containerView];
+    [containerView addSubview:frontImageView];
+    
+    backImageView = [[UIImageView alloc] initWithImage:[UIImage
+                                                        imageNamed:@"bubbleSomeone.png"]];
+    backImageView.center = frontImageView.center;
+
+    
     //右按钮
     UIButton *tmpTabBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [tmpTabBtn setFrame:CGRectMake(0, 0, 55, 37)];
     tmpTabBtn.titleLabel.text= @"push";
     [tmpTabBtn addTarget:self
-                  action:@selector(push)
+                  action:@selector(flipButtonClicked:)
         forControlEvents:UIControlEventTouchUpInside];
     tmpTabBtn.backgroundColor=[UIColor clearColor];
     [tmpTabBtn setBackgroundImage:[UIImage imageNamed:@"collect.png"] forState:UIControlStateNormal];
@@ -110,7 +125,122 @@
 
 	// Do any additional setup after loading the view.
 }
-- (CAGradientLayer *)shadowAsInverse:(CGRect)rect  
+
+-(IBAction)flipButtonClicked:(id)sender
+{
+//    CGRect viewRect = CGRectMake(0.0f, 0.0f, 50.0f, 50.0f);
+//    UIView *containerView  = [[UIView alloc] initWithFrame:viewRect];
+////    containerView.center = self.view.center;
+//    
+//    
+//    UIImageView* frontImageView = [[UIImageView alloc] initWithImage:[UIImage
+//                                                                     imageNamed:@"bubbleMine.png"]];
+//    frontImageView.center = containerView.center;
+//    [containerView addSubview:frontImageView];
+//    
+//    UIImageView* backImageView = [[UIImageView alloc] initWithImage:[UIImage
+//                                                        imageNamed:@"bubbleSomeone.png"]];
+//    backImageView.center = frontImageView.center;
+//    [containerView addSubview:backImageView];
+//    [self.view addSubview:containerView];
+//    
+//    [UIView beginAnimations:nil context:NULL];
+//    [UIView setAnimationDuration:1.0];
+//    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft
+//                           forView:containerView
+//                             cache:YES];
+////    [frontImageView removeFromSuperview];
+////    [containerView addSubview:backImageView];
+//    [containerView exchangeSubviewAtIndex:0 withSubviewAtIndex:1];
+//    [UIView commitAnimations];
+//    
+//    [frontImageView release];
+//    [backImageView release];
+//    [containerView release];
+
+    
+
+    [UIView beginAnimations:@"moveup" context:NULL];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:1.0];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft
+                           forView:containerView
+                             cache:YES];
+    if (!isFlip) {
+        isFlip = YES;
+        [frontImageView removeFromSuperview];
+        [containerView addSubview:backImageView];
+    }
+    else{
+        isFlip = NO;
+        [backImageView removeFromSuperview];
+        [containerView addSubview:frontImageView];
+    }
+    [UIView setAnimationDidStopSelector:@selector(animationMoveDidStop)];
+    [UIView commitAnimations];
+
+    
+    
+}
+
+/*
+ *UIView动画结束后的默认通知方法
+ */
+-(void)animationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context
+{
+    if ([animationID compare:@"moveup"] == NSOrderedSame)
+    {
+        [self deleteanimationView:containerView FromPoint:CGPointMake(0,0) ToPoint:CGPointMake(200,200)];
+    
+        //播放其他的动画
+    }
+    //TODO：其他的动画结束判断
+}
+
+-(void) deleteanimationView:(UIView*)aniView FromPoint:(CGPoint)fromPoint ToPoint:(CGPoint)toPoint
+{
+    aniView.hidden = NO;
+    UIBezierPath *movePath = [UIBezierPath bezierPath];
+    [movePath moveToPoint:fromPoint];
+
+    [movePath addQuadCurveToPoint:toPoint
+      controlPoint:CGPointMake(toPoint.x,fromPoint.y)];
+
+
+    CAKeyframeAnimation *moveAnim = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    moveAnim.path = movePath.CGPath;
+    moveAnim.removedOnCompletion = YES;
+
+    CABasicAnimation *scaleAnim = [CABasicAnimation animationWithKeyPath:@"transform"];
+    scaleAnim.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
+    scaleAnim.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(0.1, 0.1, 1.0)];
+    scaleAnim.removedOnCompletion = YES;
+
+    CABasicAnimation *opacityAnim = [CABasicAnimation animationWithKeyPath:@"alpha"];
+    opacityAnim.fromValue = [NSNumber numberWithFloat:1.0];
+    opacityAnim.toValue = [NSNumber numberWithFloat:0.1];
+    opacityAnim.removedOnCompletion = YES;
+
+    CAAnimationGroup *animGroup = [CAAnimationGroup animation];
+    animGroup.animations = [NSArray arrayWithObjects:moveAnim, scaleAnim,opacityAnim, nil];
+    animGroup.duration = 1;
+    [aniView.layer addAnimation:animGroup forKey:nil];
+    //aniView.hidden = YES;
+}
+
+- (UIImageView *) flipImage:(UIImageView *)originalImage Horizontal:(BOOL)flipHorizontal {
+    if (flipHorizontal) {
+        
+        originalImage.transform = CGAffineTransformMake(originalImage.transform.a * -1, 0, 0, 1, originalImage.transform.tx, 0);
+    }else {
+        
+        originalImage.transform = CGAffineTransformMake(1, 0, 0, originalImage.transform.d * -1, 0, originalImage.transform.ty);
+    }    
+    return originalImage;
+
+}
+
+- (CAGradientLayer *)shadowAsInverse:(CGRect)rect
 {  
     CAGradientLayer *newShadow = [[[CAGradientLayer alloc] init] autorelease];  
     CGRect newShadowFrame = CGRectMake(0, 0, rect.size.width, rect.size.height);  

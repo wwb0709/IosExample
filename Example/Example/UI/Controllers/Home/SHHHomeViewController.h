@@ -10,7 +10,11 @@
 #import <QuartzCore/QuartzCore.h>
 @interface SHHHomeViewController : UIViewController
 {
-UINavigationController *nav;
+    UINavigationController *nav;
+    UIImageView  *frontImageView;
+    UIImageView  *backImageView;
+    UIView *containerView;
+    BOOL  isFlip;
 }
 - (CAGradientLayer *)shadowAsInverse:(CGRect)rect  ;
 @end

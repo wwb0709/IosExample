@@ -8,25 +8,24 @@ sdfsf
 
 
 
-dsfsfsd
+TTTQuadrantControl *quadrantControl = [[[TTTQuadrantControl alloc] initWithFrame:CGRectMake(10, 20, 300, 90)] autorelease];
+quadrantControl.delegate = self;
+[quadrantControl setNumber:[NSNumber numberWithInt:127]
+                   caption:@"following"
+                    action:@selector(didSelectFollowingQuadrant)
+               forLocation:TopLeftLocation];
 
-sdfdsf
+[quadrantControl setNumber:[NSNumber numberWithInt:1728]
+                   caption:@"tweets"
+                    action:@selector(didSelectTweetsQuadrant)
+               forLocation:TopRightLocation];
 
-sdfdfaaaaaaaaaaa
+[quadrantControl setNumber:[NSNumber numberWithInt:352]
+                   caption:@"followers"
+                    action:@selector(didSelectFollowersQuadrant)
+               forLocation:BottomLeftLocation];
 
-
-IosExample
-==========
-Iosexample
-IosProject
-sddsf
-
-sdfsf
-
-
-
-dsfsfsd
-
-sdfdsf
-
-sdfdfaaaaaaaaaaa
+[quadrantControl setNumber:[NSNumber numberWithInt:61]
+                   caption:@"favorites"
+                    action:@selector(didSelectFavoritesQuadrant)
+               forLocation:BottomRightLocation];

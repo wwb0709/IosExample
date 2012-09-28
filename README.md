@@ -2,29 +2,14 @@ IosExample
 ==========
 Iosexample
 IosProject
+sddsf
 
-<<<<<<< HEAD
-
-
-
-
-sfdsf
-=======
-IosProject
+sdfsf
 
 
-sssd
 
-ddd
-
-ddfdsfsd
-
-
-fddsafd
+dsfsfsd
 
 sdfdsf
 
-dfdsf
-
-dfsdf
->>>>>>> ew
+sdfdfaaaaaaaaaaa

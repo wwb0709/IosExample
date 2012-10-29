@@ -43,6 +43,9 @@
 		D02162301609BFF60031E8DE /* customize.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D021622F1609BFF60031E8DE /* customize.framework */; };
 		D0572FBD15FF0EA00071D767 /* UIAlertLable.h in Headers */ = {isa = PBXBuildFile; fileRef = D0572FBB15FF0EA00071D767 /* UIAlertLable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D0572FBE15FF0EA00071D767 /* UIAlertLable.m in Sources */ = {isa = PBXBuildFile; fileRef = D0572FBC15FF0EA00071D767 /* UIAlertLable.m */; };
+		D0EA1A76163E644D0039C1CE /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EA1A75163E644D0039C1CE /* Common.m */; };
+		D0EA1A77163E645F0039C1CE /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EA1A75163E644D0039C1CE /* Common.m */; };
+		D0EA1A78163E647E0039C1CE /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = D0EA1A74163E644D0039C1CE /* Common.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +79,8 @@
 		D021622F1609BFF60031E8DE /* customize.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = customize.framework; path = Products/customize.framework; sourceTree = "<group>"; };
 		D0572FBB15FF0EA00071D767 /* UIAlertLable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertLable.h; sourceTree = "<group>"; };
 		D0572FBC15FF0EA00071D767 /* UIAlertLable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAlertLable.m; sourceTree = "<group>"; };
+		D0EA1A74163E644D0039C1CE /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		D0EA1A75163E644D0039C1CE /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +216,8 @@
 		D0572FBA15FF0EA00071D767 /* customize */ = {
 			isa = PBXGroup;
 			children = (
+				D0EA1A74163E644D0039C1CE /* Common.h */,
+				D0EA1A75163E644D0039C1CE /* Common.m */,
 				D0572FBB15FF0EA00071D767 /* UIAlertLable.h */,
 				D0572FBC15FF0EA00071D767 /* UIAlertLable.m */,
 			);
@@ -224,6 +231,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0EA1A78163E647E0039C1CE /* Common.h in Headers */,
 				60EA0AAC13CB1FD700A0F61F /* customize.h in Headers */,
 				D0572FBD15FF0EA00071D767 /* UIAlertLable.h in Headers */,
 				60EA0ABA13CB206800A0F61F /* customize-Prefix.pch in Headers */,
@@ -343,6 +351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0EA1A77163E645F0039C1CE /* Common.m in Sources */,
 				D0572FBE15FF0EA00071D767 /* UIAlertLable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,6 +363,7 @@
 				60ED4221136C5C2D00F3D3ED /* Framework_iOSAppDelegate.m in Sources */,
 				60ED4222136C5C2D00F3D3ED /* Framework_iOSViewController.m in Sources */,
 				60ED4224136C5C2D00F3D3ED /* main.m in Sources */,
+				D0EA1A76163E644D0039C1CE /* Common.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

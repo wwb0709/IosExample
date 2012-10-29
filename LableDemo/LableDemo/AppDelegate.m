@@ -11,7 +11,8 @@
 #import "FirstViewController.h"
 
 #import "SecondViewController.h"
-
+#import <customize/Common.h>
+#import <customize/customize.h>
 @implementation AppDelegate
 
 @synthesize window = _window;
@@ -27,6 +28,20 @@
     self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, viewController2, nil];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
+    
+    CGRect outerRect = CGRectInset(self.window.bounds, 10, 10);
+    CGMutablePathRef outerPath = createRoundedRectForRect(outerRect, 6.0);
+
+    UIAlertLable * alertView = [[UIAlertLable alloc]initWithTitle:@"有新版本"
+                                                          message:nil
+                                                         delegate:self
+                                                cancelButtonTitle:@"暂不升级"
+                                                otherButtonTitles:@"升级",nil];
+    alertView.content =@"1、第一行\n2、第二行";
+    
+    [alertView show];
+    [alertView release];
+
     return YES;
 }
 

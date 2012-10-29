@@ -35,6 +35,10 @@
     [alertView show];
     [alertView release];
     
+    
+    CGRect outerRect = CGRectInset(self.window.bounds, 10, 10);
+    CGMutablePathRef outerPath = createRoundedRectForRect(outerRect, 6.0);
+    
     return YES;
 }
 

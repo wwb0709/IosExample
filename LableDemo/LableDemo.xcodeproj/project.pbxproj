@@ -21,6 +21,7 @@
 		D06CA79815F447CE0036583F /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D06CA79715F447CE0036583F /* second@2x.png */; };
 		D06CA79B15F447CE0036583F /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06CA79915F447CE0036583F /* FirstViewController.xib */; };
 		D06CA79E15F447CE0036583F /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06CA79C15F447CE0036583F /* SecondViewController.xib */; };
+		D0EA1A7E163E65CB0039C1CE /* customize.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EA1A7D163E65CB0039C1CE /* customize.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		D06CA79715F447CE0036583F /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		D06CA79A15F447CE0036583F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstViewController.xib; sourceTree = "<group>"; };
 		D06CA79D15F447CE0036583F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondViewController.xib; sourceTree = "<group>"; };
+		D0EA1A7D163E65CB0039C1CE /* customize.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = customize.framework; path = "../Framework-iOS/Products/customize.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0EA1A7E163E65CB0039C1CE /* customize.framework in Frameworks */,
 				D06CA77A15F447CE0036583F /* UIKit.framework in Frameworks */,
 				D06CA77C15F447CE0036583F /* Foundation.framework in Frameworks */,
 				D06CA77E15F447CE0036583F /* CoreGraphics.framework in Frameworks */,
@@ -63,6 +66,7 @@
 		D06CA76A15F447CD0036583F = {
 			isa = PBXGroup;
 			children = (
+				D0EA1A7D163E65CB0039C1CE /* customize.framework */,
 				D06CA77F15F447CE0036583F /* LableDemo */,
 				D06CA77815F447CE0036583F /* Frameworks */,
 				D06CA77615F447CE0036583F /* Products */,
@@ -271,6 +275,10 @@
 		D06CA7A215F447CE0036583F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Framework-iOS/Products\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LableDemo/LableDemo-Prefix.pch";
 				INFOPLIST_FILE = "LableDemo/LableDemo-Info.plist";
@@ -283,6 +291,10 @@
 		D06CA7A315F447CE0036583F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Framework-iOS/Products\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LableDemo/LableDemo-Prefix.pch";
 				INFOPLIST_FILE = "LableDemo/LableDemo-Info.plist";

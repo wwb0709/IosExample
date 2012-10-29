@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import <customize/customize.h>
-
+#import <customize/Common.h>
 @class Framework_iOSViewController;
 
 @interface Framework_iOSAppDelegate : NSObject <UIApplicationDelegate> {

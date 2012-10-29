@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import <FI/FI.h>
+#import <FI/FIClassA.h>
 
 @class Framework_iOSViewController;
 

@@ -44,6 +44,8 @@
 		60ED4224136C5C2D00F3D3ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ED4216136C5C2D00F3D3ED /* main.m */; };
 		D0572FBD15FF0EA00071D767 /* UIAlertLable.h in Headers */ = {isa = PBXBuildFile; fileRef = D0572FBB15FF0EA00071D767 /* UIAlertLable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D0572FBE15FF0EA00071D767 /* UIAlertLable.m in Sources */ = {isa = PBXBuildFile; fileRef = D0572FBC15FF0EA00071D767 /* UIAlertLable.m */; };
+		D0EA1A85163E682A0039C1CE /* FI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EA1A84163E682A0039C1CE /* FI.framework */; };
+		D0EA1A88163E6FBA0039C1CE /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EA1A87163E6FBA0039C1CE /* Common.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +80,8 @@
 		60ED42A9136C6A4900F3D3ED /* FIClassA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIClassA.m; sourceTree = "<group>"; };
 		D0572FBB15FF0EA00071D767 /* UIAlertLable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertLable.h; sourceTree = "<group>"; };
 		D0572FBC15FF0EA00071D767 /* UIAlertLable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAlertLable.m; sourceTree = "<group>"; };
+		D0EA1A84163E682A0039C1CE /* FI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FI.framework; path = Products/FI.framework; sourceTree = "<group>"; };
+		D0EA1A87163E6FBA0039C1CE /* Common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Common.framework; path = Products/Common.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0EA1A88163E6FBA0039C1CE /* Common.framework in Frameworks */,
+				D0EA1A85163E682A0039C1CE /* FI.framework in Frameworks */,
 				60ED419C136C58B600F3D3ED /* UIKit.framework in Frameworks */,
 				60ED419E136C58B600F3D3ED /* Foundation.framework in Frameworks */,
 				60ED41A0136C58B600F3D3ED /* CoreGraphics.framework in Frameworks */,
@@ -115,6 +121,8 @@
 		60ED418C136C58B600F3D3ED = {
 			isa = PBXGroup;
 			children = (
+				D0EA1A87163E6FBA0039C1CE /* Common.framework */,
+				D0EA1A84163E682A0039C1CE /* FI.framework */,
 				60ED42A5136C6A4900F3D3ED /* Framework-iOS */,
 				60ED41FF136C5C2D00F3D3ED /* Framework-iOS APP */,
 				60ED419A136C58B600F3D3ED /* Frameworks */,
@@ -236,9 +244,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		60EA0A9E13CB1FBC00A0F61F /* FI */ = {
+		60EA0A9E13CB1FBC00A0F61F /* Common */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 60EA0AA813CB1FBC00A0F61F /* Build configuration list for PBXNativeTarget "FI" */;
+			buildConfigurationList = 60EA0AA813CB1FBC00A0F61F /* Build configuration list for PBXNativeTarget "Common" */;
 			buildPhases = (
 				60EA0A9B13CB1FBC00A0F61F /* Sources */,
 				60EA0A9C13CB1FBC00A0F61F /* Frameworks */,
@@ -249,7 +257,7 @@
 			);
 			dependencies = (
 			);
-			name = FI;
+			name = Common;
 			productName = FI;
 			productReference = 60EA0A9F13CB1FBC00A0F61F /* FI.framework */;
 			productType = "com.apple.product-type.bundle";
@@ -292,7 +300,7 @@
 			projectRoot = "";
 			targets = (
 				60ED4196136C58B600F3D3ED /* Framework-iOS APP */,
-				60EA0A9E13CB1FBC00A0F61F /* FI */,
+				60EA0A9E13CB1FBC00A0F61F /* Common */,
 				60ED4255136C60AC00F3D3ED /* Build All */,
 			);
 		};
@@ -337,7 +345,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Sets the target folders and the final framework product.\nFMK_NAME=FI\nFMK_VERSION=A\n\n# Install dir will be the final output to the framework.\n# The following line create it in the root folder of the current project.\nINSTALL_DIR=${SRCROOT}/Products/${FMK_NAME}.framework\n\n# Working dir will be deleted after the framework creation.\nWRK_DIR=build\nDEVICE_DIR=${WRK_DIR}/Release-iphoneos/${FMK_NAME}.framework\nSIMULATOR_DIR=${WRK_DIR}/Release-iphonesimulator/${FMK_NAME}.framework\n\n# Building both architectures.\nxcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphoneos\nxcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphonesimulator\n\n# Cleaning the oldest.\nif [ -d \"${INSTALL_DIR}\" ]\nthen\nrm -rf \"${INSTALL_DIR}\"\nfi\n\n# Creates and renews the final product folder.\nmkdir -p \"${INSTALL_DIR}\"\nmkdir -p \"${INSTALL_DIR}/Versions\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FMK_VERSION}\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Headers\"\n\n# Creates the internal links.\n# It MUST uses relative path, otherwise will not work when the folder is copied/moved.\nln -s \"${FMK_VERSION}\" \"${INSTALL_DIR}/Versions/Current\"\nln -s \"Versions/Current/Headers\" \"${INSTALL_DIR}/Headers\"\nln -s \"Versions/Current/Resources\" \"${INSTALL_DIR}/Resources\"\nln -s \"Versions/Current/${FMK_NAME}\" \"${INSTALL_DIR}/${FMK_NAME}\"\n\n# Copies the headers and resources files to the final product folder.\ncp -R \"${DEVICE_DIR}/Headers/\" \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Headers/\"\ncp -R \"${DEVICE_DIR}/\" \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources/\"\n\n# Removes the binary and header from the resources folder.\nrm -r \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources/Headers\" \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources/${FMK_NAME}\"\n\n# Uses the Lipo Tool to merge both binary files (i386 + armv6/armv7) into one Universal final product.\nlipo -create \"${DEVICE_DIR}/${FMK_NAME}\" \"${SIMULATOR_DIR}/${FMK_NAME}\" -output \"${INSTALL_DIR}/Versions/${FMK_VERSION}/${FMK_NAME}\"\n\nrm -r \"${WRK_DIR}\"";
+			shellScript = "# Sets the target folders and the final framework product.\nFMK_NAME=Common\nFMK_VERSION=A\n\n# Install dir will be the final output to the framework.\n# The following line create it in the root folder of the current project.\nINSTALL_DIR=${SRCROOT}/Products/${FMK_NAME}.framework\n\n# Working dir will be deleted after the framework creation.\nWRK_DIR=build\nDEVICE_DIR=${WRK_DIR}/Release-iphoneos/${FMK_NAME}.framework\nSIMULATOR_DIR=${WRK_DIR}/Release-iphonesimulator/${FMK_NAME}.framework\n\n# Building both architectures.\nxcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphoneos\nxcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphonesimulator\n\n# Cleaning the oldest.\nif [ -d \"${INSTALL_DIR}\" ]\nthen\nrm -rf \"${INSTALL_DIR}\"\nfi\n\n# Creates and renews the final product folder.\nmkdir -p \"${INSTALL_DIR}\"\nmkdir -p \"${INSTALL_DIR}/Versions\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FMK_VERSION}\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Headers\"\n\n# Creates the internal links.\n# It MUST uses relative path, otherwise will not work when the folder is copied/moved.\nln -s \"${FMK_VERSION}\" \"${INSTALL_DIR}/Versions/Current\"\nln -s \"Versions/Current/Headers\" \"${INSTALL_DIR}/Headers\"\nln -s \"Versions/Current/Resources\" \"${INSTALL_DIR}/Resources\"\nln -s \"Versions/Current/${FMK_NAME}\" \"${INSTALL_DIR}/${FMK_NAME}\"\n\n# Copies the headers and resources files to the final product folder.\ncp -R \"${DEVICE_DIR}/Headers/\" \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Headers/\"\ncp -R \"${DEVICE_DIR}/\" \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources/\"\n\n# Removes the binary and header from the resources folder.\nrm -r \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources/Headers\" \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources/${FMK_NAME}\"\n\n# Uses the Lipo Tool to merge both binary files (i386 + armv6/armv7) into one Universal final product.\nlipo -create \"${DEVICE_DIR}/${FMK_NAME}\" \"${SIMULATOR_DIR}/${FMK_NAME}\" -output \"${INSTALL_DIR}/Versions/${FMK_VERSION}/${FMK_NAME}\"\n\nrm -r \"${WRK_DIR}\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -579,7 +587,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		60EA0AA813CB1FBC00A0F61F /* Build configuration list for PBXNativeTarget "FI" */ = {
+		60EA0AA813CB1FBC00A0F61F /* Build configuration list for PBXNativeTarget "Common" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				60EA0AA913CB1FBC00A0F61F /* Debug */,

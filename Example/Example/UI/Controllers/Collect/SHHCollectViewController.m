@@ -268,26 +268,16 @@
     {
 		window = [[UIApplication sharedApplication].windows objectAtIndex:0];
 	}
-//    [nav.view setFrame:CGRectMake(window.bounds.size.width/2,window.bounds.size.height/2, 0, 0)];
+
      [window addSubview:nav.view];
     [UIView animateWithDuration:.3f  animations:^{
-        // fade out the buttons
-        //        for(SEMenuItem *item in self.items) {
-        //            item.transform = [self offscreenQuadrantTransformForView:item];
-        //            item.alpha = 0.f;
-        //        }
-        
+
         // fade in the selected view
         nav.view.alpha = 1.f;
         nav.view.transform = CGAffineTransformIdentity;
 
         [nav.view setFrame:CGRectMake(0,20, self.view.bounds.size.width, self.view.bounds.size.height+45)];
         
-//        self.navigationController.navigationBar.hidden = YES;
-//        [viewController.view setFrame:CGRectMake(0,-20, window.bounds.size.width, window.bounds.size.height)];
-        
-        // fade out the top bar
-        //        [navigationBar setFrame:CGRectMake(0, -44, 320, 44)];
     }];
     
 
@@ -309,16 +299,10 @@
         viewToRemove.alpha = 0.f;
         viewToRemove.transform = CGAffineTransformMakeScale(.1f, .1f);
         [nav.view setFrame:CGRectMake(window.bounds.size.width/2,window.bounds.size.height/2, 0, 0)];
-        //        for(SEMenuItem *item in self.items) {
-        //            item.transform = CGAffineTransformIdentity;
-        //            item.alpha = 1.f;
-        //        }
-        //        [navigationBar setFrame:CGRectMake(0, 0, 320, 44)];
+
     } completion:^(BOOL finished) {
         [viewToRemove removeFromSuperview];
         [nav release];
-//         self.navigationController.navigationBar.hidden = NO;
-//         [[AppDelegate sharedApplication] hiddenTabBar:NO];
     }];
     
     // release the dynamically created navigation bar

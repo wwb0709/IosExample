@@ -265,6 +265,8 @@
 		D0AC92F2166D8F5D00AB5B40 /* TestCallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0AC92F0166D8F5D00AB5B40 /* TestCallViewController.xib */; };
 		D0AC92FE166DC18300AB5B40 /* iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D0AC92FD166DC18300AB5B40 /* iphone.png */; };
 		D0AC9301166DC85800AB5B40 /* CacheUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D0AC9300166DC85800AB5B40 /* CacheUtil.m */; };
+		D0AC9309166DD4E500AB5B40 /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0AC9306166DD4E200AB5B40 /* InputViewController.m */; };
+		D0AC930A166DD4E500AB5B40 /* InputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0AC9307166DD4E300AB5B40 /* InputViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -733,6 +735,9 @@
 		D0AC92FD166DC18300AB5B40 /* iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone.png; sourceTree = "<group>"; };
 		D0AC92FF166DC85800AB5B40 /* CacheUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheUtil.h; sourceTree = "<group>"; };
 		D0AC9300166DC85800AB5B40 /* CacheUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheUtil.m; sourceTree = "<group>"; };
+		D0AC9306166DD4E200AB5B40 /* InputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputViewController.m; sourceTree = "<group>"; };
+		D0AC9307166DD4E300AB5B40 /* InputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputViewController.xib; sourceTree = "<group>"; };
+		D0AC9308166DD4E400AB5B40 /* InputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1631,6 +1636,9 @@
 		D08D9F2C16084286008CE380 /* Collect */ = {
 			isa = PBXGroup;
 			children = (
+				D0AC9306166DD4E200AB5B40 /* InputViewController.m */,
+				D0AC9307166DD4E300AB5B40 /* InputViewController.xib */,
+				D0AC9308166DD4E400AB5B40 /* InputViewController.h */,
 				D08D9F2D16084286008CE380 /* SHHCollectController.h */,
 				D08D9F2E16084286008CE380 /* SHHCollectController.m */,
 				D08D9F2F16084286008CE380 /* SHHCollectNavigationController.h */,
@@ -1863,6 +1871,7 @@
 				D053BED7166C825C0026B2B6 /* iphone5.png in Resources */,
 				D0AC92F2166D8F5D00AB5B40 /* TestCallViewController.xib in Resources */,
 				D0AC92FE166DC18300AB5B40 /* iphone.png in Resources */,
+				D0AC930A166DD4E500AB5B40 /* InputViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2056,6 +2065,7 @@
 				D053BED2166C76840026B2B6 /* SysPersonEntity.m in Sources */,
 				D0AC92F1166D8F5D00AB5B40 /* TestCallViewController.m in Sources */,
 				D0AC9301166DC85800AB5B40 /* CacheUtil.m in Sources */,
+				D0AC9309166DD4E500AB5B40 /* InputViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

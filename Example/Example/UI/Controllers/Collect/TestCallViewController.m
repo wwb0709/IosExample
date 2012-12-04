@@ -8,6 +8,7 @@
 
 #import "TestCallViewController.h"
 #import <AddressBook/AddressBook.h>
+
 @interface TestCallViewController ()
 
 @end
@@ -76,6 +77,7 @@
 - (IBAction)dial:(id)sender {
     self.phonenum.text = self.inputPhoneNum.text;
     self.dialstatu.text = @"正在拨打...";
+    [self sendObject:self.dialstatu.text];
     [self.inputPhoneNum resignFirstResponder];
     NSString * number = self.phonenum.text;
     

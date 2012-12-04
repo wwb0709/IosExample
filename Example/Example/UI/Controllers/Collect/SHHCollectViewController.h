@@ -12,6 +12,8 @@
 {
     NSMutableDictionary *itemsArry;
     UITableView *tableview;
+    UINavigationController *nav;
+
 }
 @property (nonatomic, retain) UITableView *tableview;
 @property (nonatomic, retain) NSMutableDictionary *itemsArry;

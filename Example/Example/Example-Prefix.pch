@@ -16,4 +16,5 @@
     #import "UINavigationBarImage.h"
     #import "AppDelegate.h"
     #import "CacheUtil.h"
+    #import "BlockUI.h"
 #endif

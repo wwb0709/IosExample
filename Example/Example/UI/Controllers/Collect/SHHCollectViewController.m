@@ -85,23 +85,7 @@
      selector:@selector(closeViewEventHandler:)
      name:@"closeView"
      object:nil ];
-    
-    
-    //右按钮
-    UIButton *tmpTabBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [tmpTabBtn setFrame:CGRectMake(0, 0, 55, 37)];
-    tmpTabBtn.titleLabel.text= @"pop";
-    [tmpTabBtn addTarget:self
-                  action:@selector(pop)
-        forControlEvents:UIControlEventTouchUpInside];
-    tmpTabBtn.backgroundColor=[UIColor clearColor];
-    [tmpTabBtn setBackgroundImage:[UIImage imageNamed:@"search.png"] forState:UIControlStateNormal];
-    [tmpTabBtn setBackgroundImage:[UIImage imageNamed:@"search.png"] forState:UIControlStateHighlighted];
-    UIBarButtonItem * tmpBarBtn = [[UIBarButtonItem alloc] initWithCustomView:tmpTabBtn];
-    
-    self.navigationItem.leftBarButtonItem = tmpBarBtn;
-    [tmpBarBtn release];
-    
+
     
     
     self.itemsArry = [NSMutableDictionary dictionary];

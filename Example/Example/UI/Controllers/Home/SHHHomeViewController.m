@@ -39,8 +39,27 @@
      name:@"closeView"
      object:nil ];
     
-    
+    tickets = 100;
+    count = 0;
     isFlip = NO;
+    
+
+    NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"test" ofType:@"bundle"]];
+    NSString *imageName = [bundle pathForResource:@"bubbleMine" ofType:@"tiff"];
+    
+    NSLog(@"bundle:%@--image:%@",bundle,imageName);
+    UIImage *closeButton = [[UIImage alloc] initWithContentsOfFile:imageName];
+    
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:closeButton];
+    [self.view addSubview:tempImageView];
+    
+    
+    tempImageView.frame = CGRectMake(100, 100, 43, 43);
+    [tempImageView release];
+    
+    
+    
+    
     frontImageView = [[UIImageView alloc] initWithImage:[UIImage
                                                          imageNamed:@"bubbleMine.png"]];
     
@@ -58,9 +77,9 @@
     //右按钮
     UIButton *tmpTabBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [tmpTabBtn setFrame:CGRectMake(0, 0, 55, 37)];
-    tmpTabBtn.titleLabel.text= @"push";
+    tmpTabBtn.titleLabel.text= @"startThread";
     [tmpTabBtn addTarget:self
-                  action:@selector(flipButtonClicked:)
+                  action:@selector(startThread)
         forControlEvents:UIControlEventTouchUpInside];
     tmpTabBtn.backgroundColor=[UIColor clearColor];
     [tmpTabBtn setBackgroundImage:[UIImage imageNamed:@"collect.png"] forState:UIControlStateNormal];
@@ -69,6 +88,25 @@
     
     self.navigationItem.rightBarButtonItem = tmpBarBtn;
     [tmpBarBtn release];
+    
+    
+    
+    //左按钮
+    UIButton *tmpTabBtn1 = [UIButton buttonWithType:UIButtonTypeCustom];
+    [tmpTabBtn1 setFrame:CGRectMake(0, 0, 55, 37)];
+    tmpTabBtn1.titleLabel.text= @"startThread";
+    [tmpTabBtn1 addTarget:self
+                  action:@selector(stopThread)
+        forControlEvents:UIControlEventTouchUpInside];
+    tmpTabBtn1.backgroundColor=[UIColor clearColor];
+    [tmpTabBtn1 setBackgroundImage:[UIImage imageNamed:@"collect.png"] forState:UIControlStateNormal];
+    [tmpTabBtn1 setBackgroundImage:[UIImage imageNamed:@"collect_h.png"] forState:UIControlStateHighlighted];
+    UIBarButtonItem * tmpBarBtn1 = [[UIBarButtonItem alloc] initWithCustomView:tmpTabBtn1];
+    
+    self.navigationItem.leftBarButtonItem = tmpBarBtn1;
+    [tmpBarBtn1 release];
+    
+   
     return;
     
 //    MTAnimatedLabel *animatedLabel = [[MTAnimatedLabel alloc] initWithFrame:CGRectMake(50, 50, 320, 100)];
@@ -124,6 +162,62 @@
     [textImageView release];
 
 	// Do any additional setup after loading the view.
+}
+
+-(void)startThread
+{
+
+    // 锁对象
+    ticketsCondition = [[NSCondition alloc] init];
+    ticketsThreadone = [[NSThread alloc] initWithTarget:self selector:@selector(run) object:nil];
+    [ticketsThreadone setName:@"Thread-1"];
+    [ticketsThreadone start];
+    
+    
+    ticketsThreadtwo = [[NSThread alloc] initWithTarget:self selector:@selector(run) object:nil];
+    [ticketsThreadtwo setName:@"Thread-2"];
+    [ticketsThreadtwo start];
+    //[NSThread detachNewThreadSelector:@selector(run) toTarget:self withObject:nil];
+
+}
+
+
+-(void)stopThread
+{
+    [ticketsThreadtwo cancel];
+    [ticketsThreadtwo release];
+    ticketsThreadtwo = nil;
+    [ticketsThreadone cancel];
+    [ticketsThreadone release];
+    ticketsThreadone = nil;
+    
+    
+    if (ticketsThreadtwo.isExecuting) {
+           NSLog(@"线程名:%@ isExecuting",[[NSThread currentThread] name]);
+    }
+    
+}
+- (void)run{
+    while (TRUE) {
+     	// 上锁
+        [ticketsCondition lock];
+        if(tickets > 0&&[[NSThread currentThread] isCancelled] == NO){
+            [NSThread sleepForTimeInterval:0.5];
+            count = 100 - tickets;
+            NSLog(@"当前票数是:%d,售出:%d,线程名:%@",tickets,count,[[NSThread currentThread] name]);
+            tickets--;
+        }else{
+            break;
+        }
+        [ticketsCondition unlock];
+    }
+}
+
+- (void)dealloc {
+	[ticketsThreadone release];
+    [ticketsThreadtwo release];
+    [ticketsCondition release];
+    [super dealloc];
 }
 
 -(IBAction)flipButtonClicked:(id)sender

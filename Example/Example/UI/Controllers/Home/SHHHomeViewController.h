@@ -15,6 +15,14 @@
     UIImageView  *backImageView;
     UIView *containerView;
     BOOL  isFlip;
+    
+    
+    
+    int tickets;
+    int count;
+    NSThread* ticketsThreadone;
+    NSThread* ticketsThreadtwo;
+    NSCondition* ticketsCondition;
 }
 - (CAGradientLayer *)shadowAsInverse:(CGRect)rect  ;
 @end

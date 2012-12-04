@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SHHCollectViewController : UIViewController
+@interface SHHCollectViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+{
+    NSMutableDictionary *itemsArry;
+    UITableView *tableview;
+}
+@property (nonatomic, retain) UITableView *tableview;
+@property (nonatomic, retain) NSMutableDictionary *itemsArry;
+
 
 @end

@@ -31,6 +31,53 @@
     isCamera = FALSE;
     targetURL = [[NSURL alloc] init];
     
+   
+//    NSURL *url = [NSURL URLWithString:@"http://www.rrsc.cn/png/Ico/201209172227.png"];
+//    
+//    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+//    self.chosedImage.image = image; // 在主线程中更新imageview
+    
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        NSURL *url = [NSURL URLWithString:@"http://www.rrsc.cn/png/Ico/201209172227.png"];
+        
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+
+        
+        dispatch_async(dispatch_get_main_queue (), ^{
+
+            self.chosedImage.image = image; // 在主线程中更新imageview
+            self.chosedImage.alpha = 1;
+            [UIView animateWithDuration:1.3 animations:^{
+                CGRect frame =   [self.chosedImage frame];
+                
+                frame.origin.x -= 150;
+                [self.chosedImage setFrame:frame];
+                self.chosedImage.alpha = 0;
+
+                
+            } completion:^(BOOL finished){
+                [UIView animateWithDuration:1.3 animations:^{
+                    CGRect frame =   [self.chosedImage frame];
+                    
+                    frame.origin.x += 150;
+                    [self.chosedImage setFrame:frame];
+                    self.chosedImage.alpha = 1;
+                    
+                    
+                } completion:^(BOOL finished){
+                    
+                }];
+
+            }];
+
+            
+        });
+        
+    });
+    
+        
 }
 
 - (void)didReceiveMemoryWarning

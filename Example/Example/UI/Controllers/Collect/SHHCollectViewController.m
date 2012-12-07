@@ -180,11 +180,58 @@
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] ;
+        UIActivityIndicatorView *activeIndicatorView=[[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        
+        [cell.imageView addSubview:activeIndicatorView];//[UIImage imageNamed:@"process.png"];
+        
+        [activeIndicatorView release];
+        
+        [[cell.imageView.subviews lastObject]  startAnimating];
+       
+        [[cell.imageView.subviews lastObject] setFrame:CGRectMake(30, 30,20, 20)];
+        
+        cell.imageView.image = [UIImage imageNamed:@"201209172227.png"];
+       
+        //设置一个default图片，要不然activityindicator不会显示
     }
     
 
     NSString * tmpSectionKey = [[self.itemsArry allKeys] objectAtIndex:rowIdx];
     cell.textLabel.text = tmpSectionKey;
+    
+
+    
+     NSMutableArray *arr  = [self.itemsArry objectForKey:tmpSectionKey];
+    if ([arr count]==4) {
+        return cell;
+    }
+    
+    //下载图片
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        NSURL *url = [NSURL URLWithString:@"http://www.rrsc.cn/png/Ico/201209172227.png"];
+        
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+        
+        
+        dispatch_async(dispatch_get_main_queue (), ^{
+            [[cell.imageView.subviews lastObject] removeFromSuperview];
+            cell.imageView.image = image; // 在主线程中更新imageview
+            cell.imageView.alpha = 0;
+            [UIView animateWithDuration:1.3 animations:^{
+
+                cell.imageView.alpha = 1;
+                
+                
+            } completion:^(BOOL finished){
+                              
+            }];
+            NSMutableArray *arr  = [self.itemsArry objectForKey:tmpSectionKey];
+            [arr addObject:@"hasadded"];
+            
+        });
+        
+    });
     
     return cell;
 }

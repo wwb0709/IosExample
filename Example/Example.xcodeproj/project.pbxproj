@@ -284,6 +284,7 @@
 		D0AC9301166DC85800AB5B40 /* CacheUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D0AC9300166DC85800AB5B40 /* CacheUtil.m */; };
 		D0AC9309166DD4E500AB5B40 /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0AC9306166DD4E200AB5B40 /* InputViewController.m */; };
 		D0AC930A166DD4E500AB5B40 /* InputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0AC9307166DD4E300AB5B40 /* InputViewController.xib */; };
+		D0DA331A1671EA4D00CE02D2 /* 201209172227.png in Resources */ = {isa = PBXBuildFile; fileRef = D0DA33191671EA4D00CE02D2 /* 201209172227.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -775,6 +776,7 @@
 		D0AC9306166DD4E200AB5B40 /* InputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputViewController.m; sourceTree = "<group>"; };
 		D0AC9307166DD4E300AB5B40 /* InputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputViewController.xib; sourceTree = "<group>"; };
 		D0AC9308166DD4E400AB5B40 /* InputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputViewController.h; sourceTree = "<group>"; };
+		D0DA33191671EA4D00CE02D2 /* 201209172227.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 201209172227.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1032,6 +1034,7 @@
 		D063770D15904AF700733F58 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D0DA33191671EA4D00CE02D2 /* 201209172227.png */,
 				D08D9F071608423F008CE380 /* bottombar */,
 				D0219342166EEEE800255846 /* Icon@2x.png */,
 				D0219340166EEEE000255846 /* Icon.png */,
@@ -1952,6 +1955,7 @@
 				D0219343166EEEE800255846 /* Icon@2x.png in Resources */,
 				D0219355166F164100255846 /* testFtpViewController.xib in Resources */,
 				D021938D166F40B400255846 /* t.bundle in Resources */,
+				D0DA331A1671EA4D00CE02D2 /* 201209172227.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

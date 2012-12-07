@@ -35,7 +35,7 @@ static BOOL FIRSTTIME =YES;
 													 name: @"setBadge"
 												   object: nil];
 		
-		slideBg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"slide"]];
+		slideBg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg4X98_"]];
 		[self customTabBar];
         [self hideRealTabBar];
 		
@@ -69,17 +69,22 @@ static BOOL FIRSTTIME =YES;
 }
 
 -(void) hideTabBar:(UITabBarController*) tabbarcontroller {
+    int off = 480;
+    if (IS_IPHONE_5) {
+        off = 568;
+    }
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.5];
     for(UIView*view in tabbarcontroller.view.subviews)
     {
         if([view isKindOfClass:[UITabBar class]])
         {
-            [view setFrame:CGRectMake(view.frame.origin.x,480, view.frame.size.width, view.frame.size.height)];
+         
+            [view setFrame:CGRectMake(view.frame.origin.x,off, view.frame.size.width, view.frame.size.height)];
         }
         else
         {
-            [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width,480)];
+            [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width,off)];
         }
         
     }
@@ -90,7 +95,10 @@ static BOOL FIRSTTIME =YES;
 }
 
 -(void) showTabBar:(UITabBarController*) tabbarcontroller {
-    
+    int off = 480;
+    if (IS_IPHONE_5) {
+        off = 568;
+    }
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.5];
     for(UIView*view in tabbarcontroller.view.subviews)
@@ -99,11 +107,11 @@ static BOOL FIRSTTIME =YES;
         
         if([view isKindOfClass:[UITabBar class]])
         {
-            [view setFrame:CGRectMake(view.frame.origin.x,480, view.frame.size.width, view.frame.size.height)];
+            [view setFrame:CGRectMake(view.frame.origin.x,off, view.frame.size.width, view.frame.size.height)];
         }
         else
         {
-            [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width,480)];
+            [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width,off)];
         }
         
     }
@@ -214,7 +222,7 @@ static BOOL FIRSTTIME =YES;
 	[self.view addSubview:cusTomTabBarView];
 	[cusTomTabBarView addSubview:slideBg];
 	[cusTomTabBarView release];
-#if 0
+#if 1
 	[self performSelector:@selector(slideTabBg:) withObject:[self.buttons objectAtIndex:0]];
 #endif
 }
@@ -245,7 +253,7 @@ static BOOL FIRSTTIME =YES;
 	}
 	self.currentSelectedIndex = button.tag;
 	self.selectedIndex = self.currentSelectedIndex;
-#if 0
+#if 1
 	[self performSelector:@selector(slideTabBg:) withObject:button];
 #endif
 }

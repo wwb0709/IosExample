@@ -91,7 +91,7 @@
     [self.view addSubview:backGroundView];
     [self.view addSubview:bar];
     
-    [textName becomeFirstResponder];
+    //[textName becomeFirstResponder];
     
     [labelName release];
     [backGroundView release];

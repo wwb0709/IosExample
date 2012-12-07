@@ -13,6 +13,7 @@
 #import "TestCallViewController.h"
 #import "InputViewController.h"
 #import "ViewController.h"
+#import "testFtpViewController.h"
 
 @interface SHHCollectViewController ()
 
@@ -22,6 +23,7 @@
 @implementation SHHCollectViewController
 @synthesize tableview;
 @synthesize itemsArry;
+@synthesize myblocks;
 - (id)init
 {
     self = [super init];
@@ -99,10 +101,27 @@
     [arr1 addObject:[ViewController class]];
     [arr1 addObject:@"ViewController"];
     [arr1 addObject:@"selfpresent"];
-    [self.itemsArry setValue:arr1 forKey:@"sendobject"];
+    [self.itemsArry setValue:arr1 forKey:@"sms对话"];
+    
+    
+    
+    NSMutableArray *arr2 = [NSMutableArray array];
+    [arr2 addObject:[testFtpViewController class]];
+    [arr2 addObject:@"testFtpViewController"];
+    [arr2 addObject:@"push"];
+    [self.itemsArry setValue:arr2 forKey:@"ftptest"];
+    
+    
+    NSMutableArray *arr3 = [NSMutableArray array];
+    [arr3 addObject:[InputViewController class]];
+    [arr3 addObject:@"InputViewController"];
+    [arr3 addObject:@"present"];
+    [self.itemsArry setValue:arr3 forKey:@"sendobject"];
+    
+    
 
     
-    UITableView *tmpTable = [[UITableView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width, self.view.frame.size.height-100)];
+    UITableView *tmpTable = [[UITableView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width, self.view.frame.size.height)];
     tmpTable.delegate = self;
     tmpTable.dataSource = self;
     
@@ -220,6 +239,16 @@
         else  if ([[arr objectAtIndex:2] isEqual:@"present"])
         {
             [self.navigationController presentModalViewController:tmpViewController animated:YES];
+            NSString *str= @"111112w222";
+            
+           
+            self.myblocks = ^(id object) {
+                 printLog(@"tmpViewController: %@ %@",@"HELLO",str);
+            };
+            
+        
+            //看这里
+            [tmpViewController receiveObject:self.myblocks];
             
         
         }
@@ -276,7 +305,7 @@
         nav.view.alpha = 1.f;
         nav.view.transform = CGAffineTransformIdentity;
 
-        [nav.view setFrame:CGRectMake(0,20, self.view.bounds.size.width, self.view.bounds.size.height+45)];
+        [nav.view setFrame:CGRectMake(0,20, self.view.bounds.size.width, self.view.bounds.size.height+100)];
         
     }];
     

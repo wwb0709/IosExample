@@ -19,6 +19,9 @@
 #define KPOSTFILENAME @"postfilename"
 #define KPOSTCONTENTTYPE @"postcontenttype"
 #define KPOSTKEY @"postkey"
+
+#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+
 typedef enum
 {
 	Iphone_1G,

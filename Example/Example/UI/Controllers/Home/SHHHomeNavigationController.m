@@ -33,6 +33,7 @@
         return;
 	
     homeViewController_ = [[SHHHomeViewController alloc] init];
+    homeViewController_.view.frame =CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height+200);
     // 设置导航根视图
     [self pushViewController:homeViewController_ animated:NO];
 }

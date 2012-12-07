@@ -406,33 +406,16 @@
     [viewControllers release];
     
     tabBarController.selectedIndex = 0;
+    tabBarController.view.frame = [UIScreen mainScreen].bounds;
+    
     mainViewController_ = tabBarController;
    
     
     //,如果不需要登录界面，把下面这条代码放到didFinishLaunchingWithOptions中
     [mainWindow_ addSubview:mainViewController_.view];
-    [mainWindow_ addSubview:[[SHHLoginController defaultController].loginViewController view]];
-    
-    
-//    UIButton *button2 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//    [[[SHHLoginController defaultController].loginViewController view] addSubview:button2];
-//    button2.frame = CGRectMake(170, 50, 100, 44);
-//    [button2 setTitle:@"action sheet" forState:UIControlStateNormal];
-//    
-//    [button2 handleControlEvent:UIControlEventTouchUpInside withBlock:^(id sender) {
-//        UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil
-//                                                           delegate:nil
-//                                                  cancelButtonTitle:@"cancel"
-//                                             destructiveButtonTitle:nil
-//                                                  otherButtonTitles:@"item1",@"item2",nil];
-//        [sheet showInView:[[SHHLoginController defaultController].loginViewController view] withCompletionHandler:^(NSInteger buttonIndex) {
-//            NSLog(@"action:%d",buttonIndex);
-//        }];
-//        
-//        
-//    }];
+//    [mainWindow_ addSubview:[[SHHLoginController defaultController].loginViewController view]];
+ 
 
-       NSLog(@"线程名:%@ isExecuting",[[NSThread currentThread] name]);
     [mainWindow_ makeKeyAndVisible];
     
     return YES;

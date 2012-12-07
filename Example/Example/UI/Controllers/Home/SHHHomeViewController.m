@@ -21,7 +21,7 @@
     if (self)
     {
         self.title = @"首页--";
-        self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg640X960"]];
+        self.view.backgroundColor = [UIColor grayColor];//[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg640X960"]];
        
     }
     

@@ -9,11 +9,15 @@
 #import "Sudoku.h"
 #import "Cell.h"
 #import "global.h"
-@interface GameLayer : CCLayer
+#import "IntroLayer.h"
+#import "MenuLayer.h"
+@interface GameLayer : CCLayer<CurrentSelectDelegate>
 {
     Cell *cells[9][9];
     Sudoku *sudokuCreator;
     NSTimer *gameTimer;
+    int x;
+    int y;
 }
 
 @property (retain,nonatomic) Sudoku *sudokuCreator;

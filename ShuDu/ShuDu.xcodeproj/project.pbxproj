@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D026803F16781DBB007FDF3D /* MenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D026803E16781DBB007FDF3D /* MenuLayer.m */; };
+		D04D3C66167624D700A85277 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D04D3C65167624D700A85277 /* Default-568h@2x.png */; };
 		D08297EC166F7C4600D0013E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08297EB166F7C4600D0013E /* QuartzCore.framework */; };
 		D08297EE166F7C4600D0013E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08297ED166F7C4600D0013E /* OpenGLES.framework */; };
 		D08297F0166F7C4600D0013E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08297EF166F7C4600D0013E /* OpenAL.framework */; };
@@ -195,6 +197,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D026803D16781DBB007FDF3D /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayer.h; sourceTree = "<group>"; };
+		D026803E16781DBB007FDF3D /* MenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuLayer.m; sourceTree = "<group>"; };
+		D04D3C65167624D700A85277 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D08297E7166F7C4600D0013E /* ShuDu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShuDu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D08297EB166F7C4600D0013E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D08297ED166F7C4600D0013E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -547,6 +552,7 @@
 		D08297DC166F7C4600D0013E = {
 			isa = PBXGroup;
 			children = (
+				D04D3C65167624D700A85277 /* Default-568h@2x.png */,
 				D08297FD166F7C4600D0013E /* ShuDu */,
 				D08297EA166F7C4600D0013E /* Frameworks */,
 				D08297E8166F7C4600D0013E /* Products */,
@@ -596,6 +602,8 @@
 				D09E9F8516758B9E004AEAD3 /* global.h */,
 				D09E9F911675D226004AEAD3 /* Utility.h */,
 				D09E9F921675D227004AEAD3 /* Utility.m */,
+				D026803D16781DBB007FDF3D /* MenuLayer.h */,
+				D026803E16781DBB007FDF3D /* MenuLayer.m */,
 			);
 			path = ShuDu;
 			sourceTree = "<group>";
@@ -1154,6 +1162,7 @@
 				D09E9FC71675D698004AEAD3 /* set@2x.png in Resources */,
 				D09E9FC81675D698004AEAD3 /* square@2x.png in Resources */,
 				D09E9FC91675D698004AEAD3 /* submit@2x.png in Resources */,
+				D04D3C66167624D700A85277 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1273,6 +1282,7 @@
 				D09E9F8416758589004AEAD3 /* Sudoku.m in Sources */,
 				D09E9F9016758EA7004AEAD3 /* Cell.m in Sources */,
 				D09E9F931675D228004AEAD3 /* Utility.m in Sources */,
+				D026803F16781DBB007FDF3D /* MenuLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

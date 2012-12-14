@@ -406,14 +406,40 @@
     [viewControllers release];
     
     tabBarController.selectedIndex = 0;
-   // tabBarController.view.frame = [UIScreen mainScreen].bounds;
+    tabBarController.view.frame = [UIScreen mainScreen].bounds;
     
     mainViewController_ = tabBarController;
    
     
     //,如果不需要登录界面，把下面这条代码放到didFinishLaunchingWithOptions中
     [mainWindow_ addSubview:mainViewController_.view];
+ 
 //    [mainWindow_ addSubview:[[SHHLoginController defaultController].loginViewController view]];
+    
+    //启动画面
+    UIImageView* splashView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0, 320, 480)];
+    splashView.image = [UIImage imageNamed:@"Default.png"];
+    [mainWindow_ addSubview:splashView];
+
+//    splashView.alpha = 0;
+    [UIView animateWithDuration:1.0 animations:^{
+
+//       [UIView setAnimationTransition:UIViewAnimationTransitionNone forView: self.window cache:YES];
+
+//        splashView.frame = CGRectMake(-320,0,320,480);
+        splashView.alpha = 0;
+    }
+    completion:^(BOOL finished){
+        [splashView removeFromSuperview];
+        [splashView release];
+        
+    }];
+
+    
+    
+    
+    
+    
  
 
     [mainWindow_ makeKeyAndVisible];

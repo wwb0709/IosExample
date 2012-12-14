@@ -40,6 +40,15 @@
 }
 
 #pragma mark - 
+-(void)viewDidAppear:(BOOL)animated
+{
+   
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [[AppDelegate sharedApplication] hiddenTabBar:NO];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     _leftArray = [[NSMutableArray alloc] init];
@@ -63,6 +72,8 @@
                [UIImage imageNamed:@"9.jpeg"], 
                [UIImage imageNamed:@"10.jpeg"], nil];
     [self addTableViewData];
+    
+    [[AppDelegate sharedApplication] hiddenTabBar:YES];
 }
 
 - (void)viewDidUnload {

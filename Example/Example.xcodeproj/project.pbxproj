@@ -42,6 +42,23 @@
 		D02BD13E1665F6CB0062BC32 /* GTMABAddressBook.m in Sources */ = {isa = PBXBuildFile; fileRef = D02BD1391665F6CB0062BC32 /* GTMABAddressBook.m */; };
 		D02BD13F1665F6CB0062BC32 /* SysAddrBook.m in Sources */ = {isa = PBXBuildFile; fileRef = D02BD13C1665F6CB0062BC32 /* SysAddrBook.m */; };
 		D02BD1431665FBF80062BC32 /* CallService.m in Sources */ = {isa = PBXBuildFile; fileRef = D02BD1421665FBF80062BC32 /* CallService.m */; };
+		D03CBAFB167AD59C0008D680 /* HHDetailView1Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03CBAF5167AD59C0008D680 /* HHDetailView1Controller.m */; };
+		D03CBAFC167AD59C0008D680 /* HHDetailView1Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03CBAF7167AD59C0008D680 /* HHDetailView1Controller.xib */; };
+		D03CBAFD167AD59C0008D680 /* HHDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D03CBAF9167AD59C0008D680 /* HHDetailViewController.m */; };
+		D03CBAFE167AD59C0008D680 /* HHDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03CBAFA167AD59C0008D680 /* HHDetailViewController.xib */; };
+		D03CBB0F167AD6410008D680 /* 0.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D03CBB00167AD6410008D680 /* 0.jpeg */; };
+		D03CBB10167AD6410008D680 /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D03CBB01167AD6410008D680 /* 1.jpeg */; };
+		D03CBB11167AD6410008D680 /* 10.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D03CBB02167AD6410008D680 /* 10.jpeg */; };
+		D03CBB12167AD6410008D680 /* 2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D03CBB03167AD6410008D680 /* 2.jpeg */; };
+		D03CBB13167AD6410008D680 /* 3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D03CBB04167AD6410008D680 /* 3.jpeg */; };
+		D03CBB14167AD6410008D680 /* 4.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D03CBB05167AD6410008D680 /* 4.jpeg */; };
+		D03CBB15167AD6410008D680 /* 5.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D03CBB06167AD6410008D680 /* 5.jpeg */; };
+		D03CBB16167AD6410008D680 /* 6.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D03CBB07167AD6410008D680 /* 6.jpeg */; };
+		D03CBB17167AD6410008D680 /* 7.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D03CBB08167AD6410008D680 /* 7.jpeg */; };
+		D03CBB18167AD6410008D680 /* 8.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D03CBB09167AD6410008D680 /* 8.jpeg */; };
+		D03CBB19167AD6410008D680 /* 9.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D03CBB0A167AD6410008D680 /* 9.jpeg */; };
+		D03CBB1A167AD6410008D680 /* JSGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = D03CBB0C167AD6410008D680 /* JSGridView.m */; };
+		D03CBB1B167AD6410008D680 /* JSGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D03CBB0E167AD6410008D680 /* JSGridViewCell.m */; };
 		D04F535B1592F47C00B45061 /* pop.wav in Resources */ = {isa = PBXBuildFile; fileRef = D04F53581592F47C00B45061 /* pop.wav */; };
 		D04F535C1592F47C00B45061 /* psst_down.wav in Resources */ = {isa = PBXBuildFile; fileRef = D04F53591592F47C00B45061 /* psst_down.wav */; };
 		D04F535D1592F47C00B45061 /* psst.wav in Resources */ = {isa = PBXBuildFile; fileRef = D04F535A1592F47C00B45061 /* psst.wav */; };
@@ -345,6 +362,27 @@
 		D02BD13C1665F6CB0062BC32 /* SysAddrBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SysAddrBook.m; sourceTree = "<group>"; };
 		D02BD1411665FBF80062BC32 /* CallService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallService.h; sourceTree = "<group>"; };
 		D02BD1421665FBF80062BC32 /* CallService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallService.m; sourceTree = "<group>"; };
+		D03CBAF5167AD59C0008D680 /* HHDetailView1Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHDetailView1Controller.m; sourceTree = "<group>"; };
+		D03CBAF6167AD59C0008D680 /* HHDetailView1Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHDetailView1Controller.h; sourceTree = "<group>"; };
+		D03CBAF7167AD59C0008D680 /* HHDetailView1Controller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HHDetailView1Controller.xib; sourceTree = "<group>"; };
+		D03CBAF8167AD59C0008D680 /* HHDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHDetailViewController.h; sourceTree = "<group>"; };
+		D03CBAF9167AD59C0008D680 /* HHDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHDetailViewController.m; sourceTree = "<group>"; };
+		D03CBAFA167AD59C0008D680 /* HHDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HHDetailViewController.xib; sourceTree = "<group>"; };
+		D03CBB00167AD6410008D680 /* 0.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0.jpeg; sourceTree = "<group>"; };
+		D03CBB01167AD6410008D680 /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
+		D03CBB02167AD6410008D680 /* 10.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.jpeg; sourceTree = "<group>"; };
+		D03CBB03167AD6410008D680 /* 2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpeg; sourceTree = "<group>"; };
+		D03CBB04167AD6410008D680 /* 3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpeg; sourceTree = "<group>"; };
+		D03CBB05167AD6410008D680 /* 4.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpeg; sourceTree = "<group>"; };
+		D03CBB06167AD6410008D680 /* 5.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpeg; sourceTree = "<group>"; };
+		D03CBB07167AD6410008D680 /* 6.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpeg; sourceTree = "<group>"; };
+		D03CBB08167AD6410008D680 /* 7.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpeg; sourceTree = "<group>"; };
+		D03CBB09167AD6410008D680 /* 8.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.jpeg; sourceTree = "<group>"; };
+		D03CBB0A167AD6410008D680 /* 9.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.jpeg; sourceTree = "<group>"; };
+		D03CBB0B167AD6410008D680 /* JSGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSGridView.h; sourceTree = "<group>"; };
+		D03CBB0C167AD6410008D680 /* JSGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSGridView.m; sourceTree = "<group>"; };
+		D03CBB0D167AD6410008D680 /* JSGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSGridViewCell.h; sourceTree = "<group>"; };
+		D03CBB0E167AD6410008D680 /* JSGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSGridViewCell.m; sourceTree = "<group>"; };
 		D04F53581592F47C00B45061 /* pop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pop.wav; sourceTree = "<group>"; };
 		D04F53591592F47C00B45061 /* psst_down.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = psst_down.wav; sourceTree = "<group>"; };
 		D04F535A1592F47C00B45061 /* psst.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = psst.wav; sourceTree = "<group>"; };
@@ -882,6 +920,28 @@
 			path = AddressBook;
 			sourceTree = "<group>";
 		};
+		D03CBAFF167AD6410008D680 /* gridview */ = {
+			isa = PBXGroup;
+			children = (
+				D03CBB00167AD6410008D680 /* 0.jpeg */,
+				D03CBB01167AD6410008D680 /* 1.jpeg */,
+				D03CBB02167AD6410008D680 /* 10.jpeg */,
+				D03CBB03167AD6410008D680 /* 2.jpeg */,
+				D03CBB04167AD6410008D680 /* 3.jpeg */,
+				D03CBB05167AD6410008D680 /* 4.jpeg */,
+				D03CBB06167AD6410008D680 /* 5.jpeg */,
+				D03CBB07167AD6410008D680 /* 6.jpeg */,
+				D03CBB08167AD6410008D680 /* 7.jpeg */,
+				D03CBB09167AD6410008D680 /* 8.jpeg */,
+				D03CBB0A167AD6410008D680 /* 9.jpeg */,
+				D03CBB0B167AD6410008D680 /* JSGridView.h */,
+				D03CBB0C167AD6410008D680 /* JSGridView.m */,
+				D03CBB0D167AD6410008D680 /* JSGridViewCell.h */,
+				D03CBB0E167AD6410008D680 /* JSGridViewCell.m */,
+			);
+			path = gridview;
+			sourceTree = "<group>";
+		};
 		D04F53611592F90C00B45061 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -1078,6 +1138,7 @@
 		D063784F15904CA300733F58 /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				D03CBAFF167AD6410008D680 /* gridview */,
 				D085E3EF1611539300524ECD /* FCache */,
 				D08D9ED316081AE9008CE380 /* bubbletable */,
 				D009B7BB15918C36003C110E /* SBJSON */,
@@ -1703,6 +1764,12 @@
 		D08D9F2C16084286008CE380 /* Collect */ = {
 			isa = PBXGroup;
 			children = (
+				D03CBAF5167AD59C0008D680 /* HHDetailView1Controller.m */,
+				D03CBAF6167AD59C0008D680 /* HHDetailView1Controller.h */,
+				D03CBAF7167AD59C0008D680 /* HHDetailView1Controller.xib */,
+				D03CBAF8167AD59C0008D680 /* HHDetailViewController.h */,
+				D03CBAF9167AD59C0008D680 /* HHDetailViewController.m */,
+				D03CBAFA167AD59C0008D680 /* HHDetailViewController.xib */,
 				D0AC9306166DD4E200AB5B40 /* InputViewController.m */,
 				D0AC9307166DD4E300AB5B40 /* InputViewController.xib */,
 				D0AC9308166DD4E400AB5B40 /* InputViewController.h */,
@@ -1956,6 +2023,19 @@
 				D0219355166F164100255846 /* testFtpViewController.xib in Resources */,
 				D021938D166F40B400255846 /* t.bundle in Resources */,
 				D0DA331A1671EA4D00CE02D2 /* 201209172227.png in Resources */,
+				D03CBAFC167AD59C0008D680 /* HHDetailView1Controller.xib in Resources */,
+				D03CBAFE167AD59C0008D680 /* HHDetailViewController.xib in Resources */,
+				D03CBB0F167AD6410008D680 /* 0.jpeg in Resources */,
+				D03CBB10167AD6410008D680 /* 1.jpeg in Resources */,
+				D03CBB11167AD6410008D680 /* 10.jpeg in Resources */,
+				D03CBB12167AD6410008D680 /* 2.jpeg in Resources */,
+				D03CBB13167AD6410008D680 /* 3.jpeg in Resources */,
+				D03CBB14167AD6410008D680 /* 4.jpeg in Resources */,
+				D03CBB15167AD6410008D680 /* 5.jpeg in Resources */,
+				D03CBB16167AD6410008D680 /* 6.jpeg in Resources */,
+				D03CBB17167AD6410008D680 /* 7.jpeg in Resources */,
+				D03CBB18167AD6410008D680 /* 8.jpeg in Resources */,
+				D03CBB19167AD6410008D680 /* 9.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2152,6 +2232,10 @@
 				D0AC9309166DD4E500AB5B40 /* InputViewController.m in Sources */,
 				D0219350166F14FC00255846 /* FTPHelper.m in Sources */,
 				D0219354166F164100255846 /* testFtpViewController.m in Sources */,
+				D03CBAFB167AD59C0008D680 /* HHDetailView1Controller.m in Sources */,
+				D03CBAFD167AD59C0008D680 /* HHDetailViewController.m in Sources */,
+				D03CBB1A167AD6410008D680 /* JSGridView.m in Sources */,
+				D03CBB1B167AD6410008D680 /* JSGridViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

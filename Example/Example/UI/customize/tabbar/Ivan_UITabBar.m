@@ -146,7 +146,7 @@ static BOOL FIRSTTIME =YES;
 - (void)customTabBar{
 	//获取tabbar的frame
 	CGRect tabBarFrame = self.tabBar.frame;
-	backGroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 15, 320, 49)];
+	backGroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 15, 320, 50)];
     
     tabBarFrame.origin.y -= 15;
     tabBarFrame.size.height += 15;
@@ -220,9 +220,9 @@ static BOOL FIRSTTIME =YES;
 	}
     
 	[self.view addSubview:cusTomTabBarView];
-	[cusTomTabBarView addSubview:slideBg];
+//	[cusTomTabBarView addSubview:slideBg];
 	[cusTomTabBarView release];
-#if 1
+#if 0
 	[self performSelector:@selector(slideTabBg:) withObject:[self.buttons objectAtIndex:0]];
 #endif
 }
@@ -253,7 +253,7 @@ static BOOL FIRSTTIME =YES;
 	}
 	self.currentSelectedIndex = button.tag;
 	self.selectedIndex = self.currentSelectedIndex;
-#if 1
+#if 0
 	[self performSelector:@selector(slideTabBg:) withObject:button];
 #endif
 }

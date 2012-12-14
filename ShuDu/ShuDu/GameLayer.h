@@ -11,6 +11,11 @@
 #import "global.h"
 #import "IntroLayer.h"
 #import "MenuLayer.h"
+typedef enum {
+    MenuButtonFinish =1,
+    MenuButtonBack,
+  
+} GameMenuButton;
 @interface GameLayer : CCLayer<CurrentSelectDelegate>
 {
     Cell *cells[9][9];

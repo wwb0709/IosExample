@@ -59,7 +59,7 @@
     
     // Achievement Menu Item using blocks
     CCMenuItem *itemStart = [CCMenuItemFont itemWithString:@"开始" block:^(id sender) {
-        [self scheduleOnce:@selector(makeTransition:) delay:1];
+        [self scheduleOnce:@selector(makeTransition:) delay:0];
     }];
     CCSprite *color = [CCSprite spriteWithFile:[Utility getFileName:@"home-but"]];
     [color setPosition:ccp( 21, 12)];
@@ -89,6 +89,7 @@
 
 -(void) makeTransition:(ccTime)dt
 {
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.0 scene:[GameLayer scene] withColor:ccWHITE]];
+//	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.0 scene:[GameLayer scene] withColor:ccWHITE]];
+     [[CCDirector sharedDirector] replaceScene:[CCTransitionSplitRows transitionWithDuration:1.0f scene:[GameLayer node]]];
 }
 @end

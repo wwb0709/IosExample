@@ -406,7 +406,7 @@
     [viewControllers release];
     
     tabBarController.selectedIndex = 0;
-    tabBarController.view.frame = [UIScreen mainScreen].bounds;
+   // tabBarController.view.frame = [UIScreen mainScreen].bounds;
     
     mainViewController_ = tabBarController;
    

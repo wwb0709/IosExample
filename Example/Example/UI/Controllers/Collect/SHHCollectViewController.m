@@ -14,7 +14,8 @@
 #import "InputViewController.h"
 #import "ViewController.h"
 #import "testFtpViewController.h"
-
+#import "HHDetailViewController.h"
+#import "HHDetailView1Controller.h"
 @interface SHHCollectViewController ()
 
 @end
@@ -24,6 +25,7 @@
 @synthesize tableview;
 @synthesize itemsArry;
 @synthesize myblocks;
+@synthesize idsArry;
 - (id)init
 {
     self = [super init];
@@ -89,7 +91,8 @@
      object:nil ];
 
     
-    
+    self.idsArry =  [NSMutableArray array];
+ 
     self.itemsArry = [NSMutableDictionary dictionary];
     NSMutableArray *arr = [NSMutableArray array];
     [arr addObject:[TestCallViewController class]];
@@ -118,10 +121,22 @@
     [arr3 addObject:@"present"];
     [self.itemsArry setValue:arr3 forKey:@"sendobject"];
     
+    NSMutableArray *arr4 = [NSMutableArray array];
+    [arr4 addObject:[HHDetailViewController class]];
+    [arr4 addObject:@"HHDetailViewController"];
+    [arr4 addObject:@"push"];
+    [self.itemsArry setValue:arr4 forKey:@"向下滑动"];
+    
+    NSMutableArray *arr5 = [NSMutableArray array];
+    [arr5 addObject:[HHDetailView1Controller class]];
+    [arr5 addObject:@"HHDetailView1Controller"];
+    [arr5 addObject:@"push"];
+    [self.itemsArry setValue:arr5 forKey:@"向右滑动"];
+    
     
 
-    
-    UITableView *tmpTable = [[UITableView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width, self.view.frame.size.height)];
+    int height = self.view.frame.size.height;
+    UITableView *tmpTable = [[UITableView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width, self.view.frame.size.height-45-50)];
     tmpTable.delegate = self;
     tmpTable.dataSource = self;
     
@@ -201,8 +216,8 @@
     
 
     
-     NSMutableArray *arr  = [self.itemsArry objectForKey:tmpSectionKey];
-    if ([arr count]==4) {
+//     NSMutableArray *arr  = [self.itemsArry objectForKey:tmpSectionKey];
+    if ([self.idsArry containsObject:[NSNumber numberWithInteger:rowIdx]]) {
         return cell;
     }
     
@@ -226,8 +241,10 @@
             } completion:^(BOOL finished){
                               
             }];
-            NSMutableArray *arr  = [self.itemsArry objectForKey:tmpSectionKey];
-            [arr addObject:@"hasadded"];
+//            NSMutableArray *arr  = [self.itemsArry objectForKey:tmpSectionKey];
+//            [arr addObject:@"hasadded"];
+            
+            [self.idsArry addObject:[NSNumber numberWithInteger:rowIdx]];
             
         });
         

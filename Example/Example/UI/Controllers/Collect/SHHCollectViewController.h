@@ -14,7 +14,10 @@ typedef  void (^SHHmyblocks) (id object);
     UITableView *tableview;
     UINavigationController *nav;
     
+    NSMutableArray *idsArry;
+    
 }
+@property(nonatomic, retain) NSMutableArray *idsArry;
 @property(nonatomic, copy) SHHmyblocks myblocks;
 @property (nonatomic, retain) UITableView *tableview;
 @property (nonatomic, retain) NSMutableDictionary *itemsArry;

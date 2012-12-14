@@ -119,7 +119,7 @@
         item8.tag = 8;
         CCMenuItemFont* item9 = [CCMenuItemFont itemWithString:@"9" target:self selector:@selector(CurrentSelect:)];
         item9.tag = 9;
-        CCMenuItemFont* item10 = [CCMenuItemFont itemWithString:@"10" target:self selector:@selector(CurrentSelect:)];
+        CCMenuItemFont* item10 = [CCMenuItemFont itemWithString:@"关闭" target:self selector:@selector(CurrentSelect:)];
         item10.tag = 10;
         
         

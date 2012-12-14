@@ -36,79 +36,109 @@ static int h,m;
 		
         [self setIsTouchEnabled: YES];
 		// create and initialize a Label
-        CGSize size = [[CCDirector sharedDirector] winSize];
-        
-        CCSprite *background = [CCSprite spriteWithFile:[Utility getFileName:@"game"]];
 
-        background.position = ccp(size.width/2, size.height/2);
-        background.tag = 10000;
-        
-        // add the label as a child to this Layer
-        [self addChild: background];
-        
-        
-        CCSprite *background2= [CCSprite spriteWithFile:[Utility getFileName:@"gamebg"]];
-          
-
-        background2.position = ccp(size.width/2, 480-350/2);
-        background2.tag = 10001;
-        
-        
-        
-        // add the label as a child to this Layer
-        [self addChild: background2];
-        
-        //返回
-        CCLabelTTF *back=  [CCLabelTTF labelWithString:@"back" fontName:@"MarkerFelt-Thin" fontSize:22];
-       
-        [back setColor:ccc3(91, 90, 51)];
-        back.position = ccp(size.width-40, 20);
-        back.tag = 88888;
-
-        // add the label as a child to this Layer
-        [self addChild: back];
-
-        
-        
-        //开始暂停
-        
-        
-        CCSprite* playNormalSprite1 = [CCSprite spriteWithFile:[Utility getFileName:@"gameinputselect"]];
-        CCSprite* playNormalSprite2 = [CCSprite spriteWithFile:[Utility getFileName:@"gameinputselect"]];
-        CCMenuItemSprite* play = [CCMenuItemSprite itemFromNormalSprite:playNormalSprite1
-                                                          selectedSprite:playNormalSprite2
-                                                                  target:self selector:nil];
-        
-        
-        CCSprite* pauseNormalSprite1 = [CCSprite  spriteWithFile:[Utility getFileName:@"gameinputselect"]];
-        CCSprite* pauseNormalSprite2 = [CCSprite  spriteWithFile:[Utility getFileName:@"gameinputselect"]];
-        CCMenuItemSprite* pause = [CCMenuItemSprite itemFromNormalSprite:pauseNormalSprite1
-                                                          selectedSprite:pauseNormalSprite2
-                                                                  target:self selector:nil];
-        
-        CCMenuItemToggle* pauseToggle = [CCMenuItemToggle itemWithTarget:self selector:@selector(onPauseButton:) items:pause,play,nil];
-        pauseToggle.anchorPoint = ccp(0.5f, 0.5f);
-        pauseToggle.position = ccp(150, 50);
-        [self addChild:pauseToggle ];
-        
-        
-        [self loadData];
-		
-
-	
-        
 	}
 	return self;
 }
+
+
+#pragma mark -
+#pragma mark CCNode
+- (void)onEnterTransitionDidFinish {
+	[super onEnterTransitionDidFinish];
+	}
+
+- (void)onEnter {
+    CGSize size = [[CCDirector sharedDirector] winSize];
+    
+    CCSprite *background = [CCSprite spriteWithFile:[Utility getFileName:@"game"]];
+    
+    background.position = ccp(size.width/2, size.height/2);
+    background.tag = 10000;
+    
+    // add the label as a child to this Layer
+    [self addChild: background];
+    
+    
+    CCSprite *background2= [CCSprite spriteWithFile:[Utility getFileName:@"gamebg"]];
+    
+    
+    background2.position = ccp(size.width/2, 480-350/2);
+    background2.tag = 10001;
+    
+    
+    
+    // add the label as a child to this Layer
+    [self addChild: background2];
+    
+    //返回
+    CCLabelTTF *back=  [CCLabelTTF labelWithString:@"返回" fontName:@"MarkerFelt-Thin" fontSize:22];
+    
+    [back setColor:ccc3(91, 90, 51)];
+    back.position = ccp(size.width-40, 20);
+    back.tag = MenuButtonBack;
+    
+    // add the label as a child to this Layer
+    [self addChild: back];
+    
+    //完成
+    CCLabelTTF *finish=  [CCLabelTTF labelWithString:@"完成" fontName:@"MarkerFelt-Thin" fontSize:22];
+    
+    [finish setColor:ccc3(91, 90, 51)];
+    finish.position = ccp(size.width-40-60, 20);
+    finish.tag = MenuButtonFinish;
+    
+    // add the label as a child to this Layer
+    [self addChild: finish];
+    
+    [self loadData];
+
+    
+    //开始暂停
+
+//    CCSprite* playNormalSprite1 = [CCSprite spriteWithFile:[Utility getFileName:@"gameinputselect"]];
+//    CCSprite* playNormalSprite2 = [CCSprite spriteWithFile:[Utility getFileName:@"gameinputselect"]];
+//    CCMenuItemSprite* play = [CCMenuItemSprite itemWithNormalSprite:playNormalSprite1
+//                                                     selectedSprite:playNormalSprite2
+//                                                             target:self selector:nil];
+//    
+//    
+//    CCSprite* pauseNormalSprite1 = [CCSprite  spriteWithFile:[Utility getFileName:@"gameinputselect"]];
+//    CCSprite* pauseNormalSprite2 = [CCSprite  spriteWithFile:[Utility getFileName:@"gameinputselect"]];
+//    CCMenuItemSprite* pause = [CCMenuItemSprite itemWithNormalSprite:pauseNormalSprite1
+//                                                      selectedSprite:pauseNormalSprite2
+//                                                              target:self selector:nil];
+    
+    [CCMenuItemFont setFontName:@"MarkerFelt-Thin"];
+    [CCMenuItemFont setFontSize:22];
+    CCMenuItemFont* togglePause = [CCMenuItemFont itemWithString:@"暂停"];
+    CCMenuItemFont* toggleStart = [CCMenuItemFont itemWithString:@"开始"];
+    CCMenuItemToggle* pauseToggle = [CCMenuItemToggle itemWithTarget:self selector:@selector(onPauseButton:) items:togglePause,toggleStart,nil];
+//    pauseToggle.anchorPoint = ccp(0.5f, 0.5f);
+//    [pauseToggle setColor:ccORANGE];
+//    pauseToggle.position = ccp(size.width-40-60-60, 20);
+//    [self addChild:pauseToggle ];
+    CCMenu* menu = [CCMenu menuWithItems:pauseToggle,nil];
+    menu.position = CGPointMake(size.width-40-60-60, 20);
+    menu.color =  ccORANGE;
+    [self addChild:menu];
+    
+    [super onEnter];
+}
+
 -(void)onPauseButton:(id)sender
 {
     CCMenuItemToggle* toggle = sender;
     switch ([toggle selectedIndex]) {
         case 1:
             NSLog(@"play");
+            
+            [gameTimer setFireDate:[NSDate distantFuture]]; 
             break;
         case 0:
             NSLog(@"pause");
+            
+            [gameTimer setFireDate:[NSDate date]];
             break;
         default:
             break;
@@ -164,12 +194,20 @@ static int h,m;
     [sudokuCreator release];
     
 
-    
-    CCLabelTTF	 *useTime = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%@", @"111"] fontName:@"MarkerFelt-Thin" fontSize:22];
+    //用时
+    CCLabelTTF	 *useTime = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%@", @""] fontName:@"MarkerFelt-Thin" fontSize:22];
     [useTime setColor:ccc3(91, 90, 51)];
     [useTime setPosition:CGPointMake([self boundingBox].size.width /2, 480-16)];
     useTime.tag = 30000;
     [self addChild:useTime];
+    
+    //级别
+    CCLabelTTF	 *currentLevel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"级别:%@", @"简单"] fontName:@"MarkerFelt-Thin" fontSize:22];
+    [currentLevel setColor:ccc3(91, 90, 51)];
+    [currentLevel setAnchorPoint:CGPointMake(0.0f, 0.5f)];
+    [currentLevel setPosition:CGPointMake(20, 480-16)];
+    currentLevel.tag = 30001;
+    [self addChild:currentLevel];
     
 
     
@@ -371,16 +409,24 @@ static int h,m;
 	CGPoint touchPoint = [self convertTouchToNodeSpace:[touches anyObject]];
 	
 	for( CCSprite *sprite in [self children] ){
-        if ([sprite tag] ==88888) {
-            CGPoint point = sprite.position;
+        if ([sprite tag] ==MenuButtonBack) {
+//            CGPoint point = sprite.position;
         
-            if ( ccpDistance(point, touchPoint) < 20 ) {
+            if ( ccpDistance(sprite.position, touchPoint) < 20 ) {
                 [self makeTransition:0.0];
                 return;
             }
-            
-           
         }
+        
+        if ([sprite tag] ==MenuButtonFinish) {
+            //            CGPoint point = sprite.position;
+            
+            if ( ccpDistance(sprite.position, touchPoint) < 20 ) {
+                //[self makeTransition:0.0];
+                return;
+            }
+        }
+        
         
         if( [sprite tag] < 20000 ) continue;
        
@@ -397,13 +443,17 @@ static int h,m;
 }
 -(void) makeTransition:(ccTime)dt
 {
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:dt scene:[IntroLayer scene] withColor:ccWHITE]];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionSplitRows transitionWithDuration:1.0f scene:[IntroLayer node]]];
+	
 }
 
 - (void)currentSelectIndex:(NSInteger)index
 {
     [self setIsTouchEnabled: YES];
-    
+    if (index == 10) {
+        [self removeChildByTag:99999 cleanup:YES];
+        return;
+    }
     
 
 
@@ -444,9 +494,10 @@ static int h,m;
         cells[x][y].userValue =  index;
         CCLabelTTF	 *valuelable = (CCLabelTTF	 *)[cell getChildByTag:40000];
         [valuelable setString:[NSNumber numberWithInt:index].stringValue];
+         [self removeChildByTag:99999 cleanup:YES];
     }
     
-    [self removeChildByTag:99999 cleanup:YES];
+   
 
 }
 @end

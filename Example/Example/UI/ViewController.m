@@ -75,14 +75,14 @@
     [self.navigationController pushViewController:homeViewController_ animated:YES];
     [homeViewController_ release];
     
-    [[AppDelegate sharedApplication] hiddenTabBar:YES];
+//    [[AppDelegate sharedApplication] hiddenTabBar:YES];
 }
 
 -(void)pop
 {
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"closeView" object:self.navigationController.view];
-    [[AppDelegate sharedApplication] hiddenTabBar:NO];
+//    [[AppDelegate sharedApplication] hiddenTabBar:NO];
     
 //    [self.navigationController popViewControllerAnimated:YES];
 }
@@ -93,7 +93,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    [[AppDelegate sharedApplication] hiddenTabBar:YES];
+//    [[AppDelegate sharedApplication] hiddenTabBar:YES];
 }
 
 -(void)viewDidDisappear:(BOOL)animated

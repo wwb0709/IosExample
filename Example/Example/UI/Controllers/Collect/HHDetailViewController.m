@@ -43,6 +43,14 @@
 }
 
 #pragma mark - 
+-(void)viewDidAppear:(BOOL)animated
+{
+    
+}
+-(void)viewDidDisappear:(BOOL)animated
+{
+//    [[AppDelegate sharedApplication] hiddenTabBar:NO];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     _leftArray = [[NSMutableArray alloc] init];

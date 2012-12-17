@@ -214,6 +214,7 @@
 // 隐藏Tabbar
 - (void) hiddenTabBar:(BOOL)hiden
 {
+
     Ivan_UITabBar  *tabBar = [self tabBarController];
     if (nil != tabBar)
     {
@@ -373,6 +374,13 @@
     // 显示主界面
     mainWindow_ = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
+    
+    
+    
+    
+    ////////////////////////////////////////////////////////////////
+    if (1) {
+   
     // 底部Tabar
     Ivan_UITabBar *tabBarController = [[Ivan_UITabBar alloc] initWithNibName:nil bundle:nil];
     tabBarController.delegate = self;
@@ -413,6 +421,35 @@
     
     //,如果不需要登录界面，把下面这条代码放到didFinishLaunchingWithOptions中
     [mainWindow_ addSubview:mainViewController_.view];
+    
+        
+    }
+    
+    ////////////////////////////////////////////////////////////////
+    else
+    {
+       NSArray *viewControllers = [[NSArray alloc] initWithObjects:[SHHHomeController defaultController].homeNavigationController, [SHHCategoryController defaultController].categoryNavigationController, [SHHSpaceController defaultController].spaceNavigationController,[SHHCollectController defaultController].collectNavigationController, [SHHSearchController defaultController].searchNavigationController, nil];
+    UITabBarController *tabController=[[UITabBarController alloc] init];
+    
+    tabController.viewControllers=viewControllers;
+//    tabController.hidesBottomBarWhenPushed = YES;
+    tabController.selectedIndex=3;
+    
+    tabController.delegate=self;//在AppDelegate.h文件内实现UITabBarControllerDelegate协议
+    
+    //self.tabBarController=tabController;
+    [mainWindow_ addSubview:tabController.view];
+    //[tabController release];
+    
+    [viewControllers release];
+    
+    
+    
+    
+    }
+    
+    
+    //////////////////////////////////////////////////////////////////
  
 //    [mainWindow_ addSubview:[[SHHLoginController defaultController].loginViewController view]];
     

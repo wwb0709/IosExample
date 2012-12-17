@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 typedef  void (^SHHmyblocks) (id object);
-@interface SHHCollectViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface SHHCollectViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UINavigationControllerDelegate>
 {
     NSMutableDictionary *itemsArry;
     UITableView *tableview;

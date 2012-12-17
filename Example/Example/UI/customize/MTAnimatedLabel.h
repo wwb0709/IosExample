@@ -34,5 +34,6 @@
 
 - (void)startAnimating;
 - (void)stopAnimating;
-
++ (UITextAlignment)UITextAlignmentFromCAAlignment:(NSString *)alignment;
++ (NSString *)CAAlignmentFromUITextAlignment:(UITextAlignment)textAlignment;
 @end

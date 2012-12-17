@@ -40,14 +40,14 @@
 }
 
 #pragma mark - 
+
 -(void)viewDidAppear:(BOOL)animated
 {
    
 }
-
 -(void)viewDidDisappear:(BOOL)animated
 {
-    [[AppDelegate sharedApplication] hiddenTabBar:NO];
+//    [[AppDelegate sharedApplication] hiddenTabBar:NO];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -73,7 +73,7 @@
                [UIImage imageNamed:@"10.jpeg"], nil];
     [self addTableViewData];
     
-    [[AppDelegate sharedApplication] hiddenTabBar:YES];
+   // [[AppDelegate sharedApplication] hiddenTabBar:YES];
 }
 
 - (void)viewDidUnload {

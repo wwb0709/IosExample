@@ -80,7 +80,7 @@ static BOOL  SHOWSLIDEBG=NO;
         if([view isKindOfClass:[UITabBar class]])
         {
             [UIView beginAnimations:nil context:NULL];
-            [UIView setAnimationDuration:0.8];
+            [UIView setAnimationDuration:0.5];
             [view setFrame:CGRectMake(view.frame.origin.x,off, view.frame.size.width, view.frame.size.height)];
              [UIView commitAnimations];
         }
@@ -111,7 +111,7 @@ static BOOL  SHOWSLIDEBG=NO;
         if([view isKindOfClass:[UITabBar class]])
         {
             [UIView beginAnimations:nil context:NULL];
-            [UIView setAnimationDuration:0.8];
+            [UIView setAnimationDuration:0.5];
             [view setFrame:CGRectMake(view.frame.origin.x,off, view.frame.size.width, view.frame.size.height)];
             [UIView commitAnimations];
         }

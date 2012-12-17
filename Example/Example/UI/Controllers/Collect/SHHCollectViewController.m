@@ -16,6 +16,7 @@
 #import "testFtpViewController.h"
 #import "HHDetailViewController.h"
 #import "HHDetailView1Controller.h"
+#import "AnimalLabelViewController.h"
 @interface SHHCollectViewController ()
 
 @end
@@ -26,6 +27,27 @@
 @synthesize itemsArry;
 @synthesize myblocks;
 @synthesize idsArry;
+
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    //	if ([viewController isKindOfClass:[SecondViewController class]])
+    //	{
+    //        [leveyTabBarController hidesTabBar:NO animated:YES];
+    //	}
+    
+    if (viewController.hidesBottomBarWhenPushed)
+    {
+        
+//        [leveyTabBarController hidesTabBar:YES animated:YES];
+    }
+    else
+    {
+//        [leveyTabBarController hidesTabBar:NO animated:YES];
+    }
+}
+
+
+
 - (id)init
 {
     self = [super init];
@@ -78,6 +100,14 @@
 //    CFRelease(MultiValue);
 //    CFRelease(phones);
     
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+     [[AppDelegate sharedApplication] hiddenTabBar:NO];
+}
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [[AppDelegate sharedApplication] hiddenTabBar:YES];
 }
 - (void)viewDidLoad
 {
@@ -133,9 +163,15 @@
     [arr5 addObject:@"push"];
     [self.itemsArry setValue:arr5 forKey:@"向右滑动"];
     
+    NSMutableArray *arr6 = [NSMutableArray array];
+    [arr6 addObject:[AnimalLabelViewController class]];
+    [arr6 addObject:@"AnimalLabelViewController"];
+    [arr6 addObject:@"push"];
+    [self.itemsArry setValue:arr6 forKey:@"animationlabel"];
+    
     
 
-    int height = self.view.frame.size.height;
+    
     UITableView *tmpTable = [[UITableView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width, self.view.frame.size.height-45-50)];
     tmpTable.delegate = self;
     tmpTable.dataSource = self;
@@ -298,6 +334,10 @@
         tmpViewController.title = Key;
         
         if ([[arr objectAtIndex:2] isEqual:@"push"]) {
+            
+//            tmpViewController.hidesBottomBarWhenPushed = YES;
+             self.navigationController.delegate = self;
+//             [[AppDelegate sharedApplication] hiddenTabBar:YES];
              [self.navigationController pushViewController:tmpViewController animated:YES];
         }
         else  if ([[arr objectAtIndex:2] isEqual:@"present"])

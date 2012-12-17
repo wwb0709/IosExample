@@ -55,7 +55,7 @@
     
     CAGradientLayer *gradientLayer  = (CAGradientLayer *)self.layer;
     gradientLayer.backgroundColor   = [super.textColor CGColor];
-    gradientLayer.startPoint        = CGPointMake(-self.gradientWidth, 0.);
+    gradientLayer.startPoint        = CGPointMake(self.gradientWidth, 0.);
     gradientLayer.endPoint          = CGPointMake(0., 0.);
     gradientLayer.colors            = [NSArray arrayWithObjects:(id)[self.textColor CGColor],(id)[self.tint CGColor], (id)[self.textColor CGColor], nil];
 
@@ -126,19 +126,28 @@
 
 -(UIFont *)font
 {
-    CTFontRef ctFont    = _textLayer.font;
-    NSString *fontName  = (__bridge NSString *)CTFontCopyName(ctFont, kCTFontPostScriptNameKey);
-    CGFloat fontSize    = CTFontGetSize(ctFont);
-    return [UIFont fontWithName:fontName size:fontSize];
+//    CTFontRef ctFont    = _textLayer.font;
+//    NSString *fontName  = (__bridge NSString *)CTFontCopyName(ctFont, kCTFontPostScriptNameKey);
+//    CGFloat fontSize    = CTFontGetSize(ctFont);
+//    return [UIFont fontWithName:fontName size:fontSize];
+    UIFont* tFont=[UIFont fontWithName:@"Helvetica" size:40];
+//    CTFontRef fontRef=CTFontCreateWithName((CFStringRef)@"Helvetica", 20.0f, NULL);
+    return tFont;
 }
 
 -(void) setFont:(UIFont *)font
 {
-    UIFont *font1 =  [UIFont fontWithName:@"Arial-BoldItalicMT" size:40];
 //    CTFontRef fontRef = CTFontCreateWithName((__bridge CFStringRef)(font.fontName), font.pointSize, &CGAffineTransformIdentity);
-    _textLayer.font = font1;
-    _textLayer.fontSize = font1.pointSize;
+//    _textLayer.font = fontRef;
+//    _textLayer.fontSize = font.pointSize;
 //    CFRelease(fontRef);
+    
+    UIFont* tFont=[UIFont fontWithName:@"Helvetica" size:40];
+   // CTFontRef fontRef=CTFontCreateWithName((CFStringRef)@"Helvetica", 20.0f, NULL);
+    _textLayer.font = tFont;
+    _textLayer.fontSize = tFont.pointSize;
+//    CFRelease(fontRef);
+    
     [self setNeedsDisplay];
 }
 

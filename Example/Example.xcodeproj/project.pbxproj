@@ -59,6 +59,11 @@
 		D03CBB19167AD6410008D680 /* 9.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D03CBB0A167AD6410008D680 /* 9.jpeg */; };
 		D03CBB1A167AD6410008D680 /* JSGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = D03CBB0C167AD6410008D680 /* JSGridView.m */; };
 		D03CBB1B167AD6410008D680 /* JSGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D03CBB0E167AD6410008D680 /* JSGridViewCell.m */; };
+		D04E802A167EC66B00BB7879 /* lockscreen.PNG in Resources */ = {isa = PBXBuildFile; fileRef = D04E8024167EC66B00BB7879 /* lockscreen.PNG */; };
+		D04E802B167EC66B00BB7879 /* slider.png in Resources */ = {isa = PBXBuildFile; fileRef = D04E8025167EC66B00BB7879 /* slider.png */; };
+		D04E802C167EC66B00BB7879 /* slider@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D04E8026167EC66B00BB7879 /* slider@2x.png */; };
+		D04E8032167EC86500BB7879 /* AnimalLabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D04E8030167EC86500BB7879 /* AnimalLabelViewController.m */; };
+		D04E8033167EC86500BB7879 /* AnimalLabelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D04E8031167EC86500BB7879 /* AnimalLabelViewController.xib */; };
 		D04F535B1592F47C00B45061 /* pop.wav in Resources */ = {isa = PBXBuildFile; fileRef = D04F53581592F47C00B45061 /* pop.wav */; };
 		D04F535C1592F47C00B45061 /* psst_down.wav in Resources */ = {isa = PBXBuildFile; fileRef = D04F53591592F47C00B45061 /* psst_down.wav */; };
 		D04F535D1592F47C00B45061 /* psst.wav in Resources */ = {isa = PBXBuildFile; fileRef = D04F535A1592F47C00B45061 /* psst.wav */; };
@@ -383,6 +388,12 @@
 		D03CBB0C167AD6410008D680 /* JSGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSGridView.m; sourceTree = "<group>"; };
 		D03CBB0D167AD6410008D680 /* JSGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSGridViewCell.h; sourceTree = "<group>"; };
 		D03CBB0E167AD6410008D680 /* JSGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSGridViewCell.m; sourceTree = "<group>"; };
+		D04E8024167EC66B00BB7879 /* lockscreen.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockscreen.PNG; sourceTree = "<group>"; };
+		D04E8025167EC66B00BB7879 /* slider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider.png; sourceTree = "<group>"; };
+		D04E8026167EC66B00BB7879 /* slider@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider@2x.png"; sourceTree = "<group>"; };
+		D04E802F167EC86500BB7879 /* AnimalLabelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimalLabelViewController.h; sourceTree = "<group>"; };
+		D04E8030167EC86500BB7879 /* AnimalLabelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimalLabelViewController.m; sourceTree = "<group>"; };
+		D04E8031167EC86500BB7879 /* AnimalLabelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnimalLabelViewController.xib; sourceTree = "<group>"; };
 		D04F53581592F47C00B45061 /* pop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pop.wav; sourceTree = "<group>"; };
 		D04F53591592F47C00B45061 /* psst_down.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = psst_down.wav; sourceTree = "<group>"; };
 		D04F535A1592F47C00B45061 /* psst.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = psst.wav; sourceTree = "<group>"; };
@@ -940,6 +951,19 @@
 				D03CBB0E167AD6410008D680 /* JSGridViewCell.m */,
 			);
 			path = gridview;
+			sourceTree = "<group>";
+		};
+		D04E8023167EC66B00BB7879 /* animationlabel */ = {
+			isa = PBXGroup;
+			children = (
+				D04E8024167EC66B00BB7879 /* lockscreen.PNG */,
+				D04E8025167EC66B00BB7879 /* slider.png */,
+				D04E8026167EC66B00BB7879 /* slider@2x.png */,
+				D04E802F167EC86500BB7879 /* AnimalLabelViewController.h */,
+				D04E8030167EC86500BB7879 /* AnimalLabelViewController.m */,
+				D04E8031167EC86500BB7879 /* AnimalLabelViewController.xib */,
+			);
+			path = animationlabel;
 			sourceTree = "<group>";
 		};
 		D04F53611592F90C00B45061 /* Entity */ = {
@@ -1764,6 +1788,7 @@
 		D08D9F2C16084286008CE380 /* Collect */ = {
 			isa = PBXGroup;
 			children = (
+				D04E8023167EC66B00BB7879 /* animationlabel */,
 				D03CBAF5167AD59C0008D680 /* HHDetailView1Controller.m */,
 				D03CBAF6167AD59C0008D680 /* HHDetailView1Controller.h */,
 				D03CBAF7167AD59C0008D680 /* HHDetailView1Controller.xib */,
@@ -2036,6 +2061,10 @@
 				D03CBB17167AD6410008D680 /* 7.jpeg in Resources */,
 				D03CBB18167AD6410008D680 /* 8.jpeg in Resources */,
 				D03CBB19167AD6410008D680 /* 9.jpeg in Resources */,
+				D04E802A167EC66B00BB7879 /* lockscreen.PNG in Resources */,
+				D04E802B167EC66B00BB7879 /* slider.png in Resources */,
+				D04E802C167EC66B00BB7879 /* slider@2x.png in Resources */,
+				D04E8033167EC86500BB7879 /* AnimalLabelViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2236,6 +2265,7 @@
 				D03CBAFD167AD59C0008D680 /* HHDetailViewController.m in Sources */,
 				D03CBB1A167AD6410008D680 /* JSGridView.m in Sources */,
 				D03CBB1B167AD6410008D680 /* JSGridViewCell.m in Sources */,
+				D04E8032167EC86500BB7879 /* AnimalLabelViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

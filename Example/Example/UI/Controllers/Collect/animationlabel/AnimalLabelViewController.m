@@ -7,6 +7,7 @@
 //
 
 #import "AnimalLabelViewController.h"
+#import "MarqueeLabel.h"
 #define kMaxTranslation 190.0f
 @interface AnimalLabelViewController ()
 {
@@ -15,39 +16,6 @@
 @end
 
 @implementation AnimalLabelViewController
-
-//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-//{
-//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-//    if (self) {
-//        // Custom initialization
-//    }
-//    return self;
-//}
-//
-//- (void)viewDidLoad
-//{
-//    [super viewDidLoad];
-//    // Do any additional setup after loading the view from its nib.
-//}
-//
-//- (void)didReceiveMemoryWarning
-//{
-//    [super didReceiveMemoryWarning];
-//    // Dispose of any resources that can be recreated.
-//}
-//
-//- (void)dealloc {
-//    [_animatedLabel release];
-//    [_slider release];
-//    [super dealloc];
-//}
-//- (void)viewDidUnload {
-//    [self setAnimatedLabel:nil];
-//    [self setSlider:nil];
-//    [super viewDidUnload];
-//}
-
 @synthesize animatedLabel;
 @synthesize slider;
 
@@ -69,7 +37,25 @@
     [userIDLabel setText:NSLocalizedString(@"HELLO WORLD", nil)];
     [self.view addSubview:userIDLabel];
 
-    //[userIDLabel startAnimating];
+    [userIDLabel startAnimating];
+    
+    
+    
+    
+    MarqueeLabel *rateLabelOne = [[MarqueeLabel alloc] initWithFrame:CGRectMake(10, 200, self.view.frame.size.width-20, 20) rate:50.0f andFadeLength:10.0f];
+    rateLabelOne.numberOfLines = 1;
+    rateLabelOne.opaque = NO;
+    rateLabelOne.enabled = YES;
+    rateLabelOne.shadowOffset = CGSizeMake(0.0, -1.0);
+    rateLabelOne.textAlignment = UITextAlignmentLeft;
+    rateLabelOne.textColor = [UIColor colorWithRed:0.234 green:0.234 blue:0.234 alpha:1.000];
+    rateLabelOne.backgroundColor = [UIColor clearColor];
+    rateLabelOne.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.000];
+    rateLabelOne.text = @"This is another long label that scrolls at a specific rate, rather than scrolling its length in a specific time window!This text is not as long, but still long enough to scroll, and scrolls the same speed!";
+    
+    [self.view addSubview:rateLabelOne];
+    [rateLabelOne release];
+
 
     
     

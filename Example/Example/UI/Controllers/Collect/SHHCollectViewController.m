@@ -12,11 +12,16 @@
 
 #import "TestCallViewController.h"
 #import "InputViewController.h"
-#import "ViewController.h"
+//#import "ViewController.h"
 #import "testFtpViewController.h"
 #import "HHDetailViewController.h"
 #import "HHDetailView1Controller.h"
 #import "AnimalLabelViewController.h"
+#import "FirstViewController.h"
+#import "QAViewController.h"
+#import "GADBannerView.h"
+
+#define MY_BANNER_UNIT_ID @"a14eb208060f856"
 @interface SHHCollectViewController ()
 
 @end
@@ -130,11 +135,11 @@
      [arr addObject:@"push"];
     [self.itemsArry setValue:arr forKey:@"来电头像测试"];
     
-    NSMutableArray *arr1 = [NSMutableArray array];
-    [arr1 addObject:[ViewController class]];
-    [arr1 addObject:@"ViewController"];
-    [arr1 addObject:@"selfpresent"];
-    [self.itemsArry setValue:arr1 forKey:@"sms对话"];
+//    NSMutableArray *arr1 = [NSMutableArray array];
+//    [arr1 addObject:[ViewController class]];
+//    [arr1 addObject:@"ViewController"];
+//    [arr1 addObject:@"selfpresent"];
+//    [self.itemsArry setValue:arr1 forKey:@"sms对话"];
     
     
     
@@ -169,7 +174,19 @@
     [arr6 addObject:@"push"];
     [self.itemsArry setValue:arr6 forKey:@"animationlabel"];
     
+    NSMutableArray *arr7 = [NSMutableArray array];
+    [arr7 addObject:[FirstViewController class]];
+    [arr7 addObject:@"FirstView"];
+    [arr7 addObject:@"push"];
+    [self.itemsArry setValue:arr7 forKey:@"Location"];
     
+    
+    NSMutableArray *arr8 = [NSMutableArray array];
+    [arr8 addObject:[QAViewController class]];
+    [arr8 addObject:@"QAViewController"];
+    [arr8 addObject:@"push"];
+    [self.itemsArry setValue:arr8 forKey:@"QACode"];
+ 
 
     
     UITableView *tmpTable = [[UITableView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width, self.view.frame.size.height-45-50)];
@@ -179,6 +196,29 @@
     [self.view addSubview:tmpTable];
     self.tableview = tmpTable;
     [tmpTable release];
+    
+    
+    
+    
+    GADBannerView * bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+    
+    // Specify the ad's "unit identifier." This is your AdMob Publisher ID.
+    bannerView_.adUnitID = MY_BANNER_UNIT_ID;
+    
+    bannerView_.rootViewController = self;
+    [self.view addSubview:bannerView_];
+    
+    [bannerView_ loadRequest:[GADRequest request]];
+    
+//    GADBannerView * bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+//    
+//    // Specify the ad's "unit identifier." This is your AdMob Publisher ID.
+//    bannerView.adUnitID = MY_BANNER_UNIT_ID;
+//    bannerView.center = CGPointMake(160, 435);
+//    bannerView.rootViewController = self;
+//    [self.view addSubview:bannerView];
+//    
+//    [bannerView loadRequest:[GADRequest request]];
     
     
     return;

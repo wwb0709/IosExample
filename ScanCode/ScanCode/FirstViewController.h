@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface FirstViewController : UIViewController
+@property (retain, nonatomic) IBOutlet UITextField *textFiled;
+@property (retain, nonatomic) IBOutlet UIImageView *image;
+- (IBAction)didEnd:(id)sender;
 
+- (IBAction)InputString:(id)sender;
 @end

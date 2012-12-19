@@ -48,14 +48,13 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"scan", @"scan");
+        self.title = NSLocalizedString(@"解码", @"解码");
         self.tabBarItem.image = [UIImage imageNamed:@"first"];
     }
     return self;
 }
 - (void)viewDidLoad {
   [super viewDidLoad];
-  [self setTitle:@"ZXing"];
   [resultsView setText:resultsToDisplay];
 }
 

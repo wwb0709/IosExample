@@ -7,7 +7,7 @@
 //
 
 #import "FirstViewController.h"
-
+#import "QRCodeGenerator.h"
 @interface FirstViewController ()
 
 @end
@@ -18,8 +18,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"First", @"First");
-        self.tabBarItem.image = [UIImage imageNamed:@"first"];
+        self.title = NSLocalizedString(@"编码", @"编码");
+        self.tabBarItem.image = [UIImage imageNamed:@"second"];
     }
     return self;
 }
@@ -36,4 +36,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    [_image release];
+    [_textFiled release];
+    [super dealloc];
+}
+- (void)viewDidUnload {
+    [self setImage:nil];
+    [self setTextFiled:nil];
+    [super viewDidUnload];
+}
+- (IBAction)didEnd:(id)sender {
+    //键盘释放
+    [_textFiled resignFirstResponder];
+}
+
+- (IBAction)InputString:(id)sender {
+  _image.image = [QRCodeGenerator qrImageForString:_textFiled.text imageSize:_image.bounds.size.width];
+}
 @end

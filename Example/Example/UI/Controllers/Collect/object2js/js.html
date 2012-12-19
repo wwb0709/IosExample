@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0038)http://www.wuzhougroup.com.cn/main.asp -->
+<HTML><HEAD><TITLE>|</TITLE>
+    <META http-equiv=Content-Type content="text/html; charset=UTF-8"><LINK
+        href="a.files/wzjt.css" type=text/css rel=stylesheet>
+        <SCRIPT  type=text/JavaScript>
+            function down(){
+                for(i=0; i<1000; i++){
+                    scroll(1,i);
+                }
+            }
+            
+            function up(){
+                for(i=1000; i>0; i--){
+                    scroll(1,i);
+                }
+            }
+            var bg=document.bgColor;
+            function rechange(){
+                document.bgColor=bg;
+                window.location.reload();
+            }
+            //循环变色
+            var pos=0;
+            function change(){
+                
+                var col=new Array(10);
+                col[0]="black";
+                col[1]="coral";
+                col[2]="orange";
+                col[3]="red";
+                col[4]="greenyellow";
+                col[5]="lime";
+                col[6]="turquoise";
+                col[7]="green";
+                col[8]="yellow";
+                col[9]="violet";
+                pos++;
+                if(pos<0||pos>9){
+                    pos=0;
+                }
+                document.bgColor=col[pos];
+                setTimeout("change()",1000);
+            }
+            function randomchange(){
+                today=new Date();
+                //document.bgColor=Math.random();
+                document.bgColor=Math.sin(Math.sin(today.getTime()))*1000000;
+                setTimeout("randomchange()",1000);
+            }
+            function shows(){
+                today=new Date();
+                // alert(number_toChar(1));
+                f.time1.value=today.toLocaleString();
+                f.time2.value=today.toGMTString();
+            }
+            //以下对时间转换成中文时间
+            function number_toChar(i){
+                switch(i){
+                    case 0: return "零";
+                    case 1: return "一";
+                    case 2: return "二";
+                    case 3: return "三";
+                    case 4: return "四";
+                    case 5: return "五";
+                    case 6: return "六";
+                    case 7: return "七";
+                    case 8: return "八";
+                    case 9: return "九";
+                }
+            }
+            function dateShow(i,j){//对日期和月份转换,i表示要转换的数,j标志对月还是日
+                var type = "日";
+                if(j==1) type = "月"//标志为1时为月份
+                var temp = type;
+                if(i%10!=0) temp = number_toChar(i%10)+type;//对是整十的特殊处理
+                var newdate = "";
+                if(i>=20){
+                    // if(i%10!=0)
+                    newdate = number_toChar(parseInt(i/10))+"十"+temp;
+                    //else
+                    //newdate = number_toChar(i/10)+"十"+type;
+                }else if(i>=10){
+                    newdate = "十"+temp;
+                }else if(i>0){
+                    newdate = temp;
+                }
+                return newdate;
+            }
+            function yearShow(i){
+                var newyear = "";
+                var mod = i%1000;
+                var div = i/1000;
+                //var d = parseInt(i/1000);//强制转换成整型
+                //alert(d);
+                mewyear = "公元"+number_toChar(parseInt(div))+number_toChar(parseInt(mod/100))+number_toChar(parseInt((i%100)/10))+number_toChar(i%10)+"年";
+                return mewyear;
+            }
+            function nowShow(){
+                today=new Date();
+                var month = today.getMonth()+1;
+                var date = today.getDate();
+                var year = today.getYear();
+                var week = today.getDay();
+                var wkst = "星期"+number_toChar(week);
+                if (week==0) wkst = "星期日";
+                f.time3.value = yearShow(year)+" "+dateShow(month,1)+" "+dateShow(date,0)+" "+wkst;
+            }
+            </SCRIPT>
+        <body>
+            <form name="f">
+                <center/>
+                <input type="button" onclick="down()" value="down">
+                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>&nbsp;<br/><br/><br/><br/><br/>
+                    &nbsp;<br/><br/><br/><br/><br/>
+                    <input type="text" onclick="shows()" name="time1" value="点击显示本地时间">
+                        <input type="text" onclick="shows()" name="time2" value="点击显示网络时间"><br>
+                            <input type="text" onclick="nowShow()" name="time3" value="点击显示中文时间" size="40">
+                                <br>
+                                <input type="button" onclick="var colors=prompt('请自定义背景的颜色','');document.bgColor=colors" value="自定义背景颜色">
+                                    <input type="button" onclick="rechange()" value="还原颜色/刷新页面">
+                                        <input type="button" onclick="change()" value="循环变色">
+                                            <input type="button" onclick="randomchange()" value="随机变色">
+                                                &nbsp;<br/><br/><br/><br/><br/>
+                                                &nbsp;<br/><br/><br/><br/><br/>
+                                                &nbsp;<br/><br/><br/><br/><br/>
+                                                &nbsp;<br/><br/><br/><br/><br/>
+                                                &nbsp;<br/><br/><br/><br/><br/>
+                                                <input type="button" onclick="up()" value="up"><br/>
+            </form>
+        </BODY></HTML>

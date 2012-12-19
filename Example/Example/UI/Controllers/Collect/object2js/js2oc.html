@@ -1,0 +1,27 @@
+<html>
+    <script language='JavaScript'> 
+        function myfun() { 
+             window.location.href="objc:doFunc1";//Call OC
+            return false; 
+        } 
+        
+        function myfun1() { 
+            window.location.href="objc:doFunc2";//Call OC
+            return false; 
+        } 
+        </script>
+    
+    <script type="text/javascript">
+        function disp_prompt()
+        {
+            
+            var name=prompt("please input your name","Bill Gates")
+            if (name!=null && name!="")
+            {
+                document.write("hello  " + name + "?")
+            }
+        }
+    </script>
+    <input type="button" id="enter" value="doFunc1" onclick="myfun();"/>
+    <input type="button" id="enter1" value="doFunc2" onclick="disp_prompt();"/>
+<html>

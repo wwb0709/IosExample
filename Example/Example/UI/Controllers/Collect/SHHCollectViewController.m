@@ -12,7 +12,7 @@
 
 #import "TestCallViewController.h"
 #import "InputViewController.h"
-//#import "ViewController.h"
+#import "ViewController.h"
 #import "testFtpViewController.h"
 #import "HHDetailViewController.h"
 #import "HHDetailView1Controller.h"
@@ -20,6 +20,7 @@
 #import "FirstViewController.h"
 #import "QAViewController.h"
 #import "GADBannerView.h"
+#import "jsTestViewController.h"
 
 #define MY_BANNER_UNIT_ID @"a14eb208060f856"
 @interface SHHCollectViewController ()
@@ -135,11 +136,11 @@
      [arr addObject:@"push"];
     [self.itemsArry setValue:arr forKey:@"来电头像测试"];
     
-//    NSMutableArray *arr1 = [NSMutableArray array];
-//    [arr1 addObject:[ViewController class]];
-//    [arr1 addObject:@"ViewController"];
-//    [arr1 addObject:@"selfpresent"];
-//    [self.itemsArry setValue:arr1 forKey:@"sms对话"];
+    NSMutableArray *arr1 = [NSMutableArray array];
+    [arr1 addObject:[ViewController class]];
+    [arr1 addObject:@"ViewController"];
+    [arr1 addObject:@"selfpresent"];
+    [self.itemsArry setValue:arr1 forKey:@"sms对话"];
     
     
     
@@ -186,6 +187,12 @@
     [arr8 addObject:@"QAViewController"];
     [arr8 addObject:@"push"];
     [self.itemsArry setValue:arr8 forKey:@"QACode"];
+    
+    NSMutableArray *arr9 = [NSMutableArray array];
+    [arr9 addObject:[jsTestViewController class]];
+    [arr9 addObject:@"jsTestViewController"];
+    [arr9 addObject:@"push"];
+    [self.itemsArry setValue:arr9 forKey:@"Object2js"];
  
 
     

@@ -42,6 +42,13 @@
 		D02BD13E1665F6CB0062BC32 /* GTMABAddressBook.m in Sources */ = {isa = PBXBuildFile; fileRef = D02BD1391665F6CB0062BC32 /* GTMABAddressBook.m */; };
 		D02BD13F1665F6CB0062BC32 /* SysAddrBook.m in Sources */ = {isa = PBXBuildFile; fileRef = D02BD13C1665F6CB0062BC32 /* SysAddrBook.m */; };
 		D02BD1431665FBF80062BC32 /* CallService.m in Sources */ = {isa = PBXBuildFile; fileRef = D02BD1421665FBF80062BC32 /* CallService.m */; };
+		D03A676F16818DE20064271B /* js2oc.html in Resources */ = {isa = PBXBuildFile; fileRef = D03A676916818DE20064271B /* js2oc.html */; };
+		D03A677016818DE20064271B /* jsTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D03A676B16818DE20064271B /* jsTestViewController.m */; };
+		D03A677116818DE20064271B /* jsTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03A676C16818DE20064271B /* jsTestViewController.xib */; };
+		D03A677216818DE20064271B /* oc2js.html in Resources */ = {isa = PBXBuildFile; fileRef = D03A676D16818DE20064271B /* oc2js.html */; };
+		D03A677316818DE20064271B /* test.js in Sources */ = {isa = PBXBuildFile; fileRef = D03A676E16818DE20064271B /* test.js */; };
+		D03A6775168196020064271B /* js.html in Resources */ = {isa = PBXBuildFile; fileRef = D03A6774168196020064271B /* js.html */; };
+		D03A67811681A6340064271B /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = D03A67801681A6340064271B /* index.html */; };
 		D03CBAFB167AD59C0008D680 /* HHDetailView1Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = D03CBAF5167AD59C0008D680 /* HHDetailView1Controller.m */; };
 		D03CBAFC167AD59C0008D680 /* HHDetailView1Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03CBAF7167AD59C0008D680 /* HHDetailView1Controller.xib */; };
 		D03CBAFD167AD59C0008D680 /* HHDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D03CBAF9167AD59C0008D680 /* HHDetailViewController.m */; };
@@ -399,6 +406,14 @@
 		D02BD13C1665F6CB0062BC32 /* SysAddrBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SysAddrBook.m; sourceTree = "<group>"; };
 		D02BD1411665FBF80062BC32 /* CallService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallService.h; sourceTree = "<group>"; };
 		D02BD1421665FBF80062BC32 /* CallService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallService.m; sourceTree = "<group>"; };
+		D03A676916818DE20064271B /* js2oc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = js2oc.html; sourceTree = "<group>"; };
+		D03A676A16818DE20064271B /* jsTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jsTestViewController.h; sourceTree = "<group>"; };
+		D03A676B16818DE20064271B /* jsTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jsTestViewController.m; sourceTree = "<group>"; };
+		D03A676C16818DE20064271B /* jsTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = jsTestViewController.xib; sourceTree = "<group>"; };
+		D03A676D16818DE20064271B /* oc2js.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = oc2js.html; sourceTree = "<group>"; };
+		D03A676E16818DE20064271B /* test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
+		D03A6774168196020064271B /* js.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = js.html; sourceTree = "<group>"; };
+		D03A67801681A6340064271B /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		D03CBAF5167AD59C0008D680 /* HHDetailView1Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHDetailView1Controller.m; sourceTree = "<group>"; };
 		D03CBAF6167AD59C0008D680 /* HHDetailView1Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHDetailView1Controller.h; sourceTree = "<group>"; };
 		D03CBAF7167AD59C0008D680 /* HHDetailView1Controller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HHDetailView1Controller.xib; sourceTree = "<group>"; };
@@ -1051,6 +1066,21 @@
 				D02BD13C1665F6CB0062BC32 /* SysAddrBook.m */,
 			);
 			path = AddressBook;
+			sourceTree = "<group>";
+		};
+		D03A676816818DE20064271B /* object2js */ = {
+			isa = PBXGroup;
+			children = (
+				D03A676916818DE20064271B /* js2oc.html */,
+				D03A67801681A6340064271B /* index.html */,
+				D03A676A16818DE20064271B /* jsTestViewController.h */,
+				D03A676B16818DE20064271B /* jsTestViewController.m */,
+				D03A676C16818DE20064271B /* jsTestViewController.xib */,
+				D03A676D16818DE20064271B /* oc2js.html */,
+				D03A676E16818DE20064271B /* test.js */,
+				D03A6774168196020064271B /* js.html */,
+			);
+			path = object2js;
 			sourceTree = "<group>";
 		};
 		D03CBAFF167AD6410008D680 /* gridview */ = {
@@ -2050,6 +2080,7 @@
 		D08D9F2C16084286008CE380 /* Collect */ = {
 			isa = PBXGroup;
 			children = (
+				D03A676816818DE20064271B /* object2js */,
 				D0E6AE5C168000C300064076 /* Ad */,
 				D0509A41167F08EC00E6F949 /* QRCode */,
 				D082CCC9167F032800EC146F /* Location */,
@@ -2371,6 +2402,11 @@
 				D0509A7C167F08EC00E6F949 /* zbar-helpicons.png in Resources */,
 				D0509A7D167F08EC00E6F949 /* zbar-samples.png in Resources */,
 				D0509A82167F09CF00E6F949 /* QAViewController.xib in Resources */,
+				D03A676F16818DE20064271B /* js2oc.html in Resources */,
+				D03A677116818DE20064271B /* jsTestViewController.xib in Resources */,
+				D03A677216818DE20064271B /* oc2js.html in Resources */,
+				D03A6775168196020064271B /* js.html in Resources */,
+				D03A67811681A6340064271B /* index.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2590,6 +2626,8 @@
 				D0509A78167F08EC00E6F949 /* split.c in Sources */,
 				D0509A81167F09CF00E6F949 /* QAViewController.m in Sources */,
 				D0E6AE5B167FFF8200064076 /* MarqueeLabel.m in Sources */,
+				D03A677016818DE20064271B /* jsTestViewController.m in Sources */,
+				D03A677316818DE20064271B /* test.js in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

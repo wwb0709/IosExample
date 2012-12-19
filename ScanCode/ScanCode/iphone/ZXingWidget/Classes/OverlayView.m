@@ -168,7 +168,7 @@ static const CGFloat kLicenseButtonPadding = 10;
 - (void)drawRect:(CGRect)rect {
 	[super drawRect:rect];
   if (displayedMessage == nil) {
-    self.displayedMessage = NSLocalizedStringWithDefaultValue(@"OverlayView displayed message", nil, [NSBundle mainBundle], @"Place a barcode inside the viewfinder rectangle to scan it.", @"Place a barcode inside the viewfinder rectangle to scan it.");
+    self.displayedMessage = NSLocalizedStringWithDefaultValue(@"OverlayView displayed message", nil, [NSBundle mainBundle], @"二维码图片居中", @"二维码图片居中");
   }
 	CGContextRef c = UIGraphicsGetCurrentContext();
   

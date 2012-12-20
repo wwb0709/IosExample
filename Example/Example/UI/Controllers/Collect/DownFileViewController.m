@@ -92,6 +92,7 @@
 
 }
 
+
 -(void)releaseData
 {
     self.downinglist=nil;

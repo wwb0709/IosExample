@@ -21,8 +21,10 @@
 #import "QAViewController.h"
 #import "GADBannerView.h"
 #import "jsTestViewController.h"
+#import "DownFileViewController.h"
+#import "FileTranserModel.h"
 
-#define MY_BANNER_UNIT_ID @"a14eb208060f856"
+#define MY_BANNER_UNIT_ID @""//@"a14eb208060f856"
 @interface SHHCollectViewController ()
 
 @end
@@ -193,6 +195,22 @@
     [arr9 addObject:@"jsTestViewController"];
     [arr9 addObject:@"push"];
     [self.itemsArry setValue:arr9 forKey:@"Object2js"];
+    
+    NSMutableArray *arr10 = [NSMutableArray array];
+    [arr10 addObject:[DownFileViewController class]];
+    [arr10 addObject:@"DownFileViewController"];
+    [arr10 addObject:@"push"];
+    [self.itemsArry setValue:arr10 forKey:@"down files"];
+    
+    
+    FileTranserModel *file=[[FileTranserModel alloc] init];
+    file.downoadUrl=@"http://union.haolianluo.com/DownloadAction.action?fileName=AiHao_Android(V2.x)_V3.3.3_h00001.apk&i=1111";
+    file.fileName=@"qq22.apk";
+    file.fileTrueSize=1024;
+    [[FileTranserHelper sharedInstance] startDownloadFile:file delegate:nil];
+    [file release];
+    
+    
  
 
     

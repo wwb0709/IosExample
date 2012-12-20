@@ -11,7 +11,7 @@
 //  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 //  copies of the Software, and to permit persons to whom the Software is
 //  furnished to do so, subject to the following conditions:
-// 
+//
 //  The above copyright notice and this permission notice shall be included in
 //  all copies or substantial portions of the Software.
 //
@@ -26,30 +26,37 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-
-
 typedef enum{
 	EGOOPullRefreshPulling = 0,
 	EGOOPullRefreshNormal,
-	EGOOPullRefreshLoading,	
+	EGOOPullRefreshLoading,
 } EGOPullRefreshState;
 
+@protocol EGORefreshTableHeaderDelegate;
 @interface EGORefreshTableHeaderView : UIView {
 	
+	id _delegate;
+	EGOPullRefreshState _state;
+
 	UILabel *_lastUpdatedLabel;
 	UILabel *_statusLabel;
 	CALayer *_arrowImage;
 	UIActivityIndicatorView *_activityView;
-	
-	EGOPullRefreshState _state;
-
-    BOOL bSound;  //是否发音
 }
 
-@property(nonatomic,assign) EGOPullRefreshState state;
-@property BOOL bSound;  //是否发音
+@property(nonatomic,assign) id <EGORefreshTableHeaderDelegate> delegate;
 
-- (void)setCurrentDate;
-- (void)setState:(EGOPullRefreshState)aState;
+- (id)initWithFrame:(CGRect)frame arrowImageName:(NSString *)arrow textColor:(UIColor *)textColor;
 
+- (void)refreshLastUpdatedDate;
+- (void)egoRefreshScrollViewDidScroll:(UIScrollView *)scrollView;
+- (void)egoRefreshScrollViewDidEndDragging:(UIScrollView *)scrollView;
+- (void)egoRefreshScrollViewDataSourceDidFinishedLoading:(UIScrollView *)scrollView;
+
+@end
+@protocol EGORefreshTableHeaderDelegate
+- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view;
+- (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView*)view;
+@optional
+- (NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view;
 @end

@@ -25,64 +25,63 @@
 //
 
 #import "EGORefreshTableHeaderView.h"
-
-#import "DAUtility.h"
-#define TEXT_COLOR	 [UIColor colorWithRed:87.0/255.0 green:108.0/255.0 blue:137.0/255.0 alpha:1.0]
-#define BORDER_COLOR [UIColor colorWithRed:87.0/255.0 green:108.0/255.0 blue:137.0/255.0 alpha:1.0]
-//#define TEXT_COLOR	 [UIColor colorWithRed:78.0/255.0 green:124.0/255.0 blue:200.0/255.0 alpha:1.0]
-//#define BORDER_COLOR [UIColor colorWithRed:78.0/255.0 green:124.0/255.0 blue:200.0/255.0 alpha:1.0]
+#import "AppDelegate.h"
+#import <AudioToolbox/AudioToolbox.h>
+//#define TEXT_COLOR	 [UIColor colorWithRed:87.0/255.0 green:108.0/255.0 blue:137.0/255.0 alpha:1.0]
+#define TEXT_COLOR [UIColor colorWithRed:82/255.0 green:81/255.0 blue:81/255.0 alpha:1.0]
 #define FLIP_ANIMATION_DURATION 0.18f
+
+
+@interface EGORefreshTableHeaderView (Private)
+- (void)setState:(EGOPullRefreshState)aState;
+@end
 
 @implementation EGORefreshTableHeaderView
 
-@synthesize state=_state;
-@synthesize bSound;  //是否发音
+@synthesize delegate=_delegate;
 
-- (id)initWithFrame:(CGRect)frame 
-{
-    self = [super initWithFrame:frame];
-    if (self)
-    {
-        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_refresh_header.png"]];
+
+- (id)initWithFrame:(CGRect)frame arrowImageName:(NSString *)arrow textColor:(UIColor *)textColor  {
+    if((self = [super initWithFrame:frame])) {
+		
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-	
+        UIImageView *bgImgView=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lbs_tab_bg.png"]];
+        [bgImgView setFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+        [self addSubview:bgImgView];
+        [bgImgView release];
+
+
 		UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, frame.size.height - 30.0f, self.frame.size.width, 20.0f)];
 		label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 		label.font = [UIFont systemFontOfSize:12.0f];
-		label.textColor = TEXT_COLOR;
-		label.shadowColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
-		label.shadowOffset = CGSizeMake(0.0f, 1.0f);
+		label.textColor = textColor;
+//		label.shadowColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
+//		label.shadowOffset = CGSizeMake(0.0f, 1.0f);
 		label.backgroundColor = [UIColor clearColor];
 		label.textAlignment = UITextAlignmentCenter;
 		[self addSubview:label];
 		_lastUpdatedLabel=label;
 		[label release];
-
-		if ([[NSUserDefaults standardUserDefaults] objectForKey:@"EGORefreshTableView_LastRefresh"]) 
-		{
-			_lastUpdatedLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"EGORefreshTableView_LastRefresh"];
-		}
-		else {
-			[self setCurrentDate];
-		}
 		
 		label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, frame.size.height - 48.0f, self.frame.size.width, 20.0f)];
 		label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-		label.font = [UIFont boldSystemFontOfSize:14.0f];
-		label.textColor = TEXT_COLOR;
-		label.shadowColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
-		label.shadowOffset = CGSizeMake(0.0f, 1.0f);
+        label.font=[UIFont systemFontOfSize:13.0f];
+//		label.font = [UIFont boldSystemFontOfSize:13.0f];
+		label.textColor = textColor;
+//		label.shadowColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
+//		label.shadowOffset = CGSizeMake(0.0f, 1.0f);
 		label.backgroundColor = [UIColor clearColor];
 		label.textAlignment = UITextAlignmentCenter;
 		[self addSubview:label];
 		_statusLabel=label;
 		[label release];
-		
-		CALayer *layer = [[CALayer alloc] init];
-		layer.frame = CGRectMake(24.0f, frame.size.height - 58.0f, 18.0f, 47.0f);
+        
+		CALayer *layer = [CALayer layer];
+		layer.frame = CGRectMake(25.0f, frame.size.height - 65.0f, 30.0f, 55.0f);
 		layer.contentsGravity = kCAGravityResizeAspect;
-		layer.contents = (id)[UIImage imageNamed:@"blueArrow.png"].CGImage;
+		layer.contents = (id)[UIImage imageNamed:arrow].CGImage;
 		
+        
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 40000
 		if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) {
 			layer.contentsScale = [[UIScreen mainScreen] scale];
@@ -91,45 +90,58 @@
 		
 		[[self layer] addSublayer:layer];
 		_arrowImage=layer;
-		[layer release];
 		
-		UIActivityIndicatorView *view = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+		UIActivityIndicatorView *view = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
 		view.frame = CGRectMake(25.0f, frame.size.height - 38.0f, 20.0f, 20.0f);
 		[self addSubview:view];
 		_activityView = view;
 		[view release];
+		
+		
 		[self setState:EGOOPullRefreshNormal];
 		
     }
+	
     return self;
+	
 }
 
-- (void)setCurrentDate {
-	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-	[formatter setAMSymbol:NSLocalizedString(@"上午",nil)];
-	[formatter setPMSymbol:NSLocalizedString(@"下午",nil)];
-	//[formatter setDateFormat:@"yyyy年MM月dd日 a hh:mm"];
-    
-    [formatter setDateFormat:[NSString stringWithFormat:@"yyyy%@MM%@dd%@ a hh:mm",NSLocalizedString(@"年",nil),NSLocalizedString(@"月",nil),NSLocalizedString(@"日",nil)]];
-    
-	_lastUpdatedLabel.text = [NSString stringWithFormat:@"%@:%@", NSLocalizedString(@"最后更新",nil),[formatter stringFromDate:[NSDate date]]];
-	[[NSUserDefaults standardUserDefaults] setObject:_lastUpdatedLabel.text forKey:@"EGORefreshTableView_LastRefresh"];
-	[[NSUserDefaults standardUserDefaults] synchronize];
-	[formatter release];
+- (id)initWithFrame:(CGRect)frame  {
+  return [self initWithFrame:frame arrowImageName:@"blueArrow.png" textColor:[UIColor whiteColor]];
+}
+
+#pragma mark -
+#pragma mark Setters
+
+- (void)refreshLastUpdatedDate {
+	
+	if ([_delegate respondsToSelector:@selector(egoRefreshTableHeaderDataSourceLastUpdated:)]) {
+		
+		NSDate *date = [_delegate egoRefreshTableHeaderDataSourceLastUpdated:self];
+		
+		[NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehaviorDefault];
+		NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+		[dateFormatter setDateStyle:NSDateFormatterShortStyle];
+		[dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+
+		_lastUpdatedLabel.text = [NSString stringWithFormat:@"%@: %@",NSLocalizedString(@"最后更新", @""), [dateFormatter stringFromDate:date]];
+		[[NSUserDefaults standardUserDefaults] setObject:_lastUpdatedLabel.text forKey:@"EGORefreshTableView_LastRefresh"];
+		[[NSUserDefaults standardUserDefaults] synchronize];
+		
+	} else {
+		
+		_lastUpdatedLabel.text = nil;
+		
+	}
+
 }
 
 - (void)setState:(EGOPullRefreshState)aState{
 	
-	switch (aState) 
-    {
+	switch (aState) {
 		case EGOOPullRefreshPulling:
-			//_statusLabel.text = NSLocalizedString(@"Release to refresh...", @"Release to refresh status");
-            if (bSound) 
-            {
-                [DAUtility playSoundPsstDown];
-            }
-            
-			_statusLabel.text = NSLocalizedString(@"松开即可刷新", nil);
+			
+			_statusLabel.text = NSLocalizedString(@"松开即可更新...", @"松开即可更新...");
 			[CATransaction begin];
 			[CATransaction setAnimationDuration:FLIP_ANIMATION_DURATION];
 			_arrowImage.transform = CATransform3DMakeRotation((M_PI / 180.0) * 180.0f, 0.0f, 0.0f, 1.0f);
@@ -139,21 +151,13 @@
 		case EGOOPullRefreshNormal:
 			
 			if (_state == EGOOPullRefreshPulling) {
-
 				[CATransaction begin];
 				[CATransaction setAnimationDuration:FLIP_ANIMATION_DURATION];
 				_arrowImage.transform = CATransform3DIdentity;
 				[CATransaction commit];
 			}
-            
-			if (bSound) 
-            {
-                [DAUtility playSoundForPsstUp];
-                self.bSound = NO;
-            }
 			
-			//_statusLabel.text = NSLocalizedString(@"Pull down to refresh...", @"Pull down to refresh status");
-			_statusLabel.text = NSLocalizedString(@"下拉可以刷新", nil);
+			_statusLabel.text = NSLocalizedString(@"下拉即可更新...", @"下拉即可更新...");
 			[_activityView stopAnimating];
 			[CATransaction begin];
 			[CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions]; 
@@ -161,15 +165,12 @@
 			_arrowImage.transform = CATransform3DIdentity;
 			[CATransaction commit];
 			
+			[self refreshLastUpdatedDate];
+			
 			break;
 		case EGOOPullRefreshLoading:
 			
-			//_statusLabel.text = NSLocalizedString(@"Loading...", @"Loading Status");
-            if (bSound) 
-            {
-                [DAUtility playSoundForUp];
-            }
-			_statusLabel.text = NSLocalizedString(@"正在刷新...",nil);
+			_statusLabel.text = NSLocalizedString(@"加载中...", @"加载中...");
 			[_activityView startAnimating];
 			[CATransaction begin];
 			[CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions]; 
@@ -184,7 +185,97 @@
 	_state = aState;
 }
 
+
+#pragma mark -
+#pragma mark ScrollView Methods
+
+- (void)egoRefreshScrollViewDidScroll:(UIScrollView *)scrollView {	
+	
+	if (_state == EGOOPullRefreshLoading) {
+		
+		CGFloat offset = MAX(scrollView.contentOffset.y * -1, 0);
+		offset = MIN(offset, 60);
+		scrollView.contentInset = UIEdgeInsetsMake(offset, 0.0f, 0.0f, 0.0f);
+		
+	} else if (scrollView.isDragging) {
+        AppDelegate *appDelegate=(AppDelegate *)[[UIApplication sharedApplication]delegate];
+        
+        NSURL *pullURL=[[[NSBundle mainBundle] resourceURL] URLByAppendingPathComponent:@"pull_pull.wav"];
+        SystemSoundID pull_pull;
+        SystemSoundID pull_release;
+        AudioServicesCreateSystemSoundID((CFURLRef)pullURL, &pull_pull);
+        
+        NSURL *releaseURL=[[[NSBundle mainBundle] resourceURL] URLByAppendingPathComponent:@"pull_release.wav"];
+        AudioServicesCreateSystemSoundID((CFURLRef)releaseURL, &pull_release);
+		BOOL _loading = NO;
+		if ([_delegate respondsToSelector:@selector(egoRefreshTableHeaderDataSourceIsLoading:)]) {
+			_loading = [_delegate egoRefreshTableHeaderDataSourceIsLoading:self];
+		}
+		
+		if (!_loading&&  _state == EGOOPullRefreshPulling &&scrollView.contentOffset.y > -65.0f && scrollView.contentOffset.y < 0.0f) {
+            AudioServicesPlaySystemSound(pull_pull);
+			[self setState:EGOOPullRefreshNormal];
+		} else if (!_loading&& _state == EGOOPullRefreshNormal && scrollView.contentOffset.y < -65.0f) {
+            AudioServicesPlaySystemSound(pull_release);
+			[self setState:EGOOPullRefreshPulling];
+		}
+		
+		if (scrollView.contentInset.top != 0) {
+			scrollView.contentInset = UIEdgeInsetsZero;
+		}
+	}
+}
+
+- (void)egoRefreshScrollViewDidEndDragging:(UIScrollView *)scrollView {
+	
+	BOOL _loading = NO;
+	if ([_delegate respondsToSelector:@selector(egoRefreshTableHeaderDataSourceIsLoading:)]) {
+		_loading = [_delegate egoRefreshTableHeaderDataSourceIsLoading:self];
+	}
+	
+	if ( !_loading&&scrollView.contentOffset.y <= - 65.0f) {
+		
+		if ([_delegate respondsToSelector:@selector(egoRefreshTableHeaderDidTriggerRefresh:)]) {
+            AppDelegate *appDelegate=(AppDelegate *)[[UIApplication sharedApplication]delegate];
+
+            SystemSoundID pull_release;
+ 
+            NSURL *releaseURL=[[[NSBundle mainBundle] resourceURL] URLByAppendingPathComponent:@"pull_release.wav"];
+            AudioServicesCreateSystemSoundID((CFURLRef)releaseURL, &pull_release);
+
+            
+            AudioServicesPlaySystemSound(pull_release);
+			[_delegate egoRefreshTableHeaderDidTriggerRefresh:self];
+		}
+		
+		[self setState:EGOOPullRefreshLoading];
+		[UIView beginAnimations:nil context:NULL];
+		[UIView setAnimationDuration:0.2];
+		scrollView.contentInset = UIEdgeInsetsMake(60.0f, 0.0f, 0.0f, 0.0f);
+		[UIView commitAnimations];
+		
+	}
+	
+}
+
+- (void)egoRefreshScrollViewDataSourceDidFinishedLoading:(UIScrollView *)scrollView {	
+	
+	[UIView beginAnimations:nil context:NULL];
+	[UIView setAnimationDuration:.3];
+	[scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f)];
+	[UIView commitAnimations];
+	
+	[self setState:EGOOPullRefreshNormal];
+
+}
+
+
+#pragma mark -
+#pragma mark Dealloc
+
 - (void)dealloc {
+	
+	_delegate=nil;
 	_activityView = nil;
 	_statusLabel = nil;
 	_arrowImage = nil;

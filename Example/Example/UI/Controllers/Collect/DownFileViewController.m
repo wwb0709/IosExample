@@ -16,10 +16,11 @@
 @property(nonatomic,retain)UITableView *downingTableView;
 @property(nonatomic,retain)NSMutableArray *downinglist;
 @property(nonatomic,retain)EGORefreshTableHeaderView *headerView;
+@property(nonatomic,retain)UIView *footview;
 @end
 
 @implementation DownFileViewController
-@synthesize downingTableView,downinglist,headerView;
+@synthesize downingTableView,downinglist,headerView,footview;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,6 +51,38 @@
     [downingTableView addSubview:headerView];
     
     
+    footview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, downingTableView.frame.size.width, 100)];
+    //footview.backgroundColor = [UIColor grayColor];
+    
+    
+    
+//    UIActivityIndicatorView*   activity = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];//指定进度轮的大小
+//    
+//    [activity setCenter:CGPointMake(160,50)];//指定进度轮中心点
+//    
+//    [activity setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];//设置进度轮显示类型
+//    activity.tag = 100000;
+//    [footview addSubview:activity];
+//    [activity startAnimating];
+//    
+//    [activity release];
+    
+    UIActivityIndicatorView*   activity = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];//指定进度轮的大小
+//    activity.backgroundColor = [UIColor redColor];
+    [activity setCenter:CGPointMake(160,50)];//指定进度轮中心点
+    
+    [activity setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];//设置进度轮显示类型
+    activity.tag = 100000;
+    [footview addSubview:activity];
+    self.downingTableView.tableFooterView = footview;
+    //[activity startAnimating];
+    
+    [activity release];
+
+    
+//    downingTableView.tableFooterView = footview;
+    
+    
     
     [[FileTranserHelper sharedInstance] setFiletranserDelegate:self];
      self.downinglist=[[[NSMutableArray alloc] init] autorelease];
@@ -64,6 +97,7 @@
     self.downinglist=nil;
     self.downingTableView=nil;
     self.headerView=nil;
+    self.footview = nil;
 }
 
 -(void)dealloc
@@ -94,6 +128,9 @@
         isLoading=NO;
         
         [headerView performSelectorOnMainThread:@selector(egoRefreshScrollViewDataSourceDidFinishedLoading:) withObject:downingTableView waitUntilDone:YES];
+        
+        UIActivityIndicatorView*   activity = (UIActivityIndicatorView*)[footview viewWithTag:100000];
+        [activity stopAnimating];
     }
     
     
@@ -283,6 +320,32 @@
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
     [headerView egoRefreshScrollViewDidEndDragging:scrollView];
+    
+    
+    //begin
+    // 下拉到最底部时显示更多数据
+    if( scrollView.contentOffset.y > ((scrollView.contentSize.height - scrollView.frame.size.height)))
+    {
+        NSLog(@"上拉");
+        UIActivityIndicatorView*   activity = (UIActivityIndicatorView*)[footview viewWithTag:100000];
+        [activity startAnimating];
+        
+        isLoading=YES;
+        
+        //时间间隔
+        NSTimeInterval timeInterval =3.0 ;
+        //定时器
+        NSTimer   *showTimer = [NSTimer scheduledTimerWithTimeInterval:timeInterval
+                                                               target:self
+                                                             selector:@selector(loadDowningFiles)
+                                                             userInfo:nil
+                                                              repeats:NO];
+        
+//        [NSThread detachNewThreadSelector:@selector(loadDowningFiles) toTarget:self withObject:nil];
+        //[self loadDataBegin];
+    }
+    
+    //end
 }
 
 @end

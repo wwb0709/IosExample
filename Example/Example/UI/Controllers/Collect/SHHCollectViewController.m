@@ -120,6 +120,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    
+
+
+    
 	// Do any additional setup after loading the view.
     
     [[NSNotificationCenter defaultCenter]
@@ -245,6 +251,20 @@
 //    
 //    [bannerView loadRequest:[GADRequest request]];
     
+    
+    
+    UIActivityIndicatorView*   activity = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];//指定进度轮的大小
+    activity.backgroundColor = [UIColor redColor];
+    //[activity setCenter:CGPointMake(160,50)];//指定进度轮中心点
+    
+    [activity setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];//设置进度轮显示类型
+    activity.tag = 100000;
+//    [self.view addSubview:activity];
+    
+    self.tableview.tableFooterView = activity;
+    [activity startAnimating];
+    
+    [activity release];
     
     return;
     

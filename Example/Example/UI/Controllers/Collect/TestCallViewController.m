@@ -8,7 +8,7 @@
 
 #import "TestCallViewController.h"
 #import <AddressBook/AddressBook.h>
-
+#import <AddressBookUI/AddressBookUI.h>
 @interface TestCallViewController ()
 
 @end
@@ -86,7 +86,7 @@
 	NSString *num = [[NSString alloc] initWithFormat:@"tel://%@",number]; //number为号码字符串
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:num]]; //拨号
 }
--(UIImage *)addText:(UIImage *)img text:(NSString *)text1
+-(UIImage *)addText:(UIImage *)img text:(NSString *)content
 {
     int w = img.size.width;
     int h = img.size.height;
@@ -99,12 +99,39 @@
     
     CGContextDrawImage(contextRef, CGRectMake(0, 0, w, h), [img CGImage]);  //在上下文种画当前图片
     
+    CGPoint center;
+    center.x = w/ 2.0;
+    center.y = h/ 2.0;
+    float maxRadius = hypot(w, h) / 2.0;
+    // Get the context being drawn upon
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    // All lines will be drawn 10 points wide
+    CGContextSetLineWidth(context, 10);
+    // Set the stroke color to light gray
+    [[UIColor lightGrayColor] setStroke];
+    // Draw concentric circles from the outside in
+    for (float currentRadius = maxRadius; currentRadius > 0; currentRadius -= 20)
+    {
+        CGContextAddArc(context, center.x, center.y,
+                        currentRadius, 0.0, M_PI * 2.0, YES);
+        CGContextStrokePath(context);
+    }
+    
     
     [[UIColor redColor] set];  //上下文种的文字属性
     CGContextTranslateCTM(contextRef, 0, h);
     CGContextScaleCTM(contextRef, 1.0, -1.0);
     UIFont *font = [UIFont boldSystemFontOfSize:50];
-    [text1 drawInRect:CGRectMake(0, h/2, w, 80) withFont:font];
+    CGSize textsize = [content sizeWithFont:font];
+    
+    CGSize offset = CGSizeMake(4, 3);
+    CGColorRef color = [[UIColor darkGrayColor] CGColor];
+    CGContextSetShadowWithColor(contextRef, offset, 2.0, color);
+    
+    
+    [content drawInRect:CGRectMake(0, h/2, w, 80) withFont:font];
+    [[UIColor blueColor] set];  //上下文种的文字属性
+    [content drawInRect:CGRectMake(w/2-textsize.width/2, h/2+textsize.height+10, w, 80) withFont:font];
     
 //    //设置矩形填充颜色：红色
 //    CGContextSetRGBFillColor(contextRef, 1.0, 0.0, 0.0, 1.0);
@@ -134,15 +161,16 @@
 }
 -(void)inSertIntoAddressBookWithPhone:(NSString*)phone
 {
+
     //    1、首先初始化一个ABAddressBookRef对象
-    ABAddressBookRef addressBook = ABAddressBookCreate();
+    ABAddressBookRef addressBook = [self MyAddressBookCreate];
     //    注意，在用完的时候，一定要进行release，不然会导致内存泄露，当然这里是CFRelease
     //
     //    2、增加一个新联系人到通讯录中
     //初始化一个record
     ABRecordRef person ;
     NSNumber *recordId  = [CacheUtil cachedItemsFor:@"ABRecordID"];
-    if (recordId) {
+    if ([recordId intValue]>0) {
         person = ABAddressBookGetPersonWithRecordID(addressBook, [recordId intValue]);
     }
     else
@@ -219,7 +247,30 @@
         CFRelease(addressBook);
 
 }
-
+-(ABAddressBookRef) MyAddressBookCreate
+{
+    ABAddressBookRef addressBook = nil;
+    
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 6.0)
+    {
+        addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
+        //等待同意后向下执行
+        dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+        ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error)
+                                                 {
+                                                     dispatch_semaphore_signal(sema);
+                                                 });
+        
+        dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+        dispatch_release(sema);
+    }
+    else
+    {
+        addressBook = ABAddressBookCreate();
+    }
+    
+    return addressBook;
+}
 
 
 - (void)dealloc {

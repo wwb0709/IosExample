@@ -23,6 +23,7 @@
 #import "jsTestViewController.h"
 #import "DownFileViewController.h"
 #import "FileTranserModel.h"
+#import "NLViewController.h"
 
 #define MY_BANNER_UNIT_ID @""//@"a14eb208060f856"
 @interface SHHCollectViewController ()
@@ -141,14 +142,16 @@
     NSMutableArray *arr = [NSMutableArray array];
     [arr addObject:[TestCallViewController class]];
     [arr addObject:@"TestCallViewController"];
-     [arr addObject:@"push"];
-    [self.itemsArry setValue:arr forKey:@"来电头像测试"];
+    [arr addObject:@"push"];
+    [arr addObject:@"来电头像测试"];
+    [self.itemsArry setValue:arr forKey:@"1"];
     
     NSMutableArray *arr1 = [NSMutableArray array];
     [arr1 addObject:[ViewController class]];
     [arr1 addObject:@"ViewController"];
     [arr1 addObject:@"selfpresent"];
-    [self.itemsArry setValue:arr1 forKey:@"sms对话"];
+    [arr1 addObject:@"sms对话"];
+    [self.itemsArry setValue:arr1 forKey:@"2"];
     
     
     
@@ -156,65 +159,82 @@
     [arr2 addObject:[testFtpViewController class]];
     [arr2 addObject:@"testFtpViewController"];
     [arr2 addObject:@"push"];
-    [self.itemsArry setValue:arr2 forKey:@"ftptest"];
+    [arr2 addObject:@"ftptest"];
+    [self.itemsArry setValue:arr2 forKey:@"3"];
     
     
     NSMutableArray *arr3 = [NSMutableArray array];
     [arr3 addObject:[InputViewController class]];
     [arr3 addObject:@"InputViewController"];
     [arr3 addObject:@"present"];
-    [self.itemsArry setValue:arr3 forKey:@"sendobject"];
+    [arr3 addObject:@"sendobject"];
+    [self.itemsArry setValue:arr3 forKey:@"4"];
     
     NSMutableArray *arr4 = [NSMutableArray array];
     [arr4 addObject:[HHDetailViewController class]];
     [arr4 addObject:@"HHDetailViewController"];
     [arr4 addObject:@"push"];
-    [self.itemsArry setValue:arr4 forKey:@"向下滑动"];
+    [arr4 addObject:@"向下滑动"];
+    [self.itemsArry setValue:arr4 forKey:@"5"];
     
     NSMutableArray *arr5 = [NSMutableArray array];
     [arr5 addObject:[HHDetailView1Controller class]];
     [arr5 addObject:@"HHDetailView1Controller"];
     [arr5 addObject:@"push"];
-    [self.itemsArry setValue:arr5 forKey:@"向右滑动"];
+    [arr5 addObject:@"向右滑动"];
+    [self.itemsArry setValue:arr5 forKey:@"6"];
     
     NSMutableArray *arr6 = [NSMutableArray array];
     [arr6 addObject:[AnimalLabelViewController class]];
     [arr6 addObject:@"AnimalLabelViewController"];
     [arr6 addObject:@"push"];
-    [self.itemsArry setValue:arr6 forKey:@"animationlabel"];
+    [arr6 addObject:@"animationlabel"];
+    [self.itemsArry setValue:arr6 forKey:@"7"];
     
     NSMutableArray *arr7 = [NSMutableArray array];
     [arr7 addObject:[FirstViewController class]];
     [arr7 addObject:@"FirstView"];
     [arr7 addObject:@"push"];
-    [self.itemsArry setValue:arr7 forKey:@"Location"];
+    [arr7 addObject:@"Location"];
+    [self.itemsArry setValue:arr7 forKey:@"8"];
     
     
     NSMutableArray *arr8 = [NSMutableArray array];
     [arr8 addObject:[QAViewController class]];
     [arr8 addObject:@"QAViewController"];
     [arr8 addObject:@"push"];
-    [self.itemsArry setValue:arr8 forKey:@"QACode"];
+    [arr8 addObject:@"QACode"];
+    [self.itemsArry setValue:arr8 forKey:@"9"];
     
     NSMutableArray *arr9 = [NSMutableArray array];
     [arr9 addObject:[jsTestViewController class]];
     [arr9 addObject:@"jsTestViewController"];
     [arr9 addObject:@"push"];
-    [self.itemsArry setValue:arr9 forKey:@"Object2js"];
+    [arr9 addObject:@"Object2js"];
+    [self.itemsArry setValue:arr9 forKey:@"10"];
     
     NSMutableArray *arr10 = [NSMutableArray array];
     [arr10 addObject:[DownFileViewController class]];
     [arr10 addObject:@"DownFileViewController"];
     [arr10 addObject:@"push"];
-    [self.itemsArry setValue:arr10 forKey:@"down files"];
+    [arr10 addObject:@"down files"];
+    [self.itemsArry setValue:arr10 forKey:@"11"];
+    
+    NSMutableArray *arr11 = [NSMutableArray array];
+    [arr11 addObject:[NLViewController class]];
+    [arr11 addObject:@""];
+    [arr11 addObject:@"push"];
+    [arr11 addObject:@"imagecropper"];
+    [self.itemsArry setValue:arr11 forKey:@"12"];
     
     
-    FileTranserModel *file=[[FileTranserModel alloc] init];
-    file.downoadUrl=@"http://union.haolianluo.com/DownloadAction.action?fileName=AiHao_Android(V2.x)_V3.3.3_h00001.apk&i=1111";
-    file.fileName=@"qq22.apk";
-    file.fileTrueSize=1024;
-    [[FileTranserHelper sharedInstance] startDownloadFile:file delegate:nil];
-    [file release];
+    
+//    FileTranserModel *file=[[FileTranserModel alloc] init];
+//    file.downoadUrl=@"http://union.haolianluo.com/DownloadAction.action?fileName=AiHao_Android(V2.x)_V3.3.3_h00001.apk&i=1111";
+//    file.fileName=@"qq22.apk";
+//    file.fileTrueSize=1024;
+//    [[FileTranserHelper sharedInstance] startDownloadFile:file delegate:nil];
+//    [file release];
     
     
  
@@ -254,7 +274,7 @@
     
     
     UIActivityIndicatorView*   activity = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];//指定进度轮的大小
-    activity.backgroundColor = [UIColor redColor];
+//    activity.backgroundColor = [UIColor redColor];
     //[activity setCenter:CGPointMake(160,50)];//指定进度轮中心点
     
     [activity setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];//设置进度轮显示类型
@@ -333,11 +353,12 @@
     
 
     NSString * tmpSectionKey = [[self.itemsArry allKeys] objectAtIndex:rowIdx];
-    cell.textLabel.text = tmpSectionKey;
+    
+    cell.textLabel.text = [[self.itemsArry objectForKey:tmpSectionKey] objectAtIndex:3];
     
 
     
-//     NSMutableArray *arr  = [self.itemsArry objectForKey:tmpSectionKey];
+
     if ([self.idsArry containsObject:[NSNumber numberWithInteger:rowIdx]]) {
         return cell;
     }
@@ -408,12 +429,18 @@
     
     NSMutableArray *arr  = [self.itemsArry objectForKey:Key];
     UIViewController *tmpViewController =nil;
-    if ([arr count]==2) {
-        tmpViewController = [[[[arr objectAtIndex:0] alloc] init] autorelease];
-    }
-    else if([arr count]==3)
+
+    if([arr count]==4)
     {
-        tmpViewController = [[[[arr objectAtIndex:0] alloc] initWithNibName:[arr objectAtIndex:1] bundle:nil] autorelease];
+        if ([[arr objectAtIndex:1] length]>0) {
+       
+            tmpViewController = [[[[arr objectAtIndex:0] alloc] initWithNibName:[arr objectAtIndex:1] bundle:nil] autorelease];
+            
+        }
+        else
+        {
+            tmpViewController = [[[[arr objectAtIndex:0] alloc] init] autorelease];
+        }
     }
     if (tmpViewController) {
         tmpViewController.title = Key;

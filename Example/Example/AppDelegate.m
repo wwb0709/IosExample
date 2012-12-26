@@ -133,6 +133,7 @@
 #import "SHHSearchController.h"
 #import "SHHLoginController.h"
 #import "BlockUI.h"
+#import "wax.h"
 @implementation AppDelegate
 
 @synthesize mainWindow = mainWindow_;
@@ -262,8 +263,6 @@
 #pragma mark - 应用程序委托
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
-    
 //    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 //    
 //    UIViewController *viewController = [[UIViewController alloc] init];

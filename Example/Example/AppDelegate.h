@@ -21,10 +21,10 @@
 @interface AppDelegate : UIApplication <UIApplicationDelegate, UITabBarControllerDelegate>
 {
     // 主视图
-    UIWindow *mainWindow_;
+//    UIWindow *mainWindow_;
     
     // 根视图控制器
-    UIViewController *mainViewController_;
+//    UIViewController *mainViewController_;
 }
 
 @property (retain, nonatomic) UIWindow *mainWindow;

@@ -152,7 +152,7 @@ static FileTranserHelper *instance;
 //XX:XX格式
 -(void)showNotification:(NSString *)info
 {
-    return;
+  
         NSString *notifi=[NSString stringWithString:info];
         NSUInteger location=[notifi rangeOfString:@":"].location;
         NSString *fileName=nil;
@@ -183,13 +183,13 @@ static FileTranserHelper *instance;
         [label setAlpha:0.0f];
         
         AppDelegate *appDelegate=(AppDelegate *)[[UIApplication sharedApplication]delegate];
-        [appDelegate.window addSubview:label];
+        [appDelegate.mainWindow addSubview:label];
         if([[UIDevice currentDevice] userInterfaceIdiom]==UIUserInterfaceIdiomPhone)
         {
             label.font = [UIFont systemFontOfSize:15];
             CGSize trueSize=[showText sizeWithFont:[UIFont fontWithName:@"Helvetica" size:15]];
             label.frame = CGRectMake(0, 35, trueSize.width+30, 30);
-            [label setCenter:CGPointMake(appDelegate.window.center.x, 416)];
+            [label setCenter:CGPointMake(appDelegate.mainWindow.center.x, 416)];
         }
         else
         {

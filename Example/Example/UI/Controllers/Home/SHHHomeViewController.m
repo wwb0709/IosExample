@@ -11,8 +11,15 @@
 #import "ViewController.h"
 #import "SHHSearchViewController.h"
 #import "MTAnimatedLabel.h"
+
 //#import "ProjectApplication.h"
 
+
+#import "wax.h"
+#import "wax_http.h"
+#import "wax_json.h"
+#import "wax_filesystem.h"
+#import "wax_xml.h"
 @implementation SHHHomeViewController
 
 - (id) init
@@ -31,6 +38,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     
     
     [[NSNotificationCenter defaultCenter]
@@ -96,7 +104,7 @@
     [tmpTabBtn1 setFrame:CGRectMake(0, 0, 55, 37)];
     tmpTabBtn1.titleLabel.text= @"startThread";
     [tmpTabBtn1 addTarget:self
-                  action:@selector(stopThread)
+                  action:@selector(loadViewBylua)
         forControlEvents:UIControlEventTouchUpInside];
     tmpTabBtn1.backgroundColor=[UIColor clearColor];
     [tmpTabBtn1 setBackgroundImage:[UIImage imageNamed:@"collect.png"] forState:UIControlStateNormal];
@@ -162,6 +170,13 @@
     [textImageView release];
 
 	// Do any additional setup after loading the view.
+}
+
+-(void)loadViewBylua
+{
+    wax_end();
+    wax_start("init.lua",nil);
+//    wax_start("StatesTable.lua", luaopen_wax_http, luaopen_wax_json, luaopen_wax_xml, nil);
 }
 
 -(void)startThread

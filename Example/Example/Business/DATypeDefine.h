@@ -41,6 +41,14 @@ typedef enum
     Iphone_Above4   //tank:2011.12.6 所有已经超过了4的新手机，我们现在使用这个标志,
 }PlatFormType;
 
+typedef enum
+{
+    OperationType_default = 0,
+    OperationType_add = 1,
+    OperationType_edit = 2,
+    OperationType_del = 3
+}OperationType;
+
 //现有主流嵌入式苹果机类型
 typedef enum
 {

@@ -24,6 +24,7 @@
 #import "DownFileViewController.h"
 #import "FileTranserModel.h"
 #import "NLViewController.h"
+#import "CocoaWebResourceViewController.h"
 
 #define MY_BANNER_UNIT_ID @""//@"a14eb208060f856"
 @interface SHHCollectViewController ()
@@ -227,7 +228,20 @@
     [arr11 addObject:@"imagecropper"];
     [self.itemsArry setValue:arr11 forKey:@"12"];
     
+    NSMutableArray *arr12 = [NSMutableArray array];
+    [arr12 addObject:[CocoaWebResourceViewController class]];
+    [arr12 addObject:@"CocoaWebResourceViewController"];
+    [arr12 addObject:@"push"];
+    [arr12 addObject:@"远程服务器"];
+    [self.itemsArry setValue:arr12 forKey:@"12"];
     
+    
+    
+    //枚举数组
+    [arr11 enumerateObjectsUsingBlock:^(id obj2, NSUInteger idx2, BOOL *stop2) {
+        NSString * o = (NSString *) obj2;
+        printLog(@"*******index: %d,%@",idx2,o);
+    }];
     
 //    FileTranserModel *file=[[FileTranserModel alloc] init];
 //    file.downoadUrl=@"http://union.haolianluo.com/DownloadAction.action?fileName=AiHao_Android(V2.x)_V3.3.3_h00001.apk&i=1111";
@@ -443,7 +457,7 @@
         }
     }
     if (tmpViewController) {
-        tmpViewController.title = Key;
+        tmpViewController.title = [arr objectAtIndex:3];;
         
         if ([[arr objectAtIndex:2] isEqual:@"push"]) {
             

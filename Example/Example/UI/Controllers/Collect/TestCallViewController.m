@@ -9,6 +9,8 @@
 #import "TestCallViewController.h"
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
+#import "GTMABAddressBook.h"
+#import "SysAddrBook.h"
 @interface TestCallViewController ()
 
 @end
@@ -75,6 +77,8 @@
 }
 
 - (IBAction)dial:(id)sender {
+    [self addPerson];
+    return;
     self.phonenum.text = self.inputPhoneNum.text;
     self.dialstatu.text = @"正在拨打...";
     [self sendObject:self.dialstatu.text];
@@ -86,6 +90,467 @@
 	NSString *num = [[NSString alloc] initWithFormat:@"tel://%@",number]; //number为号码字符串
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:num]]; //拨号
 }
+//Mark: ========================本地通讯录联系人添加和更新操作 end====================================================
+
+//Mark: ========================本地通讯录 11大类操作 start====================================================
+//***************** 1、个人基本信息操作 ******************
+- (void)OperBasicInfoWithProperty : (ABPropertyID)propertyId
+                         andValue : (NSString*)value
+                      andOperType : (OperationType)opertype
+                         inPerson : (GTMABPerson *) tmpPerson
+{
+    if (value) {
+        if (opertype == OperationType_del) {
+            [tmpPerson removeValueForProperty:propertyId];
+        }
+        else if(opertype == OperationType_add||opertype == OperationType_edit)
+            [tmpPerson setValue:value forProperty:propertyId];
+    }
+    
+}
+
+//***************** 2、电话号码信息操作 ******************
+- (void)OperContactNumbersWithKey : (CFStringRef)key
+                         andValue : (NSString*)value
+                         andIndex : (NSUInteger)index
+                      andOperType : (OperationType)opertype
+                         inPerson : (GTMABPerson *) tmpPerson
+{
+    ABMultiValueRef phones= ABRecordCopyValue([tmpPerson recordRef], kABPersonPhoneProperty);
+    GTMABMutableMultiValue * MultiValue = [[GTMABMutableMultiValue alloc] initWithMultiValue:phones ];
+    
+    if (MultiValue) {
+        
+        if (opertype == OperationType_del)
+        {
+            [MultiValue removeValueAndLabelAtIndex:index];
+        }
+        else if(opertype == OperationType_add)
+        {
+            [MultiValue addValue:value withLabel:key];
+        }
+        else if(opertype == OperationType_edit)
+        {
+            [MultiValue replaceValueAtIndex:index withValue:value];
+        }
+    }
+    [tmpPerson setValue:MultiValue forProperty:kABPersonPhoneProperty];
+    CFRelease(MultiValue);
+    CFRelease(phones);
+    
+}
+//***************** 3、相关联系人信息操作 *****************
+- (void)OperRelatedContactsWithKey : (CFStringRef)key
+                          andValue : (NSString*) value
+                          andIndex : (NSUInteger)index
+                       andOperType : (OperationType)opertype
+                          inPerson : (GTMABPerson *) tmpPerson
+{
+    
+    ABMultiValueRef RelatedNames= ABRecordCopyValue([tmpPerson recordRef], kABPersonRelatedNamesProperty);
+    GTMABMutableMultiValue * MultiValue = [[GTMABMutableMultiValue alloc] initWithMultiValue:RelatedNames ];
+    
+    if (MultiValue) {
+        
+        if (opertype == OperationType_del)
+        {
+            [MultiValue removeValueAndLabelAtIndex:index];
+        }
+        else if(opertype == OperationType_add)
+        {
+            [MultiValue addValue:value withLabel:key];
+        }
+        else if(opertype == OperationType_edit)
+        {
+            [MultiValue replaceValueAtIndex:index withValue:value];
+        }
+    }
+    [tmpPerson setValue:MultiValue forProperty:kABPersonRelatedNamesProperty];
+    CFRelease(MultiValue);
+    CFRelease(RelatedNames);
+    
+}
+//***************** 4、住址信息操作 **********************
+- (void)OperAddressesWithKey : (CFStringRef)key
+                    andValue :(id) value
+                    andIndex : (NSUInteger)index
+                 andOperType : (OperationType)opertype
+                    inPerson : (GTMABPerson *) tmpPerson
+{
+    
+    ABMultiValueRef addresses= ABRecordCopyValue([tmpPerson recordRef], kABPersonAddressProperty);
+    GTMABMutableMultiValue * MultiValue = [[GTMABMutableMultiValue alloc] initWithMultiValue:addresses ];
+    
+    if (MultiValue) {
+        
+        
+        
+        if (opertype == OperationType_del)
+        {
+            [MultiValue removeValueAndLabelAtIndex:index];
+        }
+        else if(opertype == OperationType_add)
+        {
+            [MultiValue addValue:value withLabel:key];
+        }
+        else if(opertype == OperationType_edit)
+        {
+            [MultiValue replaceValueAtIndex:index withValue:value];
+        }
+        
+    }
+    [tmpPerson setValue:MultiValue forProperty:kABPersonAddressProperty];
+    
+    CFRelease(MultiValue);
+    CFRelease(addresses);
+    
+}
+
+//***************** 5、社交信息操作 **********************
+- (void)OperNetSocialWithKey : (CFStringRef)key
+                    andValue : (NSString*) value
+                    andIndex : (NSUInteger)index
+                 andOperType : (OperationType)opertype
+                    inPerson : (GTMABPerson *) tmpPerson
+{
+    
+    ABMultiValueRef SocialProfiles= ABRecordCopyValue([tmpPerson recordRef], kABPersonSocialProfileProperty);
+    GTMABMutableMultiValue * MultiValue = [[GTMABMutableMultiValue alloc] initWithMultiValue:SocialProfiles ];
+    
+    if (MultiValue) {
+        
+        
+        
+        if (opertype == OperationType_del)
+        {
+            [MultiValue removeValueAndLabelAtIndex:index];
+        }
+        else if(opertype == OperationType_add)
+        {
+            [MultiValue addValue:value withLabel:key];
+        }
+        else if(opertype == OperationType_edit)
+        {
+            [MultiValue replaceValueAtIndex:index withValue:value];
+        }
+        
+    }
+    [tmpPerson setValue:MultiValue forProperty:kABPersonSocialProfileProperty];
+    
+    CFRelease(MultiValue);
+    CFRelease(SocialProfiles);
+    
+}
+//***************** 6、IM信息操作 ***********************
+- (void)OperIMsWithKey : (CFStringRef)key
+              andValue : (NSString*) value
+              andIndex : (NSUInteger)index
+           andOperType : (OperationType)opertype
+              inPerson : (GTMABPerson *) tmpPerson
+{
+    
+    ABMultiValueRef ims= ABRecordCopyValue([tmpPerson recordRef], kABPersonInstantMessageProperty);
+    GTMABMutableMultiValue * MultiValue = [[GTMABMutableMultiValue alloc] initWithMultiValue:ims ];
+    
+    if (MultiValue) {
+        
+        
+        
+        if (opertype == OperationType_del)
+        {
+            [MultiValue removeValueAndLabelAtIndex:index];
+        }
+        else if(opertype == OperationType_add)
+        {
+            [MultiValue addValue:value withLabel:key];
+        }
+        else if(opertype == OperationType_edit)
+        {
+            [MultiValue replaceValueAtIndex:index withValue:value];
+        }
+        
+    }
+    [tmpPerson setValue:MultiValue forProperty:kABPersonInstantMessageProperty];
+    
+    CFRelease(MultiValue);
+    CFRelease(ims);
+    
+    
+}
+
+//***************** 7、邮件信息操作 **********************
+- (void)OperEmailsWithKey : (CFStringRef)key
+                 andValue : (NSString*) value
+                 andIndex : (NSUInteger)index
+              andOperType : (OperationType)opertype
+                 inPerson : (GTMABPerson *) tmpPerson
+{
+    
+    ABMultiValueRef emails= ABRecordCopyValue([tmpPerson recordRef], kABPersonEmailProperty);
+    GTMABMutableMultiValue * MultiValue = [[GTMABMutableMultiValue alloc] initWithMultiValue:emails ];
+    
+    if (MultiValue) {
+        
+        if (opertype == OperationType_del)
+        {
+            [MultiValue removeValueAndLabelAtIndex:index];
+        }
+        else if(opertype == OperationType_add)
+        {
+            [MultiValue addValue:value withLabel:key];
+        }
+        else if(opertype == OperationType_edit)
+        {
+            [MultiValue replaceValueAtIndex:index withValue:value];
+        }
+    }
+    [tmpPerson setValue:MultiValue forProperty:kABPersonEmailProperty];
+    CFRelease(MultiValue);
+    CFRelease(emails);
+    
+}
+//***************** 8、url信息操作 **********************
+- (void)OperUrlsWithKey : (CFStringRef)key
+               andValue : (NSString*) value
+               andIndex : (NSUInteger)index
+            andOperType : (OperationType)opertype
+               inPerson : (GTMABPerson *) tmpPerson
+{
+    
+    ABMultiValueRef urls= ABRecordCopyValue([tmpPerson recordRef], kABPersonURLProperty);
+    GTMABMutableMultiValue * MultiValue = [[GTMABMutableMultiValue alloc] initWithMultiValue:urls ];
+    
+    if (MultiValue) {
+        
+        if (opertype == OperationType_del)
+        {
+            [MultiValue removeValueAndLabelAtIndex:index];
+        }
+        else if(opertype == OperationType_add)
+        {
+            [MultiValue addValue:value withLabel:key];
+        }
+        else if(opertype == OperationType_edit)
+        {
+            [MultiValue replaceValueAtIndex:index withValue:value];
+        }
+    }
+    [tmpPerson setValue:MultiValue forProperty:kABPersonURLProperty];
+    CFRelease(MultiValue);
+    CFRelease(urls);
+}
+
+//***************** 9、日期信息操作 **********************
+- (void)OperDatesWithKey : (CFStringRef)key
+                andValue : (NSDate*) value
+                andIndex : (NSUInteger)index
+             andOperType : (OperationType)opertype
+                inPerson : (GTMABPerson *) tmpPerson
+{
+    
+    ABMultiValueRef dates= ABRecordCopyValue([tmpPerson recordRef], kABPersonDateProperty);
+    GTMABMutableMultiValue * MultiValue = [[GTMABMutableMultiValue alloc] initWithMultiValue:dates ];
+    
+    if (MultiValue) {
+        
+        if (opertype == OperationType_del)
+        {
+            [MultiValue removeValueAndLabelAtIndex:index];
+        }
+        else if(opertype == OperationType_add)
+        {
+            [MultiValue addValue:value withLabel:key];
+        }
+        else if(opertype == OperationType_edit)
+        {
+            [MultiValue replaceValueAtIndex:index withValue:value];
+        }
+    }
+    [tmpPerson setValue:MultiValue forProperty:kABPersonDateProperty];
+    CFRelease(MultiValue);
+    CFRelease(dates);
+    
+    
+}
+
+//***************** 10、备注操作 *********************
+- (void)OperPersonNoteWithOperType : (OperationType)opertype
+                          andValue : (NSString*) value
+                          inPerson : (GTMABPerson *) tmpPerson
+{
+    if (value) {
+        if (opertype == OperationType_del) {
+            [tmpPerson removeValueForProperty:kABPersonNoteProperty];
+        }
+        else if(opertype == OperationType_add||opertype == OperationType_edit)
+            [tmpPerson setValue:value forProperty:kABPersonNoteProperty];
+    }
+    
+    
+}
+
+//***************** 11、生日信息操作 *********************
+- (void)OperBirthdayWithOperType : (OperationType)opertype
+                        andValue : (NSDate*) value
+                        inPerson : (GTMABPerson *) tmpPerson
+{
+    
+    
+    if (value) {
+        if (opertype == OperationType_del) {
+            [tmpPerson removeValueForProperty:kABPersonBirthdayProperty];
+        }
+        else if(opertype == OperationType_add||opertype == OperationType_edit)
+            [tmpPerson setValue:value forProperty:kABPersonBirthdayProperty];
+    }
+}
+
+
+//Mark: ========================本地通讯录 11大类操作 end=====================================================
+-(void)addPerson
+{
+
+        //添加联系人
+        GTMABAddressBook*    book_ = [[GTMABAddressBook addressBook:[SysAddrBook getSingleAddressBook]] retain];
+        
+        GTMABGroup *tmpGroup = [GTMABGroup groupNamed:@"newGroup1"];
+    
+        [book_ addRecord:tmpGroup];
+        [book_ save];
+
+        NSArray *people = [book_ people];
+        
+        for (int i=0; i<people.count; i++) {
+            GTMABPerson * tmpPerson = (GTMABPerson *)[people objectAtIndex:i];
+            if (tmpPerson) {
+                [tmpGroup addMember:tmpPerson];
+                NSString* p = [tmpGroup valueForProperty:kABGroupNameProperty];
+                printLog(@"Goupname:%@",p);
+              
+                [tmpPerson setImage:[UIImage imageNamed:@"Default.png"]];
+                if (1)
+                {
+                    //1。基本信息测试
+                    [self OperBasicInfoWithProperty:kABPersonNicknameProperty andValue:@"test nikname" andOperType:OperationType_add inPerson:tmpPerson];
+                    //1。基本信息测试
+                    [self OperBasicInfoWithProperty:kABPersonFirstNameProperty andValue:@"wwb" andOperType:OperationType_add inPerson:tmpPerson];
+                    
+                    
+                    //2。号码测试
+                    [self OperContactNumbersWithKey:(CFStringRef)@"zidingyi" andValue:@"111111111" andIndex:1 andOperType:OperationType_edit inPerson:tmpPerson];
+                    //            [self OperContactNumbersWithKey:kABHomeLabel andValue:@"999999999" andIndex:0 andOperType:OperationType_edit inPerson:tmpPerson];
+                    
+                    //            [self OperContactNumbersWithKey:kABHomeLabel andValue:@"999999999" andIndex:0 andOperType:OperationType_del inPerson:tmpPerson];
+                    
+                    //3。相关联系人测试
+                    [self OperRelatedContactsWithKey:@"zidingyi" andValue:@"wwwwwwwww" andIndex:0 andOperType:OperationType_add inPerson:tmpPerson];
+                    
+                    //4.地址测试
+                    
+                    
+                    CFStringRef keys[6] = {kABPersonAddressStreetKey,
+                        kABPersonAddressCityKey,
+                        kABPersonAddressStateKey,
+                        kABPersonAddressZIPKey,
+                        kABPersonAddressCountryCodeKey,
+                        kABPersonAddressCountryKey
+                    };
+                    CFStringRef values[6] = {CFSTR("765 Four St."),
+                        CFSTR("Fivesville"),
+                        CFSTR("Fivesville222"),
+                        CFSTR("80424"),
+                        CFSTR("9999999"),
+                        CFSTR("china")};
+                    CFDictionaryRef data1 =
+                    CFDictionaryCreate(NULL,
+                                       (void *)keys,
+                                       (void *)values,
+                                       6,
+                                       &kCFCopyStringDictionaryKeyCallBacks,
+                                       &kCFTypeDictionaryValueCallBacks);
+                    
+                    [self OperAddressesWithKey:kABHomeLabel andValue:(id)data1 andIndex:1 andOperType:OperationType_add inPerson:tmpPerson];
+                    CFRelease(data1);
+                    
+                    
+                    //5.社交信息测试
+                    
+                    CFStringRef keys1[2] = {kABPersonSocialProfileServiceKey,
+                        kABPersonSocialProfileUsernameKey};
+                    CFStringRef values1[2] = {CFSTR("zidingyi"),
+                        CFSTR("sssff")};
+                    CFDictionaryRef  data =
+                    CFDictionaryCreate(NULL,
+                                       (void *)keys1,
+                                       (void *)values1,
+                                       2,
+                                       &kCFCopyStringDictionaryKeyCallBacks,
+                                       &kCFTypeDictionaryValueCallBacks);
+                    [self OperNetSocialWithKey: kABHomeLabel andValue:(id)data andIndex:3 andOperType:OperationType_edit inPerson:tmpPerson];
+                    
+                    
+                    
+            //6.ims测试
+            CFStringRef keys2[2] = {kABPersonInstantMessageUsernameKey,
+                kABPersonInstantMessageServiceKey
+            };
+            CFStringRef values2[2] = {CFSTR("765@yahoo.com"),kABPersonInstantMessageServiceYahoo};
+            CFDictionaryRef data2 =
+            CFDictionaryCreate(NULL,
+                               (void *)keys2,
+                               (void *)values2,
+                               2,
+                               &kCFCopyStringDictionaryKeyCallBacks,
+                               &kCFTypeDictionaryValueCallBacks);
+            [self OperIMsWithKey:kABHomeLabel andValue:(id)data2 andIndex:0 andOperType:OperationType_add inPerson:tmpPerson];
+                    
+                    
+                    //7。邮件测试
+                    [self OperEmailsWithKey:(CFStringRef)@"zidingyi" andValue:(id)@"111111111@qq.com" andIndex:1 andOperType:OperationType_add inPerson:tmpPerson];
+                    
+                    //8。urls测试
+                    [self OperUrlsWithKey:kABPersonHomePageLabel andValue:(id)@"http://wwww.hao.com" andIndex:0 andOperType:OperationType_edit inPerson:tmpPerson];
+                    
+                    
+                    //9.日期测试
+                    
+                    [self OperDatesWithKey:kABPersonAnniversaryLabel andValue:[NSDate date] andIndex:0 andOperType:OperationType_edit inPerson:tmpPerson];
+                    
+                    //10.备注测试
+                    [self OperPersonNoteWithOperType:OperationType_edit andValue:(id)@"哈哈" inPerson:tmpPerson];
+                    
+                    //11.生日测试
+                    [self OperBirthdayWithOperType:OperationType_edit andValue:[NSDate date] inPerson:tmpPerson];
+                    
+                }
+                NSLog(@"key:%@ value:%@", @"kABPersonModificationDateProperty",(NSString*)ABRecordCopyValue([tmpPerson recordRef],kABPersonModificationDateProperty));
+                
+                
+                
+                
+                [book_ save];
+                continue;
+                
+
+                
+                
+                [book_ save];
+            }
+        }
+        
+        
+        
+
+        
+        
+        [book_ release];
+
+}
+
+
+
+
+
 -(UIImage *)addText:(UIImage *)img text:(NSString *)content
 {
     int w = img.size.width;

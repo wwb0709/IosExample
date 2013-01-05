@@ -174,6 +174,7 @@
 		D086A41B16980DF800F529EC /* zbar-samples.png in Resources */ = {isa = PBXBuildFile; fileRef = D086A41616980DF800F529EC /* zbar-samples.png */; };
 		D086A41C1698104E00F529EC /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D086A41116980DF800F529EC /* libzbar.a */; };
 		D086A41E169814F800F529EC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D086A41D169814F800F529EC /* QuartzCore.framework */; };
+		D086A43416982B1100F529EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D086A43616982B1100F529EC /* Localizable.strings */; };
 		D0E6AE8D1680068D00064076 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E6AE8C1680068D00064076 /* UIKit.framework */; };
 		D0E6AE8F1680068D00064076 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E6AE8E1680068D00064076 /* Foundation.framework */; };
 		D0E6AE911680068D00064076 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E6AE901680068D00064076 /* CoreGraphics.framework */; };
@@ -552,6 +553,9 @@
 		D086A41516980DF800F529EC /* zbar-helpicons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-helpicons.png"; sourceTree = "<group>"; };
 		D086A41616980DF800F529EC /* zbar-samples.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-samples.png"; sourceTree = "<group>"; };
 		D086A41D169814F800F529EC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D086A43516982B1100F529EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D086A43716982B1E00F529EC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D086A43816982B1F00F529EC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		D0E6AE881680068D00064076 /* ScanCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0E6AE8C1680068D00064076 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D0E6AE8E1680068D00064076 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1183,6 +1187,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		D086A43116982A8900F529EC /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				D086A43616982B1100F529EC /* Localizable.strings */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
 		D0E6AE7D1680068D00064076 = {
 			isa = PBXGroup;
 			children = (
@@ -1221,6 +1233,7 @@
 		D0E6AE921680068D00064076 /* ScanCode */ = {
 			isa = PBXGroup;
 			children = (
+				D086A43116982A8900F529EC /* Resource */,
 				D086A3F916980DF800F529EC /* ZBarSDK */,
 				D01CE3EE16804F5A00EBFAF7 /* iphone */,
 				D01CE22616804F5900EBFAF7 /* cpp */,
@@ -1295,6 +1308,7 @@
 				de,
 				fr,
 				sv,
+				"zh-Hans",
 			);
 			mainGroup = D0E6AE7D1680068D00064076;
 			productRefGroup = D0E6AE891680068D00064076 /* Products */;
@@ -1352,6 +1366,7 @@
 				D086A41916980DF800F529EC /* zbar-help.html in Resources */,
 				D086A41A16980DF800F529EC /* zbar-helpicons.png in Resources */,
 				D086A41B16980DF800F529EC /* zbar-samples.png in Resources */,
+				D086A43416982B1100F529EC /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1526,10 +1541,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		D086A43616982B1100F529EC /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D086A43516982B1100F529EC /* en */,
+				D086A43716982B1E00F529EC /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		D0E6AE951680068D00064076 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D0E6AE961680068D00064076 /* en */,
+				D086A43816982B1F00F529EC /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

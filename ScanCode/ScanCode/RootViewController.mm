@@ -17,6 +17,7 @@
 
 #import "RootViewController.h"
 
+
 #ifndef ZXQR
 #define ZXQR 1
 #endif
@@ -60,32 +61,214 @@
 
 - (IBAction)scanPressed:(id)sender {
 	
-  ZXingWidgetController *widController = [[ZXingWidgetController alloc] initWithDelegate:self showCancel:YES OneDMode:NO];
 
-  NSMutableSet *readers = [[NSMutableSet alloc ] init];
+	switch (_scanType.selectedSegmentIndex) {
+        case 1:
+        {
+          ZXingWidgetController *widController = [[ZXingWidgetController alloc] initWithDelegate:self showCancel:YES OneDMode:NO];
+          widController.view.backgroundColor = [UIColor grayColor];
+          NSMutableSet *readers = [[NSMutableSet alloc ] init];
 
-#if ZXQR
-  QRCodeReader* qrcodeReader = [[QRCodeReader alloc] init];
-  [readers addObject:qrcodeReader];
-  [qrcodeReader release];
-#endif
+        #if ZXQR
+          QRCodeReader* qrcodeReader = [[QRCodeReader alloc] init];
+          [readers addObject:qrcodeReader];
+          [qrcodeReader release];
+        #endif
+            
+        #if ZXAZ
+          AztecReader *aztecReader = [[AztecReader alloc] init];
+          [readers addObject:aztecReader];
+          [aztecReader release];
+        #endif
+            
+          widController.readers = readers;
+          [readers release];
+            
+        //  NSBundle *mainBundle = [NSBundle mainBundle];
+        //  widController.soundToPlay =
+        //    [NSURL fileURLWithPath:[mainBundle pathForResource:@"beep-beep" ofType:@"aiff"] isDirectory:NO];
+          [self presentModalViewController:widController animated:YES];
+          [widController release];
+        }
+            break;
+        case 0:
+        {
     
-#if ZXAZ
-  AztecReader *aztecReader = [[AztecReader alloc] init];
-  [readers addObject:aztecReader];
-  [aztecReader release];
-#endif
     
-  widController.readers = readers;
-  [readers release];
+            ZBarReaderViewController *reader =
+            [[ZBarReaderViewController alloc] init];
+            reader.readerDelegate = self;
+            reader.showsZBarControls = NO;
+            reader.supportedOrientationsMask = ZBarOrientationMaskAll;
+            
+            
+            //非全屏
+            
+//            reader.wantsFullScreenLayout = NO;
+            
+            //隐藏底部控制按钮
+            
+            reader.showsZBarControls = NO;
+            
+            //设置自己定义的界面
+            
+            [self setOverlayPickerView:reader];
+            
+            ZBarImageScanner *scanner = reader.scanner;
+            
+            [scanner setSymbology: ZBAR_I25
+             
+                           config: ZBAR_CFG_ENABLE
+             
+                               to: 0];
+            
+            
+            
+            [self presentModalViewController:reader animated:YES];
+            
+            [reader release];
+        }
+        default:
+            break;
+    }
     
-//  NSBundle *mainBundle = [NSBundle mainBundle];
-//  widController.soundToPlay =
-//    [NSURL fileURLWithPath:[mainBundle pathForResource:@"beep-beep" ofType:@"aiff"] isDirectory:NO];
-  [self presentModalViewController:widController animated:YES];
-  [widController release];
+    
 }
 
+
+- (void)setOverlayPickerView:(ZBarReaderViewController *)reader
+
+{
+    
+    //清除原有控件
+    
+    for (UIView *temp in [reader.view subviews]) {
+        
+        for (UIButton *button in [temp subviews]) {
+            
+            if ([button isKindOfClass:[UIButton class]]) {
+                
+                [button removeFromSuperview];
+                
+            }
+            
+        }
+        
+        for (UIToolbar *toolbar in [temp subviews]) {
+            
+            if ([toolbar isKindOfClass:[UIToolbar class]]) {
+                
+                [toolbar setHidden:YES];
+                
+                [toolbar removeFromSuperview];
+                
+            }
+            
+        }
+        
+    }
+    
+    //画中间的基准线
+    
+    UIView* line = [[UIView alloc] initWithFrame:CGRectMake(40, 220, 240, 1)];
+    
+    line.backgroundColor = [UIColor redColor];
+    
+    [reader.view addSubview:line];
+    
+    [line release];
+    
+    //最上部view
+    
+    UIView* upView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 80)];
+    
+    upView.alpha = 0.3;
+    
+    upView.backgroundColor = [UIColor blackColor];
+    
+    [reader.view addSubview:upView];
+    
+    //用于说明的label
+    
+    UILabel * labIntroudction= [[UILabel alloc] init];
+    
+    labIntroudction.backgroundColor = [UIColor clearColor];
+    
+    labIntroudction.frame=CGRectMake(15, 20, 290, 50);
+    
+    labIntroudction.numberOfLines=2;
+    
+    labIntroudction.textColor=[UIColor whiteColor];
+    
+    labIntroudction.text=@"将二维码图像置于矩形方框内，离手机摄像头10CM左右，系统会自动识别。";
+    
+    [upView addSubview:labIntroudction];
+    
+    [labIntroudction release];
+    
+    [upView release];
+    
+    //左侧的view
+    
+    UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 80, 20, 280)];
+    
+    leftView.alpha = 0.3;
+    
+    leftView.backgroundColor = [UIColor blackColor];
+    
+    [reader.view addSubview:leftView];
+    
+    [leftView release];
+    
+    //右侧的view
+    
+    UIView *rightView = [[UIView alloc] initWithFrame:CGRectMake(300, 80, 20, 280)];
+    
+    rightView.alpha = 0.3;
+    
+    rightView.backgroundColor = [UIColor blackColor];
+    
+    [reader.view addSubview:rightView];
+    
+    [rightView release];
+    
+    //底部view
+    
+    UIView * downView = [[UIView alloc] initWithFrame:CGRectMake(0, 360, 320, 120)];
+    
+    downView.alpha = 0.3;
+    
+    downView.backgroundColor = [UIColor blackColor];
+    
+    [reader.view addSubview:downView];
+    
+    [downView release];
+    
+    //用于取消操作的button
+    
+    UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    
+    cancelButton.alpha = 0.4;
+    
+    [cancelButton setFrame:CGRectMake(20, 390, 280, 40)];
+    
+    [cancelButton setTitle:@"取消" forState:UIControlStateNormal];
+    
+    [cancelButton.titleLabel setFont:[UIFont boldSystemFontOfSize:20]];
+    
+    [cancelButton addTarget:self action:@selector(dismissOverlayView:)forControlEvents:UIControlEventTouchUpInside];
+    
+    [reader.view addSubview:cancelButton];
+    
+}
+
+//取消button方法
+
+- (void)dismissOverlayView:(id)sender{ 
+    
+    [self dismissModalViewControllerAnimated: YES];
+    
+}
 #pragma mark -
 #pragma mark ZXingDelegateMethods
 
@@ -103,15 +286,32 @@
 }
 
 - (void)viewDidUnload {
+    [self setScanType:nil];
   self.resultsView = nil;
 }
 
 - (void)dealloc {
   [resultsView release];
   [resultsToDisplay release];
+    [_scanType release];
   [super dealloc];
 }
 
+
+//ZBarReaderDelegate
+- (void)  imagePickerController: (UIImagePickerController*) picker
+  didFinishPickingMediaWithInfo: (NSDictionary*) info
+{
+
+    id <NSFastEnumeration> syms =
+    [info objectForKey: ZBarReaderControllerResults];
+    for(ZBarSymbol *sym in syms) {
+    
+         [resultsView setText:sym.data];
+        break;
+    }
+     [self dismissModalViewControllerAnimated:YES];
+}
 
 @end
 

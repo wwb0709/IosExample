@@ -492,6 +492,12 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
   d.delegate = self;
   cropRect.origin.x = 0.0;  
   cropRect.origin.y = 0.0;
+    
+  UIImage* image = [UIImage imageNamed:@"liantu"];
+  if (image) {
+           scrn = image;
+  }
+
   decoding = [d decodeImage:scrn cropRect:cropRect] == YES ? NO : YES;
   [d release];
   [scrn release];

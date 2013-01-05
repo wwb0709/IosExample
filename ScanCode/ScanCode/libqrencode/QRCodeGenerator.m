@@ -39,7 +39,8 @@ enum {
 	CGRect rectDraw = CGRectMake(0, 0, zoom, zoom);
 	
 	// draw
-	CGContextSetFillColor(ctx, CGColorGetComponents([UIColor blackColor].CGColor));
+    CGContextSetRGBFillColor(ctx, 255, 0, 0, 1);
+//	CGContextSetFillColor(ctx, CGColorGetComponents([UIColor blackColor].CGColor));
 	for(int i = 0; i < width; ++i) {
 		for(int j = 0; j < width; ++j) {
 			if(*data & 1) {
@@ -70,8 +71,18 @@ enum {
 	CGAffineTransform scaleTransform = CGAffineTransformMakeScale(1, -1);
 	CGContextConcatCTM(ctx, CGAffineTransformConcat(translateTransform, scaleTransform));
 	
+    
+    CGRect rectDraw = CGRectMake(0, 0, size, size);
+
+	// draw back
+    CGContextSetRGBFillColor(ctx, 0, 0, 0, 1);
+    CGContextAddRect(ctx, rectDraw);
+	CGContextFillPath(ctx);
+    
 	// draw QR on this context	
 	[QRCodeGenerator drawQRCode:code context:ctx size:size];
+    
+
 	
 	// get image
 	CGImageRef qrCGImage = CGBitmapContextCreateImage(ctx);

@@ -53,5 +53,39 @@
 
 - (IBAction)InputString:(id)sender {
   _image.image = [QRCodeGenerator qrImageForString:_textFiled.text imageSize:_image.bounds.size.width];
+    //键盘释放
+    [_textFiled resignFirstResponder];
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+
+{
+    UITouch *touch = [touches anyObject];
+    CGPoint point = [touch  locationInView:self.view];
+//    CGRect imageRect = CGRectMake(0, 0, _image.frame.size.width,  _image.frame.size.height);
+    if([touch tapCount] == 2&&CGRectContainsPoint(_image.frame,point))
+    {
+      
+        NSLog(@"single click %@",[_image image]);
+        NSLog(@"single click %@",[_image image]);
+        
+        UIImageWriteToSavedPhotosAlbum([_image image], nil, nil, nil);
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"存储照片成功"
+                              
+                                                        message:@"您已将照片存储于图片库中，打开照片程序即可查看。"
+                              
+                                                       delegate:self
+                              
+                                              cancelButtonTitle:@"OK"
+                              
+                                              otherButtonTitles:nil];
+        
+        [alert show];
+        
+        [alert release];
+        
+    }
+    
 }
 @end

@@ -61,15 +61,15 @@ static const CGFloat kLicenseButtonPadding = 10;
     self.oneDMode = isOneDModeEnabled;
       
     if (showLicenseButton) {
-        self.licenseButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
-        
-        CGRect lbFrame = [licenseButton frame];
-        lbFrame.origin.x = self.frame.size.width - licenseButton.frame.size.width - kLicenseButtonPadding;
-        lbFrame.origin.y = self.frame.size.height - licenseButton.frame.size.height - kLicenseButtonPadding;
-        [licenseButton setFrame:lbFrame];
-        [licenseButton addTarget:self action:@selector(showLicenseAlert:) forControlEvents:UIControlEventTouchUpInside];
-        
-        [self addSubview:licenseButton];
+//        self.licenseButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+//        
+//        CGRect lbFrame = [licenseButton frame];
+//        lbFrame.origin.x = self.frame.size.width - licenseButton.frame.size.width - kLicenseButtonPadding;
+//        lbFrame.origin.y = self.frame.size.height - licenseButton.frame.size.height - kLicenseButtonPadding;
+//        [licenseButton setFrame:lbFrame];
+//        [licenseButton addTarget:self action:@selector(showLicenseAlert:) forControlEvents:UIControlEventTouchUpInside];
+//        
+//        [self addSubview:licenseButton];
     }
     self.cancelEnabled = isCancelEnabled;
 
@@ -79,7 +79,7 @@ static const CGFloat kLicenseButtonPadding = 10;
       if ([self.cancelButtonTitle length] > 0 ) {
         [cancelButton setTitle:self.cancelButtonTitle forState:UIControlStateNormal];
       } else {
-        [cancelButton setTitle:NSLocalizedStringWithDefaultValue(@"OverlayView cancel button title", nil, [NSBundle mainBundle], @"Cancel", @"Cancel") forState:UIControlStateNormal];
+        [cancelButton setTitle:NSLocalizedStringWithDefaultValue(@"OverlayView cancel button title", nil, [NSBundle mainBundle], @"取消", @"取消") forState:UIControlStateNormal];
       }
       [cancelButton addTarget:self action:@selector(cancel:) forControlEvents:UIControlEventTouchUpInside];
       [self addSubview:cancelButton];
@@ -168,7 +168,7 @@ static const CGFloat kLicenseButtonPadding = 10;
 - (void)drawRect:(CGRect)rect {
 	[super drawRect:rect];
   if (displayedMessage == nil) {
-    self.displayedMessage = NSLocalizedStringWithDefaultValue(@"OverlayView displayed message", nil, [NSBundle mainBundle], @"二维码图片居中", @"二维码图片居中");
+    self.displayedMessage = NSLocalizedStringWithDefaultValue(@"OverlayView displayed message", nil, [NSBundle mainBundle], @"将二维码图像置于矩形方框内，离手机摄像头10CM左右，系统会自动识别。", @"将二维码图像置于矩形方框内，离手机摄像头10CM左右，系统会自动识别。");
   }
 	CGContextRef c = UIGraphicsGetCurrentContext();
   

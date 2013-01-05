@@ -66,7 +66,7 @@
         case 1:
         {
           ZXingWidgetController *widController = [[ZXingWidgetController alloc] initWithDelegate:self showCancel:YES OneDMode:NO];
-          widController.view.backgroundColor = [UIColor grayColor];
+          
           NSMutableSet *readers = [[NSMutableSet alloc ] init];
 
         #if ZXQR
@@ -87,6 +87,7 @@
         //  NSBundle *mainBundle = [NSBundle mainBundle];
         //  widController.soundToPlay =
         //    [NSURL fileURLWithPath:[mainBundle pathForResource:@"beep-beep" ofType:@"aiff"] isDirectory:NO];
+            widController.view.backgroundColor = [UIColor grayColor];
           [self presentModalViewController:widController animated:YES];
           [widController release];
         }

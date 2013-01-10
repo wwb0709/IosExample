@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @class SHHHomeViewController;
-
+@class MainContactViewController;
 @interface SHHHomeNavigationController : UINavigationController <UINavigationControllerDelegate>
 {
-    SHHHomeViewController *homeViewController_;
+    MainContactViewController *homeViewController_;
 }
 
 @end

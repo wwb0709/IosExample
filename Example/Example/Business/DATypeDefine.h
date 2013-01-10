@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 
 #define kTabBarHeight 49.0f
+
+//获取天气的URL
+#define CITYWEATHERURL(Identifier) [NSString stringWithFormat:@"http://m.weather.com.cn/data/%@.html", Identifier]
+
+
 //新浪微博
 #define kWBSDKDemoAppKey @"3097404234"
 #define kWBSDKDemoAppSecret @"f547c092fad2e25f09d5f59f9fb2a619"
@@ -48,6 +53,23 @@ typedef enum
     OperationType_edit = 2,
     OperationType_del = 3
 }OperationType;
+
+
+//TEL;IPHONE;CELL;VOICE:15810330914
+//TEL;HOME;VOICE:11111
+//TEL;WORK;VOICE:11444
+//TEL;MAIN:113444
+//TEL;HOME;FAX:22222
+//TEL;WORK;FAX:2224344
+//TEL;OTHER;FAX:22434
+//TEL;PAGER:22222
+//
+#define kLABLE_IPHONE @"IPHONE"
+#define kLABLE_HOME @"HOME"
+#define kLABLE_WORK @"WORK"
+#define kLABLE_MAIN @"MAIN"
+#define kLABLE_OTHER @"OTHER"
+#define kLABLE_PAGER @"PAGER"
 
 //现有主流嵌入式苹果机类型
 typedef enum
@@ -133,4 +155,20 @@ typedef enum
     BusinessErrorCode_LLQ_ServerError25                       = 25,    //文字提示
     BusinessErrorCode_LLQ_ServerError26                       = 26    //文字提示（需要跳转）
 }BusinessErrorCode;
+
+//程序挂起时在后台有10分钟的时间完成未完成的任务
+#define DoorsBgTaskBegin() { \
+UIApplication *app = [UIApplication sharedApplication]; \
+UIBackgroundTaskIdentifier task = [app beginBackgroundTaskWithExpirationHandler:^{ \
+[app endBackgroundTask:task]; \
+/* task = UIBackgroundTaskInvalid; */ \
+}]; \
+dispatch_block_t block = ^{ \
+
+#define DoorsBgTaskEnd() \
+[app endBackgroundTask:task]; \
+/* task = UIBackgroundTaskInvalid; */ \
+}; \
+dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block); \
+}
 

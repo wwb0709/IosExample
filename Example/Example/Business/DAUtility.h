@@ -109,4 +109,8 @@
 + (BOOL)phoneCanCall;
 //判断设备是iphone 还是 touch
 +(DeviceModelType)currentDeviceModelType;
+
+
+//组装URL
++ (NSURL *)smartURLForString:(NSString *)str;
 @end

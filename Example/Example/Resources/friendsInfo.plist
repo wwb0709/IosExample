@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>6</key>
+	<dict>
+		<key>name</key>
+		<string>中国国旅</string>
+		<key>dec</key>
+		<string>4006008888</string>
+		<key>loc</key>
+		<string>186.png</string>
+	</dict>
+	<key>5</key>
+	<dict>
+		<key>name</key>
+		<string>旅游服务热线</string>
+		<key>dec</key>
+		<string>12301</string>
+		<key>loc</key>
+		<string>100.png</string>
+	</dict>
+	<key>4</key>
+	<dict>
+		<key>name</key>
+		<string>火车订票</string>
+		<key>dec</key>
+		<string>95105105</string>
+		<key>loc</key>
+		<string>477.png</string>
+	</dict>
+	<key>3</key>
+	<dict>
+		<key>name</key>
+		<string>国际航空</string>
+		<key>dec</key>
+		<string>95583</string>
+		<key>loc</key>
+		<string>057.png</string>
+	</dict>
+	<key>2</key>
+	<dict>
+		<key>name</key>
+		<string>7天连锁酒店</string>
+		<key>dec</key>
+		<string>4008740087</string>
+		<key>loc</key>
+		<string>001.png</string>
+	</dict>
+	<key>1</key>
+	<dict>
+		<key>name</key>
+		<string>如家酒店连锁</string>
+		<key>dec</key>
+		<string>4008203333</string>
+		<key>loc</key>
+		<string>123.png</string>
+	</dict>
+</dict>
+</plist>

@@ -134,6 +134,13 @@
 #import "SHHLoginController.h"
 #import "BlockUI.h"
 #import "wax.h"
+
+
+static int giAlarmInterval = 5 * 60;            // 5分钟，闹钟时间间隔
+const int kTimerInterval = 1 * 60;              // 1分钟，定时器时间间隔
+const int kSysMaxTimePerBgTask = 10 * 600;      // 10分钟，系统为每个后台任务分
+
+
 @implementation AppDelegate
 
 @synthesize mainWindow = mainWindow_;
@@ -259,10 +266,171 @@
     }
 
 }
+-(void)button
+{
+    return;
+	NSDate* now = [NSDate date];
+	NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+	NSDateComponents *comps = [[NSDateComponents alloc] init];
+	NSInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit |
+	NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+	comps = [calendar components:unitFlags fromDate:now];
+	int hour = [comps hour];
+	int min = [comps minute];
+	int sec = [comps second];
+	
+	NSLog(@"%d,%d,%d",hour,min,sec);
+    
+	int htime1=16;
+	int mtime1=16;
+    
+	int hs=htime1-hour;
+	int ms=mtime1-min;
+	NSString *start=[[NSString alloc]init];
+	start=@"今天的";
+	NSString *over=[[NSString alloc]init];
+	over=@"今天的";
+	
+	if(ms<0)
+	{
+		ms=ms+60;
+		hs=hs-1;
+	}
+	if(hs<0)
+	{
+		hs=hs+24;
+		hs=hs-1;
+		
+		
+	}
+	if (ms<=0&&hs<=0) {
+		hs=24;
+		ms=0;
+		over=@"明天的";
+	}
+	
+	UIAlertView *at=[[UIAlertView alloc] initWithTitle:@"!"
+											   message:[NSString stringWithFormat:@"你设置的时间：%@ %i:%i TO %@ %i:%i",start,hour,min,over,htime1,mtime1]
+											  delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+	[at show];
+	[at release];
+	
+	
+	int hm=(hs*3600)+(ms*60)-sec;
+	UILocalNotification *notification=[[UILocalNotification alloc] init];
+	if (notification!=nil)
+	{
+        
+		NSDate *now=[NSDate new];
+		notification.fireDate=[now addTimeInterval:hm];
+		NSLog(@"%d",hm);
+		notification.timeZone=[NSTimeZone defaultTimeZone];
+		notification.soundName = @"ping.caf";
+		//notification.alertBody=@"TIME！";
+        notification.alertBody = @"客户端有新的版本，点击到App Store升级。";
+        notification.alertAction = @"升级";
+		
+		notification.alertBody = [NSString stringWithFormat:NSLocalizedString(@"你设置的时间是：%i ： %i .",nil),htime1,mtime1];
+        
+		
+		[[UIApplication sharedApplication]   scheduleLocalNotification:notification];
+		
+		
+	}
+	[over release];
+	[start release];
+	
+    
+    
+}
 
 #pragma mark - 应用程序委托
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+//    //排序
+//    NSArray *ar = [NSArray arrayWithObjects:@"2",@"1",@"3",nil];
+//    NSMutableArray *array =[NSMutableArray array];
+//    [array addObjectsFromArray:ar];
+//    //[NSArray arrayWithObjects:@"2",@"1",@"3",nil];
+//    
+//    [array sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+//        int i = [obj1 intValue];
+//        int j = [obj2 intValue];
+//        if (i > j) {
+//            return NSOrderedDescending;
+//        }
+//        if (i < j) {
+//            return NSOrderedAscending;
+//        }
+//        return NSOrderedSame;
+//    } ];
+//    
+//    NSLog(@"array:%@",[array componentsJoinedByString:@","]);
+////    字符串比较：
+//    [array sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+//        return [obj1 compare:obj2];//升序
+//        return [obj2 compare:obj1];//降序
+//    } ];
+    
+    if (0) {
+//        [self button];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UILocalNotification * localNotification = [[UILocalNotification alloc] init];
+            if (localNotification) {
+                localNotification.fireDate= [[[NSDate alloc] init] dateByAddingTimeInterval:60];
+//                localNotification.repeatInterval=kCFCalendarUnitMinute;
+                localNotification.timeZone=[NSTimeZone defaultTimeZone];
+                
+                
+                
+                NSDate* now = [NSDate date];
+                NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+                NSDateComponents *comps = [[NSDateComponents alloc] init];
+                NSInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit |
+                NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+                comps = [calendar components:unitFlags fromDate:now];
+                int hour = [comps hour];
+                int min = [comps minute];
+                int sec = [comps second];
+                
+                NSLog(@"%d,%d,%d",hour,min,sec);
+
+                localNotification.alertBody = [NSString stringWithFormat:@"当前时间：%i:%i:%i ",hour,min,sec];
+                localNotification.alertAction = @"升级";
+                localNotification.soundName = @"";
+                localNotification.userInfo = nil;
+                [application scheduleLocalNotification:localNotification];
+            }
+        });
+        
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            UILocalNotification * localNotification = [[UILocalNotification alloc] init];
+//            if (localNotification) {
+//                localNotification.fireDate= [[[NSDate alloc] init] dateByAddingTimeInterval:60*2];
+//                //                localNotification.repeatInterval=kCFCalendarUnitMinute;
+//                localNotification.timeZone=[NSTimeZone defaultTimeZone];
+//                
+//                
+//                
+//                NSDate* now = [NSDate date];
+//                NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+//                NSDateComponents *comps = [[NSDateComponents alloc] init];
+//                NSInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit |
+//                NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+//                comps = [calendar components:unitFlags fromDate:now];
+//                int hour = [comps hour];
+//                int min = [comps minute];
+//                int sec = [comps second];
+//                
+//                NSLog(@"%d,%d,%d",hour,min,sec);
+//                
+//                localNotification.alertBody = [NSString stringWithFormat:@"当前时间：%i:%i:%i ",hour,min,sec];
+//                localNotification.alertAction = @"升级";
+//                localNotification.soundName = @"";
+//                [application scheduleLocalNotification:localNotification];
+//            }
+//        });
+    }
 //    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 //    
 //    UIViewController *viewController = [[UIViewController alloc] init];
@@ -378,7 +546,7 @@
     
     
     ////////////////////////////////////////////////////////////////
-    if (1) {
+    if (0) {
    
     // 底部Tabar
     Ivan_UITabBar *tabBarController = [[Ivan_UITabBar alloc] initWithNibName:nil bundle:nil];
@@ -432,7 +600,7 @@
     
     tabController.viewControllers=viewControllers;
 //    tabController.hidesBottomBarWhenPushed = YES;
-    tabController.selectedIndex=3;
+    tabController.selectedIndex=0;
     
     tabController.delegate=self;//在AppDelegate.h文件内实现UITabBarControllerDelegate协议
     
@@ -494,11 +662,25 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    int i = giAlarmInterval / kTimerInterval;
+    while (i > 0)
+    {
+        DoorsBgTaskBegin();
+        [NSThread sleepForTimeInterval:kTimerInterval];
+        [self alarmFunc];
+        DoorsBgTaskEnd();
+        
+        i--;
+    }
+    
+
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
+
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
@@ -509,5 +691,202 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+          // open app store link
+//        NSString * url = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/id%@", APP_STORE_ID];
+//         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://hao123.com"]];
+}
+
+
+
+#pragma mark -
+#pragma mark 私有方法
+
+// 检查是否支持后台运行，检查结果放在类成员属性中，供其他地方访问
+// 本例中没有实际使用
+//- (void)checkBackgroundSupported
+//{
+//    bgExeSupported = NO;
+//    
+//    UIDevice* device = [UIDevice currentDevice];
+//    
+//    if ([device respondsToSelector:@selector(isMultitaskingSupported)])
+//    {
+//        bgExeSupported = device.multitaskingSupported;
+//    }
+//}
+
+- (void)alarmFunc
+{
+    giAlarmInterval -= kTimerInterval;
+    
+    if (giAlarmInterval > 0)
+    {
+        NSLog(@"%d minutes left!", giAlarmInterval / 60);
+    }
+    else
+    {
+        NSLog(@"Alarm!Alarm!Alarm!");
+    }
+}
+
+
+
+#pragma mark -
+#pragma mark push相关
+
+// Retrieve the device token
+
+
+//- (void)atOnceShowPushInfo:(NSDictionary*) info
+//{
+//    NSDictionary *dict = [info objectForKey:@"aps"];
+//    NSString *topic = [info objectForKey:@"topic"];
+//    NSString *title = [info objectForKey:@"title"];
+//    NSString *url = [info objectForKey:@"url"];
+//    
+//    NSString *alertTitle = @"";
+//    
+//    if(title && [title isKindOfClass:[NSString class]])
+//        alertTitle = title;
+//    
+//    
+//    
+//	if (dict && [dict isKindOfClass:[NSDictionary class]]
+//        && topic && [topic isKindOfClass:[NSString class]])
+//	{
+//		NSString *theInfo = [dict objectForKey:@"alert"];
+//		if (theInfo && [theInfo isKindOfClass:[NSString class]])
+//		{
+//			//printLog(@"pushInfo:%@", theInfo);
+//			//if (NO == isPushStart)
+//			{
+//                if([topic isEqualToString:@"1"])
+//                {
+//                    //[self.userService checkUpdate];
+//                    if(url && [url isKindOfClass:[NSString class]])
+//                    {
+//                        self.pushUrl = url;
+//                        UIAlertView * alertView = [[UIAlertView alloc]initWithTitle:alertTitle
+//                                                                            message:theInfo
+//                                                                           delegate:self
+//                                                                  cancelButtonTitle:nil
+//                                                                  otherButtonTitles:NSLocalizedString(@"稍后再说",nil),NSLocalizedString(@"升级",nil),nil];
+//                        alertView.tag = KAlertTag_ReceivePush;
+//                        [alertView  show];
+//                        [alertView  release];
+//                    }
+//                }
+//                else if([topic isEqualToString:@"3"])
+//                {
+//                    //[self.userService checkUpdate];
+//                    if(url && [url isKindOfClass:[NSString class]])
+//                    {
+//                        self.pushUrl = url;
+//                        UIAlertView * alertView = [[UIAlertView alloc]initWithTitle:alertTitle
+//                                                                            message:theInfo
+//                                                                           delegate:self
+//                                                                  cancelButtonTitle:nil
+//                                                                  otherButtonTitles:NSLocalizedString(@"稍后再说",nil),NSLocalizedString(@"前往",nil),nil];
+//                        alertView.tag = KAlertTag_ReceivePush;
+//                        [alertView  show];
+//                        [alertView  release];
+//                    }
+//                }
+//                else
+//                {
+//                    UIAlertView * alertView = [[UIAlertView alloc]initWithTitle:alertTitle
+//                                                                        message:theInfo
+//                                                                       delegate:self
+//                                                              cancelButtonTitle:nil
+//                                                              otherButtonTitles:NSLocalizedString(@"好",nil),nil];
+//                    [alertView  show];
+//                    [alertView  release];
+//                }
+//                
+//			}
+//		}
+//        
+//	}
+//}
+
+//- (void)laterShowPushInfo:(NSDictionary*) info
+//{
+//    [self performSelectorOnMainThread:@selector(showPushInfo:) withObject:info waitUntilDone:NO];
+//}
+//
+//- (void)showPushInfo:(NSDictionary*) info
+//{
+//    BOOL    actionSheetIsShow =  NO;
+//    
+//    for (UIView *subV in [UIApplication sharedApplication].keyWindow.subviews)
+//    {
+//        if (subV && ([subV isKindOfClass:[UIActionSheet class]]))
+//        {
+//            actionSheetIsShow=  YES;
+//            break;
+//        }
+//    }
+//    
+//    if (NO==actionSheetIsShow)
+//        [self atOnceShowPushInfo:info];
+//    else
+//    {
+//        printLog(@"laterShowPushInfo");
+//        [self performSelector:@selector(laterShowPushInfo:) withObject:info afterDelay:5];
+//    }
+//    
+//}
+
+/*-(void) showNotification:(NSDictionary *)userInfo
+ {
+ NSDictionary *dict = [userInfo objectForKey:@"aps"];
+ if (dict && [dict isKindOfClass:[NSDictionary class]])
+ {
+ NSString *info = [dict objectForKey:@"alert"];
+ if (info && [info isKindOfClass:[NSString class]])
+ {
+ //printLog(@"pushInfo:%@", info);
+ //if (NO == isPushStart)
+ {
+ //[UIUtility  setNeedEncodeDecode:NO];
+ [self showPushInfo:info];
+ }
+ }
+ 
+ }
+ else
+ {
+ //printLog(@"no 'alert' field!");
+ //printLog(@"NSDictionary is: %@", [userInfo description]);
+ }
+ }*/
+
+
+//接收到远程通知
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    //[self showNotification:userInfo];
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+//    [self showPushInfo:userInfo];
+    
+}
+//注册push
+- (void) launchNotification: (NSNotification *) notification
+{
+	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound)];
+}
+
+//注册反馈
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+	NSString *token = [NSString stringWithFormat:@"%@", deviceToken];
+    NSString *sendToken = [token stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<> "]];
+    printLog(@"%@",sendToken);
+    //告知server 服务器
+    //    [userService sendDeviceToken:sendToken];
 }
 @end

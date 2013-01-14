@@ -12,6 +12,7 @@
 //#import "ProjectApplication.h"
 #import "testViewController.h"
 #import "MainViewController.h"
+#import "DetailViewController.h"
 @implementation SHHHomeNavigationController
 
 - (id)init
@@ -41,6 +42,8 @@
     homeViewController_ =    [[MainContactViewController alloc] initWithNibName:@"MainContactViewController" bundle:nil];
     
     MainViewController *controller =  [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+    
+//    DetailViewController *controller1 =  [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
 
     [self pushViewController:controller animated:NO];
 }

@@ -145,6 +145,7 @@ const int kSysMaxTimePerBgTask = 10 * 600;      // 10分钟，系统为每个后
 
 @synthesize mainWindow = mainWindow_;
 @synthesize mainViewController = mainViewController_;
+@synthesize choseTabBar;
 
 +(AppDelegate *) sharedApplication
 {
@@ -230,6 +231,26 @@ const int kSysMaxTimePerBgTask = 10 * 600;      // 10分钟，系统为每个后
     }
    
 }
+// 隐藏Tabbar
+- (void) hiddenChoseTabBar:(BOOL)hiden
+{
+  
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.50];
+    [UIView setAnimationDelegate:self];
+    if (hiden) {
+        [choseTabBar setCenter:CGPointMake(choseTabBar.center.x, choseTabBar.center.y+choseTabBar.frame.size.height)];
+    }
+    else
+    {
+        [choseTabBar setCenter:CGPointMake(choseTabBar.center.x, choseTabBar.center.y-choseTabBar.frame.size.height)];
+    }
+
+
+    [UIView commitAnimations];
+    
+}
+
 
 
 // 收到登录成功的通知，在发送登录请求的时候，可以在SHHLoginView中添加一个等待视图。
@@ -606,10 +627,36 @@ const int kSysMaxTimePerBgTask = 10 * 600;      // 10分钟，系统为每个后
     
     //self.tabBarController=tabController;
     [mainWindow_ addSubview:tabController.view];
+       
+   
+        
+        
     //[tabController release];
     
     [viewControllers release];
     
+    CGSize wsize = mainWindow_.frame.size;
+
+    int tablebarh = tabController.tabBar.frame.size.height;
+ 
+    choseTabBar =  [[UITabBar alloc] initWithFrame:CGRectMake(0, wsize.height-tablebarh, 320, tablebarh)];
+    choseTabBar.delegate = self;
+    UITabBarItem *frameTabBarItem1 = [[UITabBarItem alloc] initWithTitle:@"Fee" image:nil tag:0];
+
+
+
+    UITabBarItem *frameTabBarItem2 = [[UITabBarItem alloc] initWithTitle:@"Dev" image:nil tag:1];
+
+
+
+    NSArray *frameTabBarItemArray = [[NSArray alloc] initWithObjects:frameTabBarItem1,frameTabBarItem2,nil];
+
+
+
+    [choseTabBar setItems:frameTabBarItemArray];
+        
+    [mainWindow_ addSubview:choseTabBar];
+    [self hiddenChoseTabBar:YES];
     
     
     
@@ -888,5 +935,27 @@ const int kSysMaxTimePerBgTask = 10 * 600;      // 10分钟，系统为每个后
     printLog(@"%@",sendToken);
     //告知server 服务器
     //    [userService sendDeviceToken:sendToken];
+}
+
+
+
+#pragma mark  Tabbar inplementation
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+{
+	
+	if ([tabBar isEqual:choseTabBar])
+	{
+		if ([item isEqual:[[tabBar items] objectAtIndex:0]])
+		{
+            printLog(@"select tableitem 0");
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"tabBarSelect" object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"0",@"selectIndex",nil]];
+		}
+		else if ([item isEqual:[[tabBar items] objectAtIndex:1]])
+		{
+            printLog(@"select tableitem 1");
+             [[NSNotificationCenter defaultCenter] postNotificationName:@"tabBarSelect" object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"1",@"selectIndex",nil]];
+		}
+    }
 }
 @end

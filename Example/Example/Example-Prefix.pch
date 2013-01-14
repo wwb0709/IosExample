@@ -17,4 +17,6 @@
     #import "AppDelegate.h"
     #import "CacheUtil.h"
     #import "BlockUI.h"
+    #import "DAUtility.h"
+
 #endif

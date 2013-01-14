@@ -66,6 +66,10 @@
 +(BOOL)IsFirstLoginDirExist;
 
 
+//存放备份的目录
++(NSString*)getVcfDir;
++ (NSString*) GetVcfNameFromCurremtDate;
+
 //根据名字查找view
 + (UIView*) findViewWithClassName:(NSString*)  claName
                           inViews:(NSArray*) views;

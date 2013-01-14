@@ -10,6 +10,8 @@
 #import "contactViewCell.h"
 #import "SysAddrBookManager.h"
 #import "BlockUI.h"
+#import <QuartzCore/QuartzCore.h>
+#import "DetailViewController.h"
 #define COOKBOOK_PURPLE_COLOR	[UIColor colorWithRed:0.20392f green:0.19607f blue:0.61176f alpha:1.0f]
 @interface MainViewController ()
 
@@ -32,14 +34,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    NSMutableArray *tmpDataArray = [[NSMutableArray alloc] init];
+//    NSMutableArray *tmpDataArray = [[NSMutableArray alloc] init];
+//    
+//    [SysAddrBookManager loadFromAddrBook:tmpDataArray];
+//    self.dataList = [tmpDataArray mutableCopy];
     
-    [SysAddrBookManager loadFromAddrBook:tmpDataArray];
-    self.dataList = [tmpDataArray mutableCopy];
-    
-    
+    self.dataList  = [[NSMutableDictionary alloc] init];
+    [SysAddrBookManager loadFromAddrBook:self.dataList];
     //搜索结果
-    self.seachResultList = [[NSMutableArray alloc] init];
+    self.seachResultList = [[NSMutableDictionary alloc] init];
+    
     self.selectedList = [[NSMutableArray alloc] init];
     
     UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
@@ -52,6 +56,12 @@
     
     [self createTableHeader];
     [self createTableFooter];
+    
+    // 增加消息通知
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(choseTableBarSelect:)
+                                                 name:@"tabBarSelect"
+                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -74,7 +84,39 @@
 
 #pragma mark user self
 
+- (void)showDetailViewController:(VcardPersonEntity *) entity
+{
+    
+//    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:self action:@selector(backPreView)];
+//     self.navigationItem.leftBarButtonItem = leftButton;
+//     self.navigationItem.rightBarButtonItem = nil;
+//    self.navigationController.navigationBar.topItem.leftBarButtonItem = leftButton;
+//    self.navigationController.navigationBar.topItem.rightBarButtonItem = nil;
+	DetailViewController* viewDetail = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+    viewDetail.hidesBottomBarWhenPushed = YES;
+    viewDetail.delegate = self;
+    viewDetail.entity = entity;
+    [self.navigationController pushViewController:viewDetail animated:YES];
+    return;
+    
+	self.navigationItem.leftBarButtonItem.target = viewDetail;
+   
+	CATransition *animation = [CATransition animation];
+    animation.duration = 0.4f;
+	animation.delegate = self;
+	animation.timingFunction = UIViewAnimationCurveEaseInOut;
+	animation.type = kCATransitionPush;
+	animation.subtype = kCATransitionFromLeft;
+	//animation.subtype = kCATransitionFromBottom;
+	[[self.view layer] addAnimation:animation forKey:nil];
+	[self.view addSubview:viewDetail.view];
+//    [[ [[AppDelegate sharedApplication] mainWindow] layer] addAnimation:animation forKey:nil];
+//	[[[AppDelegate sharedApplication] mainWindow] addSubview:viewDetail.view];
+
+}
+
 - (void)rightBtnPressed:(id)sender{
+    [[AppDelegate sharedApplication] hiddenChoseTabBar:NO];
     //显示多选圆圈
     [self.mainTableView setEditing:YES animated:YES];
     self.navigationItem.leftBarButtonItem.title = @"确定";
@@ -85,22 +127,45 @@
     
     
     //do something with selected cells like delete
-    //    NSLog(@"selectedDic------->:%@", self.selectedDic);
+    NSLog(@"selectedDic------->:%@", self.selectedList);
+    NSLog(@"self.dataArray:------>:%@", self.dataList);
     int count = [self.selectedList count];
     if (count > 0 ) {
-        for (int i = 0; i < count; i++) {
-            NSInteger row = [[self.selectedList objectAtIndex:i] row];
-            [self.dataList removeObjectAtIndex:row];
+        
+        NSMutableArray * indexPathsArr = [NSMutableArray array];
+        for (int i = 0; i<count; i++) {
+            NSDictionary *dic = [self.selectedList objectAtIndex:i];
+            NSString * pId = [dic valueForKey:@"1"];
+            NSIndexPath* indexPath = [dic valueForKey:@"0"];
+            NSArray * allkeys = [self.dataList allKeys];
+            
+            if ([allkeys containsObject:pId]) {
+                [indexPathsArr addObject:indexPath];
+                [self.dataList removeObjectForKey:pId];
+            }
+//            [self.dataList removeObjectAtIndex:row];
+//            NSLog(@"self.dataArray:------>:%@", self.dataList);
+            
         }
-        //    NSLog(@"self.dataArray:------>:%@", self.dataArray);
-        [self.mainTableView deleteRowsAtIndexPaths:self.selectedList withRowAnimation:UITableViewRowAnimationFade];
-        [self.selectedList removeAllObjects];
-        //    NSLog(@"self.selectedDic--------->:%@", self.selectedDic);
-        //        [cloMableView reloadData];
+        
+        
+
+        [self.mainTableView deleteRowsAtIndexPaths:indexPathsArr withRowAnimation:UITableViewRowAnimationFade];
+    
+        
+        //NSLog(@"self.selectedDic--------->:%@", self.selectedList);
+        if ([self.selectedList count]>0) {
+            [self.selectedList removeAllObjects];
+        }
+        
+
+    
+//        [self.mainTableView reloadData];
         [self createTableFooter];
         self.navigationItem.leftBarButtonItem.title = @"编辑";
         [self.navigationItem.leftBarButtonItem setAction:@selector(rightBtnPressed:)];
         [self.mainTableView setEditing:NO animated:YES];
+          [[AppDelegate sharedApplication] hiddenChoseTabBar:YES];
     }else {
         
         
@@ -116,7 +181,9 @@
                 self.navigationItem.leftBarButtonItem.title = @"编辑";
                 [self.navigationItem.leftBarButtonItem setAction:@selector(rightBtnPressed:)];
                 [self.mainTableView setEditing:NO animated:YES];
+                [[AppDelegate sharedApplication] hiddenChoseTabBar:YES];
             }
+            
         }];
         
     }
@@ -179,6 +246,14 @@
     
 }
 
+
+//choseTablebar回调
+-(void)choseTableBarSelect:(NSNotification *)notification
+{
+    NSLog(@"current select Index:%d",222);
+
+}
+
 #pragma mark Table view methods
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 79.0;
@@ -229,16 +304,23 @@
 
     VcardPersonEntity * entity= nil;
     if (tableView == self.searchDC.searchResultsTableView)
-        entity= [self.seachResultList objectAtIndex:row];
+    {
+        NSArray * allKeys = [self.seachResultList allKeys];
+        entity= [self.seachResultList valueForKey:[allKeys objectAtIndex:row]];
+//        entity= [self.seachResultList objectAtIndex:row];
+    }
     else
-        entity= [self.dataList objectAtIndex:row];
+    {
+        NSArray * allKeys = [self.dataList allKeys];
+        entity= [self.dataList valueForKey:[allKeys objectAtIndex:row]];
+    }
 
     cell.name = entity.ID;
     if (entity.PhoneArr&&[entity.PhoneArr count]>0) {
         cell.loc = [[[entity.PhoneArr objectForKey:@"0"] componentsSeparatedByString:@";"] lastObject];
     }
     if ([entity.NameArr count]>1) {
-        cell.dec = [entity.NameArr objectForKey:@"0"];
+        cell.dec = [NSString stringWithFormat:@"%@%@",[entity.NameArr objectForKey:@"0"],[entity.NameArr objectForKey:@"1"]];//[entity.NameArr objectForKey:@"0"];
     }
    
     NSString *imageUrl = [[NSString alloc] initWithFormat:@"index%i.png", 0];
@@ -252,16 +334,68 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"didSelectRowAtIndexPath");
     if ([self.navigationItem.leftBarButtonItem.title isEqualToString:@"确定"]) {
-        [self.selectedList addObject:indexPath];
-        NSLog(@"Select---->:%@",self.selectedList);
+        
+        VcardPersonEntity * entity= nil;
+        if (tableView == self.searchDC.searchResultsTableView)
+        {
+            NSArray * allKeys = [self.seachResultList allKeys];
+            entity= [self.seachResultList valueForKey:[allKeys objectAtIndex:[indexPath row]]];
+        }
+        else
+        {
+//            entity= [self.dataList objectAtIndex:[indexPath row]];
+            NSArray * allKeys = [self.dataList allKeys];
+            entity= [self.dataList valueForKey:[allKeys objectAtIndex:[indexPath row]]];
+        }
+        NSMutableDictionary * dict = [[NSMutableDictionary alloc] init];
+        [dict setValue:indexPath forKey:@"0"];
+        [dict setValue:entity.ID forKey:@"1"];
+        [self.selectedList addObject:dict];
+        [dict release];
+//        NSLog(@"Select---->:%@",self.selectedList);
+    }
+    else
+    {
+        VcardPersonEntity * entity= nil;
+        if (tableView == self.searchDC.searchResultsTableView)
+        {
+            NSArray * allKeys = [self.seachResultList allKeys];
+            entity= [self.seachResultList valueForKey:[allKeys objectAtIndex:[indexPath row]]];
+        }
+        else
+        {
+            //            entity= [self.dataList objectAtIndex:[indexPath row]];
+            NSArray * allKeys = [self.dataList allKeys];
+            entity= [self.dataList valueForKey:[allKeys objectAtIndex:[indexPath row]]];
+        }
+        [self showDetailViewController:entity];
+    
     }
 }
 //取消一项
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"didDeselectRowAtIndexPath");
     if ([self.navigationItem.leftBarButtonItem.title isEqualToString:@"确定"]) {
-        [self.selectedList removeObject:indexPath];
-        NSLog(@"Deselect---->:%@",self.selectedList);
+        VcardPersonEntity * entity= nil;
+        if (tableView == self.searchDC.searchResultsTableView)
+        {
+            NSArray * allKeys = [self.seachResultList allKeys];
+            entity= [self.seachResultList valueForKey:[allKeys objectAtIndex:[indexPath row]]];
+        }
+        else
+        {
+//            entity= [self.dataList objectAtIndex:[indexPath row]];
+            NSArray * allKeys = [self.dataList allKeys];
+            entity= [self.dataList valueForKey:[allKeys objectAtIndex:[indexPath row]]];
+        }
+        NSMutableDictionary * dict = [[NSMutableDictionary alloc] init];
+        [dict setValue:indexPath forKey:@"0"];
+        [dict setValue:entity.ID forKey:@"1"];
+        [self.selectedList removeObject:dict];
+        [dict release];
+
+//        [self.selectedList removeObject:indexPath];
+//        NSLog(@"Deselect---->:%@",self.selectedList);
     }
 }
 #pragma mark -
@@ -269,11 +403,11 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"点击了编辑");
-    NSUInteger row = [indexPath row];
-    [self.dataList removeObjectAtIndex:row];
-    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                     withRowAnimation:UITableViewRowAnimationAutomatic];
-    [self createTableFooter];
+//    NSUInteger row = [indexPath row];
+//    [self.dataList removeObjectAtIndex:row];
+//    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+//                     withRowAnimation:UITableViewRowAnimationAutomatic];
+//    [self createTableFooter];
     
 }
 -(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -281,10 +415,10 @@
     //
     NSLog(@"手指撮动了");
         //return UITableViewCellEditingStyleDelete;
-    if ([self.navigationItem.leftBarButtonItem.title isEqualToString:@"编辑"])
-        return UITableViewCellEditingStyleDelete;
-    else
-        return UITableViewCellEditingStyleDelete | UITableViewCellEditingStyleInsert;
+//    if ([self.navigationItem.leftBarButtonItem.title isEqualToString:@"编辑"])
+//        return UITableViewCellEditingStyleDelete;
+//    else
+    return UITableViewCellEditingStyleDelete | UITableViewCellEditingStyleInsert;
 }
 -(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -368,15 +502,17 @@
 	/*
 	 Search the main list for products whose type matches the scope (if selected) and whose name matches searchText; add items that match to the filtered array.
 	 */
-	for ( VcardPersonEntity * entity in dataList)
+    NSArray * allkeys = [self.dataList allKeys];
+	for (NSString *personID in allkeys)
 	{
+        VcardPersonEntity * entity  = [self.dataList valueForKey:personID];
         //		if ([scope isEqualToString:@"All"] || [product.type isEqualToString:scope])
         if ([scope isEqualToString:@"All"])
 		{
 			NSComparisonResult result = [entity.ID compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchText length])];
             if (result == NSOrderedSame)
 			{
-				[self.seachResultList addObject:entity];
+				[self.seachResultList setValue:entity forKey:entity.ID];
             }
 		}
 	}

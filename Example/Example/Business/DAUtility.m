@@ -91,6 +91,21 @@ static MFMailComposeViewController* s_mailController;
 }
 
 
+//存放备份的目录
++(NSString*)getVcfDir
+{
+    static NSString *posterDir;
+    if (!posterDir)
+    {
+        posterDir=[[NSString stringWithFormat:@"%@/vcf/",[DAUtility getAppDocumentDir]] retain];
+    }
+    
+    if (![DAUtility FileExists:posterDir]) {
+          [DAUtility directoryCreate:posterDir];
+    }
+    return posterDir;
+}
+
 //创建文件夹用来标示第一次启动
 +(void)CreateFirstLoginDir
 {
@@ -289,13 +304,27 @@ static MFMailComposeViewController* s_mailController;
     return timeText;
 }
 
++ (NSString*) GetVcfNameFromCurremtDate
+{
+    static NSDateFormatter *formatter;
+    if (!formatter) {
+        formatter = [[NSDateFormatter alloc] init];
+        NSString *fstr = [NSString stringWithFormat:@"yyyyMMddHHmmss"];
+        [formatter setDateFormat:fstr];
+        
+    }
+    NSString *timeText = [formatter stringFromDate:[NSDate date]];
+    NSString *fstr = [NSString stringWithFormat:@"%@%@.vcf",[DAUtility getVcfDir],timeText];
+    return fstr;
+}
+
 + (NSString*) GetFormatTimeFromCurremtDate
 {
     static NSDateFormatter *formatter;
     if (!formatter) {
         formatter = [[NSDateFormatter alloc] init];
-
-        [formatter setDateFormat:[NSString stringWithFormat:@"yyyy-MM-dd"]];
+        
+        [formatter setDateFormat:[NSString stringWithFormat:@"yyyyMMdd"]];
         
     }
     NSString *timeText = [formatter stringFromDate:[NSDate date]];

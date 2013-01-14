@@ -18,7 +18,7 @@
 //@property (nonatomic, retain) CustomTabBar *tabBarController;
 //
 //@end
-@interface AppDelegate : UIApplication <UIApplicationDelegate, UITabBarControllerDelegate>
+@interface AppDelegate : UIApplication <UIApplicationDelegate, UITabBarControllerDelegate,UITabBarDelegate>
 {
     // 主视图
 //    UIWindow *mainWindow_;
@@ -31,6 +31,7 @@
 @property (readonly, nonatomic) UIViewController *mainViewController;
 @property (readonly, nonatomic) UIViewController *modalViewController;
 
+@property (retain, nonatomic) UITabBar *choseTabBar;//
 #pragma mark - 全局对象
 + (AppDelegate *) sharedApplication;
 
@@ -45,6 +46,8 @@
 #pragma mark - Tabbar操作部分
 // 隐藏Tabbar
 - (void) hiddenTabBar:(BOOL) hiden;
+// 隐藏Tabbar
+- (void) hiddenChoseTabBar:(BOOL)hiden;
 
 // 获取TabbarController
 - (Ivan_UITabBar *) tabBarController;

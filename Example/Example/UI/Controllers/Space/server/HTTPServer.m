@@ -1,20 +1,9 @@
-#include <netdb.h>
-#include <arpa/inet.h>
-#include <ifaddrs.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <net/if.h>
-#include <net/if_dl.h>
-#include <arpa/inet.h>
-#include <ifaddrs.h>
 #import "AsyncSocket.h"
 #import "HTTPServer.h"
 #import "HTTPConnection.h"
 
 
 @implementation HTTPServer
-
-@synthesize fileResourceDelegate;
 
 /**
  * Standard Constructor.
@@ -107,11 +96,10 @@
  * Thus requests for /index.html will be referencing the index.html file within the document root directory.
  * All file requests are relative to this document root.
 **/
-- (NSString *)documentRoot {
+- (NSURL *)documentRoot {
     return documentRoot;
 }
-
-- (void)setDocumentRoot:(NSString *)value
+- (void)setDocumentRoot:(NSURL *)value
 {
     if(![documentRoot isEqual:value])
 	{
@@ -168,10 +156,14 @@
 
 /**
  * The name to use for this service via Bonjour.
- * The default name is the host name of the computer.
+ * The default name is an empty string,
+ * which should result in the published name being the host name of the computer.
 **/
 - (NSString *)name {
     return name;
+}
+- (NSString *)publishedName {
+	return [netService name];
 }
 - (void)setName:(NSString *)value
 {
@@ -215,36 +207,6 @@
 	}
 }
 
-- (NSString*)hostName
-{
-	struct ifaddrs *addrs;
-	const struct ifaddrs *cursor;
-	int error;
-	error = getifaddrs(&addrs);
-	NSString *hostname = nil;
-	
-	if (error)
-	{
-		NSLog(@"%@", gai_strerror(error));
-	}
-	for (cursor = addrs; cursor; cursor = cursor->ifa_next)
-	{
-        if (cursor->ifa_addr->sa_family == AF_INET && (cursor->ifa_flags & IFF_LOOPBACK) == 0)
-		{
-            NSString *ifa_name = [NSString stringWithUTF8String:cursor->ifa_name];
-			if([@"en0" isEqualToString:ifa_name] ||
-               [@"en1" isEqualToString:ifa_name])
-			{
-				hostname = [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *)cursor->ifa_addr)->sin_addr)];
-				NSLog(@"hostname:%@",hostname);
-				break;
-			}
-		}
-	}
-	freeifaddrs(addrs);
-	return hostname;
-}
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark Server Control:
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -256,7 +218,7 @@
 	if(success)
 	{
 		// Update our port number
-		[self setPort:[asyncSocket localPort]];
+		[self setPort:port];
 		
 		// Output console message for debugging purposes
 		NSLog(@"Started HTTP server on port %hu", port);
@@ -282,7 +244,14 @@
 	}
 	else
 	{
-		NSLog(@"Failed to start HTTP Server: %@", error);
+		UIAlertView* dialog = [[[UIAlertView alloc] init] retain];
+		[dialog setDelegate:self];
+		[dialog setTitle:@"Could not start server"];
+		[dialog setMessage:[NSString stringWithFormat:@"Could not start server. Error: %@",error]];
+		[dialog addButtonWithTitle:@"Ok"];
+		[dialog show];
+		
+		NSLog(@"Failed to start HTTP Server: %@", *error);
 	}
 	
 	return success;
@@ -303,7 +272,10 @@
 	[asyncSocket disconnect];
 	
 	// Now stop all HTTP connections the server owns
-	[connections removeAllObjects];
+	@synchronized(connections)
+	{
+		[connections removeAllObjects];
+	}
 	
 	return YES;
 }
@@ -315,9 +287,15 @@
 /**
  * Returns the number of clients that are currently connected to the server.
 **/
-- (int)numberOfHTTPConnections
+- (uint)numberOfHTTPConnections
 {
-	return [connections count];
+	uint result = 0;
+	
+	@synchronized(connections)
+	{
+		result = [connections count];
+	}
+	return result;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -327,7 +305,11 @@
 -(void)onSocket:(AsyncSocket *)sock didAcceptNewSocket:(AsyncSocket *)newSocket
 {
 	id newConnection = [[connectionClass alloc] initWithAsyncSocket:newSocket forServer:self];
-	[connections addObject:newConnection];
+	
+	@synchronized(connections)
+	{
+		[connections addObject:newConnection];
+	}
 	[newConnection release];
 }
 
@@ -337,7 +319,12 @@
 **/
 - (void)connectionDidDie:(NSNotification *)notification
 {
-	[connections removeObject:[notification object]];
+	// Note: This method is called on the thread/runloop that posted the notification
+	
+	@synchronized(connections)
+	{
+		[connections removeObject:[notification object]];
+	}
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -365,24 +352,6 @@
 	
 	NSLog(@"Failed to Publish Service: domain(%@) type(%@) name(%@)", [ns domain], [ns type], [ns name]);
 	NSLog(@"Error Dict: %@", errorDict);
-}
-
-#pragma mark built-in web service
-
-// setup the docroot for the http server
-- (void)setupBuiltInDocroot
-{
-//	NSString* docroot =[NSString stringWithFormat:@"%@/Documents/vcf", NSHomeDirectory()];
-//	NSFileManager *manager = [NSFileManager defaultManager];
-//	NSError *error;
-//	if(![manager removeItemAtPath:docroot error:&error])
-//	{
-//		NSLog(@"Can not remove old docroot: %@", error);
-//	}
-//	NSString *path = [NSString stringWithFormat:@"%@", [[NSBundle mainBundle] bundlePath]];
-//	[manager createSymbolicLinkAtPath:docroot withDestinationPath:path error:&error];
-    NSString* docroot = [DAUtility getVcfDir];
-	[self setDocumentRoot:docroot];
 }
 
 @end

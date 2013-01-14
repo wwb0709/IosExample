@@ -8,6 +8,7 @@
 
 #import "SHHSpaceNavigationController.h"
 #import "SHHSpaceViewController.h"
+#import "BackRecoverViewController.h"
 //#import "ProjectApplication.h"
 
 @implementation SHHSpaceNavigationController
@@ -30,7 +31,10 @@
         return;
     
     spaceViewController_ = [[SHHSpaceViewController alloc] init];
-    [self pushViewController:spaceViewController_ animated:NO];
+    
+
+     BackRecoverViewController *controller =  [[BackRecoverViewController alloc] initWithNibName:@"BackRecoverViewController" bundle:nil];
+    [self pushViewController:controller animated:NO];
 }
 
 - (void) viewWillAppear:(BOOL)animated

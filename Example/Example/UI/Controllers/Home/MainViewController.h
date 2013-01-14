@@ -11,9 +11,9 @@
 @interface MainViewController : UIViewController<UISearchBarDelegate,
 UISearchDisplayDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (retain, nonatomic) IBOutlet UITableView *mainTableView;
-@property (retain, nonatomic) NSMutableArray *dataList;
+@property (retain, nonatomic) NSMutableDictionary *dataList;
+@property (retain, nonatomic) NSMutableDictionary *seachResultList;
 
-@property (retain, nonatomic) NSMutableArray *seachResultList;
 @property (retain, nonatomic) NSMutableArray *selectedList;
 
 @property (nonatomic, assign) UISearchBar *searchBar;

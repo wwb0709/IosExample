@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "HTTPServer.h"
 
-@interface CocoaWebResourceViewController : UIViewController <WebFileResourceDelegate> {
+@interface CocoaWebResourceViewController : UIViewController
+{
 	IBOutlet UILabel *urlLabel;
 	HTTPServer *httpServer;
 	NSMutableArray *fileList;

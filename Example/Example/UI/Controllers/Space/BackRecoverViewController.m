@@ -155,7 +155,8 @@
     [geocoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray *placemarks, NSError *error) {
         for(CLPlacemark *placemark in placemarks)
         {
-            NSString *location = [NSString stringWithFormat:@"%@%@",[[placemark.addressDictionary objectForKey:@"City"] substringToIndex:3],[placemark.addressDictionary objectForKey:@"SubLocality"]];
+            NSString *location = [NSString stringWithFormat:@"%@%@  %@",[[placemark.addressDictionary objectForKey:@"City"] substringToIndex:3],[placemark.addressDictionary objectForKey:@"SubLocality"],[placemark.addressDictionary objectForKey:@"Name"]];
+            NSLog(@"addressDictionary:%@",placemark.addressDictionary);
             NSLog(@"您的当前位置为:%@",location);
         }
     }];

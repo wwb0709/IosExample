@@ -40,24 +40,28 @@
     [super viewDidLoad];
 
     // Do any additional setup after loading the view from its nib.
-//    _mapview.showsUserLocation = YES;
-//  
-//    CLLocationCoordinate2D theCoordinate = {39.91234846,116.454018};
-// 
-//    
-//    //（3）设定显示范围
-//    MKCoordinateSpan theSpan;
-//    theSpan.latitudeDelta=0.02;
-//    theSpan.longitudeDelta=0.02;
-//    
-//    //（4）设置地图显示的中心及范围
-//    MKCoordinateRegion theRegion;
-//    theRegion.center=theCoordinate;
-//    theRegion.span=theSpan;
-//    
-//    //（5）设置地图显示的类型及根据范围进行显示
-//    [_mapview setRegion:theRegion];
-//    [_mapview setMapType:MKMapTypeStandard];
+    _mapview.showsUserLocation = YES;
+  
+    CLLocationCoordinate2D theCoordinate = {39.91234846,116.454018};
+ 
+    
+    //（3）设定显示范围
+    MKCoordinateSpan theSpan;
+    theSpan.latitudeDelta=0.02;
+    theSpan.longitudeDelta=0.02;
+    
+    //（4）设置地图显示的中心及范围
+    MKCoordinateRegion theRegion;
+    theRegion.center=theCoordinate;
+    theRegion.span=theSpan;
+    
+    //（5）设置地图显示的类型及根据范围进行显示
+    [_mapview setRegion:theRegion];
+    [_mapview setMapType:MKMapTypeStandard];
+    
+    UITapGestureRecognizer *mTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapPress:)];
+    [_mapview addGestureRecognizer:mTap];
+    [mTap release];
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -161,6 +165,26 @@
     [_annotationList removeAllObjects];
     [_annotationList addObjectsFromArray:data];
 
+}
+
+
+- (void)tapPress:(UIGestureRecognizer*)gestureRecognizer {
+    
+    CGPoint touchPoint = [gestureRecognizer locationInView:_mapview];//这里touchPoint是点击的某点在地图控件中的位置
+    CLLocationCoordinate2D touchMapCoordinate =
+    [_mapview convertPoint:touchPoint toCoordinateFromView:_mapview];//这里touchMapCoordinate就是该点的经纬度了
+    
+    float longtitude = touchMapCoordinate.longitude;
+    
+    float latitude = touchMapCoordinate.latitude;
+    
+    
+    printLog(@"current tap longtitude%@",[NSString stringWithFormat:@"%f",longtitude]);
+    printLog(@"current tap latitude%@",[NSString stringWithFormat:@"%f",latitude]);
+    
+    NSDictionary *dic=[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%f",latitude],@"latitude",[NSString stringWithFormat:@"%f",longtitude],@"longitude",nil];
+    [_annotationList addObject:dic];
+    [self setAnnotionsWithList:_annotationList];
 }
 
 @end

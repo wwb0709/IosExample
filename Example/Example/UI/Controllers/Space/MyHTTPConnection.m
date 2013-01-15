@@ -130,7 +130,7 @@ a:hover\n\
 
     if ([self supportsPOST:path withSize:0])
     {
-        [outdata appendString:@"<form action=\"\" method=\"post\" enctype=\"multipart/form-data\" name=\"form1\" id=\"form1\">"];
+        [outdata appendString:@"<form action=\"../\" method=\"post\" enctype=\"multipart/form-data\" name=\"form1\" id=\"form1\">"];
         [outdata appendString:@"<label>&nbsp;Select file(s) to upload, use ctrl/shift to multi select (HTML5 enabled browser required, IE9 not yet!)<br>\n<br>\n"];
         [outdata appendString:@"<input type=\"file\" name=\"file[]\" multiple />"];
         [outdata appendString:@"</label>"];

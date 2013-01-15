@@ -54,6 +54,16 @@
 		D02C87EF16A3E0D50082DCEC /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = D02C87EA16A3E0D50082DCEC /* DDData.m */; };
 		D02C87F016A3E0D50082DCEC /* DDNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = D02C87EC16A3E0D50082DCEC /* DDNumber.m */; };
 		D02C87F116A3E0D50082DCEC /* DDRange.m in Sources */ = {isa = PBXBuildFile; fileRef = D02C87EE16A3E0D50082DCEC /* DDRange.m */; };
+		D0375B1A16A5017B005E2706 /* mapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0375B1816A5017A005E2706 /* mapViewController.m */; };
+		D0375B1B16A5017B005E2706 /* mapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0375B1916A5017B005E2706 /* mapViewController.xib */; };
+		D0375B1D16A5039B005E2706 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0375B1C16A5039B005E2706 /* MapKit.framework */; };
+		D0375B2F16A5214E005E2706 /* BasicMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D0375B2516A5214E005E2706 /* BasicMapAnnotation.m */; };
+		D0375B3016A5214E005E2706 /* CallOutAnnotationVifew.m in Sources */ = {isa = PBXBuildFile; fileRef = D0375B2716A5214E005E2706 /* CallOutAnnotationVifew.m */; };
+		D0375B3116A5214E005E2706 /* CalloutMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D0375B2916A5214E005E2706 /* CalloutMapAnnotation.m */; };
+		D0375B3216A5214E005E2706 /* JingDianMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0375B2B16A5214E005E2706 /* JingDianMapCell.m */; };
+		D0375B3316A5214E005E2706 /* JingDianMapCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0375B2C16A5214E005E2706 /* JingDianMapCell.xib */; };
+		D0375B3416A5214E005E2706 /* MuddDetail.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D0375B2D16A5214E005E2706 /* MuddDetail.jpeg */; };
+		D0375B3516A5214E005E2706 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = D0375B2E16A5214E005E2706 /* pin.png */; };
 		D03A676F16818DE20064271B /* js2oc.html in Resources */ = {isa = PBXBuildFile; fileRef = D03A676916818DE20064271B /* js2oc.html */; };
 		D03A677016818DE20064271B /* jsTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D03A676B16818DE20064271B /* jsTestViewController.m */; };
 		D03A677116818DE20064271B /* jsTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03A676C16818DE20064271B /* jsTestViewController.xib */; };
@@ -596,6 +606,21 @@
 		D02C87EC16A3E0D50082DCEC /* DDNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDNumber.m; sourceTree = "<group>"; };
 		D02C87ED16A3E0D50082DCEC /* DDRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDRange.h; sourceTree = "<group>"; };
 		D02C87EE16A3E0D50082DCEC /* DDRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDRange.m; sourceTree = "<group>"; };
+		D0375B1716A5017A005E2706 /* mapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mapViewController.h; sourceTree = "<group>"; };
+		D0375B1816A5017A005E2706 /* mapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mapViewController.m; sourceTree = "<group>"; };
+		D0375B1916A5017B005E2706 /* mapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = mapViewController.xib; sourceTree = "<group>"; };
+		D0375B1C16A5039B005E2706 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D0375B2416A5214E005E2706 /* BasicMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicMapAnnotation.h; sourceTree = "<group>"; };
+		D0375B2516A5214E005E2706 /* BasicMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicMapAnnotation.m; sourceTree = "<group>"; };
+		D0375B2616A5214E005E2706 /* CallOutAnnotationVifew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallOutAnnotationVifew.h; sourceTree = "<group>"; };
+		D0375B2716A5214E005E2706 /* CallOutAnnotationVifew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallOutAnnotationVifew.m; sourceTree = "<group>"; };
+		D0375B2816A5214E005E2706 /* CalloutMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalloutMapAnnotation.h; sourceTree = "<group>"; };
+		D0375B2916A5214E005E2706 /* CalloutMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalloutMapAnnotation.m; sourceTree = "<group>"; };
+		D0375B2A16A5214E005E2706 /* JingDianMapCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JingDianMapCell.h; sourceTree = "<group>"; };
+		D0375B2B16A5214E005E2706 /* JingDianMapCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JingDianMapCell.m; sourceTree = "<group>"; };
+		D0375B2C16A5214E005E2706 /* JingDianMapCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JingDianMapCell.xib; sourceTree = "<group>"; };
+		D0375B2D16A5214E005E2706 /* MuddDetail.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MuddDetail.jpeg; sourceTree = "<group>"; };
+		D0375B2E16A5214E005E2706 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
 		D03A676916818DE20064271B /* js2oc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = js2oc.html; sourceTree = "<group>"; };
 		D03A676A16818DE20064271B /* jsTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jsTestViewController.h; sourceTree = "<group>"; };
 		D03A676B16818DE20064271B /* jsTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jsTestViewController.m; sourceTree = "<group>"; };
@@ -1330,6 +1355,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0375B1D16A5039B005E2706 /* MapKit.framework in Frameworks */,
 				D09DC852168D885D00635F46 /* libicucore.dylib in Frameworks */,
 				D0509A86167F0B9400E6F949 /* CoreVideo.framework in Frameworks */,
 				D0509A84167F0B5200E6F949 /* libiconv.dylib in Frameworks */,
@@ -1476,6 +1502,32 @@
 				D02C87EE16A3E0D50082DCEC /* DDRange.m */,
 			);
 			path = categries;
+			sourceTree = "<group>";
+		};
+		D0375B2216A5214D005E2706 /* mapview */ = {
+			isa = PBXGroup;
+			children = (
+				D0375B2316A5214E005E2706 /* CustomMapCalloutView */,
+				D0375B2D16A5214E005E2706 /* MuddDetail.jpeg */,
+				D0375B2E16A5214E005E2706 /* pin.png */,
+			);
+			path = mapview;
+			sourceTree = "<group>";
+		};
+		D0375B2316A5214E005E2706 /* CustomMapCalloutView */ = {
+			isa = PBXGroup;
+			children = (
+				D0375B2416A5214E005E2706 /* BasicMapAnnotation.h */,
+				D0375B2516A5214E005E2706 /* BasicMapAnnotation.m */,
+				D0375B2616A5214E005E2706 /* CallOutAnnotationVifew.h */,
+				D0375B2716A5214E005E2706 /* CallOutAnnotationVifew.m */,
+				D0375B2816A5214E005E2706 /* CalloutMapAnnotation.h */,
+				D0375B2916A5214E005E2706 /* CalloutMapAnnotation.m */,
+				D0375B2A16A5214E005E2706 /* JingDianMapCell.h */,
+				D0375B2B16A5214E005E2706 /* JingDianMapCell.m */,
+				D0375B2C16A5214E005E2706 /* JingDianMapCell.xib */,
+			);
+			path = CustomMapCalloutView;
 			sourceTree = "<group>";
 		};
 		D03A676816818DE20064271B /* object2js */ = {
@@ -1695,6 +1747,7 @@
 		D06374561590188F00733F58 = {
 			isa = PBXGroup;
 			children = (
+				D0375B1C16A5039B005E2706 /* MapKit.framework */,
 				D09DC851168D885D00635F46 /* libicucore.dylib */,
 				D063746B1590188F00733F58 /* Example */,
 				D06374641590188F00733F58 /* Frameworks */,
@@ -2819,9 +2872,10 @@
 		D08D9F4616084286008CE380 /* Space */ = {
 			isa = PBXGroup;
 			children = (
+				D0375B2216A5214D005E2706 /* mapview */,
+				D02C878516A3DDF70082DCEC /* server */,
 				D02C87E516A3DEE40082DCEC /* MyHTTPConnection.h */,
 				D02C87E616A3DEE40082DCEC /* MyHTTPConnection.m */,
-				D02C878516A3DDF70082DCEC /* server */,
 				D08D9F4716084286008CE380 /* SHHSpaceController.h */,
 				D08D9F4816084286008CE380 /* SHHSpaceController.m */,
 				D08D9F4916084286008CE380 /* SHHSpaceNavigationController.h */,
@@ -2831,6 +2885,9 @@
 				D0E1628416A3A733009A00B8 /* BackRecoverViewController.h */,
 				D0E1628516A3A733009A00B8 /* BackRecoverViewController.m */,
 				D0E1628616A3A733009A00B8 /* BackRecoverViewController.xib */,
+				D0375B1716A5017A005E2706 /* mapViewController.h */,
+				D0375B1816A5017A005E2706 /* mapViewController.m */,
+				D0375B1916A5017B005E2706 /* mapViewController.xib */,
 			);
 			path = Space;
 			sourceTree = "<group>";
@@ -3229,6 +3286,10 @@
 				D03B9AE2169FFA04001A6DB8 /* background.png in Resources */,
 				D0E1628816A3A733009A00B8 /* BackRecoverViewController.xib in Resources */,
 				D02C87C216A3DE120082DCEC /* CocoaWebResourceViewController.xib in Resources */,
+				D0375B1B16A5017B005E2706 /* mapViewController.xib in Resources */,
+				D0375B3316A5214E005E2706 /* JingDianMapCell.xib in Resources */,
+				D0375B3416A5214E005E2706 /* MuddDetail.jpeg in Resources */,
+				D0375B3516A5214E005E2706 /* pin.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3484,6 +3545,11 @@
 				D02C87EF16A3E0D50082DCEC /* DDData.m in Sources */,
 				D02C87F016A3E0D50082DCEC /* DDNumber.m in Sources */,
 				D02C87F116A3E0D50082DCEC /* DDRange.m in Sources */,
+				D0375B1A16A5017B005E2706 /* mapViewController.m in Sources */,
+				D0375B2F16A5214E005E2706 /* BasicMapAnnotation.m in Sources */,
+				D0375B3016A5214E005E2706 /* CallOutAnnotationVifew.m in Sources */,
+				D0375B3116A5214E005E2706 /* CalloutMapAnnotation.m in Sources */,
+				D0375B3216A5214E005E2706 /* JingDianMapCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D010EC8016A7CCAD00FF94A0 /* ShakingAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = D010EC7F16A7CCAD00FF94A0 /* ShakingAlertView.m */; };
 		D0375B4616A55117005E2706 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0375B4516A55117005E2706 /* UIKit.framework */; };
 		D0375B4816A55117005E2706 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0375B4716A55117005E2706 /* Foundation.framework */; };
 		D0375B4A16A55117005E2706 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0375B4916A55117005E2706 /* CoreGraphics.framework */; };
@@ -24,6 +25,19 @@
 		D0375B7416A55118005E2706 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0375B7216A55118005E2706 /* InfoPlist.strings */; };
 		D0375B7716A55118005E2706 /* LocationBackgroudTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D0375B7616A55118005E2706 /* LocationBackgroudTests.m */; };
 		D0375B8416A557B5005E2706 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0375B8316A557B5005E2706 /* CoreLocation.framework */; };
+		D048AEB516A66FA500B44EE8 /* BasicMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D048AEA816A66FA500B44EE8 /* BasicMapAnnotation.m */; };
+		D048AEB616A66FA500B44EE8 /* CallOutAnnotationVifew.m in Sources */ = {isa = PBXBuildFile; fileRef = D048AEAA16A66FA500B44EE8 /* CallOutAnnotationVifew.m */; };
+		D048AEB716A66FA500B44EE8 /* CalloutMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D048AEAC16A66FA500B44EE8 /* CalloutMapAnnotation.m */; };
+		D048AEB816A66FA500B44EE8 /* JingDianMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D048AEAE16A66FA500B44EE8 /* JingDianMapCell.m */; };
+		D048AEB916A66FA500B44EE8 /* JingDianMapCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D048AEAF16A66FA500B44EE8 /* JingDianMapCell.xib */; };
+		D048AEBA16A66FA500B44EE8 /* MuddDetail.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D048AEB016A66FA500B44EE8 /* MuddDetail.jpeg */; };
+		D048AEBB16A66FA500B44EE8 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = D048AEB116A66FA500B44EE8 /* pin.png */; };
+		D048AEBC16A66FA500B44EE8 /* mapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D048AEB316A66FA500B44EE8 /* mapViewController.m */; };
+		D048AEBD16A66FA500B44EE8 /* mapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D048AEB416A66FA500B44EE8 /* mapViewController.xib */; };
+		D048AEBF16A6722200B44EE8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D048AEBE16A6722200B44EE8 /* MapKit.framework */; };
+		D048AEC816A6764300B44EE8 /* BUIControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D048AEC316A6764300B44EE8 /* BUIControl.m */; };
+		D048AEC916A6764300B44EE8 /* BUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = D048AEC516A6764300B44EE8 /* BUIView.m */; };
+		D048AECA16A6764300B44EE8 /* ZXObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D048AEC716A6764300B44EE8 /* ZXObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D010EC7E16A7CCAD00FF94A0 /* ShakingAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShakingAlertView.h; sourceTree = "<group>"; };
+		D010EC7F16A7CCAD00FF94A0 /* ShakingAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShakingAlertView.m; sourceTree = "<group>"; };
 		D0375B4116A55117005E2706 /* LocationBackgroud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationBackgroud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0375B4516A55117005E2706 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D0375B4716A55117005E2706 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -60,6 +76,28 @@
 		D0375B7516A55118005E2706 /* LocationBackgroudTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationBackgroudTests.h; sourceTree = "<group>"; };
 		D0375B7616A55118005E2706 /* LocationBackgroudTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationBackgroudTests.m; sourceTree = "<group>"; };
 		D0375B8316A557B5005E2706 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D048AEA716A66FA500B44EE8 /* BasicMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicMapAnnotation.h; sourceTree = "<group>"; };
+		D048AEA816A66FA500B44EE8 /* BasicMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicMapAnnotation.m; sourceTree = "<group>"; };
+		D048AEA916A66FA500B44EE8 /* CallOutAnnotationVifew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallOutAnnotationVifew.h; sourceTree = "<group>"; };
+		D048AEAA16A66FA500B44EE8 /* CallOutAnnotationVifew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallOutAnnotationVifew.m; sourceTree = "<group>"; };
+		D048AEAB16A66FA500B44EE8 /* CalloutMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalloutMapAnnotation.h; sourceTree = "<group>"; };
+		D048AEAC16A66FA500B44EE8 /* CalloutMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalloutMapAnnotation.m; sourceTree = "<group>"; };
+		D048AEAD16A66FA500B44EE8 /* JingDianMapCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JingDianMapCell.h; sourceTree = "<group>"; };
+		D048AEAE16A66FA500B44EE8 /* JingDianMapCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JingDianMapCell.m; sourceTree = "<group>"; };
+		D048AEAF16A66FA500B44EE8 /* JingDianMapCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JingDianMapCell.xib; sourceTree = "<group>"; };
+		D048AEB016A66FA500B44EE8 /* MuddDetail.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MuddDetail.jpeg; sourceTree = "<group>"; };
+		D048AEB116A66FA500B44EE8 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
+		D048AEB216A66FA500B44EE8 /* mapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mapViewController.h; sourceTree = "<group>"; };
+		D048AEB316A66FA500B44EE8 /* mapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mapViewController.m; sourceTree = "<group>"; };
+		D048AEB416A66FA500B44EE8 /* mapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = mapViewController.xib; sourceTree = "<group>"; };
+		D048AEBE16A6722200B44EE8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D048AEC116A6764300B44EE8 /* BlockUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockUI.h; sourceTree = "<group>"; };
+		D048AEC216A6764300B44EE8 /* BUIControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUIControl.h; sourceTree = "<group>"; };
+		D048AEC316A6764300B44EE8 /* BUIControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUIControl.m; sourceTree = "<group>"; };
+		D048AEC416A6764300B44EE8 /* BUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUIView.h; sourceTree = "<group>"; };
+		D048AEC516A6764300B44EE8 /* BUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUIView.m; sourceTree = "<group>"; };
+		D048AEC616A6764300B44EE8 /* ZXObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXObject.h; sourceTree = "<group>"; };
+		D048AEC716A6764300B44EE8 /* ZXObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D048AEBF16A6722200B44EE8 /* MapKit.framework in Frameworks */,
 				D0375B8416A557B5005E2706 /* CoreLocation.framework in Frameworks */,
 				D0375B4616A55117005E2706 /* UIKit.framework in Frameworks */,
 				D0375B4816A55117005E2706 /* Foundation.framework in Frameworks */,
@@ -90,7 +129,6 @@
 		D0375B3616A55117005E2706 = {
 			isa = PBXGroup;
 			children = (
-				D0375B8316A557B5005E2706 /* CoreLocation.framework */,
 				D0375B4B16A55117005E2706 /* LocationBackgroud */,
 				D0375B6F16A55118005E2706 /* LocationBackgroudTests */,
 				D0375B4416A55117005E2706 /* Frameworks */,
@@ -110,6 +148,8 @@
 		D0375B4416A55117005E2706 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D048AEBE16A6722200B44EE8 /* MapKit.framework */,
+				D0375B8316A557B5005E2706 /* CoreLocation.framework */,
 				D0375B4516A55117005E2706 /* UIKit.framework */,
 				D0375B4716A55117005E2706 /* Foundation.framework */,
 				D0375B4916A55117005E2706 /* CoreGraphics.framework */,
@@ -121,6 +161,13 @@
 		D0375B4B16A55117005E2706 /* LocationBackgroud */ = {
 			isa = PBXGroup;
 			children = (
+				D010EC7E16A7CCAD00FF94A0 /* ShakingAlertView.h */,
+				D010EC7F16A7CCAD00FF94A0 /* ShakingAlertView.m */,
+				D048AEC016A6764300B44EE8 /* BlockUI */,
+				D048AEA516A66FA500B44EE8 /* mapview */,
+				D048AEB216A66FA500B44EE8 /* mapViewController.h */,
+				D048AEB316A66FA500B44EE8 /* mapViewController.m */,
+				D048AEB416A66FA500B44EE8 /* mapViewController.xib */,
 				D0375B5416A55117005E2706 /* AppDelegate.h */,
 				D0375B5516A55117005E2706 /* AppDelegate.m */,
 				D0375B5D16A55117005E2706 /* MainStoryboard.storyboard */,
@@ -162,6 +209,46 @@
 				D0375B7216A55118005E2706 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D048AEA516A66FA500B44EE8 /* mapview */ = {
+			isa = PBXGroup;
+			children = (
+				D048AEA616A66FA500B44EE8 /* CustomMapCalloutView */,
+				D048AEB016A66FA500B44EE8 /* MuddDetail.jpeg */,
+				D048AEB116A66FA500B44EE8 /* pin.png */,
+			);
+			path = mapview;
+			sourceTree = "<group>";
+		};
+		D048AEA616A66FA500B44EE8 /* CustomMapCalloutView */ = {
+			isa = PBXGroup;
+			children = (
+				D048AEA716A66FA500B44EE8 /* BasicMapAnnotation.h */,
+				D048AEA816A66FA500B44EE8 /* BasicMapAnnotation.m */,
+				D048AEA916A66FA500B44EE8 /* CallOutAnnotationVifew.h */,
+				D048AEAA16A66FA500B44EE8 /* CallOutAnnotationVifew.m */,
+				D048AEAB16A66FA500B44EE8 /* CalloutMapAnnotation.h */,
+				D048AEAC16A66FA500B44EE8 /* CalloutMapAnnotation.m */,
+				D048AEAD16A66FA500B44EE8 /* JingDianMapCell.h */,
+				D048AEAE16A66FA500B44EE8 /* JingDianMapCell.m */,
+				D048AEAF16A66FA500B44EE8 /* JingDianMapCell.xib */,
+			);
+			path = CustomMapCalloutView;
+			sourceTree = "<group>";
+		};
+		D048AEC016A6764300B44EE8 /* BlockUI */ = {
+			isa = PBXGroup;
+			children = (
+				D048AEC116A6764300B44EE8 /* BlockUI.h */,
+				D048AEC216A6764300B44EE8 /* BUIControl.h */,
+				D048AEC316A6764300B44EE8 /* BUIControl.m */,
+				D048AEC416A6764300B44EE8 /* BUIView.h */,
+				D048AEC516A6764300B44EE8 /* BUIView.m */,
+				D048AEC616A6764300B44EE8 /* ZXObject.h */,
+				D048AEC716A6764300B44EE8 /* ZXObject.m */,
+			);
+			path = BlockUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +327,10 @@
 				D0375B5A16A55117005E2706 /* Default@2x.png in Resources */,
 				D0375B5C16A55117005E2706 /* Default-568h@2x.png in Resources */,
 				D0375B5F16A55117005E2706 /* MainStoryboard.storyboard in Resources */,
+				D048AEB916A66FA500B44EE8 /* JingDianMapCell.xib in Resources */,
+				D048AEBA16A66FA500B44EE8 /* MuddDetail.jpeg in Resources */,
+				D048AEBB16A66FA500B44EE8 /* pin.png in Resources */,
+				D048AEBD16A66FA500B44EE8 /* mapViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +368,15 @@
 				D0375B5216A55117005E2706 /* main.m in Sources */,
 				D0375B5616A55117005E2706 /* AppDelegate.m in Sources */,
 				D0375B6216A55117005E2706 /* ViewController.m in Sources */,
+				D048AEB516A66FA500B44EE8 /* BasicMapAnnotation.m in Sources */,
+				D048AEB616A66FA500B44EE8 /* CallOutAnnotationVifew.m in Sources */,
+				D048AEB716A66FA500B44EE8 /* CalloutMapAnnotation.m in Sources */,
+				D048AEB816A66FA500B44EE8 /* JingDianMapCell.m in Sources */,
+				D048AEBC16A66FA500B44EE8 /* mapViewController.m in Sources */,
+				D048AEC816A6764300B44EE8 /* BUIControl.m in Sources */,
+				D048AEC916A6764300B44EE8 /* BUIView.m in Sources */,
+				D048AECA16A6764300B44EE8 /* ZXObject.m in Sources */,
+				D010EC8016A7CCAD00FF94A0 /* ShakingAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +556,7 @@
 				D0375B7C16A55118005E2706 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D0375B7D16A55118005E2706 /* Build configuration list for PBXNativeTarget "LocationBackgroudTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +565,7 @@
 				D0375B7F16A55118005E2706 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

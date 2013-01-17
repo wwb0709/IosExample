@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 
+
 @implementation AppDelegate
 @synthesize m_locationmanager,g_laopai,inBackground;
 
@@ -21,7 +22,7 @@
     
     NSLog(@"backgroundSupported[%@]",backgroundSupported ? @"YES" : @"NO");
     
-    g_laopai = [[NSMutableArray alloc]init];
+    self.g_laopai = [[NSMutableArray alloc]init];
     
     
     m_locationmanager = [[CLLocationManager alloc] init];
@@ -56,7 +57,29 @@
 //        [g_navigationController setNavigationBarHidden:YES];
 //    }
     
+    NSDictionary *dic1=[NSDictionary dictionaryWithObjectsAndKeys:@"30.281843",@"latitude",@"120.102193",@"longitude",nil];
+    
+    NSDictionary *dic2=[NSDictionary dictionaryWithObjectsAndKeys:@"30.290144",@"latitude",@"120.146696‎",@"longitude",nil];
+    
+    NSDictionary *dic3=[NSDictionary dictionaryWithObjectsAndKeys:@"30.248076",@"latitude",@"120.164162‎",@"longitude",nil];
+    
+    NSDictionary *dic4=[NSDictionary dictionaryWithObjectsAndKeys:@"30.425622",@"latitude",@"120.299605",@"longitude",nil];
+    
+    NSArray *array = [NSArray arrayWithObjects:dic1,dic2,dic3,dic4, nil];
+    
+	mapViewController *controller =  [[mapViewController alloc] initWithNibName:@"mapViewController" bundle:nil];
+    controller.delegate = self;
+    
+    
+    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    //[controller resetAnnitations:array];
+     UINavigationController * tmpNavi=   [[UINavigationController alloc] initWithRootViewController:controller];
+    //[self.navigationController pushViewController:controller animated:NO];
+    [self.window addSubview:tmpNavi.view];
+    //[tmpNavi release];
+    
     [self.window makeKeyAndVisible];
+
 
     return YES;
 }
@@ -105,7 +128,7 @@
         alarm.soundName = @"ping.caf";//@"default";
         //        alarm.alertBody = [NSString stringWithFormat:@"Time to wake up!Now is\n[%@]",
         //                           [NSDate dateWithTimeIntervalSinceNow:10]];
-        alarm.alertBody = [NSString stringWithFormat:@"在您附近发现一家小面:%@",name];
+        alarm.alertBody = [NSString stringWithFormat:@"发现%@",name];
         
         alarm.userInfo = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObject:name] forKeys:[NSArray arrayWithObject:@"name"]];
         
@@ -186,45 +209,47 @@
     NSDate *oneMinuteFromNow = [NSDate dateWithTimeIntervalSinceNow:10];
     //[self scheduleAlarmForDate:oneMinuteFromNow name:@"xiaochi"];
 
-    NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://www.baidu.com"]];
-    NSLog(@"http://www.baidu.com %@",[data description]);
-//    distance = 100000;
-//    
-//    int i = 0;
-//    int j = 100;
-//    
-//    for(localdata *data in g_laopai)
-//    {
-//        //        pointend = CLLocationCoordinate2DMake([data.m_latitude doubleValue], [data.m_longitude doubleValue]);
-//        CLLocation *locend = [[CLLocation alloc]initWithLatitude:[data.m_latitude doubleValue] longitude:[data.m_longitude doubleValue]];
-//        
-//        if(distance > [locstart distanceFromLocation:locend])
-//        {
-//            distance = [locstart distanceFromLocation:locend];
-//            j = i;
-//        }
-//        
-//        [locend release];
-//        
-//        i++;
-//    }
-//    
-//    if(distance < DISTANCE)
-//    {
-//        NSLog(@"distance = %f",distance);
-//        
-//        NSString *name = @" ";
-//        if(j < g_laopai.count - 1)
-//        {
-//            name = [[g_laopai objectAtIndex:j]m_name];
-//        }
-//        
-//        if(![m_name isEqualToString:name])
-//        {
-//            NSDate *oneMinuteFromNow = [NSDate dateWithTimeIntervalSinceNow:10];
-//            [self scheduleAlarmForDate:oneMinuteFromNow name:name];
-//        }
-//    }
+//    NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://www.baidu.com"]];
+//    NSLog(@"http://www.baidu.com %@",[data description]);
+    distance = 100000;
+    
+    int i = 0;
+    int j = 100;
+    
+    for(NSDictionary *data in g_laopai)
+    {
+        //        pointend = CLLocationCoordinate2DMake([data.m_latitude doubleValue], [data.m_longitude doubleValue]);
+        CLLocationDegrees latitude=[[data objectForKey:@"latitude"] doubleValue];
+        CLLocationDegrees longitude=[[data objectForKey:@"longitude"] doubleValue];
+        CLLocation *locend = [[CLLocation alloc]initWithLatitude:latitude longitude:longitude];
+        
+        if(distance > [locstart distanceFromLocation:locend])
+        {
+            distance = [locstart distanceFromLocation:locend];
+            j = i;
+        }
+        
+        [locend release];
+        
+        i++;
+    }
+    
+    if(distance < 1000)
+    {
+        NSLog(@"distance = %f",distance);
+        
+        NSString *name = @" ";
+        if(j <= g_laopai.count - 1)
+        {
+            name = [[g_laopai objectAtIndex:j] objectForKey:@"name"];
+        }
+        
+        if(![m_name isEqualToString:name])
+        {
+            NSDate *oneMinuteFromNow = [NSDate dateWithTimeIntervalSinceNow:10];
+            [self scheduleAlarmForDate:oneMinuteFromNow name:[NSString stringWithFormat:@"距离%@还有%lf米",name,distance]];
+        }
+    }
     
     [locstart release];
 }
@@ -277,5 +302,8 @@
 //{
 //    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 //}
-
+- (void)customMKMapViewDidSelectedWithInfo:(id)info
+{
+    NSLog(@"%@",info);
+}
 @end

@@ -11,7 +11,8 @@
 #import <CoreLocation/CLLocationManager.h>
 #import <CoreLocation/CLLocationManagerDelegate.h>
 #import <CoreLocation/CoreLocation.h>
-@interface AppDelegate : UIResponder <UIApplicationDelegate,CLLocationManagerDelegate>
+#import "mapViewController.h"
+@interface AppDelegate : UIResponder <UIApplicationDelegate,CLLocationManagerDelegate,MapViewControllerDidSelectDelegate>
 {
     double m_lat;
     double m_lon;

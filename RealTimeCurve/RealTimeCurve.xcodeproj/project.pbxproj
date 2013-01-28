@@ -1,0 +1,345 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5E4C515516B10427002DB8F7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4C515416B10427002DB8F7 /* UIKit.framework */; };
+		5E4C515716B10427002DB8F7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4C515616B10427002DB8F7 /* Foundation.framework */; };
+		5E4C515916B10427002DB8F7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4C515816B10427002DB8F7 /* CoreGraphics.framework */; };
+		5E4C515F16B10427002DB8F7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E4C515D16B10427002DB8F7 /* InfoPlist.strings */; };
+		5E4C516116B10427002DB8F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4C516016B10427002DB8F7 /* main.m */; };
+		5E4C516516B10427002DB8F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4C516416B10427002DB8F7 /* AppDelegate.m */; };
+		5E4C516716B10427002DB8F7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E4C516616B10427002DB8F7 /* Default.png */; };
+		5E4C516916B10427002DB8F7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E4C516816B10427002DB8F7 /* Default@2x.png */; };
+		5E4C516B16B10427002DB8F7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E4C516A16B10427002DB8F7 /* Default-568h@2x.png */; };
+		5E4C516E16B10427002DB8F7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4C516D16B10427002DB8F7 /* ViewController.m */; };
+		5E4C517116B10427002DB8F7 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E4C516F16B10427002DB8F7 /* ViewController.xib */; };
+		5E4C517916B10473002DB8F7 /* source.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5E4C517816B10473002DB8F7 /* source.bundle */; };
+		5E4C51A016B11BD6002DB8F7 /* CurveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4C519E16B11BD6002DB8F7 /* CurveViewController.m */; };
+		5E4C51A116B11BD6002DB8F7 /* CurveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E4C519F16B11BD6002DB8F7 /* CurveViewController.xib */; };
+		D089AAB416B2547E0095B8A5 /* test.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D089AAB316B2547E0095B8A5 /* test.bundle */; };
+		D089AAE516B2594D0095B8A5 /* libstaticlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D089AAE316B259220095B8A5 /* libstaticlib.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5E4C515016B10427002DB8F7 /* RealTimeCurve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealTimeCurve.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E4C515416B10427002DB8F7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5E4C515616B10427002DB8F7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5E4C515816B10427002DB8F7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5E4C515C16B10427002DB8F7 /* RealTimeCurve-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RealTimeCurve-Info.plist"; sourceTree = "<group>"; };
+		5E4C515E16B10427002DB8F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5E4C516016B10427002DB8F7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5E4C516216B10427002DB8F7 /* RealTimeCurve-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RealTimeCurve-Prefix.pch"; sourceTree = "<group>"; };
+		5E4C516316B10427002DB8F7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5E4C516416B10427002DB8F7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5E4C516616B10427002DB8F7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		5E4C516816B10427002DB8F7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		5E4C516A16B10427002DB8F7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		5E4C516C16B10427002DB8F7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		5E4C516D16B10427002DB8F7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5E4C517016B10427002DB8F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		5E4C517816B10473002DB8F7 /* source.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = source.bundle; sourceTree = "<group>"; };
+		5E4C519D16B11BD6002DB8F7 /* CurveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurveViewController.h; sourceTree = "<group>"; };
+		5E4C519E16B11BD6002DB8F7 /* CurveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurveViewController.m; sourceTree = "<group>"; };
+		5E4C519F16B11BD6002DB8F7 /* CurveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurveViewController.xib; sourceTree = "<group>"; };
+		D089AA9316B2521A0095B8A5 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		D089AAB316B2547E0095B8A5 /* test.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = test.bundle; sourceTree = "<group>"; };
+		D089AACC16B256C50095B8A5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		D089AAE316B259220095B8A5 /* libstaticlib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libstaticlib.a; sourceTree = "<group>"; };
+		D089AAE716B259B50095B8A5 /* staticlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = staticlib.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5E4C514D16B10427002DB8F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D089AAE516B2594D0095B8A5 /* libstaticlib.a in Frameworks */,
+				5E4C515516B10427002DB8F7 /* UIKit.framework in Frameworks */,
+				5E4C515716B10427002DB8F7 /* Foundation.framework in Frameworks */,
+				5E4C515916B10427002DB8F7 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5E4C514516B10427002DB8F7 = {
+			isa = PBXGroup;
+			children = (
+				D089AAE316B259220095B8A5 /* libstaticlib.a */,
+				5E4C515A16B10427002DB8F7 /* RealTimeCurve */,
+				5E4C515316B10427002DB8F7 /* Frameworks */,
+				5E4C515116B10427002DB8F7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5E4C515116B10427002DB8F7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5E4C515016B10427002DB8F7 /* RealTimeCurve.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5E4C515316B10427002DB8F7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5E4C515416B10427002DB8F7 /* UIKit.framework */,
+				5E4C515616B10427002DB8F7 /* Foundation.framework */,
+				5E4C515816B10427002DB8F7 /* CoreGraphics.framework */,
+				D089AA9316B2521A0095B8A5 /* CoreFoundation.framework */,
+				D089AACC16B256C50095B8A5 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5E4C515A16B10427002DB8F7 /* RealTimeCurve */ = {
+			isa = PBXGroup;
+			children = (
+				5E4C517716B10468002DB8F7 /* source */,
+				5E4C516316B10427002DB8F7 /* AppDelegate.h */,
+				5E4C516416B10427002DB8F7 /* AppDelegate.m */,
+				5E4C516C16B10427002DB8F7 /* ViewController.h */,
+				5E4C516D16B10427002DB8F7 /* ViewController.m */,
+				5E4C516F16B10427002DB8F7 /* ViewController.xib */,
+				5E4C515B16B10427002DB8F7 /* Supporting Files */,
+				5E4C519D16B11BD6002DB8F7 /* CurveViewController.h */,
+				5E4C519E16B11BD6002DB8F7 /* CurveViewController.m */,
+				5E4C519F16B11BD6002DB8F7 /* CurveViewController.xib */,
+				D089AAE716B259B50095B8A5 /* staticlib.h */,
+			);
+			path = RealTimeCurve;
+			sourceTree = "<group>";
+		};
+		5E4C515B16B10427002DB8F7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5E4C515C16B10427002DB8F7 /* RealTimeCurve-Info.plist */,
+				5E4C515D16B10427002DB8F7 /* InfoPlist.strings */,
+				5E4C516016B10427002DB8F7 /* main.m */,
+				5E4C516216B10427002DB8F7 /* RealTimeCurve-Prefix.pch */,
+				5E4C516616B10427002DB8F7 /* Default.png */,
+				5E4C516816B10427002DB8F7 /* Default@2x.png */,
+				5E4C516A16B10427002DB8F7 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5E4C517716B10468002DB8F7 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				D089AAB316B2547E0095B8A5 /* test.bundle */,
+				5E4C517816B10473002DB8F7 /* source.bundle */,
+			);
+			name = source;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5E4C514F16B10427002DB8F7 /* RealTimeCurve */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E4C517416B10427002DB8F7 /* Build configuration list for PBXNativeTarget "RealTimeCurve" */;
+			buildPhases = (
+				5E4C514C16B10427002DB8F7 /* Sources */,
+				5E4C514D16B10427002DB8F7 /* Frameworks */,
+				5E4C514E16B10427002DB8F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RealTimeCurve;
+			productName = RealTimeCurve;
+			productReference = 5E4C515016B10427002DB8F7 /* RealTimeCurve.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5E4C514716B10427002DB8F7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "wu xiaoming";
+			};
+			buildConfigurationList = 5E4C514A16B10427002DB8F7 /* Build configuration list for PBXProject "RealTimeCurve" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5E4C514516B10427002DB8F7;
+			productRefGroup = 5E4C515116B10427002DB8F7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5E4C514F16B10427002DB8F7 /* RealTimeCurve */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5E4C514E16B10427002DB8F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E4C515F16B10427002DB8F7 /* InfoPlist.strings in Resources */,
+				5E4C516716B10427002DB8F7 /* Default.png in Resources */,
+				5E4C516916B10427002DB8F7 /* Default@2x.png in Resources */,
+				5E4C516B16B10427002DB8F7 /* Default-568h@2x.png in Resources */,
+				5E4C517116B10427002DB8F7 /* ViewController.xib in Resources */,
+				5E4C517916B10473002DB8F7 /* source.bundle in Resources */,
+				5E4C51A116B11BD6002DB8F7 /* CurveViewController.xib in Resources */,
+				D089AAB416B2547E0095B8A5 /* test.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5E4C514C16B10427002DB8F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E4C516116B10427002DB8F7 /* main.m in Sources */,
+				5E4C516516B10427002DB8F7 /* AppDelegate.m in Sources */,
+				5E4C516E16B10427002DB8F7 /* ViewController.m in Sources */,
+				5E4C51A016B11BD6002DB8F7 /* CurveViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5E4C515D16B10427002DB8F7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5E4C515E16B10427002DB8F7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5E4C516F16B10427002DB8F7 /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5E4C517016B10427002DB8F7 /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5E4C517216B10427002DB8F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5E4C517316B10427002DB8F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5E4C517516B10427002DB8F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = armv7;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RealTimeCurve/RealTimeCurve-Prefix.pch";
+				INFOPLIST_FILE = "RealTimeCurve/RealTimeCurve-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5E4C517616B10427002DB8F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = armv7;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RealTimeCurve/RealTimeCurve-Prefix.pch";
+				INFOPLIST_FILE = "RealTimeCurve/RealTimeCurve-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5E4C514A16B10427002DB8F7 /* Build configuration list for PBXProject "RealTimeCurve" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E4C517216B10427002DB8F7 /* Debug */,
+				5E4C517316B10427002DB8F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E4C517416B10427002DB8F7 /* Build configuration list for PBXNativeTarget "RealTimeCurve" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E4C517516B10427002DB8F7 /* Debug */,
+				5E4C517616B10427002DB8F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5E4C514716B10427002DB8F7 /* Project object */;
+}

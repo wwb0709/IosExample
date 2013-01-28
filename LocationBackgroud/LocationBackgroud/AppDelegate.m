@@ -106,7 +106,7 @@
     NSLog(@"location error : %@",err);
 }
 
-- (void)scheduleAlarmForDate:(NSDate *)theDate name:(NSString *)name{
+- (void)scheduleAlarmForDate:(NSDate *)theDate name:(NSString *)name distance:(float)distance{
     
     NSLog(@"alarm");
     UIApplication *app = [UIApplication sharedApplication];
@@ -128,7 +128,8 @@
         alarm.soundName = @"ping.caf";//@"default";
         //        alarm.alertBody = [NSString stringWithFormat:@"Time to wake up!Now is\n[%@]",
         //                           [NSDate dateWithTimeIntervalSinceNow:10]];
-        alarm.alertBody = [NSString stringWithFormat:@"发现%@",name];
+    
+        alarm.alertBody = [NSString stringWithFormat:@"发现%@距离你还有%lf米",name,distance];
         
         alarm.userInfo = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObject:name] forKeys:[NSArray arrayWithObject:@"name"]];
         
@@ -247,7 +248,7 @@
         if(![m_name isEqualToString:name])
         {
             NSDate *oneMinuteFromNow = [NSDate dateWithTimeIntervalSinceNow:10];
-            [self scheduleAlarmForDate:oneMinuteFromNow name:[NSString stringWithFormat:@"距离%@还有%lf米",name,distance]];
+            [self scheduleAlarmForDate:oneMinuteFromNow name:name distance:distance];
         }
     }
     

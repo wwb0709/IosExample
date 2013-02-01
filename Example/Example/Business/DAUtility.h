@@ -117,4 +117,7 @@
 
 //组装URL
 + (NSURL *)smartURLForString:(NSString *)str;
+
+//图片做mask处理
++ (UIImage *)imageByComposingImage:(UIImage *)image withMaskImage:(UIImage *)maskImage;
 @end

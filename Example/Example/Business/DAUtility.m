@@ -1020,4 +1020,23 @@ static bool isstatusbarshow;
     return result;
     
 }
+
+
+//图片做mask处理
++ (UIImage *)imageByComposingImage:(UIImage *)image withMaskImage:(UIImage *)maskImage {
+	CGImageRef maskImageRef = maskImage.CGImage;
+	CGImageRef maskRef = CGImageMaskCreate(CGImageGetWidth(maskImageRef),
+                                           CGImageGetHeight(maskImageRef),
+                                           CGImageGetBitsPerComponent(maskImageRef),
+                                           CGImageGetBitsPerPixel(maskImageRef),
+                                           CGImageGetBytesPerRow(maskImageRef),
+                                           CGImageGetDataProvider(maskImageRef), NULL, false);
+	
+    CGImageRef newImageRef = CGImageCreateWithMask(image.CGImage, maskRef);
+    CGImageRelease(maskRef);
+    UIImage *newImage = [UIImage imageWithCGImage:newImageRef];
+    CGImageRelease(newImageRef);
+    
+    return newImage;
+}
 @end

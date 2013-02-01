@@ -12,6 +12,9 @@
 #import "BlockUI.h"
 #import <QuartzCore/QuartzCore.h>
 #import "DetailViewController.h"
+#import "SearchCoreManager.h"
+#import "ContactPeople.h"
+//#import "ContactPeople.h"
 #define COOKBOOK_PURPLE_COLOR	[UIColor colorWithRed:0.20392f green:0.19607f blue:0.61176f alpha:1.0f]
 @interface MainViewController ()
 
@@ -20,6 +23,9 @@
 @implementation MainViewController
 @synthesize dataList,seachResultList,selectedList;
 @synthesize searchBar,searchDC;
+@synthesize contactDic;
+@synthesize searchByName;
+@synthesize searchByPhone;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -62,6 +68,68 @@
                                              selector:@selector(choseTableBarSelect:)
                                                  name:@"tabBarSelect"
                                                object:nil];
+    
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    self.contactDic = dic;
+    [dic release];
+    
+    NSMutableArray *nameIDArray = [[NSMutableArray alloc] init];
+    self.searchByName = nameIDArray;
+    [nameIDArray release];
+    NSMutableArray *phoneIDArray = [[NSMutableArray alloc] init];
+    
+    self.searchByPhone = phoneIDArray;
+    [phoneIDArray release];
+    
+    NSArray * allKeys = [self.dataList allKeys];
+    for (int j=0; j<[allKeys count]; j++) {
+    VcardPersonEntity * entity=[self.dataList valueForKey:[allKeys objectAtIndex:j]];
+        
+    ContactPeople *contact = [[ContactPeople alloc] init];
+    contact.localID = [NSNumber numberWithInt:[entity.ID intValue]];//[entity.ID ];
+        
+    NSMutableString *tmpname = [[NSMutableString alloc] init];
+    if (entity.NameArr&&[entity.NameArr count]>0) {
+        for (int i=0; i<[entity.NameArr count]; i++) {
+            NSString *str =[NSString stringWithFormat:@"%@",[entity.NameArr objectForKey:[NSString stringWithFormat:@"%d",i]]];
+             if (str!=nil) {
+            [tmpname appendString:str];
+             }
+        }
+    }
+        
+    contact.name = tmpname;
+    [tmpname release];
+        
+    NSMutableArray *phoneArray = [[NSMutableArray alloc] init];
+
+     if (entity.PhoneArr&&[entity.PhoneArr count]>0) {
+            
+        for (int i=0; i<[entity.PhoneArr count]; i++) {
+            NSString *str = [[[entity.PhoneArr objectForKey:[NSString stringWithFormat:@"%d",i]] componentsSeparatedByString:@";"] lastObject];
+            if (str!=nil) {
+                [phoneArray addObject:str];
+            }
+        }
+    }
+    contact.phoneArray = phoneArray;
+    [phoneArray release];
+        
+        
+    NSLog(@"====%@   ==%@",contact.name,contact.phoneArray);
+    [[SearchCoreManager share] AddContact:contact.localID name:contact.name phone:contact.phoneArray];
+    [self.contactDic setObject:contact forKey:contact.localID];
+    [contact release];
+    }
+    
+    
+    NSLog(@"====******");
+
+    
+
+    
+    
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -200,7 +268,7 @@
 {
 	// Create a search bar
 	self.searchBar = [[[UISearchBar alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 44.0f)] autorelease];
-    [self.searchBar setScopeButtonTitles:[NSArray arrayWithObjects:@"All",@"Device",@"Desktop",@"Portable",nil]];
+//    [self.searchBar setScopeButtonTitles:[NSArray arrayWithObjects:@"All",@"Device",@"Desktop",@"Portable",nil]];
 	self.searchBar.tintColor = COOKBOOK_PURPLE_COLOR;
 	self.searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
 	self.searchBar.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -266,7 +334,7 @@
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (tableView == self.searchDC.searchResultsTableView)
-        return [self.seachResultList count];
+        return [self.searchByName count] + [self.searchByPhone count];//[self.seachResultList count];
     else
         return [self.dataList count];
 }
@@ -305,34 +373,65 @@
     VcardPersonEntity * entity= nil;
     if (tableView == self.searchDC.searchResultsTableView)
     {
-        NSArray * allKeys = [self.seachResultList allKeys];
-        entity= [self.seachResultList valueForKey:[allKeys objectAtIndex:row]];
+//        NSArray * allKeys = [self.seachResultList allKeys];
+//        entity= [self.seachResultList valueForKey:[allKeys objectAtIndex:row]];
 //        entity= [self.seachResultList objectAtIndex:row];
+        NSNumber *localID = nil;
+        NSMutableString *matchString = [NSMutableString string];
+        NSMutableArray *matchPos = [NSMutableArray array];
+        if (indexPath.row < [searchByName count]) {
+            localID = [self.searchByName objectAtIndex:indexPath.row];
+            
+            //姓名匹配 获取对应匹配的拼音串 及高亮位置
+            if ([self.searchBar.text length]) {
+                [[SearchCoreManager share] GetPinYin:localID pinYin:matchString matchPos:matchPos];
+            }
+        } else {
+            localID = [self.searchByPhone objectAtIndex:indexPath.row-[searchByName count]];
+            NSMutableArray *matchPhones = [NSMutableArray array];
+            
+            //号码匹配 获取对应匹配的号码串 及高亮位置
+            if ([self.searchBar.text length]) {
+                [[SearchCoreManager share] GetPhoneNum:localID phone:matchPhones matchPos:matchPos];
+                [matchString appendString:[matchPhones objectAtIndex:0]];
+            }
+        }
+        ContactPeople *contact = [self.contactDic objectForKey:localID];
+        
+        cell.name = contact.name;
+        cell.dec = matchString;
+        cell.loc = @"";
+        UIImage *image = [UIImage imageNamed:@"background"];
+        cell.image = image;//[imageList objectAtIndex:row];
+        
+        return cell;
     }
     else
     {
         NSArray * allKeys = [self.dataList allKeys];
         entity= [self.dataList valueForKey:[allKeys objectAtIndex:row]];
+        cell.name = entity.ID;
+        if (entity.PhoneArr&&[entity.PhoneArr count]>0) {
+            cell.loc = [[[entity.PhoneArr objectForKey:@"0"] componentsSeparatedByString:@";"] lastObject];
+        }
+        if ([entity.NameArr count]>1) {
+            cell.dec = [NSString stringWithFormat:@"%@%@",[entity.NameArr objectForKey:@"0"],[entity.NameArr objectForKey:@"1"]];//[entity.NameArr objectForKey:@"0"];
+        }
+        
+        //    NSString *imageUrl = [[NSString alloc] initWithFormat:@"index%i.png", 0];
+        UIImage *image = [UIImage imageNamed:@"background"];
+        cell.image = image;//[imageList objectAtIndex:row];
+        return cell;
     }
 
-    cell.name = entity.ID;
-    if (entity.PhoneArr&&[entity.PhoneArr count]>0) {
-        cell.loc = [[[entity.PhoneArr objectForKey:@"0"] componentsSeparatedByString:@";"] lastObject];
-    }
-    if ([entity.NameArr count]>1) {
-        cell.dec = [NSString stringWithFormat:@"%@%@",[entity.NameArr objectForKey:@"0"],[entity.NameArr objectForKey:@"1"]];//[entity.NameArr objectForKey:@"0"];
-    }
-   
-    NSString *imageUrl = [[NSString alloc] initWithFormat:@"index%i.png", 0];
-    UIImage *image = [UIImage imageNamed:imageUrl];
-    cell.image = image;//[imageList objectAtIndex:row];
-    return cell;
+  
     
 }
 
 //添加一项
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"didSelectRowAtIndexPath");
+    return;
     if ([self.navigationItem.leftBarButtonItem.title isEqualToString:@"确定"]) {
         
         VcardPersonEntity * entity= nil;
@@ -375,6 +474,7 @@
 //取消一项
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"didDeselectRowAtIndexPath");
+     return;
     if ([self.navigationItem.leftBarButtonItem.title isEqualToString:@"确定"]) {
         VcardPersonEntity * entity= nil;
         if (tableView == self.searchDC.searchResultsTableView)
@@ -502,20 +602,25 @@
 	/*
 	 Search the main list for products whose type matches the scope (if selected) and whose name matches searchText; add items that match to the filtered array.
 	 */
-    NSArray * allkeys = [self.dataList allKeys];
-	for (NSString *personID in allkeys)
-	{
-        VcardPersonEntity * entity  = [self.dataList valueForKey:personID];
-        //		if ([scope isEqualToString:@"All"] || [product.type isEqualToString:scope])
-        if ([scope isEqualToString:@"All"])
-		{
-			NSComparisonResult result = [entity.ID compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchText length])];
-            if (result == NSOrderedSame)
-			{
-				[self.seachResultList setValue:entity forKey:entity.ID];
-            }
-		}
-	}
+    
+    [[SearchCoreManager share] Search:searchText searchArray:nil nameMatch:searchByName phoneMatch:self.searchByPhone];
+    
+     [self.mainTableView reloadData];
+    
+//    NSArray * allkeys = [self.dataList allKeys];
+//	for (NSString *personID in allkeys)
+//	{
+//        VcardPersonEntity * entity  = [self.dataList valueForKey:personID];
+//        //		if ([scope isEqualToString:@"All"] || [product.type isEqualToString:scope])
+//        if ([scope isEqualToString:@"All"])
+//		{
+//			NSComparisonResult result = [entity.ID compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchText length])];
+//            if (result == NSOrderedSame)
+//			{
+//				[self.seachResultList setValue:entity forKey:entity.ID];
+//            }
+//		}
+//	}
 }
 #pragma mark -
 #pragma mark UISearchDisplayController Delegate Methods

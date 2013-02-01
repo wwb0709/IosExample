@@ -109,7 +109,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{86, 57}, {232, 21}}</string>
 								<reference key="NSSuperview" ref="221900285"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -208,10 +207,10 @@
 						<int key="objectID">2</int>
 						<reference key="object" ref="762192937"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="247253274"/>
 							<reference ref="90190707"/>
 							<reference ref="612932300"/>
 							<reference ref="357594315"/>
+							<reference ref="247253274"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -243,6 +242,7 @@
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="2.CustomClassName">contactViewCell</string>
 				<string key="2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="6.CustomClassName">MyRoundedImageView</string>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="7.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="8.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -252,7 +252,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">19</int>
+			<int key="maxID">20</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>

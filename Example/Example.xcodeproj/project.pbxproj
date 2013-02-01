@@ -422,6 +422,7 @@
 		D06B648C169C1666008FC1D1 /* index5.png in Resources */ = {isa = PBXBuildFile; fileRef = D06B6442169C1665008FC1D1 /* index5.png */; };
 		D06B648D169C1666008FC1D1 /* index6.png in Resources */ = {isa = PBXBuildFile; fileRef = D06B6443169C1665008FC1D1 /* index6.png */; };
 		D06B648E169C1666008FC1D1 /* index7.png in Resources */ = {isa = PBXBuildFile; fileRef = D06B6444169C1665008FC1D1 /* index7.png */; };
+		D0769FF616BBAFB4006EB173 /* ContactPeople.m in Sources */ = {isa = PBXBuildFile; fileRef = D0769FF516BBAFB4006EB173 /* ContactPeople.m */; };
 		D077550A1699609200723075 /* testvcard.vcf in Resources */ = {isa = PBXBuildFile; fileRef = D07755091699609200723075 /* testvcard.vcf */; };
 		D077550D169965AE00723075 /* VcardPersonEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = D077550C169965AE00723075 /* VcardPersonEntity.m */; };
 		D07AB36A169EF146008C6672 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07AB368169EF146008C6672 /* MainViewController.m */; };
@@ -523,6 +524,11 @@
 		D0E1628816A3A733009A00B8 /* BackRecoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0E1628616A3A733009A00B8 /* BackRecoverViewController.xib */; };
 		D0E6AE5B167FFF8200064076 /* MarqueeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E6AE5A167FFF8100064076 /* MarqueeLabel.m */; };
 		D0E6AE6E168000C300064076 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E6AE66168000C300064076 /* libGoogleAdMobAds.a */; };
+		D0F8551B16B90764006430FE /* Array.mm in Sources */ = {isa = PBXBuildFile; fileRef = D0F8551516B90764006430FE /* Array.mm */; };
+		D0F8551C16B90764006430FE /* multipy_unicode.dat in Resources */ = {isa = PBXBuildFile; fileRef = D0F8551616B90764006430FE /* multipy_unicode.dat */; };
+		D0F8551D16B90764006430FE /* SearchCore.mm in Sources */ = {isa = PBXBuildFile; fileRef = D0F8551816B90764006430FE /* SearchCore.mm */; };
+		D0F8551E16B90764006430FE /* SearchCoreManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = D0F8551A16B90764006430FE /* SearchCoreManager.mm */; };
+		D0F8552516B90AB7006430FE /* MyRoundedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F8552316B90AB7006430FE /* MyRoundedImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1170,6 +1176,8 @@
 		D06B6442169C1665008FC1D1 /* index5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = index5.png; sourceTree = "<group>"; };
 		D06B6443169C1665008FC1D1 /* index6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = index6.png; sourceTree = "<group>"; };
 		D06B6444169C1665008FC1D1 /* index7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = index7.png; sourceTree = "<group>"; };
+		D0769FF416BBAFB4006EB173 /* ContactPeople.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactPeople.h; sourceTree = "<group>"; };
+		D0769FF516BBAFB4006EB173 /* ContactPeople.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactPeople.m; sourceTree = "<group>"; };
 		D07755091699609200723075 /* testvcard.vcf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testvcard.vcf; sourceTree = "<group>"; };
 		D077550B169965AE00723075 /* VcardPersonEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VcardPersonEntity.h; sourceTree = "<group>"; };
 		D077550C169965AE00723075 /* VcardPersonEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VcardPersonEntity.m; sourceTree = "<group>"; };
@@ -1348,6 +1356,15 @@
 		D0E6AE6B168000C300064076 /* GADCustomEventInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADCustomEventInterstitial.h; sourceTree = "<group>"; };
 		D0E6AE6C168000C300064076 /* GADCustomEventInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADCustomEventInterstitialDelegate.h; sourceTree = "<group>"; };
 		D0E6AE6D168000C300064076 /* GADCustomEventRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADCustomEventRequest.h; sourceTree = "<group>"; };
+		D0F8551416B90764006430FE /* Array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Array.h; sourceTree = "<group>"; };
+		D0F8551516B90764006430FE /* Array.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Array.mm; sourceTree = "<group>"; };
+		D0F8551616B90764006430FE /* multipy_unicode.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = multipy_unicode.dat; sourceTree = "<group>"; };
+		D0F8551716B90764006430FE /* SearchCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCore.h; sourceTree = "<group>"; };
+		D0F8551816B90764006430FE /* SearchCore.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SearchCore.mm; sourceTree = "<group>"; };
+		D0F8551916B90764006430FE /* SearchCoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCoreManager.h; sourceTree = "<group>"; };
+		D0F8551A16B90764006430FE /* SearchCoreManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SearchCoreManager.mm; sourceTree = "<group>"; };
+		D0F8552316B90AB7006430FE /* MyRoundedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRoundedImageView.m; sourceTree = "<group>"; };
+		D0F8552416B90AB7006430FE /* MyRoundedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRoundedImageView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1903,6 +1920,7 @@
 		D063784F15904CA300733F58 /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				D0F8551316B90764006430FE /* SearchCore */,
 				D03CBAFF167AD6410008D680 /* gridview */,
 				D085E3EF1611539300524ECD /* FCache */,
 				D08D9ED316081AE9008CE380 /* bubbletable */,
@@ -2823,6 +2841,10 @@
 		D08D9F3316084286008CE380 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				D0769FF416BBAFB4006EB173 /* ContactPeople.h */,
+				D0769FF516BBAFB4006EB173 /* ContactPeople.m */,
+				D0F8552316B90AB7006430FE /* MyRoundedImageView.m */,
+				D0F8552416B90AB7006430FE /* MyRoundedImageView.h */,
 				D08D9F3416084286008CE380 /* SHHHomeController.h */,
 				D08D9F3516084286008CE380 /* SHHHomeController.m */,
 				D08D9F3616084286008CE380 /* SHHHomeNavigationController.h */,
@@ -2998,6 +3020,20 @@
 				D0E6AE6D168000C300064076 /* GADCustomEventRequest.h */,
 			);
 			path = Mediation;
+			sourceTree = "<group>";
+		};
+		D0F8551316B90764006430FE /* SearchCore */ = {
+			isa = PBXGroup;
+			children = (
+				D0F8551416B90764006430FE /* Array.h */,
+				D0F8551516B90764006430FE /* Array.mm */,
+				D0F8551616B90764006430FE /* multipy_unicode.dat */,
+				D0F8551716B90764006430FE /* SearchCore.h */,
+				D0F8551816B90764006430FE /* SearchCore.mm */,
+				D0F8551916B90764006430FE /* SearchCoreManager.h */,
+				D0F8551A16B90764006430FE /* SearchCoreManager.mm */,
+			);
+			path = SearchCore;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -3290,6 +3326,7 @@
 				D0375B3316A5214E005E2706 /* JingDianMapCell.xib in Resources */,
 				D0375B3416A5214E005E2706 /* MuddDetail.jpeg in Resources */,
 				D0375B3516A5214E005E2706 /* pin.png in Resources */,
+				D0F8551C16B90764006430FE /* multipy_unicode.dat in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3550,6 +3587,11 @@
 				D0375B3016A5214E005E2706 /* CallOutAnnotationVifew.m in Sources */,
 				D0375B3116A5214E005E2706 /* CalloutMapAnnotation.m in Sources */,
 				D0375B3216A5214E005E2706 /* JingDianMapCell.m in Sources */,
+				D0F8551B16B90764006430FE /* Array.mm in Sources */,
+				D0F8551D16B90764006430FE /* SearchCore.mm in Sources */,
+				D0F8551E16B90764006430FE /* SearchCoreManager.mm in Sources */,
+				D0F8552516B90AB7006430FE /* MyRoundedImageView.m in Sources */,
+				D0769FF616BBAFB4006EB173 /* ContactPeople.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

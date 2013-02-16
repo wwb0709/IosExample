@@ -29,13 +29,37 @@ void MyabChangeCallback(ABAddressBookRef addressBook, CFDictionaryRef info, void
     {
         if (nil==s_addressBook)
         {
-            s_addressBook=  ABAddressBookCreate();
+            s_addressBook=  [self MyAddressBookCreate];
             if(s_addressBook)
                 ABAddressBookRegisterExternalChangeCallback(s_addressBook, MyabChangeCallback, nil);
         }
     }
     
     return s_addressBook;
+}
++(ABAddressBookRef) MyAddressBookCreate
+{
+    ABAddressBookRef addressBook = nil;
+    
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 6.0)
+    {
+        addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
+        //等待同意后向下执行
+        dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+        ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error)
+                                                 {
+                                                     dispatch_semaphore_signal(sema);
+                                                 });
+        
+        dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+        dispatch_release(sema);
+    }
+    else
+    {
+        addressBook = ABAddressBookCreate();
+    }
+    
+    return addressBook;
 }
 +(void)                     destroySingleAddressBook
 {

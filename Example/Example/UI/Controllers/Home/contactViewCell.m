@@ -32,6 +32,7 @@
 - (void)setImage:(UIImage *)img {
     if (![img isEqual:image]) {
         image = [img copy];
+        self.myImageView.backgroundColor=[UIColor clearColor];
         self.myImageView.image = image;
     }
 }
@@ -63,5 +64,15 @@
     [_locLable release];
     [_myImageView release];
     [super dealloc];
+}
+- (IBAction)dialPhone:(id)sender {
+    
+    NSString * number = loc;
+//	NSString *num = [[NSString alloc] initWithFormat:@"tel://%@",number]; //number为号码字符串
+    
+    NSString *num = [[NSString alloc] initWithFormat:@"telprompt://%@",number];
+    //number为号码字符串
+
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:num]]; //拨号
 }
 @end

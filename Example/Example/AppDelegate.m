@@ -616,7 +616,7 @@ const int kSysMaxTimePerBgTask = 10 * 600;      // 10分钟，系统为每个后
     ////////////////////////////////////////////////////////////////
     else
     {
-       NSArray *viewControllers = [[NSArray alloc] initWithObjects:[SHHHomeController defaultController].homeNavigationController, [SHHCategoryController defaultController].categoryNavigationController, [SHHSpaceController defaultController].spaceNavigationController,[SHHCollectController defaultController].collectNavigationController, [SHHSearchController defaultController].searchNavigationController, nil];
+       NSArray *viewControllers = [[NSArray alloc] initWithObjects:[SHHHomeController defaultController].homeNavigationController, [SHHSpaceController defaultController].spaceNavigationController, nil];
     UITabBarController *tabController=[[UITabBarController alloc] init];
     
     tabController.viewControllers=viewControllers;
@@ -707,6 +707,7 @@ const int kSysMaxTimePerBgTask = 10 * 600;      // 10分钟，系统为每个后
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
+    return;
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     int i = giAlarmInterval / kTimerInterval;

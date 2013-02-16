@@ -14,6 +14,7 @@
 #import "DetailViewController.h"
 #import "SearchCoreManager.h"
 #import "ContactPeople.h"
+#import "FMDatabase.h"
 //#import "ContactPeople.h"
 #define COOKBOOK_PURPLE_COLOR	[UIColor colorWithRed:0.20392f green:0.19607f blue:0.61176f alpha:1.0f]
 @interface MainViewController ()
@@ -123,7 +124,93 @@
     }
     
     
-    NSLog(@"====******");
+    //加载在常用
+    
+    
+    
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains
+//	(NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSString *documentsDirectory = [paths objectAtIndex:0];
+//    NSString *path = [documentsDirectory stringByAppendingPathComponent:@"attribution.db"];
+    if (0) {
+    
+     NSString *path = [[NSBundle mainBundle] pathForResource:@"attribution.db" ofType:nil];
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    if (![db open]) {
+        printLog(@"Could not open db.");
+        return;
+    }
+    
+  
+    FMResultSet *rs = [db executeQuery:@"select * from changyong"];
+   
+    while ([rs next]) {
+        
+      
+        // just print out what we've got in a number of formats.
+        printLog(@"%@ %@ %@",
+                 [rs stringForColumn:@"imgid"],
+                 [rs stringForColumn:@"name"],
+                 [rs stringForColumn:@"telephone"]);
+        
+        
+        
+        ContactPeople *contact = [[ContactPeople alloc] init];
+        contact.localID = [NSNumber numberWithInt:[[rs stringForColumn:@"imgid"] intValue]];
+        
+   
+        
+        contact.name = [rs stringForColumn:@"name"];
+       
+        
+        NSMutableArray *phoneArray = [[NSMutableArray alloc] init];
+        
+    
+        [phoneArray addObject:[rs stringForColumn:@"telephone"]];
+     
+        contact.phoneArray = phoneArray;
+        [phoneArray release];
+        
+        
+        NSLog(@"====%@   ==%@",contact.name,contact.phoneArray);
+        [[SearchCoreManager share] AddContact:contact.localID name:contact.name phone:contact.phoneArray];
+        [self.contactDic setObject:contact forKey:contact.localID];
+        [contact release];
+               
+    }
+    
+    [rs close];
+        
+    }
+    
+   
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSString *documentDirectory = [paths objectAtIndex:0];
+//    
+//    //dbPath： 数据库路径，在Document中。
+//    NSString *dbPath = [documentDirectory stringByAppendingPathComponent:@"attribution.db"];
+//    
+//    //创建数据库实例 db  这里说明下:如果路径中不存在"Test.db"的文件,sqlite会自动创建"Test.db"
+//    FMDatabase *db= [FMDatabase databaseWithPath:dbPath] ;
+//    if (![db open]) {
+//        NSLog(@"Could not open db.");
+//        return ;
+//    }
+//    
+//    //返回数据库中第一条满足条件的结果
+//    //NSString *aa=[db stringForQuery:@"SELECT Name FROM User WHERE Age = ?",@"20"];
+//    
+//    //返回全部查询结果
+//    FMResultSet *rs=[db executeQuery:@"SELECT * FROM changyong"];
+//    
+//   // rs=[db executeQuery:@"SELECT * FROM User WHERE Age = ?",@"20"];
+//    
+//    while ([rs next]){
+//        NSLog(@"%@ %@ %@",[rs stringForColumn:@"imgid"],[rs stringForColumn:@"name"],[rs stringForColumn:@"telephone"]);
+//    }
+//    
+//    [rs close];
+//    NSLog(@"====******");
 
     
 
@@ -400,7 +487,7 @@
         
         cell.name = contact.name;
         cell.dec = matchString;
-        cell.loc = @"";
+        cell.loc = [contact.phoneArray objectAtIndex:0];
         UIImage *image = [UIImage imageNamed:@"background"];
         cell.image = image;//[imageList objectAtIndex:row];
         

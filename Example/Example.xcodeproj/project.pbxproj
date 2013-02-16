@@ -19,6 +19,8 @@
 		D009B7CC15918C36003C110E /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = D009B7C415918C36003C110E /* SBJsonBase.m */; };
 		D009B7CD15918C36003C110E /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D009B7C615918C36003C110E /* SBJsonParser.m */; };
 		D009B7CE15918C36003C110E /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = D009B7C815918C36003C110E /* SBJsonWriter.m */; };
+		D00A4B5B16C2453200F247B0 /* phone.png in Resources */ = {isa = PBXBuildFile; fileRef = D00A4B5916C2453200F247B0 /* phone.png */; };
+		D00A4B5C16C2453200F247B0 /* phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D00A4B5A16C2453200F247B0 /* phone@2x.png */; };
 		D01619BC165639B8007A99AB /* test.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D01619BB165639B8007A99AB /* test.bundle */; };
 		D01D25FD161029C800D372EC /* MTAnimatedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D01D25FC161029C800D372EC /* MTAnimatedLabel.m */; };
 		D0219330166EED8400255846 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D021932D166EED8300255846 /* Default-568h@2x.png */; };
@@ -146,6 +148,7 @@
 		D053BED7166C825C0026B2B6 /* iphone5.png in Resources */ = {isa = PBXBuildFile; fileRef = D053BED6166C825C0026B2B6 /* iphone5.png */; };
 		D053C12A169FF0250055D144 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D053C128169FF0250055D144 /* DetailViewController.m */; };
 		D053C12B169FF0250055D144 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D053C129169FF0250055D144 /* DetailViewController.xib */; };
+		D056DF9016BD4F8F00908D69 /* attribution.db in Resources */ = {isa = PBXBuildFile; fileRef = D056DF8F16BD4F8F00908D69 /* attribution.db */; };
 		D05F8E5E15F9C025001527AD /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = D05F8E5D15F9C025001527AD /* UserService.m */; };
 		D05F8E6215F9C05B001527AD /* ReturnStatusCode.m in Sources */ = {isa = PBXBuildFile; fileRef = D05F8E6115F9C05B001527AD /* ReturnStatusCode.m */; };
 		D05F8E6515F9C0D8001527AD /* RemindEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = D05F8E6415F9C0D8001527AD /* RemindEntity.m */; };
@@ -557,6 +560,8 @@
 		D009B7C615918C36003C110E /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		D009B7C715918C36003C110E /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		D009B7C815918C36003C110E /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		D00A4B5916C2453200F247B0 /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone.png; sourceTree = "<group>"; };
+		D00A4B5A16C2453200F247B0 /* phone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone@2x.png"; sourceTree = "<group>"; };
 		D01619BB165639B8007A99AB /* test.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = test.bundle; sourceTree = "<group>"; };
 		D01D25FB161029C800D372EC /* MTAnimatedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAnimatedLabel.h; sourceTree = "<group>"; };
 		D01D25FC161029C800D372EC /* MTAnimatedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAnimatedLabel.m; sourceTree = "<group>"; };
@@ -767,6 +772,7 @@
 		D053C127169FF0250055D144 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		D053C128169FF0250055D144 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		D053C129169FF0250055D144 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		D056DF8F16BD4F8F00908D69 /* attribution.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = attribution.db; sourceTree = "<group>"; };
 		D05F8E5C15F9C025001527AD /* UserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserService.h; sourceTree = "<group>"; };
 		D05F8E5D15F9C025001527AD /* UserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserService.m; sourceTree = "<group>"; };
 		D05F8E6015F9C05B001527AD /* ReturnStatusCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReturnStatusCode.h; sourceTree = "<group>"; };
@@ -1865,6 +1871,9 @@
 		D063770D15904AF700733F58 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D00A4B5916C2453200F247B0 /* phone.png */,
+				D00A4B5A16C2453200F247B0 /* phone@2x.png */,
+				D056DF8F16BD4F8F00908D69 /* attribution.db */,
 				D03B9AE1169FFA04001A6DB8 /* background.png */,
 				D06B63F8169C1665008FC1D1 /* weather */,
 				D07755091699609200723075 /* testvcard.vcf */,
@@ -3327,6 +3336,9 @@
 				D0375B3416A5214E005E2706 /* MuddDetail.jpeg in Resources */,
 				D0375B3516A5214E005E2706 /* pin.png in Resources */,
 				D0F8551C16B90764006430FE /* multipy_unicode.dat in Resources */,
+				D056DF9016BD4F8F00908D69 /* attribution.db in Resources */,
+				D00A4B5B16C2453200F247B0 /* phone.png in Resources */,
+				D00A4B5C16C2453200F247B0 /* phone@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3674,6 +3686,7 @@
 					armv7s,
 				);
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3694,7 +3707,6 @@
 					"\"$(SRCROOT)/Example/UI/Controllers/Collect/Ad\"",
 				);
 				PRODUCT_NAME = Example;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
@@ -3708,6 +3720,7 @@
 					armv7s,
 				);
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/AiHao/ThirdPart/iFly\"",

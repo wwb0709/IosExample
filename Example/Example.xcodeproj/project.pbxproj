@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D003B2EE1749BC90008681D0 /* UIImageView+TapGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = D003B2ED1749BC90008681D0 /* UIImageView+TapGesture.m */; };
 		D009B78E15917056003C110E /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D009B78B15917056003C110E /* EGORefreshTableHeaderView.m */; };
 		D009B78F15917056003C110E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D009B78D15917056003C110E /* MBProgressHUD.m */; };
 		D009B79215917106003C110E /* CustomLog.m in Sources */ = {isa = PBXBuildFile; fileRef = D009B79115917105003C110E /* CustomLog.m */; };
@@ -21,6 +22,12 @@
 		D009B7CE15918C36003C110E /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = D009B7C815918C36003C110E /* SBJsonWriter.m */; };
 		D00A4B5B16C2453200F247B0 /* phone.png in Resources */ = {isa = PBXBuildFile; fileRef = D00A4B5916C2453200F247B0 /* phone.png */; };
 		D00A4B5C16C2453200F247B0 /* phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D00A4B5A16C2453200F247B0 /* phone@2x.png */; };
+		D0136976174F4C2200BD2754 /* CHAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0136969174F4C2000BD2754 /* CHAvatarView.m */; };
+		D0136977174F4C2200BD2754 /* CHDraggableView+Avatar.m in Sources */ = {isa = PBXBuildFile; fileRef = D013696B174F4C2000BD2754 /* CHDraggableView+Avatar.m */; };
+		D0136978174F4C2200BD2754 /* CHDraggableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D013696D174F4C2000BD2754 /* CHDraggableView.m */; };
+		D0136979174F4C2200BD2754 /* CHDraggingCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = D013696F174F4C2000BD2754 /* CHDraggingCoordinator.m */; };
+		D013697A174F4C2200BD2754 /* SKBounceAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D0136972174F4C2100BD2754 /* SKBounceAnimation.m */; };
+		D013697B174F4C2200BD2754 /* CAAnimation+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = D0136975174F4C2200BD2754 /* CAAnimation+Blocks.m */; };
 		D01619BC165639B8007A99AB /* test.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D01619BB165639B8007A99AB /* test.bundle */; };
 		D01D25FD161029C800D372EC /* MTAnimatedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D01D25FC161029C800D372EC /* MTAnimatedLabel.m */; };
 		D0219330166EED8400255846 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D021932D166EED8300255846 /* Default-568h@2x.png */; };
@@ -522,6 +529,7 @@
 		D0B1CD02168A96AC00596699 /* NLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B1CCFD168A96AC00596699 /* NLViewController.m */; };
 		D0B1CD03168A96AC00596699 /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D0B1CCFE168A96AC00596699 /* sample.jpg */; };
 		D0BE0F24169D1A7000C2EE79 /* friendsInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0BE0F23169D1A7000C2EE79 /* friendsInfo.plist */; };
+		D0CBE2AF174212BA0053663A /* MLNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0CBE2AE174212BA0053663A /* MLNavigationController.m */; };
 		D0DA331A1671EA4D00CE02D2 /* 201209172227.png in Resources */ = {isa = PBXBuildFile; fileRef = D0DA33191671EA4D00CE02D2 /* 201209172227.png */; };
 		D0E1628716A3A733009A00B8 /* BackRecoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E1628516A3A733009A00B8 /* BackRecoverViewController.m */; };
 		D0E1628816A3A733009A00B8 /* BackRecoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0E1628616A3A733009A00B8 /* BackRecoverViewController.xib */; };
@@ -535,6 +543,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D003B2EC1749BC90008681D0 /* UIImageView+TapGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+TapGesture.h"; sourceTree = "<group>"; };
+		D003B2ED1749BC90008681D0 /* UIImageView+TapGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+TapGesture.m"; sourceTree = "<group>"; };
 		D009B78A15917056003C110E /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
 		D009B78B15917056003C110E /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
 		D009B78C15917056003C110E /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -562,6 +572,18 @@
 		D009B7C815918C36003C110E /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		D00A4B5916C2453200F247B0 /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone.png; sourceTree = "<group>"; };
 		D00A4B5A16C2453200F247B0 /* phone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone@2x.png"; sourceTree = "<group>"; };
+		D0136968174F4C2000BD2754 /* CHAvatarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHAvatarView.h; sourceTree = "<group>"; };
+		D0136969174F4C2000BD2754 /* CHAvatarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHAvatarView.m; sourceTree = "<group>"; };
+		D013696A174F4C2000BD2754 /* CHDraggableView+Avatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CHDraggableView+Avatar.h"; sourceTree = "<group>"; };
+		D013696B174F4C2000BD2754 /* CHDraggableView+Avatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CHDraggableView+Avatar.m"; sourceTree = "<group>"; };
+		D013696C174F4C2000BD2754 /* CHDraggableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHDraggableView.h; sourceTree = "<group>"; };
+		D013696D174F4C2000BD2754 /* CHDraggableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHDraggableView.m; sourceTree = "<group>"; };
+		D013696E174F4C2000BD2754 /* CHDraggingCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHDraggingCoordinator.h; sourceTree = "<group>"; };
+		D013696F174F4C2000BD2754 /* CHDraggingCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHDraggingCoordinator.m; sourceTree = "<group>"; };
+		D0136971174F4C2100BD2754 /* SKBounceAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBounceAnimation.h; sourceTree = "<group>"; };
+		D0136972174F4C2100BD2754 /* SKBounceAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBounceAnimation.m; sourceTree = "<group>"; };
+		D0136974174F4C2200BD2754 /* CAAnimation+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAAnimation+Blocks.h"; sourceTree = "<group>"; };
+		D0136975174F4C2200BD2754 /* CAAnimation+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAAnimation+Blocks.m"; sourceTree = "<group>"; };
 		D01619BB165639B8007A99AB /* test.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = test.bundle; sourceTree = "<group>"; };
 		D01D25FB161029C800D372EC /* MTAnimatedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAnimatedLabel.h; sourceTree = "<group>"; };
 		D01D25FC161029C800D372EC /* MTAnimatedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAnimatedLabel.m; sourceTree = "<group>"; };
@@ -1340,6 +1362,8 @@
 		D0B1CCFD168A96AC00596699 /* NLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLViewController.m; sourceTree = "<group>"; };
 		D0B1CCFE168A96AC00596699 /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample.jpg; sourceTree = "<group>"; };
 		D0BE0F23169D1A7000C2EE79 /* friendsInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = friendsInfo.plist; sourceTree = "<group>"; };
+		D0CBE2AD174212BA0053663A /* MLNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLNavigationController.h; sourceTree = "<group>"; };
+		D0CBE2AE174212BA0053663A /* MLNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLNavigationController.m; sourceTree = "<group>"; };
 		D0DA33191671EA4D00CE02D2 /* 201209172227.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 201209172227.png; sourceTree = "<group>"; };
 		D0E1628416A3A733009A00B8 /* BackRecoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackRecoverViewController.h; sourceTree = "<group>"; };
 		D0E1628516A3A733009A00B8 /* BackRecoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackRecoverViewController.m; sourceTree = "<group>"; };
@@ -1416,6 +1440,13 @@
 		D009B78915917056003C110E /* customize */ = {
 			isa = PBXGroup;
 			children = (
+				D0136967174F4C2000BD2754 /* MoveAvatar */,
+				D0136970174F4C2000BD2754 /* SKBounceAnimation */,
+				D0136973174F4C2100BD2754 /* CAAnimationBlocks */,
+				D003B2EC1749BC90008681D0 /* UIImageView+TapGesture.h */,
+				D003B2ED1749BC90008681D0 /* UIImageView+TapGesture.m */,
+				D0CBE2AD174212BA0053663A /* MLNavigationController.h */,
+				D0CBE2AE174212BA0053663A /* MLNavigationController.m */,
 				D053BEBC166C53B60026B2B6 /* BlockUI */,
 				D01D25FB161029C800D372EC /* MTAnimatedLabel.h */,
 				D01D25FC161029C800D372EC /* MTAnimatedLabel.m */,
@@ -1457,6 +1488,39 @@
 				D009B7C815918C36003C110E /* SBJsonWriter.m */,
 			);
 			path = SBJSON;
+			sourceTree = "<group>";
+		};
+		D0136967174F4C2000BD2754 /* MoveAvatar */ = {
+			isa = PBXGroup;
+			children = (
+				D0136968174F4C2000BD2754 /* CHAvatarView.h */,
+				D0136969174F4C2000BD2754 /* CHAvatarView.m */,
+				D013696A174F4C2000BD2754 /* CHDraggableView+Avatar.h */,
+				D013696B174F4C2000BD2754 /* CHDraggableView+Avatar.m */,
+				D013696C174F4C2000BD2754 /* CHDraggableView.h */,
+				D013696D174F4C2000BD2754 /* CHDraggableView.m */,
+				D013696E174F4C2000BD2754 /* CHDraggingCoordinator.h */,
+				D013696F174F4C2000BD2754 /* CHDraggingCoordinator.m */,
+			);
+			path = MoveAvatar;
+			sourceTree = "<group>";
+		};
+		D0136970174F4C2000BD2754 /* SKBounceAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				D0136971174F4C2100BD2754 /* SKBounceAnimation.h */,
+				D0136972174F4C2100BD2754 /* SKBounceAnimation.m */,
+			);
+			path = SKBounceAnimation;
+			sourceTree = "<group>";
+		};
+		D0136973174F4C2100BD2754 /* CAAnimationBlocks */ = {
+			isa = PBXGroup;
+			children = (
+				D0136974174F4C2200BD2754 /* CAAnimation+Blocks.h */,
+				D0136975174F4C2200BD2754 /* CAAnimation+Blocks.m */,
+			);
+			path = CAAnimationBlocks;
 			sourceTree = "<group>";
 		};
 		D021934D166F14D100255846 /* FTP */ = {
@@ -3604,6 +3668,14 @@
 				D0F8551E16B90764006430FE /* SearchCoreManager.mm in Sources */,
 				D0F8552516B90AB7006430FE /* MyRoundedImageView.m in Sources */,
 				D0769FF616BBAFB4006EB173 /* ContactPeople.m in Sources */,
+				D0CBE2AF174212BA0053663A /* MLNavigationController.m in Sources */,
+				D003B2EE1749BC90008681D0 /* UIImageView+TapGesture.m in Sources */,
+				D0136976174F4C2200BD2754 /* CHAvatarView.m in Sources */,
+				D0136977174F4C2200BD2754 /* CHDraggableView+Avatar.m in Sources */,
+				D0136978174F4C2200BD2754 /* CHDraggableView.m in Sources */,
+				D0136979174F4C2200BD2754 /* CHDraggingCoordinator.m in Sources */,
+				D013697A174F4C2200BD2754 /* SKBounceAnimation.m in Sources */,
+				D013697B174F4C2200BD2754 /* CAAnimation+Blocks.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

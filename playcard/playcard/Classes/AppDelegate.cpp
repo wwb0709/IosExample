@@ -11,6 +11,7 @@
 #include "cocos2d.h"
 #include "WelcomScene.h"
 #include "UtilTool.h"
+#include "GameScene.h"
 USING_NS_CC;
 
 AppDelegate::AppDelegate()

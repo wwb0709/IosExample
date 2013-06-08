@@ -72,15 +72,26 @@ bool Welcome::init()
     CCSprite* pSprite = CCSprite::create("HelloWorld.png");
     
     // position the sprite on the center of the screen
-    pSprite->setPosition( ccp(size.width/2, size.height/2) );
-    
+    pSprite->setPosition( ccp(size.width / 2, size.height/2) );
+    pSprite->setTag(110);
     // add the sprite as a child to this layer
     this->addChild(pSprite, 3);
     
   
-    UtilTool::sharedUtilTool()->moveWithBezier(pSprite,ccp(size.width/2, size.height/2)  ,ccp(0, 0)  ,20);
+ 	CCActionInterval *actionTo = CCScaleTo::create(2.0f, 2.0f, 0.5f);
+	CCActionInterval *actionBy = CCScaleBy::create(2.0f, 0.5f, 2.0f);
+    CCActionInterval *moveBy  = CCMoveBy::create(1,ccp(-50,-50) );
+//	CCActionInterval *actionByCopy = CCScaleBy::create(2.0f, 0.5f, 2.0f);
+//	CCActionInterval *actionBack = actionByCopy->reverse();
+    
+//	pSprite->runAction(CCSpawn::create(actionTo, actionBy,moveBy, NULL));
     
     
+    CCActionInterval*  move = CCMoveBy::create(1, CCPointMake(150,0));
+    CCFiniteTimeAction*  action = CCSequence::create( move, CCDelayTime::create(2), move, NULL);
+    
+    pSprite->runAction(action);
+
     //////////////////////////////////////////////
     CCSize s = CCDirector::sharedDirector()->getWinSize();
     CCArray *aniframe=CCArray::createWithCapacity(4);
@@ -122,6 +133,7 @@ bool Welcome::init()
             if(i==0){
                 splitSprite= CCSprite::createWithSpriteFrame(frame);
                 splitSprite->setPosition(ccp(s.width/2,s.height/2));
+                splitSprite->setTag(112);
                 addChild(splitSprite);
             }
             splitAniframe->addObject(frame);
@@ -138,9 +150,11 @@ bool Welcome::init()
     CCSpriteFrameCache* cache =CCSpriteFrameCache::sharedSpriteFrameCache();
     cache->addSpriteFramesWithFile("attack.plist");
     CCSprite *plistSprite=CCSprite::createWithSpriteFrameName("A1_0.png");
-    plistSprite->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width-plistSprite->getContentSize().width,CCDirector::sharedDirector()->getWinSize().height/2));
+    plistSprite->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width/2,CCDirector::sharedDirector()->getWinSize().height/2));
     CCSpriteBatchNode* spritebatch =CCSpriteBatchNode::create("attack.png");
+    plistSprite->setTag(113);
     spritebatch->addChild(plistSprite);
+    spritebatch->setTag(115);
     addChild(spritebatch);
     
     CCArray* plistArray=CCArray::createWithCapacity(4);
@@ -162,9 +176,31 @@ bool Welcome::init()
     
     plistSprite->runAction(CCRepeatForever::create(plitSeq));
     
+    
+    
+//    this->scheduleUpdate();
     return true;
 }
 
+void Welcome::update( float dt )
+{
+//    CCSprite* s = (CCSprite*)this->getChildByTag(110);
+//    CCPoint p = s->getPosition();
+//    p.x += 2;
+//    p.y += 2;
+//    s->setPosition(p);
+    
+    
+    CCSpriteBatchNode* spritebatch =(CCSpriteBatchNode*)this->getChildByTag(115);
+    CCSprite* s2 = (CCSprite*)spritebatch->getChildByTag(113);
+    CCPoint p2 = s2->getPosition();
+    p2.x += 2;
+    p2.y += 2;
+    s2->setPosition(p2);
+    
+    
+//    UtilTool::sharedUtilTool()->moveWithBezier(s,s->getPosition(),p ,20);
+}
 
 
 void Welcome::StartGame(CCObject* pSender)
@@ -173,6 +209,6 @@ void Welcome::StartGame(CCObject* pSender)
     
     scene->retain();
     //左翻页效果替换
-    CCDirector::sharedDirector()->pushScene(CCTransitionFade::transitionWithDuration(3, scene,ccBLACK));
+    CCDirector::sharedDirector()->pushScene(CCTransitionFade::create(3, scene,ccGRAY));
     scene->release();
 }

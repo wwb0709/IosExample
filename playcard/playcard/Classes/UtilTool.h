@@ -21,6 +21,7 @@ public:
     virtual bool init(void);
     static UtilTool* sharedUtilTool(void);
     void moveWithBezier(CCSprite*mSprite,CCPoint startPoint ,CCPoint endPoint ,float time);
+    CCSize getScreenSize();
 };
 
 #endif /* defined(__playcard__UtilTool__) */

@@ -18,6 +18,7 @@ public:
 
     virtual bool init();
     
+    virtual void update(float dt);//更新精灵位置
     // there's no 'id' in cpp, so we recommend to return the class instance pointer
     static CCScene* scene();
     

@@ -30,7 +30,11 @@ UtilTool* UtilTool::sharedUtilTool(void)
     
     return utilt;
 }
+CCSize UtilTool::getScreenSize()
+{
 
+    return CCSize(0, 0);
+}
 void UtilTool::moveWithBezier(CCSprite*mSprite,CCPoint startPoint ,CCPoint endPoint ,float time){
     float sx = startPoint.x;
     float sy = startPoint.y;
@@ -42,7 +46,7 @@ void UtilTool::moveWithBezier(CCSprite*mSprite,CCPoint startPoint ,CCPoint endPo
     bezier.controlPoint_1 = ccp(sx, sy); // 起始点
     bezier.controlPoint_2 = ccp(sx+(ex-sx)*0.5, sy+(ey-sy)*0.5+200); //控制点
     bezier.endPosition = ccp(endPoint.x-30, endPoint.y+h); // 结束位置
-    CCBezierTo *actionMove =CCBezierTo::actionWithDuration(time, bezier);
+    CCBezierTo *actionMove =CCBezierTo::create(time, bezier);
     //    [mSprite runAction:actionMove];
     mSprite->runAction(actionMove);
 }

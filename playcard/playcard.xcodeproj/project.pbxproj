@@ -216,6 +216,16 @@
 		D0AF91C8175F3D4F00BF92D0 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0AF91C7175F3D4F00BF92D0 /* GameScene.cpp */; };
 		D0AF91D0175F3D6800BF92D0 /* pukepai.png in Resources */ = {isa = PBXBuildFile; fileRef = D0AF91CE175F3D6800BF92D0 /* pukepai.png */; };
 		D0AF91D1175F3D6800BF92D0 /* pukepai.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0AF91CF175F3D6800BF92D0 /* pukepai.plist */; };
+		D0CEF4061762F2B00085510D /* condition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0CEF3F91762F2B00085510D /* condition.cpp */; };
+		D0CEF4071762F2B00085510D /* mutualexclusion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0CEF3FA1762F2B00085510D /* mutualexclusion.cpp */; };
+		D0CEF4081762F2B00085510D /* semaphore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0CEF3FC1762F2B00085510D /* semaphore.cpp */; };
+		D0CEF4091762F2B00085510D /* threadbase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0CEF3FD1762F2B00085510D /* threadbase.cpp */; };
+		D0CEF40A1762F2B00085510D /* threadexception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0CEF3FE1762F2B00085510D /* threadexception.cpp */; };
+		D0CEF40B1762F2B00085510D /* ipaddress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0CEF4001762F2B00085510D /* ipaddress.cpp */; };
+		D0CEF40C1762F2B00085510D /* socketbase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0CEF4011762F2B00085510D /* socketbase.cpp */; };
+		D0CEF40D1762F2B00085510D /* socketexception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0CEF4031762F2B00085510D /* socketexception.cpp */; };
+		D0CEF40E1762F2B00085510D /* tcpsockets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0CEF4041762F2B00085510D /* tcpsockets.cpp */; };
+		D0CEF40F1762F2B00085510D /* udpsockets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0CEF4051762F2B00085510D /* udpsockets.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -665,6 +675,19 @@
 		D0AF91C7175F3D4F00BF92D0 /* GameScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = GameScene.cpp; path = Classes/GameScene.cpp; sourceTree = "<group>"; };
 		D0AF91CE175F3D6800BF92D0 /* pukepai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pukepai.png; sourceTree = "<group>"; };
 		D0AF91CF175F3D6800BF92D0 /* pukepai.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pukepai.plist; sourceTree = "<group>"; };
+		D0CEF3F71762D9E40085510D /* Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
+		D0CEF3F91762F2B00085510D /* condition.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = condition.cpp; sourceTree = "<group>"; };
+		D0CEF3FA1762F2B00085510D /* mutualexclusion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mutualexclusion.cpp; sourceTree = "<group>"; };
+		D0CEF3FB1762F2B00085510D /* pthreadcc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pthreadcc.h; sourceTree = "<group>"; };
+		D0CEF3FC1762F2B00085510D /* semaphore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = semaphore.cpp; sourceTree = "<group>"; };
+		D0CEF3FD1762F2B00085510D /* threadbase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = threadbase.cpp; sourceTree = "<group>"; };
+		D0CEF3FE1762F2B00085510D /* threadexception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = threadexception.cpp; sourceTree = "<group>"; };
+		D0CEF4001762F2B00085510D /* ipaddress.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ipaddress.cpp; sourceTree = "<group>"; };
+		D0CEF4011762F2B00085510D /* socketbase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = socketbase.cpp; sourceTree = "<group>"; };
+		D0CEF4021762F2B00085510D /* socketcc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = socketcc.h; sourceTree = "<group>"; };
+		D0CEF4031762F2B00085510D /* socketexception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = socketexception.cpp; sourceTree = "<group>"; };
+		D0CEF4041762F2B00085510D /* tcpsockets.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tcpsockets.cpp; sourceTree = "<group>"; };
+		D0CEF4051762F2B00085510D /* udpsockets.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = udpsockets.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -793,6 +816,8 @@
 		D0AF8F58175F3D4A00BF92D0 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				D0CEF3F81762F2B00085510D /* pthreadcc */,
+				D0CEF3FF1762F2B00085510D /* socketcc */,
 				D0AF8F59175F3D4A00BF92D0 /* cocos2dx */,
 				D0AF9117175F3D4E00BF92D0 /* CocosDenshion */,
 				D0AF912B175F3D4E00BF92D0 /* extensions */,
@@ -1575,6 +1600,7 @@
 			isa = PBXGroup;
 			children = (
 				D0AF91C3175F3D4F00BF92D0 /* AppDelegate.h */,
+				D0CEF3F71762D9E40085510D /* Defines.h */,
 				D0AF91C4175F3D4F00BF92D0 /* AppDelegate.cpp */,
 				D0AF91C6175F3D4F00BF92D0 /* GameScene.h */,
 				D0AF91C7175F3D4F00BF92D0 /* GameScene.cpp */,
@@ -1586,6 +1612,32 @@
 				D0965D2717605E610029BED0 /* CardSprite.h */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		D0CEF3F81762F2B00085510D /* pthreadcc */ = {
+			isa = PBXGroup;
+			children = (
+				D0CEF3F91762F2B00085510D /* condition.cpp */,
+				D0CEF3FA1762F2B00085510D /* mutualexclusion.cpp */,
+				D0CEF3FB1762F2B00085510D /* pthreadcc.h */,
+				D0CEF3FC1762F2B00085510D /* semaphore.cpp */,
+				D0CEF3FD1762F2B00085510D /* threadbase.cpp */,
+				D0CEF3FE1762F2B00085510D /* threadexception.cpp */,
+			);
+			path = pthreadcc;
+			sourceTree = "<group>";
+		};
+		D0CEF3FF1762F2B00085510D /* socketcc */ = {
+			isa = PBXGroup;
+			children = (
+				D0CEF4001762F2B00085510D /* ipaddress.cpp */,
+				D0CEF4011762F2B00085510D /* socketbase.cpp */,
+				D0CEF4021762F2B00085510D /* socketcc.h */,
+				D0CEF4031762F2B00085510D /* socketexception.cpp */,
+				D0CEF4041762F2B00085510D /* tcpsockets.cpp */,
+				D0CEF4051762F2B00085510D /* udpsockets.cpp */,
+			);
+			path = socketcc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1848,6 +1900,16 @@
 				D0965D1217602A360029BED0 /* WelcomScene.cpp in Sources */,
 				D0965D25176054480029BED0 /* UtilTool.cpp in Sources */,
 				D0965D2817605E620029BED0 /* CardSprite.cpp in Sources */,
+				D0CEF4061762F2B00085510D /* condition.cpp in Sources */,
+				D0CEF4071762F2B00085510D /* mutualexclusion.cpp in Sources */,
+				D0CEF4081762F2B00085510D /* semaphore.cpp in Sources */,
+				D0CEF4091762F2B00085510D /* threadbase.cpp in Sources */,
+				D0CEF40A1762F2B00085510D /* threadexception.cpp in Sources */,
+				D0CEF40B1762F2B00085510D /* ipaddress.cpp in Sources */,
+				D0CEF40C1762F2B00085510D /* socketbase.cpp in Sources */,
+				D0CEF40D1762F2B00085510D /* socketexception.cpp in Sources */,
+				D0CEF40E1762F2B00085510D /* tcpsockets.cpp in Sources */,
+				D0CEF40F1762F2B00085510D /* udpsockets.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

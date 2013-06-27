@@ -176,12 +176,18 @@ bool Welcome::init()
     
     plistSprite->runAction(CCRepeatForever::create(plitSeq));
     
-    
-    
+    //初始化网络
+//    InitSocket();
+ 
+
 //    this->scheduleUpdate();
     return true;
 }
-
+void Welcome::InitSocket()
+{
+    cSocket = new SocketClient();
+    cSocket->init(this);
+}
 void Welcome::update( float dt )
 {
 //    CCSprite* s = (CCSprite*)this->getChildByTag(110);
@@ -205,10 +211,20 @@ void Welcome::update( float dt )
 
 void Welcome::StartGame(CCObject* pSender)
 {
+    std::string testmsg="welcomscene";
+    cSocket->sendData(testmsg.c_str());
+    return;
     CCScene* scene = Game::scene();
     
     scene->retain();
     //左翻页效果替换
     CCDirector::sharedDirector()->pushScene(CCTransitionFade::create(3, scene,ccGRAY));
     scene->release();
+}
+
+
+
+void Welcome::returnRequest(void *content)
+{
+    cout<<"returnRequest:"<<(char *)content<<endl;
 }

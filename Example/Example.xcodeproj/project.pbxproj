@@ -528,6 +528,7 @@
 		D0B1CD01168A96AC00596699 /* NLImageCropperView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B1CCFB168A96AC00596699 /* NLImageCropperView.m */; };
 		D0B1CD02168A96AC00596699 /* NLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B1CCFD168A96AC00596699 /* NLViewController.m */; };
 		D0B1CD03168A96AC00596699 /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D0B1CCFE168A96AC00596699 /* sample.jpg */; };
+		D0BB366E1770605E00B08255 /* UIView+Shadow.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BB366D1770605E00B08255 /* UIView+Shadow.m */; };
 		D0BE0F24169D1A7000C2EE79 /* friendsInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0BE0F23169D1A7000C2EE79 /* friendsInfo.plist */; };
 		D0CBE2AF174212BA0053663A /* MLNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0CBE2AE174212BA0053663A /* MLNavigationController.m */; };
 		D0DA331A1671EA4D00CE02D2 /* 201209172227.png in Resources */ = {isa = PBXBuildFile; fileRef = D0DA33191671EA4D00CE02D2 /* 201209172227.png */; };
@@ -709,6 +710,10 @@
 		D0496D911682FDD000369703 /* lbs_tab_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lbs_tab_bg@2x.png"; sourceTree = "<group>"; };
 		D0496D921682FDD000369703 /* blueArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrow.png; sourceTree = "<group>"; };
 		D0496D931682FDD000369703 /* blueArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueArrow@2x.png"; sourceTree = "<group>"; };
+		D04D8346177BE0F80009F7E6 /* NSString+TKUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+TKUtilities.h"; sourceTree = "<group>"; };
+		D04D8347177BE0F80009F7E6 /* NSString+TKUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+TKUtilities.m"; sourceTree = "<group>"; };
+		D04D8348177BE0F80009F7E6 /* UIImage+TKUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+TKUtilities.h"; sourceTree = "<group>"; };
+		D04D8349177BE0F80009F7E6 /* UIImage+TKUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TKUtilities.m"; sourceTree = "<group>"; };
 		D04E8024167EC66B00BB7879 /* lockscreen.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockscreen.PNG; sourceTree = "<group>"; };
 		D04E8025167EC66B00BB7879 /* slider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider.png; sourceTree = "<group>"; };
 		D04E8026167EC66B00BB7879 /* slider@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider@2x.png"; sourceTree = "<group>"; };
@@ -1361,6 +1366,8 @@
 		D0B1CCFC168A96AC00596699 /* NLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLViewController.h; sourceTree = "<group>"; };
 		D0B1CCFD168A96AC00596699 /* NLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLViewController.m; sourceTree = "<group>"; };
 		D0B1CCFE168A96AC00596699 /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample.jpg; sourceTree = "<group>"; };
+		D0BB366C1770605E00B08255 /* UIView+Shadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Shadow.h"; sourceTree = "<group>"; };
+		D0BB366D1770605E00B08255 /* UIView+Shadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Shadow.m"; sourceTree = "<group>"; };
 		D0BE0F23169D1A7000C2EE79 /* friendsInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = friendsInfo.plist; sourceTree = "<group>"; };
 		D0CBE2AD174212BA0053663A /* MLNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLNavigationController.h; sourceTree = "<group>"; };
 		D0CBE2AE174212BA0053663A /* MLNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLNavigationController.m; sourceTree = "<group>"; };
@@ -1440,6 +1447,12 @@
 		D009B78915917056003C110E /* customize */ = {
 			isa = PBXGroup;
 			children = (
+				D04D8346177BE0F80009F7E6 /* NSString+TKUtilities.h */,
+				D04D8347177BE0F80009F7E6 /* NSString+TKUtilities.m */,
+				D04D8348177BE0F80009F7E6 /* UIImage+TKUtilities.h */,
+				D04D8349177BE0F80009F7E6 /* UIImage+TKUtilities.m */,
+				D0BB366C1770605E00B08255 /* UIView+Shadow.h */,
+				D0BB366D1770605E00B08255 /* UIView+Shadow.m */,
 				D0136967174F4C2000BD2754 /* MoveAvatar */,
 				D0136970174F4C2000BD2754 /* SKBounceAnimation */,
 				D0136973174F4C2100BD2754 /* CAAnimationBlocks */,
@@ -3676,6 +3689,7 @@
 				D0136979174F4C2200BD2754 /* CHDraggingCoordinator.m in Sources */,
 				D013697A174F4C2200BD2754 /* SKBounceAnimation.m in Sources */,
 				D013697B174F4C2200BD2754 /* CAAnimation+Blocks.m in Sources */,
+				D0BB366E1770605E00B08255 /* UIView+Shadow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

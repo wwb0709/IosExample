@@ -11,9 +11,13 @@
 
 #include <iostream>
 #include "cocos2d.h"
+#include "SocketClient.h"
 using namespace cocos2d;
-class Welcome : public CCLayer
+class Welcome : public CCLayer ,public NetEngine
 {
+    
+private:
+    SocketClient *cSocket;
 public:
 
     virtual bool init();
@@ -27,6 +31,8 @@ public:
 
     CREATE_FUNC(Welcome);
     
+    void InitSocket();
+    virtual void returnRequest(void *content);
 
     
 };

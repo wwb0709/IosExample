@@ -12,6 +12,7 @@
 #include "WelcomScene.h"
 #include "UtilTool.h"
 #include "GameScene.h"
+#include "StartScene.h"
 USING_NS_CC;
 
 AppDelegate::AppDelegate()
@@ -28,21 +29,27 @@ bool AppDelegate::applicationDidFinishLaunching()
     
     UtilTool::sharedUtilTool();
     
+    UtilTool::sharedUtilTool()->getMessageByType(Login,"hello world");
+    
     // initialize director
     CCDirector *pDirector = CCDirector::sharedDirector();
     pDirector->setOpenGLView(CCEGLView::sharedOpenGLView());
-
+    
+    // enable High Resource Mode(2x, such as iphone4) and maintains low resource on other devices.
+    // pDirector->enableRetinaDisplay(true);
+    
     // turn on display FPS
-    pDirector->setDisplayStats(true);
-
+    pDirector->setDisplayStats(false);
+    
     // set FPS. the default value is 1.0/60 if you don't call this
     pDirector->setAnimationInterval(1.0 / 60);
-
+    
     // create a scene. it's an autorelease object
-    CCScene *pScene = Welcome::scene();
-
+    CCScene *pScene = StartLayer::scene();
+    
     // run
     pDirector->runWithScene(pScene);
+  
 
     return true;
 }

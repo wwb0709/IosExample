@@ -13,6 +13,8 @@
 #include "UtilTool.h"
 #include "GameScene.h"
 #include "StartScene.h"
+#include "SimpleAudioEngine.h"
+#include "StaticData.h"
 USING_NS_CC;
 
 AppDelegate::AppDelegate()
@@ -26,7 +28,8 @@ AppDelegate::~AppDelegate()
 
 bool AppDelegate::applicationDidFinishLaunching()
 {
-    
+ 
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->preloadBackgroundMusic(STATIC_DATA_STRING("bg_music"));
     UtilTool::sharedUtilTool();
     
     UtilTool::sharedUtilTool()->getMessageByType(Login,"hello world");
@@ -59,6 +62,8 @@ void AppDelegate::applicationDidEnterBackground()
 {
     CCDirector::sharedDirector()->pause();
 
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->end();
+    
     // if you use SimpleAudioEngine, it must be paused
     // SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
 }

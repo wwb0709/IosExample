@@ -1,14 +1,14 @@
 //
-//  testTests.m
-//  testTests
+//  commonlibTests.m
+//  commonlibTests
 //
-//  Created by wangwb on 13-5-17.
+//  Created by wangwb on 13-6-28.
 //  Copyright (c) 2013年 wangwb. All rights reserved.
 //
 
-#import "testTests.h"
+#import "commonlibTests.h"
 
-@implementation testTests
+@implementation commonlibTests
 
 - (void)setUp
 {
@@ -26,7 +26,7 @@
 
 - (void)testExample
 {
-    STFail(@"Unit tests are not implemented yet in testTests");
+    STFail(@"Unit tests are not implemented yet in commonlibTests");
 }
 
 @end

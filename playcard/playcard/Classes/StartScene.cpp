@@ -15,8 +15,20 @@
 #include "UserData.h"
 #include "WelcomScene.h"
 #include "GameScene.h"
+
+
+
+//定义宏，限定_pos的有效范围值。
+#define FIX_POS(_pos, _min, _max) \
+if (_pos < _min)        \
+_pos = _min;        \
+else if (_pos > _max)   \
+_pos = _max;        \
+
+
 USING_NS_CC;
 using namespace CocosDenshion;
+
 CCScene* StartLayer::scene()
 {
     CCScene* scene = CCScene::create();
@@ -27,8 +39,7 @@ CCScene* StartLayer::scene()
 bool StartLayer::init()
 {
     if(CCLayer::init()){
-        this->setAccelerometerEnabled(true);
-         this->scheduleUpdate();  
+//         this->scheduleUpdate();  
         CCSize winSize = CCDirector::sharedDirector()->getWinSize();
         
 //        CCSprite* background = CCSprite::create(STATIC_DATA_STRING("background"));
@@ -36,7 +47,7 @@ bool StartLayer::init()
 //        this->addChild(background);
         
         CCSprite* title = CCSprite::create(STATIC_DATA_STRING("title"));
-        title->setScale(4);
+//        title->setScale(4);
         title->setPosition(CCPointMake(winSize.width*0.5, winSize.height*0.5));
         title->setTag(10000);
         this->addChild(title);
@@ -64,10 +75,19 @@ bool StartLayer::init()
     }
     return false;
 }
+void StartLayer::onEnter()
+{
+    //调用基类的相应函数。
+    CCLayer::onEnter();
+    //设置开启响应加速键
+    setAccelerometerEnabled(true);
+    scheduleUpdate();
+    
+}
 void StartLayer::audioAndUserDataInit()
 {
     FishingJoyData::sharedFishingJoyData();
-    PersonalAudioEngine::sharedEngine();
+//    PersonalAudioEngine::sharedEngine();
 }
 void StartLayer::loading()
 {
@@ -99,6 +119,7 @@ void StartLayer::cacheInit()
 }
 void StartLayer::initializationCompleted()
 {
+    return;
     CCSize winSize = CCDirector::sharedDirector()->getWinSize();
     CCMenuItemSprite* start = CCMenuItemSprite::create(CCSprite::createWithSpriteFrameName(STATIC_DATA_STRING("start_normal")), CCSprite::createWithSpriteFrameName(STATIC_DATA_STRING("start_selected")), this, menu_selector(StartLayer::transition));
     CCMenu* menu = CCMenu::create(start, NULL);
@@ -123,52 +144,34 @@ void StartLayer::progressPercentageSetter(float percentage)
 void StartLayer::update(float dt)
 {
     CCSprite* title = (CCSprite*)this->getChildByTag(10000);
-    CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+    CCDirector* pDir = CCDirector::sharedDirector();
+    CCSize winSize   = pDir->getWinSize();
     
-    float maxY = winSize.height - title->getContentSize().height/2;
+    //判断小球精灵是否有效。
+    if ( title == NULL ) {
+        return;
+    }
+    //取得小球的图像区域大小。
+    CCSize ballSize  = title->getContentSize();
+    //取得小球的当前位置。
+    CCPoint ptNow  = title->getPosition();
+    //将当前位置转换成界面坐标系的位置。
+    CCPoint ptTemp = pDir->convertToUI(ptNow);
+    //由收到的速度乘以一个系数后来影响位置。
+    ptTemp.x += posChange.x;
+    ptTemp.y -= posChange.y;
+    //再转换为OPENGL坐标系的位置。貌似有点麻烦，其实直接在上面X,Y的加减上做上正确的方向即可。
+    CCPoint ptNext = pDir->convertToGL(ptTemp);
+    //限定位置的X,Y的有效范围，等于小球边缘始终在窗口内。
+    FIX_POS(ptNext.x, (ballSize.width / 2.0), (winSize.width - ballSize.width / 2.0));
+    FIX_POS(ptNext.y, (ballSize.height / 2.0), (winSize.height - ballSize.height / 2.0));
+    //将位置传给小球。
+    title->setPosition(ptNext);
     
-    float minY = title->getContentSize().height/2;
-    
-    float diff = (_PointsPerSecY * dt) ;
-    
-    float newY = title->getPosition().y + diff;
-    
-    newY = MIN(MAX(newY, minY), maxY);
-    
-    title->setPosition(ccp(title->getPosition().x, newY));
-    
+
 }
 void StartLayer::didAccelerate(CCAcceleration *pAccelerationValue){
     
-    //pAccelerationValue包含x,y,z三个方向的重力值（由手机在这3个方向的偏移决定）
-    CCLog("didAccelerate");
-#define KFILTERINGFACTOR 0.1
-    
-#define KRESTACCELX -0.6
-    
-#define KSHIPMAXPOINTSPERSEC (winSize.height*0.5)
-    
-#define KMAXDIFFX 0.2
-    
-    double rollingX ;
-    
-    // Cocos2DX inverts X and Y accelerometer depending on device orientation
-    
-    // in landscape mode right x=-y and y=x !!! (Strange and confusing choice)
-    
-    pAccelerationValue->x = pAccelerationValue->y ;
-    
-    rollingX = (pAccelerationValue->x * KFILTERINGFACTOR) + (rollingX * (1.0 - KFILTERINGFACTOR));
-    
-    float accelX = pAccelerationValue->x - rollingX ;
-    
-    CCSize winSize = CCDirector::sharedDirector()->getWinSize();
-    
-    float accelDiff = accelX - KRESTACCELX;
-    
-    float accelFraction = accelDiff / KMAXDIFFX;
-    
-    _PointsPerSecY = KSHIPMAXPOINTSPERSEC * accelFraction;
-    
-    
+    posChange.x = pAccelerationValue->x * 9.81f;
+    posChange.y = pAccelerationValue->y * 9.81f;
 }

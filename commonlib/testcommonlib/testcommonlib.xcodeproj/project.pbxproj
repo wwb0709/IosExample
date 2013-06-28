@@ -23,7 +23,7 @@
 		D01369F6174F50F200BD2754 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D01369D1174F50F200BD2754 /* Foundation.framework */; };
 		D01369FE174F50F200BD2754 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D01369FC174F50F200BD2754 /* InfoPlist.strings */; };
 		D0136A01174F50F200BD2754 /* testcommonlibTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D0136A00174F50F200BD2754 /* testcommonlibTests.m */; };
-		D0136A14174F521C00BD2754 /* libcommonlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0136A13174F521C00BD2754 /* libcommonlib.a */; };
+		D0CDB821177D6FE200C70DD9 /* libcommonlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CDB81E177D6F1700C70DD9 /* libcommonlib.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +33,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = D01369CB174F50F200BD2754;
 			remoteInfo = testcommonlib;
+		};
+		D0CDB81D177D6F1700C70DD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D0CDB818177D6F1600C70DD9 /* commonlib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D0CDB7ED177D6F1500C70DD9;
+			remoteInfo = commonlib;
+		};
+		D0CDB81F177D6F1700C70DD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D0CDB818177D6F1600C70DD9 /* commonlib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D0CDB7FE177D6F1600C70DD9;
+			remoteInfo = commonlibTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -59,7 +73,7 @@
 		D01369FD174F50F200BD2754 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D01369FF174F50F200BD2754 /* testcommonlibTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testcommonlibTests.h; sourceTree = "<group>"; };
 		D0136A00174F50F200BD2754 /* testcommonlibTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testcommonlibTests.m; sourceTree = "<group>"; };
-		D0136A13174F521C00BD2754 /* libcommonlib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcommonlib.a; path = "../../../Library/Developer/Xcode/DerivedData/commonlib-gjuwsdeicyowogcditnfphgjxxko/Build/Products/Debug-iphoneos/libcommonlib.a"; sourceTree = "<group>"; };
+		D0CDB818177D6F1600C70DD9 /* commonlib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = commonlib.xcodeproj; path = commonlib/commonlib.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0136A14174F521C00BD2754 /* libcommonlib.a in Frameworks */,
+				D0CDB821177D6FE200C70DD9 /* libcommonlib.a in Frameworks */,
 				D01369D0174F50F200BD2754 /* UIKit.framework in Frameworks */,
 				D01369D2174F50F200BD2754 /* Foundation.framework in Frameworks */,
 				D01369D4174F50F200BD2754 /* CoreGraphics.framework in Frameworks */,
@@ -90,7 +104,7 @@
 		D01369C3174F50F200BD2754 = {
 			isa = PBXGroup;
 			children = (
-				D0136A13174F521C00BD2754 /* libcommonlib.a */,
+				D0CDB818177D6F1600C70DD9 /* commonlib.xcodeproj */,
 				D01369D5174F50F200BD2754 /* testcommonlib */,
 				D01369F9174F50F200BD2754 /* testcommonlibTests */,
 				D01369CE174F50F200BD2754 /* Frameworks */,
@@ -164,6 +178,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D0CDB819177D6F1600C70DD9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D0CDB81E177D6F1700C70DD9 /* libcommonlib.a */,
+				D0CDB820177D6F1700C70DD9 /* commonlibTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -222,6 +245,12 @@
 			mainGroup = D01369C3174F50F200BD2754;
 			productRefGroup = D01369CD174F50F200BD2754 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D0CDB819177D6F1600C70DD9 /* Products */;
+					ProjectRef = D0CDB818177D6F1600C70DD9 /* commonlib.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D01369CB174F50F200BD2754 /* testcommonlib */,
@@ -229,6 +258,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D0CDB81E177D6F1700C70DD9 /* libcommonlib.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libcommonlib.a;
+			remoteRef = D0CDB81D177D6F1700C70DD9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D0CDB820177D6F1700C70DD9 /* commonlibTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = commonlibTests.octest;
+			remoteRef = D0CDB81F177D6F1700C70DD9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D01369CA174F50F200BD2754 /* Resources */ = {
@@ -389,6 +435,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/commonlib-gjuwsdeicyowogcditnfphgjxxko/Build/Products/Debug-iphoneos\"",
+					"\"$(SRCROOT)/..\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -404,6 +451,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/commonlib-gjuwsdeicyowogcditnfphgjxxko/Build/Products/Debug-iphoneos\"",
+					"\"$(SRCROOT)/..\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -463,6 +511,7 @@
 				D0136A06174F50F200BD2754 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D0136A07174F50F200BD2754 /* Build configuration list for PBXNativeTarget "testcommonlibTests" */ = {
 			isa = XCConfigurationList;
@@ -471,6 +520,7 @@
 				D0136A09174F50F200BD2754 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

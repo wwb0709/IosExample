@@ -16,7 +16,7 @@
 #include "CCAccelerometerDelegate.h"
 USING_NS_CC;
 class StartLayer: public CCLayer, public ProgressDelegate{
-    float _PointsPerSecY;
+    CCPoint posChange;
 public:
     static cocos2d::CCScene* scene();
     bool init();
@@ -26,6 +26,8 @@ public:
     
     void didAccelerate(CCAcceleration* pAccelerationValue);
     void update(float dt);
+    
+    void onEnter();
 protected:
     ProgressBar* _progressBar;
     cocos2d::CCLabelTTF* _progressFg;
